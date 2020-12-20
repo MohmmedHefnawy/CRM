@@ -4,16 +4,17 @@
 /* COLORS ===START */
 /* backgrounds */
 .sM0-main-bg{
-
+    background-color: #2C84F0;
 }
 .sM0-smoke-bg{
-
+    background-color: #191E32;
 }
 .sM0-supp-0-bg{
-
+    background-color: #2C324F;    
 }
 /* Colors */
 .sM0-main-cr{
+    color: #2C84F0;;
 
 }
 .sM0-smoke-cr{
@@ -23,3 +24,8 @@
     
 }
 /* COLORS ===END */
+/* radius ===START*/
+.sM0-f-radius{
+    border-radius: 35px;
+}
+/* radius ===END*/
