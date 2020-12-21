@@ -1,34 +1,61 @@
 /* ? Style flags = M0- */
 
-.OM-Border-Reduis{
-    border-radius: 15px ;
+.OM-Border-Reduis {
+  border-radius: 15px;
 }
-.OM-Border-Reduis-imgs{
-    border-radius: 50%;
-    border: 6px solid rgb(113, 212, 113);
+.OM-Border-Reduis-imgs {
+  border-radius: 50%;
+  border: 5px solid rgb(113, 212, 113);
 }
-.OM-Border-Container{
-    border: #21263b solid 1px;
+.OM-Border-Container {
+  border: #21263b solid 1px;
 }
-.OM-Shadow-Container{
-    box-shadow: 0px 0px 6px -1px rgb(26, 25, 25);
+.OM-Shadow-Container {
+  box-shadow: 0px 0px 6px -1px rgb(26, 25, 25);
 }
-.OM-Limit-Width{
-    max-width: 250px;
+.OM-Limit-Width {
+  max-width: 240px;
 }
-.OM-Move-Header{
-    position: relative;
-    color: #2C84F0;
-    font-size: 20px;
-    font-weight: 600;
+.OM-Move-Header {
+  position: relative;
+  color: #2c84f0;
+  font-size: 20px;
+  font-weight: 600;
 }
-.OM-Font-Style{
-    color: #858AA0;
+.OM-Font-Style {
+  color: #858aa0;
 }
-.OM-holder-title{
-    top: 20px;
-    left: 10px;
+.OM-holder-title {
+  top: 20px;
+  left: 20px;
 }
-.OM-img-src{
-    /* background-image: url(); */
+.OM-img-src {
+  background-image: url("https://images.pexels.com/photos/1288182/pexels-photo-1288182.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-size: cover;
+  background-position: center;
+}
+.OM-Limit-Height {
+  min-height: 380px;
+  max-height: 380px;
+}
+/* Task Stylee */
+
+.OM-holder-task {
+  top: -10px;
+  left: -29px;
+}
+.OM-None-bg {
+  background-color: unset;
+}
+.OM-Opacity {
+  opacity: 0.5;
+  z-index: 1;
+}
+/* .OM-Holder-width-task {
+  width: 400px;
+} */
+.OM-Holder-btn {
+  position: absolute;
+  left: 260px;
+  bottom: 35px;
 }
