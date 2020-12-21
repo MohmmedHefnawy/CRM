@@ -11,6 +11,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component'
 
 @NgModule({
   declarations: [MasterContainerComponent, LayoutComponent, SideMenuComponent, NavBarComponent],
+  exports: [NavBarComponent, SideMenuComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
