@@ -1,8 +1,7 @@
-<div id='sideMenuHolder' class=' container-fluid'>
+<div id='sideMenuHolder' class=' container-fluid position-sticky M0-side-menu-holder'>
     <div  class='row h-100'>
-        <div class='col bg-danger h-100 M0-side-menu-holder'>
-            <i class='M0-arrow-icon'></i>
-            1
+        <div class='col h-100 sM0-supp-0-bg d-flex justify-content-end'>
+            <i #sideMenuBTN data-toggle='false' (click)="toggelSideMenu.emit(sideMenuBTN)" class='M0-arrow-in-icon sM0-icon-b sM0-bg-imgs-center d-block align-self-center'></i>
         </div>
     </div>
 </div>

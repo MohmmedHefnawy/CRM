@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-side-menu',
@@ -6,9 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-menu.component.css']
 })
 export class SideMenuComponent implements OnInit {
-
+  @Output() toggelSideMenu = new EventEmitter();
   constructor() { }
-
   ngOnInit(): void {
     // [?] resize the content container holder to fit the window height size
     function resizeContentHolder(holder) {
@@ -27,5 +26,6 @@ export class SideMenuComponent implements OnInit {
     // [?] on load at ther realtime
     resizeContentHolder('sideMenuHolder');
   }
-
+  // [#] COntrollers
+  // [#] HTTP REQs
 }

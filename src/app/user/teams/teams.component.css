@@ -38,24 +38,4 @@
   min-height: 380px;
   max-height: 380px;
 }
-/* Task Stylee */
 
-.OM-holder-task {
-  top: -10px;
-  left: -29px;
-}
-.OM-None-bg {
-  background-color: unset;
-}
-.OM-Opacity {
-  opacity: 0.5;
-  z-index: 1;
-}
-/* .OM-Holder-width-task {
-  width: 400px;
-} */
-.OM-Holder-btn {
-  position: absolute;
-  left: 260px;
-  bottom: 35px;
-}

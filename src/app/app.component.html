@@ -1,15 +1,16 @@
+<!-- Master Container -->
 <div class='container-fluid p-0'>
     <div class='container-fluid p-0'>
         <div class='row m-0'>
             <!-- Col 3 -->
-            <div class='col-3 pl-0'>
-                <app-side-menu></app-side-menu>
+            <div id='sideMenuMainHolder' class='sM0-t2 col-3 pl-0'>
+                <app-side-menu (toggelSideMenu)="toggelSideMenu($event)"></app-side-menu>
             </div>
             <!-- col-9 change -->
-            <div class="col p-0">
+            <div class="col sM0-t2 p-0">
                 <app-nav-bar></app-nav-bar>
+                <router-outlet></router-outlet>
             </div>
         </div>
     </div>
 </div>
-<router-outlet></router-outlet>

@@ -41,8 +41,12 @@
   background-size: 25px !important;
 }
 .sM0-icon-b {
-  width: 66px;
-  height: 66px;
+  width: 40px;
+  height: 40px;
+}
+.sM0-icon-c {
+  width: 60px;
+  height: 60px;
 }
 /* ICONES === END */
 
@@ -63,9 +67,19 @@
   border-radius: 20px;
 } */
 /* radius ===END*/
-
+/* Transition ===START */
+.sM0-t1{
+  transition: all ease-in-out .1s;
+}
+.sM0-t2{
+  transition: all ease-in-out .2s;
+}
+/* Transition ===END */
 /* elements ===START */
 /* Standers In All Pages */
+i{
+  cursor: pointer;
+}
 a {
   cursor: pointer;
 }
