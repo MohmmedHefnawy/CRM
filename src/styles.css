@@ -7,31 +7,69 @@
   background-color: #2c84f0;
 }
 .sM0-smoke-bg {
-  background-color: #191e32;
+  background-color: #191e32 !important;
 }
 .sM0-supp-0-bg {
-  background-color: #2c324f;
+  background-color: #2c324f !important;
 }
 .sM0-supp-1-bg {
-  background-color: #14182b;
+  background-color: #14182b !important;
 }
+/* background images */
+.sM0-bg-imgs-center {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 /* Colors */
 .sM0-main-cr {
   color: #2c84f0;
 }
 .sM0-smoke-cr {
+  color: #21b1d8;
 }
-.sM0-supp-0-cr {
+.sM0-text-0-cr {
+  color: #858aa0;
 }
 /* COLORS ===END */
+
+/* ICONES === Start */
+.sM0-icon-a {
+  width: 25px !important;
+  height: 25px !important;
+  background-size: 25px !important;
+}
+.sM0-icon-b {
+  width: 66px;
+  height: 66px;
+}
+/* ICONES === END */
+
+/* border ===START */
+.sM0-a-border {
+  border: 2px solid #2c84f0;
+}
+/* border ===END */
+
 /* radius ===START*/
 .sM0-f-radius {
   border-radius: 35px;
 }
+.sM0-l-radius {
+  border-radius: 0 0 0 35px;
+}
+/* .sM1-f-radius {
+  border-radius: 20px;
+} */
 /* radius ===END*/
+
 /* elements ===START */
 /* Standers In All Pages */
 a {
   cursor: pointer;
+}
+input {
+  border: 0 !important;
 }
 /* elements ===END */

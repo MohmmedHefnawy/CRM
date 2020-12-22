@@ -1,0 +1,9 @@
+.OM-Border-Nav {
+  border-radius: 0px 0px 20px 20px;
+}
+.OM-img-Nav {
+  background-image: url("https://images.pexels.com/photos/1288182/pexels-photo-1288182.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+}
+.OM-notifi-icon {
+  background-image: url("/assets/icons8-notification-24.png");
+}
