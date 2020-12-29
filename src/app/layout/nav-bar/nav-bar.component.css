@@ -21,30 +21,3 @@
 .M0-nav-holder {
   height: 120px;
 }
-/* ---------------------------------------Profile Information --------------------------------------*/
-.OM-img-Profile {
-  background-image: url("/assets/Profile/profile.jpg");
-  background-size: 25px;
-  height: 270px;
-}
-.OM-img-location {
-  background-image: url("/assets/Icons/Location.svg");
-  background-size: 25px;
-}
-.OM-img-call {
-  background-image: url("/assets/Icons/Call.svg");
-  background-size: 25px;
-  /* background-color: #5cbb5c;
-  opacity: 0.1; */
-}
-.OM-img-twitter {
-  background-image: url("/assets/Icons/Twitter.svg");
-  background-size: 25px;
-}
-.OM-img-facebook {
-  background-image: url("/assets/Icons/Facebook.svg");
-  background-size: 25px;
-}
-.OM-Task-Card-h {
-  height: 60px;
-}

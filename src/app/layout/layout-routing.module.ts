@@ -4,12 +4,9 @@ import { LayoutComponent } from './layout.component';
 // modules
 import { UserModule } from '../user/user.module'
 import { UserRoutingModule } from '../user/user-routing.module';
+import { MasterContainerComponent } from './master-container/master-container.component'
 const routes: Routes = [
-  // { path: 'crm', component: LayoutComponent,
-  //   children: [
-  //     ...UserRoutingModule
-  //   ] 
-  // }
+  { path: 'mrcontainer', component: MasterContainerComponent }
 ];
 
 @NgModule({
