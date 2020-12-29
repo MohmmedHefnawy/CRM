@@ -22,7 +22,7 @@ export class MasterContainerComponent implements OnInit {
         if (innerWidth < 992) {
           $(elem).css("height", innerHeightWithoutNav);
         } else {
-          if (innerHeightWithoutNav > 700) {
+          if (innerHeightWithoutNav > 900) {
             $(elem).css("height", innerHeightWithoutNav);
           } else {
             $(elem).css("height", 900);

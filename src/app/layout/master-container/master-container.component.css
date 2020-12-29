@@ -1,5 +1,22 @@
-.M0-side-menu {
-  min-width: 280px !important;
-  max-width: 280px !important;
-  width: 280px !important;
+.M0-side-menu{
+    min-width: 280px !important;
+    max-width: 280px !important;
+    width: 280px !important;
+}
+.M0-navBar{
+    min-height: 120px;
+    max-height: 120px;
+}
+.M0-controller{
+    min-height: 60px;
+    max-height: 60px;
+}
+.M0-content-holder{
+    height: calc(100% - 180px - 3rem);
+}
+.M0-cards-holders{
+    /* height: calc(50%  - 1.5rem); */
+}
+.M0-card{
+    max-width: calc(25% - 1.5rem) !important
 }
