@@ -1,38 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
 /* ? Style flags = sM0- */
 
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;
+}
 /* COLORS ===START */
 /* backgrounds */
 .sM0-main-bg {
-  background-color: #2c84f0;
+  background-color: #e9c46a;
 }
 .sM0-smoke-bg {
-  background-color: #191e32 !important;
+  background-color: #2e2e2e !important;
 }
 .sM0-supp-0-bg {
-  background-color: #2c324f !important;
+  background-color: #1d1d1d !important;
 }
 .sM0-supp-1-bg {
-  background-color: #14182b !important;
+  background-color: #141414 !important;
+}
+.sM0-supp-2-bg {
+  background-color: #707070 !important;
 }
 /* background images */
 .sM0-bg-imgs-center {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
 }
 
 /* Colors */
 .sM0-main-cr {
-  color: #2c84f0;
+  color: #e9c46a;
 }
 .sM0-smoke-cr {
-  color: #21b1d8;
+  color: #2e2e2e;
 }
 .sM0-text-0-cr {
-  color: #858aa0;
+  color: #fcfcfc !important;
+}
+.sM0-text-1-cr {
+  color: #141414 !important;
 }
 /* COLORS ===END */
+/* Opacity ===START */
+
+.sM0-opacity-green-low {
+  background-color: rgb(92, 184, 92, 0.1);
+}
+.sM0-opacity-green-medium {
+  background-color: rgb(92, 184, 92, 0.3);
+}
+.sM0-opacity-blue {
+  background-color: rgb(66, 168, 243, 0.1);
+}
+.sM0-opacity-Gold {
+  background-color: rgb(233, 196, 106, 0.3);
+}
+.sM0-opacity-Grey {
+  background-color: rgb(112, 112, 112, 0.3);
+}
+.sM0-opacity-Red {
+  background-color: rgb(208, 85, 85, 0.3);
+}
+/* Opacity ===END */
 
 /* ICONES === Start */
 .sM0-icon-a {
@@ -43,41 +77,66 @@
 .sM0-icon-b {
   width: 40px;
   height: 40px;
+  background-size: 25px !important;
 }
 .sM0-icon-c {
   width: 60px;
   height: 60px;
+  background-size: 25px !important;
 }
+
 /* ICONES === END */
 
 /* border ===START */
 .sM0-a-border {
-  border: 2px solid #2c84f0;
+  border: 3px solid #e9c46a;
 }
 /* border ===END */
 
+/* Radius Rounded === START */
+.sM0-circle-border {
+  /* background-color: blanchedalmond; */
+  width: 10px;
+  height: 10px;
+  border-radius: 35px !important;
+}
+/* Radius Rounded === END */
+
 /* radius ===START*/
 .sM0-f-radius {
-  border-radius: 35px;
+  border-radius: 35px !important;
 }
 .sM0-l-radius {
   border-radius: 0 0 0 35px;
+}
+.sM0-t-r-radius {
+  border-radius: 35px 35px 0 0;
+}
+.sM0-b-l-radius {
+  border-radius: 0 0 35px 35px;
+}
+.sM0-l-r-radius {
+  border-radius: 35px 0 0 35px;
+}
+.sM0-r-b-radius {
+  border-radius: 0 35px 35px 0;
 }
 /* .sM1-f-radius {
   border-radius: 20px;
 } */
 /* radius ===END*/
 /* Transition ===START */
-.sM0-t1{
-  transition: all ease-in-out .1s;
+.sM0-t1 {
+  transition: all ease-in-out 0.1s;
 }
-.sM0-t2{
-  transition: all ease-in-out .2s;
+.sM0-t2 {
+  transition: all ease-in-out 0.2s;
 }
 /* Transition ===END */
+
 /* elements ===START */
 /* Standers In All Pages */
-i{
+i {
   cursor: pointer;
 }
 a {
@@ -87,3 +146,18 @@ input {
   border: 0 !important;
 }
 /* elements ===END */
+/* Font === START */
+
+.sM0-fs-15 {
+  font-size: 12px !important;
+}
+/* Font === END */
+/* SIZES ===START  */
+.sM0-btn-w-180 {
+  width: 180px !important;
+}
+.sM0-btn-w-120 {
+  width: 120px !important;
+}
+/* .sM0- */
+/* SIZES ===END  */

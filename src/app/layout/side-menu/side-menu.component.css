@@ -1,9 +1,9 @@
-.M0-side-menu-holder{
-    top:0;
+.M0-side-menu-holder {
+  top: 0;
 }
-.M0-arrow-in-icon{
-    background-image:url('/assets/Icons/arrow-in.png')
+.M0-arrow-in-icon {
+  background-image: url("/assets/Icons/arrow-in.png");
 }
-.M0-arrow-out-icon{
-    background-image:url('/assets/Icons/arrow-out.png')
+.M0-arrow-out-icon {
+  background-image: url("/assets/Icons/arrow-out.png");
 }

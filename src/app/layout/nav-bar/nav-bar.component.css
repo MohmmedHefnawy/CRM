@@ -5,5 +5,46 @@
   background-image: url("https://images.pexels.com/photos/1288182/pexels-photo-1288182.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
 }
 .OM-notifi-icon {
-  background-image: url("/assets/icons8-notification-24.png");
+  background-image: url("/assets/Icons/notifi.svg");
+}
+/* Notification */
+.OM-img-Noti {
+  background-image: url("/assets/Icons/icons8_error_26px.png");
+  background-size: 25px;
+}
+.OM-img-Trush {
+  background-image: url("/assets/Icons/Trash.png");
+  background-size: 25px;
+}
+
+/* sizes */
+.M0-nav-holder {
+  height: 120px;
+}
+/* ---------------------------------------Profile Information --------------------------------------*/
+.OM-img-Profile {
+  background-image: url("/assets/Profile/profile.jpg");
+  background-size: 25px;
+  height: 270px;
+}
+.OM-img-location {
+  background-image: url("/assets/Icons/Location.svg");
+  background-size: 25px;
+}
+.OM-img-call {
+  background-image: url("/assets/Icons/Call.svg");
+  background-size: 25px;
+  /* background-color: #5cbb5c;
+  opacity: 0.1; */
+}
+.OM-img-twitter {
+  background-image: url("/assets/Icons/Twitter.svg");
+  background-size: 25px;
+}
+.OM-img-facebook {
+  background-image: url("/assets/Icons/Facebook.svg");
+  background-size: 25px;
+}
+.OM-Task-Card-h {
+  height: 60px;
 }

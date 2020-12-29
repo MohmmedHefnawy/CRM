@@ -12,14 +12,14 @@ export class SideMenuComponent implements OnInit {
     // [?] resize the content container holder to fit the window height size
     function resizeContentHolder(holder) {
       var innerWidth = window.innerWidth;
-      var innerHeightWithoutNav = window.innerHeight;
+      var innerHeightWithoutNav = window.innerHeight - 60;
       if (innerWidth < 992) {
         $(`#${holder}`).css("height", innerHeightWithoutNav);
       } else {
         if (innerHeightWithoutNav > 700) {
           $(`#${holder}`).css("height", innerHeightWithoutNav);
         } else {
-          $(`#${holder}`).css("height", 700);
+          $(`#${holder}`).css("height", innerHeightWithoutNav);
         }
       }
     }
