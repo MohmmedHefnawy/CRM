@@ -12,7 +12,7 @@
     max-height: 60px;
 }
 .M0-content-holder{
-    overflow: scroll;
+    overflow: auto;
     height: calc(100% - 180px - 1.5rem);
 }
 .M0-card{
