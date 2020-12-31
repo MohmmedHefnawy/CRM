@@ -81,11 +81,15 @@ body::-webkit-scrollbar {
 /* BACKGROUND IMAGES ===END */
 
 /* Opacity ===START */
-
+.sM0-opacity-1{
+  opacity: 1;
+}
 .sM0-opacity-50 {
   opacity: 0.5;
 }
-
+.sM0-opacity-0{
+  opacity: 0;
+}
 /* Opacity ===END */
 
 /* ICONES === Start */

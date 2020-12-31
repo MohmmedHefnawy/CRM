@@ -1,23 +1,4 @@
-.OM-Border-Nav {
-  border-radius: 0px 0px 20px 20px;
-}
-.OM-img-Nav {
-  background-image: url("https://images.pexels.com/photos/1288182/pexels-photo-1288182.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-}
-.OM-notifi-icon {
-  background-image: url("/assets/Icons/notifi.svg");
-}
-/* Notification */
-.OM-img-Noti {
-  background-image: url("/assets/Icons/icons8_error_26px.png");
-  background-size: 25px;
-}
-.OM-img-Trush {
-  background-image: url("/assets/Icons/Trash.png");
-  background-size: 25px;
-}
-
-/* sizes */
-.M0-nav-holder {
-  height: 120px;
+.M0-open-menu-icon {
+  background-image: url("/assets/Icons/sideMenu-open.svg");
+  z-index: 9999;
 }

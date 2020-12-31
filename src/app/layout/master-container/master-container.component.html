@@ -2,12 +2,21 @@
     <div class='row h-100 m-0'>
         <!-- under SideMenu -->
         <div class='col-1 d-none d-lg-block d-xl-none'></div>
-        <!-- sideMenu -->
-        <div id='sideMenuMainHolder' class='col-xl-2 col-1 d-lg-block d-none pl-4 sM0-t2'>
+        <!-- sideMenu Larg -->
+        <div id='sideMenuMainHolder' class='M0-side-menu-holder col-xl-2 col-1 d-lg-block d-none pl-4 sM0-t2'>
             <div class='row h-100 ml-0'>
                 <div class='col sM0-supp-1-bg sM0-f-radius p-0 h-100'>
                     <!-- Side Menu Component -->
-                    <app-side-menu (toggelSideMenu)="toggelSideMenu($event)" (openSideMenu)="openMenu($event)"></app-side-menu>
+                    <app-side-menu (toggelSideMenu)="toggelSideMenu($event, 'sideMenuMainHolder')" (openSideMenu)="openMenu($event, 'sideMenuMainHolder')"></app-side-menu>
+                </div>
+            </div>
+        </div>
+        <!-- sideMenu Small -->
+        <div id='sideMenuMainHolderMob' class='M0-side-menu-holder M0-side-menu-mobile col-md-1 col-3 d-lg-none d-none pl-4 sM0-t2'>
+            <div class='row h-100 ml-0'>
+                <div class='col sM0-supp-1-bg sM0-f-radius p-0 h-100'>
+                    <!-- Side Menu Component -->
+                    <app-side-menu></app-side-menu>
                 </div>
             </div>
         </div>
@@ -17,18 +26,9 @@
             <div class='container-fluid p-0 m-0'>
                 <!-- navBar -->
                 <div class='row sM0-supp-1-bg sM0-f-radius M0-navBar ml-0'>
-                    <!-- <div class='col'>1</div>
-                    <div class='col'>2</div>
-                    <div class='col'>3</div>
-                    <div class='col'>4</div>
-                    <div class='col'>5</div>
-                    <div class='col'>6</div>
-                    <div class='col'>7</div>
-                    <div class='col'>1</div>
-                    <div class='col'>2</div>
-                    <div class='col'>3</div> -->
-                    <!-- <div class='col'>4</div>
-                    <div class='col'>5</div> -->
+                    <div class='col'>
+                        <app-nav-bar (openSideMenu)="openMobileMenu($event, 'sideMenuMainHolderMob')"></app-nav-bar>
+                    </div>
                 </div>
                 <!-- controller -->
                 <div class='row M0-controller ml-0 px-md-5 px-4'>
