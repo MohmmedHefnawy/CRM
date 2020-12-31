@@ -1,3 +1,5 @@
+/* Profile Information */
+/* Cards */
 .OM-img-src {
   background-image: url("/assets/Home/Home.jpg");
 }
@@ -24,6 +26,15 @@
 }
 .OM-img-alarm-red {
   background-image: url("/assets/Icons/alarmRed.svg");
+}
+.OM-img-right {
+  background-image: url("/assets/Icons/Right.svg");
+}
+.OM-img-thunder {
+  background-image: url("/assets/Icons/Thunder.svg");
+}
+.OM-img-wrong {
+  background-image: url("/assets/Icons/wrong.svg");
 }
 .OM-icon-call-holder {
   width: 40px;
