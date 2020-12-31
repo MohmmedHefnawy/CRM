@@ -1,9 +1,13 @@
 <div id='masterContainer' class='container-fluid py-4 pr-4 pl-0'>
     <div class='row h-100 m-0'>
+        <!-- under SideMenu -->
+        <div class='col-1 d-none d-lg-block d-xl-none'></div>
         <!-- sideMenu -->
-        <div class='col-xl-2 col-1 h-100 d-lg-block d-none pl-4'>
+        <div id='sideMenuMainHolder' class='col-xl-2 col-1 d-lg-block d-none pl-4 sM0-t2'>
             <div class='row h-100 ml-0'>
-                <div class='col sM0-supp-1-bg sM0-f-radius h-100'>
+                <div class='col sM0-supp-1-bg sM0-f-radius p-0 h-100'>
+                    <!-- Side Menu Component -->
+                    <app-side-menu (toggelSideMenu)="toggelSideMenu($event)" (openSideMenu)="openMenu($event)"></app-side-menu>
                 </div>
             </div>
         </div>

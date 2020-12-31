@@ -1,9 +1,16 @@
-.M0-side-menu-holder {
-  top: 0;
-}
 .M0-arrow-in-icon {
-  background-image: url("/assets/Icons/arrow-in.png");
+  background-image: url("/assets/Icons/arrow-in.svg");
 }
 .M0-arrow-out-icon {
-  background-image: url("/assets/Icons/arrow-out.png");
+  background-image: url("/assets/Icons/arrow-out.svg");
+}
+.M0-open-menu-icon {
+  background-image: url("/assets/Icons/sideMenu-open.svg");
+}
+.M0-side-arrow{
+  right:0px;
+}
+.M0-side-open{
+  top:24px;
+  right:calc(50% - 20px)
 }
