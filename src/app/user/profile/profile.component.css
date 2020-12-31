@@ -19,15 +19,23 @@
 .OM-img-Plus {
   background-image: url("/assets/Icons/Plus.svg");
 }
+.OM-img-alarm {
+  background-image: url("/assets/Icons/Alarm.svg");
+}
+.OM-img-alarm-red {
+  background-image: url("/assets/Icons/alarmRed.svg");
+}
 .OM-icon-call-holder {
-  width: 35px;
-  height: 35px;
-  right: 10px;
+  width: 40px;
+  height: 40px;
   top: 15px;
 }
 .OM-icon-profile-holder {
   width: 40px;
-  height: 80px;
+  height: 63px;
   left: 10%;
-  /* bottom: 60px; */
+}
+.OM-icon-timer-holder {
+  width: 8vw;
+  height: 50px;
 }

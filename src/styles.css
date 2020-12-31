@@ -35,6 +35,9 @@ body::-webkit-scrollbar {
 .sM0-bg-opacity-gray-90 {
   background-color: rgba(20, 20, 20, 0.9) !important;
 }
+.sM0-bg-opacity-red-90 {
+  background-color: rgba(208, 85, 85, 0.9) !important;
+}
 .sM0-bg-opacity-green-25 {
   background-color: rgba(92, 184, 92, 0.25) !important;
 }
@@ -89,12 +92,12 @@ body::-webkit-scrollbar {
 .sM0-icon-a {
   width: 60px;
   height: 60px;
-  background-size: 25px !important;
+  background-size: 60px !important;
 }
 .sM0-icon-b {
-  width: 40px;
-  height: 40px;
-  background-size: 25px !important;
+  width: 30px;
+  height: 30px;
+  background-size: 30px !important;
 }
 .sM0-icon-c {
   width: 25px !important;
@@ -125,10 +128,9 @@ body::-webkit-scrollbar {
 
 /* Radius Rounded === START */
 .sM0-circle-border {
-  /* background-color: blanchedalmond; */
-  width: 10px;
-  height: 10px;
-  border-radius: 35px !important;
+  width: 30px;
+  height: 30px;
+  border-radius: 50% !important;
 }
 /* Radius Rounded === END */
 
