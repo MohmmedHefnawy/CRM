@@ -1,40 +1,27 @@
-/* ? Style flags = M0- */
-
-.OM-Border-Reduis {
-  border-radius: 15px;
-}
-.OM-Border-Reduis-imgs {
-  border-radius: 50%;
-  border: 5px solid rgb(113, 212, 113);
-}
-.OM-Border-Container {
-  border: #21263b solid 1px;
-}
-.OM-Shadow-Container {
-  box-shadow: 0px 0px 6px -1px rgb(26, 25, 25);
-}
-.OM-Limit-Width {
-  max-width: 240px;
-}
-.OM-Move-Header {
-  position: relative;
-  color: #2c84f0;
-  font-size: 20px;
-  font-weight: 600;
-}
-.OM-Font-Style {
-  color: #858aa0;
-}
-.OM-holder-title {
-  top: 20px;
-  left: 20px;
-}
 .OM-img-src {
-  background-image: url("https://images.pexels.com/photos/1288182/pexels-photo-1288182.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-  background-size: cover;
-  background-position: center;
+  background-image: url("/assets/Profile/profile1.jpg");
 }
-.OM-Limit-Height {
-  min-height: 380px;
-  max-height: 380px;
+.OM-img-location {
+  background-image: url("/assets/Icons/Location.svg");
+}
+.OM-img-Locationgold {
+  background-image: url("/assets/Icons/Locationgold.svg");
+}
+.OM-img-progress {
+  background-image: url("/assets/Icons/Inprogress.svg");
+}
+.OM-img-call {
+  background-image: url("/assets/Icons/callwhite.svg");
+}
+.OM-img-Exclamation {
+  background-image: url("/assets/Icons/Exclamation.svg");
+}
+.OM-img-Plus {
+  background-image: url("/assets/Icons/Plus.svg");
+}
+.OM-icon-call-holder {
+  width: 35px;
+  height: 35px;
+  left: 5px;
+  top: 5px;
 }

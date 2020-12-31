@@ -1,27 +1,33 @@
-/* ---------------------------------------Profile Information --------------------------------------*/
-.OM-img-Profile {
-  background-image: url("/assets/Profile/profile.jpg");
-  background-size: 25px;
-  height: 270px;
+.OM-img-src {
+  background-image: url("/assets/Home/Home.jpg");
 }
 .OM-img-location {
   background-image: url("/assets/Icons/Location.svg");
-  background-size: 25px;
+}
+.OM-img-Locationgold {
+  background-image: url("/assets/Icons/Locationgold.svg");
+}
+.OM-img-progress {
+  background-image: url("/assets/Icons/Inprogress.svg");
 }
 .OM-img-call {
-  background-image: url("/assets/Icons/Call.svg");
-  background-size: 25px;
-  /* background-color: #5cbb5c;
-  opacity: 0.1; */
+  background-image: url("/assets/Icons/callwhite.svg");
 }
-.OM-img-twitter {
-  background-image: url("/assets/Icons/Twitter.svg");
-  background-size: 25px;
+.OM-img-Exclamation {
+  background-image: url("/assets/Icons/Exclamation.svg");
 }
-.OM-img-facebook {
-  background-image: url("/assets/Icons/Facebook.svg");
-  background-size: 25px;
+.OM-img-Plus {
+  background-image: url("/assets/Icons/Plus.svg");
 }
-.OM-Task-Card-h {
-  height: 60px;
+.OM-icon-call-holder {
+  width: 35px;
+  height: 35px;
+  right: 10px;
+  top: 15px;
+}
+.OM-icon-profile-holder {
+  width: 40px;
+  height: 80px;
+  left: 10%;
+  /* bottom: 60px; */
 }

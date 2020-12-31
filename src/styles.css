@@ -22,13 +22,25 @@ body::-webkit-scrollbar {
 .sM0-supp-1-bg {
   background-color: #141414 !important;
 }
-/* background images */
-.sM0-bg-imgs-center {
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: cover !important;
+.sM0-danger-bg {
+  background-color: #d05555 !important;
 }
-
+.sM0-green-bg {
+  background-color: #5cbb5c !important;
+}
+/* Custom BG */
+.sM0-bg-opacity-green-90 {
+  background-color: rgba(92, 184, 92, 0.9) !important;
+}
+.sM0-bg-opacity-gray-90 {
+  background-color: rgba(20, 20, 20, 0.9) !important;
+}
+.sM0-bg-opacity-green-25 {
+  background-color: rgba(92, 184, 92, 0.25) !important;
+}
+.sM0-bg-opacity-red-25 {
+  background-color: rgba(208, 85, 85, 0.25) !important;
+}
 /* Colors */
 .sM0-main-cr {
   color: #e9c46a;
@@ -42,33 +54,41 @@ body::-webkit-scrollbar {
 .sM0-text-1-cr {
   color: #141414 !important;
 }
+.sM0-danger-cr {
+  background-color: #d05555;
+}
 /* COLORS ===END */
+
+/* BACKGROUND IMAGES ===START */
+
+/* background images */
+.sM0-bg-imgs-center {
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
+.sM0-img-a {
+  width: 120px;
+  height: 140px;
+}
+.sM0-img-b {
+  width: 120px;
+  height: 120px;
+}
+/* BACKGROUND IMAGES ===END */
+
 /* Opacity ===START */
 
-.sM0-opacity-green-low {
-  background-color: rgb(92, 184, 92, 0.1);
+.sM0-opacity-50 {
+  opacity: 0.5;
 }
-.sM0-opacity-green-medium {
-  background-color: rgb(92, 184, 92, 0.3);
-}
-.sM0-opacity-blue {
-  background-color: rgb(66, 168, 243, 0.1);
-}
-.sM0-opacity-Gold {
-  background-color: rgb(233, 196, 106, 0.3);
-}
-.sM0-opacity-Grey {
-  background-color: rgb(112, 112, 112, 0.3);
-}
-.sM0-opacity-Red {
-  background-color: rgb(208, 85, 85, 0.3);
-}
+
 /* Opacity ===END */
 
 /* ICONES === Start */
 .sM0-icon-a {
-  width: 25px !important;
-  height: 25px !important;
+  width: 60px;
+  height: 60px;
   background-size: 25px !important;
 }
 .sM0-icon-b {
@@ -77,16 +97,29 @@ body::-webkit-scrollbar {
   background-size: 25px !important;
 }
 .sM0-icon-c {
-  width: 60px;
-  height: 60px;
+  width: 25px !important;
+  height: 25px !important;
   background-size: 25px !important;
 }
-
+.sM0-icon-d {
+  width: 20px !important;
+  height: 20px !important;
+  background-size: 20px !important;
+}
 /* ICONES === END */
 
 /* border ===START */
-.sM0-a-border {
-  border: 3px solid #e9c46a;
+.sM0-gold-border {
+  box-shadow: 0px 0px 0px 3px #e9c46a;
+}
+.sM0-white-border {
+  box-shadow: 0px 0px 0px 3px #fefefe;
+}
+.sM0-red-border {
+  box-shadow: 0px 0px 0px 3px #d05555;
+}
+.sM0-green-border {
+  box-shadow: 0px 0px 0px 3px #5cbb5c;
 }
 /* border ===END */
 
@@ -150,37 +183,42 @@ input {
 }
 /* Font === END */
 /* SIZES ===START  */
+/* BUTTONS ===START */
 .sM0-btn-w-180 {
   width: 180px !important;
 }
 .sM0-btn-w-120 {
   width: 120px !important;
 }
+.sM0-btn-w-160 {
+  min-width: 160px !important;
+}
 .sM0-btn-h-180 {
   height: 300px !important;
 }
+/* BUTTONS ===END */
 /* .sM0- */
 /* SIZES ===END  */
 /* MASTER CONTAIMER (Layuout) ===START */
 /* ? switch to other .css file */
-.M0-side-menu{
-    min-width: 280px !important;
-    max-width: 280px !important;
-    width: 280px !important;
+.M0-side-menu {
+  min-width: 280px !important;
+  max-width: 280px !important;
+  width: 280px !important;
 }
-.M0-navBar{
-    min-height: 120px;
-    max-height: 120px;
+.M0-navBar {
+  min-height: 120px;
+  max-height: 120px;
 }
-.M0-controller{
-    min-height: 60px;
-    max-height: 60px;
+.M0-controller {
+  min-height: 60px;
+  max-height: 60px;
 }
-.M0-content-holder{
-    overflow: auto;
-    height: calc(100% - 180px - 1.5rem);
+.M0-content-holder {
+  overflow: auto;
+  height: calc(100% - 180px - 1.5rem);
 }
-.M0-card{
-    height: 385px;
+.M0-card {
+  height: 385px;
 }
 /* MASTER CONTAIMER (Layuout) ===END */
