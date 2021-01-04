@@ -92,3 +92,8 @@
   top: calc(50% - 15px);
   left: calc(50% - 15px);
 }
+.M0-profile-card{
+  height: 385px;
+  min-width: 580px !important;
+  max-width: 580px !important;
+}
