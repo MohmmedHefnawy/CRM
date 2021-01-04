@@ -94,5 +94,6 @@
 }
 .M0-profile-card{
   height: 385px;
-  /* overflow: auto; */
+  /* min-width: 580px !important;
+  max-width: 580px !important; */
 }
