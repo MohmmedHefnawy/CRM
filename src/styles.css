@@ -256,9 +256,6 @@ input {
 .sM0-btn-w-160 {
   min-width: 160px !important;
 }
-.sM0-btn-h-180 {
-  height: 300px !important;
-}
 /* BUTTONS ===END */
 /* .sM0- */
 /* SIZES ===END  */
@@ -297,5 +294,23 @@ input {
 }
 .M0-card {
   height: 385px;
+  min-width: 290px !important;
+  max-width: 290px !important;
+}
+.M0-card-none {
+  /* height: 385px; */
+  min-width: 290px !important;
+  max-width: 290px !important;
+}
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.grid::after::before {
+  content: "";
+  flex:auto;
+  box-sizing: border-box;
 }
 /* MASTER CONTAIMER (Layuout) ===END */
