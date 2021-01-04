@@ -180,6 +180,9 @@ body {
   height: 30px;
   border-radius: 50% !important;
 }
+.sM0-border-none {
+  border: none !important;
+}
 /* Radius Rounded === END */
 
 /* radius ===START*/
@@ -259,6 +262,20 @@ input {
 /* BUTTONS ===END */
 /* .sM0- */
 /* SIZES ===END  */
+/* FORM ===START */
+.sM0-inp-icon-holder-a {
+  height: 60px !important;
+  width: 90px !important;
+}
+.sM0-inp-icon-holder-b {
+  height: 60px !important;
+  width: 90px !important;
+}
+.sM0-inp-a {
+  height: 60px !important;
+}
+
+/* FORM ===END */
 /* MASTER CONTAIMER (Layuout) ===START */
 /* ? switch to other .css file */
 .M0-side-menu {
