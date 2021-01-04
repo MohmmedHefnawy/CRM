@@ -30,11 +30,29 @@
 .OM-img-right {
   background-image: url("/assets/Icons/Right.svg");
 }
+.OM-img-rightwhite {
+  background-image: url("/assets/Icons/rightwhite.svg");
+}
 .OM-img-thunder {
   background-image: url("/assets/Icons/Thunder.svg");
 }
+.OM-img-thunderwhite {
+  background-image: url("/assets/Icons/thunderwhite.svg");
+}
 .OM-img-wrong {
   background-image: url("/assets/Icons/wrong.svg");
+}
+.OM-img-upload {
+  background-image: url("/assets/Icons/Upload.svg");
+}
+.OM-img-attachment {
+  background-image: url("/assets/Icons/Attachment.svg");
+}
+.OM-img-comment {
+  background-image: url("/assets/Icons/Comment.svg");
+}
+.OM-img-list {
+  background-image: url("/assets/Icons/List.svg");
 }
 .OM-icon-call-holder {
   width: 40px;
@@ -49,4 +67,28 @@
 .OM-icon-timer-holder {
   width: 8vw;
   height: 50px;
+}
+/* Profile Information And Tasks Card Report */
+.OM-img-profile {
+  background-image: url("/assets/Profile/profile1.jpg");
+  border: 3px solid #e9c46a;
+}
+.OM-img-location {
+  background-image: url("/assets/Icons/Location.svg");
+}
+.OM-img-green-call {
+  background-image: url("/assets/Icons/Call.svg");
+}
+.OM-img-facebook {
+  background-image: url("/assets/Icons/Facebook.svg");
+}
+.OM-img-twitter {
+  background-image: url("/assets/Icons/Twitter.svg");
+}
+.OM-img-profile-holder {
+  width: 31.5% !important;
+}
+.OM-Icons-Holder {
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
 }

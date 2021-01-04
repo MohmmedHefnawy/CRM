@@ -5,8 +5,25 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-body::-webkit-scrollbar {
-  display: none;
+::-webkit-scrollbar {
+  /* display: none; */
+  width: 15px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #1d1d1d !important;
+  border-radius: 10px !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #141414 !important;
+  border-radius: 10px !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #141414 !important;
 }
 /* COLORS ===START */
 /* backgrounds */
@@ -38,6 +55,9 @@ body::-webkit-scrollbar {
 .sM0-bg-opacity-red-90 {
   background-color: rgba(208, 85, 85, 0.9) !important;
 }
+.sM0-bg-opacity-white-25 {
+  background-color: rgba(252, 252, 252, 0.25) !important;
+}
 .sM0-bg-opacity-dark-25 {
   background-color: rgba(29, 29, 29, 0.25) !important;
 }
@@ -49,6 +69,9 @@ body::-webkit-scrollbar {
 }
 .sM0-bg-opacity-red-25 {
   background-color: rgba(208, 85, 85, 0.25) !important;
+}
+.sM0-bg-opacity-blue-25 {
+  background-color: rgba(66, 168, 243, 0.25) !important;
 }
 /* Colors */
 .sM0-main-cr {
@@ -64,7 +87,10 @@ body::-webkit-scrollbar {
   color: #141414 !important;
 }
 .sM0-danger-cr {
-  background-color: #d05555;
+  color: #d05555 !important;
+}
+.sM0-green-cr {
+  color: #5cbb5c;
 }
 /* COLORS ===END */
 
@@ -77,12 +103,12 @@ body::-webkit-scrollbar {
   background-size: cover !important;
 }
 .sM0-img-a {
-  width: 120px;
-  height: 140px;
+  width: 120px !important;
+  height: 140px !important;
 }
 .sM0-img-b {
-  width: 120px;
-  height: 120px;
+  width: 120px !important;
+  height: 120px !important;
 }
 /* BACKGROUND IMAGES ===END */
 
@@ -125,6 +151,11 @@ body::-webkit-scrollbar {
   width: 20px !important;
   height: 20px !important;
   background-size: 20px !important;
+}
+.sM0-icon-e {
+  width: 15px !important;
+  height: 15px !important;
+  background-size: 15px !important;
 }
 /* ICONES === END */
 
@@ -193,6 +224,7 @@ i {
 }
 a {
   cursor: pointer;
+  text-decoration: none !important;
 }
 input {
   border: 0 !important;
