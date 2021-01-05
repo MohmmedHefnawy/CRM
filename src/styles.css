@@ -4,6 +4,8 @@
 body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  max-width: 1900px;
+  margin: auto !important;
 }
 ::-webkit-scrollbar {
   /* display: none; */
