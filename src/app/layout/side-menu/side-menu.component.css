@@ -7,10 +7,35 @@
 .M0-open-menu-icon {
   background-image: url("/assets/Icons/sideMenu-open.svg");
 }
-.M0-side-arrow{
-  right:0px;
+.M0-side-arrow {
+  right: 0px;
 }
-.M0-side-open{
-  top:24px;
-  right:calc(50% - 20px)
+.M0-side-open {
+  top: 24px;
+  right: calc(50% - 20px);
+}
+/* ---------------------------------------- */
+.OM-img-profile1 {
+  background-image: url("/assets/Profile/profile1.jpg");
+}
+.OM-img-Plus {
+  background-image: url("/assets/Icons/Plus.svg");
+}
+.OM-img-profile {
+  background-image: url("/assets/Icons/Profile.svg");
+}
+.OM-img-notification {
+  background-image: url("/assets/Icons/notifi.svg");
+}
+.OM-img-property {
+  background-image: url("/assets/Icons/Property.svg");
+}
+.OM-img-team {
+  background-image: url("/assets/Icons/Teamwork.svg");
+}
+.OM-img-setting {
+  background-image: url("/assets/Icons/Settings.svg");
+}
+.OM-img-logout {
+  background-image: url("/assets/Icons/Logout.svg");
 }

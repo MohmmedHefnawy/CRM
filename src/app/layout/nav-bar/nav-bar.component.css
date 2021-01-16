@@ -2,3 +2,24 @@
   background-image: url("/assets/Icons/sideMenu-open.svg");
   z-index: 9999;
 }
+/* .OM-Border-Nav {
+  border-radius: 0px 0px 20px 20px;
+} */
+.OM-search-icon {
+  background-image: url("/assets/Icons/Search.svg");
+}
+.OM-notifi-icon {
+  background-image: url("/assets/Icons/notifi.svg");
+}
+.OM-img-progress {
+  background-image: url("/assets/Icons/Inprogress.svg");
+}
+.OM-img-Exclamation {
+  background-image: url("/assets/Icons/Exclamation.svg");
+}
+.OM-img-Plus {
+  background-image: url("/assets/Icons/Plus.svg");
+}
+.OM-Holder-search-w {
+  width: 60%;
+}

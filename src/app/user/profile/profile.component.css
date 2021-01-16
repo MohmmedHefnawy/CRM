@@ -92,8 +92,38 @@
   top: calc(50% - 15px);
   left: calc(50% - 15px);
 }
-.M0-profile-card{
+.M0-profile-card {
   height: 385px;
   /* min-width: 580px !important;
   max-width: 580px !important; */
+}
+/* Scroller */
+
+.Content {
+  /* height: 224px;
+  overflow: auto; */
+  /* overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical; */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  /* max-width: 500px; */
+}
+
+@media (max-width: 1500px) {
+  .OM-Holder-Taskes-Stat {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+  .OM-Holder-Taskes-Stratch {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  .OM-Holder-w {
+    width: 100% !important;
+  }
 }
