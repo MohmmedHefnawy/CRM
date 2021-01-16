@@ -209,6 +209,10 @@ body {
 .sM0-t-l-radius {
   border-radius: 35px 0 0 35px !important;
 }
+.sM0-border-none {
+  border: 0 !important;
+  outline: none;
+}
 /* .sM1-f-radius {
   border-radius: 20px;
 } */
@@ -246,6 +250,9 @@ input {
 .sM0-btn-w-180 {
   width: 180px !important;
 }
+.sM0-btn-w-160 {
+  width: 160px !important;
+}
 .sM0-btn-w-120 {
   width: 120px !important;
 }
@@ -254,6 +261,9 @@ input {
 }
 .sM0-btn-w-65 {
   width: 65px !important;
+}
+.sM0-btn-w-50 {
+  width: 50px !important;
 }
 .sM0-btn-w-160 {
   min-width: 160px !important;
@@ -312,7 +322,7 @@ input {
 
 .grid::after::before {
   content: "";
-  flex:auto;
+  flex: auto;
   box-sizing: border-box;
 }
 /* MASTER CONTAIMER (Layuout) ===END */
