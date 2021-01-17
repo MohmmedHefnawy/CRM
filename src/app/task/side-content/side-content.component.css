@@ -15,6 +15,6 @@
   overflow-y: auto !important;
 }
 .OM-property-img {
-  min-height: 190px !important;
-  max-height: 190px !important;
+  min-height: 150px !important;
+  max-height: 150px !important;
 }
