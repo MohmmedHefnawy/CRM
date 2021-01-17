@@ -10,5 +10,5 @@
   background-image: url("/assets/Icons/Call.svg");
 }
 .OM-scroller {
-  overflow-y: auto !important;
+  overflow-y: scroll !important;
 }

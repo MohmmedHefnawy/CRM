@@ -244,10 +244,10 @@ input {
 /* elements ===END */
 /* Font === START */
 
-.sM0-fs-18{
+.sM0-fs-18 {
   font-size: 18px !important;
 }
-.sM0-fs-16{
+.sM0-fs-16 {
   font-size: 16px !important;
 }
 .sM0-fs-12 {
@@ -296,6 +296,10 @@ input {
 /* FORM ===END */
 /* MASTER CONTAIMER (Layuout) ===START */
 /* ? switch to other .css file */
+.M0-content-container {
+  min-height: 50px !important;
+  max-height: 1080px !important;
+}
 .M0-side-menu {
   min-width: 280px !important;
   max-width: 280px !important;
