@@ -12,7 +12,7 @@
 }
 .M0-side-open {
   top: 24px;
-  right: calc(50% - 20px);
+  right: calc(50% - 15px);
 }
 /* ---------------------------------------- */
 .OM-img-profile1 {
@@ -38,4 +38,7 @@
 }
 .OM-img-logout {
   background-image: url("/assets/Icons/Logout.svg");
+}
+.M0-profile-img-holder{
+  min-height: 120px;
 }

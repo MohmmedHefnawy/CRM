@@ -48,41 +48,49 @@ export class MasterContainerComponent implements OnInit {
     holderWindowSize('#masterContainer', '#sideMenuMainHolder')
   }
   // [#] Controllers
-  toggelSideMenu(btn, holder) {
-    let toggleAttr = $(btn).attr('data-toggle')
+  toggelSideMenu(e, holder) {
+    let toggleAttr = $(e[1]).attr('data-toggle')
     switch (toggleAttr) {
       case 'true': // open
         $(`#${holder}`).removeClass('col-xl-1')
         $(`#${holder}`).addClass('col-xl-2')
-        $(btn).addClass("M0-arrow-in-icon")
-        $(btn).removeClass("M0-arrow-out-icon")
-        $(btn).attr('data-toggle', 'false')
+        $(`#${holder}`).removeClass('col-1')
+        $(`#${holder}`).addClass('col-3')
+        $(e[0]).addClass("M0-arrow-in-icon")
+        $(e[0]).removeClass("M0-arrow-out-icon")
+        $(e[1]).attr('data-toggle', 'false')
         break
-      case 'false': // remove
+      case 'false': // close
         $(`#${holder}`).removeClass('col-xl-2')
         $(`#${holder}`).addClass('col-xl-1')
-        $(btn).addClass("M0-arrow-out-icon")
-        $(btn).removeClass("M0-arrow-in-icon")
-        $(btn).attr('data-toggle', 'true')
+        $(`#${holder}`).removeClass('col-3')
+        $(`#${holder}`).addClass('col-1')
+        $(e[0]).addClass("M0-arrow-out-icon")
+        $(e[0]).removeClass("M0-arrow-in-icon")
+        $(e[1]).attr('data-toggle', 'true')
         break
     }
   }
-  openMenu(btn, holder) {
-    let toggleAttr = $(btn).attr('data-toggle')
+  openMenu(e, holder) {
+    let toggleAttr = $(e[1]).attr('data-toggle')
     switch (toggleAttr) {
-      case 'true': // close
+      case 'false': // close
         $(`#${holder}`).removeClass('col-3')
         $(`#${holder}`).addClass('col-1')
-        $(btn).addClass("M0-arrow-in-icon")
-        $(btn).removeClass("M0-arrow-out-icon")
-        $(btn).attr('data-toggle', 'false')
+        $(`#${holder}`).removeClass('col-xl-2')
+        $(`#${holder}`).addClass('col-xl-1')
+        $(e[0]).addClass("M0-arrow-in-icon")
+        $(e[0]).removeClass("M0-arrow-out-icon")
+        $(e[1]).attr('data-toggle', 'true')
         break
-      case 'false': // open
+      case 'true': // open
         $(`#${holder}`).removeClass('col-1')
         $(`#${holder}`).addClass('col-3')
-        $(btn).addClass("M0-arrow-out-icon")
-        $(btn).removeClass("M0-arrow-in-icon")
-        $(btn).attr('data-toggle', 'true')
+        $(`#${holder}`).removeClass('col-xl-1')
+        $(`#${holder}`).addClass('col-xl-2')
+        $(e[0]).addClass("M0-arrow-out-icon")
+        $(e[0]).removeClass("M0-arrow-in-icon")
+        $(e[1]).attr('data-toggle', 'false')
         break
     }
   }

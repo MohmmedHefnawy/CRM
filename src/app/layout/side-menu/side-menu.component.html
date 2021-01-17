@@ -4,65 +4,94 @@
         <div class='col h-100 sM0-supp-1-bg d-flex justify-content-end sM0-f-radius'>
             <!-- Small sideMenu button -->
             <!-- open Menu -->
-            <i #sideMenuOpenBTN data-toggle='false' (click)="openSideMenu.emit(sideMenuOpenBTN)"
+            <i #sideMenuOpenBTN data-toggle='true' (click)="openSideMenu.emit([sideMenuOpenBTN, conditionI]); checkDataToggle(conditionI)"
                 class='M0-open-menu-icon sM0-icon-b sM0-bg-imgs-center align-self-center d-xl-none d-lg-block d-none position-absolute M0-side-open'></i>
             <!-- larg sideMenu arrow -->
             <!-- Arrow icon -->
-            <i #sideMenuBTN data-toggle='false' (click)="toggelSideMenu.emit(sideMenuBTN); checkDataToggle(sideMenuBTN)"
+            <i #sideMenuBTN (click)="toggelSideMenu.emit([sideMenuBTN,conditionI]); checkDataToggle(conditionI)"
                 class='M0-arrow-in-icon sM0-icon-b sM0-bg-imgs-center align-self-center d-xl-block d-none position-absolute M0-side-arrow'></i>
-            <!-- Side-Menu Information -->
-            <div  class="w-100" [class.d-none]='innerSideMenuData'>
-                <!-- {{sideMenuOpenBTN}} -->
-                <!-- Profile Info -->
-                <div class="w-100">
-                    <div class="w-100 d-flex justify-content-center p-4">
-                        <i class="OM-img-profile1 sM0-bg-imgs-center sM0-img-b sM0-f-radius d-inline-block"></i>
+            <!-- condition icon  for  data toggle -->
+            <i  id='conditionIBTN' #conditionI data-toggle='false'></i>
+            <!-- (Open)  Side-Menu Information -->
+            <!-- <div class='w-100'> -->
+                <div class="w-100 px-2~ mt-5 flex-column justify-content-between overflow-hidden" [class.d-none]='innerSideMenuData' [class.d-flex]='!innerSideMenuData'>
+                    <!-- Profile Info -->
+                    <div class="">
+                        <div class="w-100 d-flex justify-content-center p-4">
+                            <i class="OM-img-profile1 sM0-bg-imgs-center sM0-img-b sM0-f-radius d-inline-block"></i>
+                        </div>
+                        <div class="text-center">
+                            <p class="sM0-main-cr h5">Name Surname </p>
+                            <p class="sM0-text-0-cr m-0 h6">Project Manager </p>
+                        </div>
                     </div>
-                    <div class="text-center">
+                    <!-- navigations  -->
+                    <div class="flex-column align-items-start mt-5">
+                        <!-- Profile Line -->
+                        <button class="btn py-0 mb-5 d-flex justify-content-center">
+                            <i class="OM-img-profile sM0-icon-c sM0-bg-imgs-center mr-2"></i>
+                            <p class="sM0-text-0-cr d-inline-block mb-0">Profile</p>
+                        </button>
+                        <!-- Notification Line -->
+                        <button class="btn py-0 mb-5 d-flex justify-content-center">
+                            <i class="OM-img-notification sM0-icon-c sM0-bg-imgs-center mr-2"></i>
+                            <p class="sM0-text-0-cr d-inline-block mb-0">Notification</p>
+                        </button>
+                        <!-- Teams Line -->
+                        <button class="btn py-0 mb-5 d-flex justify-content-center">
+                            <i class="OM-img-team sM0-icon-c sM0-bg-imgs-center mr-2"></i>
+                            <p class="sM0-text-0-cr d-inline-block mb-0">Teams</p>
+                        </button>
+                        <!-- Settings Line -->
+                        <button class="btn py-0 mb-5 d-flex justify-content-center">
+                            <i class="OM-img-setting sM0-icon-c sM0-bg-imgs-center mr-2"></i>
+                            <p class="sM0-text-0-cr d-inline-block mb-0">Settings</p>
+                        </button>
+                        <!-- Add User Line -->
+                        <button class="btn py-0 mb-5 d-flex justify-content-center">
+                            <i class="OM-img-Plus sM0-icon-c sM0-bg-imgs-center mr-2"></i>
+                            <p class="sM0-text-0-cr d-inline-block mb-0">Add User</p>
+                        </button>
+                    </div>
+                    <!-- logout button -->
+                    <div class="h-25 mb-5 d-flex align-items-end">
+                        <!-- Logout Line -->
+                        <button class="btn py-0 mb-3 d-flex justify-content-center">
+                            <i class="OM-img-logout sM0-icon-c sM0-bg-imgs-center mr-2"></i>
+                            <p class="sM0-text-0-cr d-inline-block mb-0">Logout</p>
+                        </button>
+                    </div>
+                </div>
+            <!-- </div> -->
+            <!-- (close With Icos ) Side-Menu Information  -->
+            <div class="w-100 px-2~ mt-5 flex-column justify-content-between" [class.d-none]='!innerSideMenuData' [class.d-flex]='innerSideMenuData'>
+                <!-- Profile Info -->
+                <div class="">
+                    <div class="w-100 d-flex justify-content-center py-4 M0-profile-img-holder">
+                        <i class="OM-img-profile1 sM0-bg-imgs-center sM0-img-c sM0-f-radius d-inline-block"></i>
+                    </div>
+                    <div class="text-center invisible">
                         <p class="sM0-main-cr h5">Name Surname </p>
                         <p class="sM0-text-0-cr m-0 h6">Project Manager </p>
                     </div>
                 </div>
                 <!-- navigations  -->
-                <div class=" mt-5 w-100 flex-column align-items-start">
+                <div class="flex-column justify-content-center align-items-center">
                     <!-- Profile Line -->
-                    <button class="btn mb-3 d-flex justify-content-center">
-                        <i class="OM-img-profile sM0-icon-c sM0-bg-imgs-center mr-2"></i>
-                        <p class="sM0-text-0-cr d-inline-block mb-0">Profile</p>
-                    </button>
+                    <i class="OM-img-profile sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                     <!-- Notification Line -->
-                    <button class="btn mb-3 d-flex justify-content-center">
-                        <i class="OM-img-notification sM0-icon-c sM0-bg-imgs-center mr-2"></i>
-                        <p class="sM0-text-0-cr d-inline-block mb-0">Notification</p>
-                    </button>
-                    <!-- Properties Line -->
-                    <button class="btn mb-3 d-flex justify-content-center">
-                        <i class="OM-img-property sM0-icon-c sM0-bg-imgs-center mr-2"></i>
-                        <p class="sM0-text-0-cr d-inline-block mb-0">Properties</p>
-                    </button>
+                    <i class="OM-img-notification sM0-icon-c mx-auto mb-5 sM0-bg-imgs-center d-block"></i>
                     <!-- Teams Line -->
-                    <button class="btn mb-3 d-flex justify-content-center">
-                        <i class="OM-img-team sM0-icon-c sM0-bg-imgs-center mr-2"></i>
-                        <p class="sM0-text-0-cr d-inline-block mb-0">Teams</p>
-                    </button>
+                    <i class="OM-img-team sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                     <!-- Settings Line -->
-                    <button class="btn mb-3 d-flex justify-content-center">
-                        <i class="OM-img-setting sM0-icon-c sM0-bg-imgs-center mr-2"></i>
-                        <p class="sM0-text-0-cr d-inline-block mb-0">Settings</p>
-                    </button>
+                    <i class="OM-img-setting sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                     <!-- Add User Line -->
-                    <button class="btn mb-3t d-flex justify-content-center">
-                        <i class="OM-img-Plus sM0-icon-c sM0-bg-imgs-center mr-2"></i>
-                        <p class="sM0-text-0-cr d-inline-block mb-0">Add User</p>
-                    </button>
+                    <i class="OM-img-Plus sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                 </div>
                 <!-- logout button -->
-                <div class="w-100">
+                <div class="h-25 mb-5 d-flex align-items-end">
                     <!-- Logout Line -->
-                    <button class="btn mb-3 d-flex justify-content-center">
-                        <i class="OM-img-logout sM0-icon-c sM0-bg-imgs-center mr-2"></i>
-                        <p class="sM0-text-0-cr d-inline-block mb-0">Logout</p>
-                    </button>
+                    <i class="OM-img-logout sM0-icon-c  mx-auto sM0-bg-imgs-center d-block"></i>
                 </div>
             </div>
         </div>

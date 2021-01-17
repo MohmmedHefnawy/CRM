@@ -11,12 +11,14 @@ export class SideMenuComponent implements OnInit {
   // vars
   innerSideMenuData
   // @ViewChild("sideMenuBTN") sideMenuBTN: ElementRef;
+  // @ViewChild("conditionI") conditionI: ElementRef;
   constructor() { }
   ngOnInit(): void {
     let holderWindowSize = (holder) => {// [?] holder is the selected holder <div> fo the component
       // [?] window reisze event | to resize holder every Browser winodw resize
       window.addEventListener("resize", function () {
         resizeContentHolder(holder);
+        checkDataToggle($('conditionIBTN'))
       });
       // [?] resize the content container holder to fit the window height size
       function resizeContentHolder(elem) {
@@ -32,6 +34,15 @@ export class SideMenuComponent implements OnInit {
           }
         }
       }
+      function checkDataToggle(elem) {
+        switch (elem.attr('data-toggle')) {
+          case "true":
+            this.innerSideMenuData = true
+            break
+          case "false":
+            this.innerSideMenuData = false
+        }
+      }
       // [?] on load at ther realtime
       resizeContentHolder(holder);
     }
@@ -45,9 +56,7 @@ export class SideMenuComponent implements OnInit {
         break
       case "false":
         this.innerSideMenuData = false
-    }
-    
-    
+    } 
   }
   // [#] HTTP REQs
 }
