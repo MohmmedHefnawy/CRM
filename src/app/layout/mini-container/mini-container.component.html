@@ -2,40 +2,17 @@
 <div class='container-fluid pr-0 m-0 px-5 h-100'>
   <div class='row flex-wrap mx-0 p-0 h-100 overflow-auto~ sM0-supp-0-bg sM0-f-radius'>
     <!-- Task Side COntent -->
-    <app-side-content></app-side-content>
-    <!-- Task Details -->
-    <div class="col d-flex flex-wrap h-100 justify-content-center p-0 pt-4 pl-4">
-      <div class="container h-100">
-        <div class="row d-flex flex-wrap align-content-start justify-content-center OM-scroller h-100">
-          <div class='M0-card  pr-4 mb-4'>
-            <div class='sM0-supp-1-bg w-100 h-100 sM0-f-radius'></div>
-          </div>
-          <div class='M0-card  pr-4 mb-4'>
-            <div class='sM0-supp-1-bg w-100 h-100 sM0-f-radius'></div>
-          </div>
-          <div class='M0-card  pr-4 mb-4'>
-            <div class='sM0-supp-1-bg w-100 h-100 sM0-f-radius'></div>
-          </div>
-          <div class='M0-card  pr-4 mb-4'>
-            <div class='sM0-supp-1-bg w-100 h-100 sM0-f-radius'></div>
-          </div>
-          <div class='M0-card  pr-4 mb-4'>
-            <div class='sM0-supp-1-bg w-100 h-100 sM0-f-radius'></div>
-          </div>
-          <div class='M0-card  pr-4 mb-4'>
-            <div class='sM0-supp-1-bg w-100 h-100 sM0-f-radius'></div>
-          </div>
-          <div class='M0-card  pr-4 mb-4'>
-            <div class='sM0-supp-1-bg w-100 h-100 sM0-f-radius'></div>
-          </div>
-          <!-- last cards -->
-          <div class='M0-card-none'></div>
-          <div class='M0-card-none'></div>
-          <div class='M0-card-none'></div>
-          <div class='M0-card-none'></div>
-        </div>
+    <div class='row flex-wrap mx-0 p-0 h-100 sM0-supp-0-bg sM0-f-radius'>
+      <!-- Task Side Data -->
+      <div class="M0-mini-container-side-data h-100">
+        <app-side-content></app-side-content>
       </div>
     </div>
-    
+    <!-- Task Details --> 
+    <div class="col d-flex flex-wrap h-100 justify-content-center p-0 pt-4 pl-4">
+      <div class="container h-100">
+        <app-task-details></app-task-details>
+      </div>
+    </div>
   </div>
 </div>
