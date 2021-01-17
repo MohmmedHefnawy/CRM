@@ -20,6 +20,9 @@
 .OM-img-Plus {
   background-image: url("/assets/Icons/Plus.svg");
 }
+.OM-filter-icon {
+  background-image: url("/assets/Icons/filters.png");
+}
 .OM-Holder-search-w {
-  width: 60%;
+  width: 50%;
 }

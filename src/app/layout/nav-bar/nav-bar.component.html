@@ -1,42 +1,88 @@
 <div class='container-fluid h-100'>
-  <div class='row~ d-flex align-items-center h-100'>
-    <div class='col-m-1 mr-3'>
+  <div class=' d-flex align-items-center justify-content-between h-100'>
+    <!-- side menu Button Switcher -->
+    <div class='col-m-1 mr-3 d-lg-none d-block'>
       <!-- open Menu -->
       <i #sideMenuOpenBTN data-toggle='false' (click)="openSideMenu.emit(sideMenuOpenBTN)"
-        class='M0-open-menu-icon sM0-icon-b sM0-bg-imgs-center d-lg-none d-block M0-side-open position-relative'></i>
+        class='M0-open-menu-icon sM0-icon-b sM0-bg-imgs-center M0-side-open d-lg-none d-block position-relative'></i>
     </div>
-    <!-- -----------------------------------------------Search Bar -->
-    <div class="OM-Holder-search-w d-flex m-0">
-      <button class="sM0-btn-w-50 sM0-text-0-cr sM0-fs-15 sM0-border-none sM0-smoke-bg sM0-t-l-radius btn d-flex align-items-center justify-content-end p-0">
-        <i class="d-inline-block sM0-icon-c OM-search-icon sM0-bg-imgs-center"></i>
-      </button>
-      <input class="w-100 sM0-smoke-bg sM0-text-0-cr sM0-r-b-radius py-3 pl-3 sM0-border-none" type="search" placeholder="Search...">
+    <!-- search Bar -->
+    <div class="OM-Holder-search-w d-flex m-0 pr-md-4">
+      <!-- Larg screen search bar ( for PC and LapTops) -->
+      <div class='d-md-flex w-100 d-none'>
+        <button class="p-3 sM0-text-0-cr sM0-fs-12 sM0-border-none sM0-smoke-bg sM0-t-l-radius btn d-flex align-items-center justify-content-end p-0">
+          <i class="d-inline-block sM0-icon-c OM-search-icon sM0-bg-imgs-center"></i>
+        </button>
+        <input class="w-100 sM0-smoke-bg sM0-text-0-cr sM0-r-b-radius p-3 sM0-border-none" type="search" placeholder="Search...">
+      </div>
+      <!-- mid screen search bar ( for tablets) -->
+      <div class='d-sm-flex w-100 d-md-none d-none'>
+          <button
+            class="sM0-smoke-bg sM0-text-0-cr sM0-fs-15 sM0-smoke-bg sM0-f-radius btn sM0-btn-w-120 d-flex justify-content-center py-3 px-0">
+            <i class="d-inline-block sM0-icon-c OM-search-icon sM0-bg-imgs-center"></i>
+          </button>
+      </div>
+      <!-- Small screen search bar ( for Mobile) -->
+      <div class='d-flex w-100 d-sm-none'>
+          <button
+            class="sM0-smoke-bg sM0-text-0-cr sM0-fs-15 sM0-smoke-bg sM0-f-radius btn  d-flex justify-content-center py-3 px-3">
+            <i class="d-inline-block sM0-icon-c OM-search-icon sM0-bg-imgs-center"></i>
+          </button>
+      </div>
     </div>
-    <!-- ------------------------------------------------Status -->
-    <div class="col-5~ d-flex flex-nowrap mx-4 pr-5~">
-      <!-- In-Progress Tasks Filter -->
+    <!-- controllers -->
+    <div class="d-flex">
+      <!-- larg screen controllers ( for PC and LapTops) -->
+      <div class='d-xl-flex d-none'>
+        <!-- teams Controllers -->
+        <div class='d-flex justify-content-end align-items-end'>
+          <!-- In-Progress Tasks Filter -->
+          <button class=" mr-2 sM0-btn-w-160 sM0-text-0-cr sM0-fs-12 sM0-smoke-bg sM0-f-radius btn d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-gold-25 py-3">
+            <i class="d-inline-block sM0-icon-c OM-img-progress sM0-bg-imgs-center mr-2"></i>
+            <p class="m-0">In-Progress</p>
+          </button>
+          <!-- Assign Tasks Filter -->
+          <button class=" mx-2 sM0-btn-w-160 sM0-text-0-cr sM0-fs-12 sM0-smoke-bg sM0-f-radius btn d-flex flex-nowrap align-items-center
+          justify-content-center sM0-bg-opacity-green-25 py-3">
+            <i class="d-inline-block sM0-icon-c OM-img-Plus sM0-bg-imgs-center mr-2"></i>
+            <p class="m-0">Asign Task</p>
+          </button>
+          <!-- Report Tasks Filter -->
+          <button
+            class=" ml-2 sM0-btn-w-160 sM0-text-0-cr sM0-fs-12 sM0-smoke-bg sM0-f-radius btn d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-red-25 py-3">
+            <i class="d-inline-block sM0-icon-c OM-img-Exclamation sM0-bg-imgs-center mr-2"></i>
+            <p class="m-0">Report</p>
+          </button>
+        </div>
+      </div>
+      <!-- mid screen controllers ( for tablets) -->
+      <div class="d-sm-flex d-xl-none d-none">
+        <!-- filter menu button -->
+        <button  class="sM0-smoke-bg sM0-text-0-cr sM0-fs-15 sM0-smoke-bg sM0-f-radius btn sM0-btn-w-120 d-flex justify-content-center py-3 ml-md-4 ml-2">
+          <i class="d-inline-block sM0-icon-c OM-filter-icon sM0-bg-imgs-center"></i>
+        </button>
+      </div>
+      <!-- Small screen controllers ( for Mobile) -->
+      <div class='d-flex w-100 d-sm-none'>
+        <!-- filter menu button -->
+        <button
+          class="sM0-smoke-bg sM0-text-0-cr sM0-fs-15 sM0-smoke-bg sM0-f-radius btn  d-flex justify-content-center py-3 px-3">
+          <i class="d-inline-block sM0-icon-c OM-filter-icon sM0-bg-imgs-center"></i>
+        </button>
+      </div>
+    </div>
+    <!-- notifications -->
+    <!-- larg screen notifi ( for pc, lap, tab) -->
+    <div class="d-sm-flex d-none">
       <button
-        class="sM0-btn-w-160 sM0-text-0-cr sM0-fs-15 sM0-smoke-bg sM0-f-radius btn mx-3 d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-gold-25 py-3">
-        <i class="d-inline-block sM0-icon-c OM-img-progress sM0-bg-imgs-center mr-2"></i>
-        <p class="m-0">In-Progress</p>
-      </button>
-      <!-- Assign Tasks Filter -->
-      <button class="sM0-btn-w-160 sM0-text-0-cr sM0-fs-15 sM0-smoke-bg sM0-f-radius btn mx-3 d-flex flex-nowrap align-items-center
-      justify-content-center sM0-bg-opacity-green-25 py-3">
-        <i class="d-inline-block sM0-icon-c OM-img-Plus sM0-bg-imgs-center mr-2"></i>
-        <p class="m-0">Asign Task</p>
-      </button>
-      <!-- Report Tasks Filter -->
-      <button
-        class="sM0-btn-w-160 sM0-text-0-cr sM0-fs-15 sM0-smoke-bg sM0-f-radius btn mx-3 mr-5 d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-red-25 py-3">
-        <i class="d-inline-block sM0-icon-c OM-img-Exclamation sM0-bg-imgs-center mr-2"></i>
-        <p class="m-0">Report</p>
+        class="sM0-smoke-bg sM0-text-0-cr sM0-fs-15 sM0-smoke-bg sM0-f-radius btn sM0-btn-w-120 d-flex justify-content-center py-3 ml-md-4 ml-2">
+        <i class="d-inline-block sM0-icon-c OM-notifi-icon sM0-bg-imgs-center"></i>
       </button>
     </div>
-    <!-- -------------------------------------------------Notifi  -->
-    <div class="col-2~ d-flex sM0-f-radius mr-3">
+    <!-- small screen notifi ( for Mobile) -->
+    <div class="d-flex d-sm-none">
       <button
-        class="sM0-smoke-bg sM0-text-0-cr sM0-fs-15 sM0-smoke-bg sM0-f-radius btn sM0-btn-w-120 d-flex justify-content-center py-3 ml-5">
+        class="sM0-smoke-bg sM0-text-0-cr sM0-fs-15 sM0-smoke-bg sM0-f-radius btn d-flex justify-content-center p-3 ml-md-4 ml-2">
         <i class="d-inline-block sM0-icon-c OM-notifi-icon sM0-bg-imgs-center"></i>
       </button>
     </div>
