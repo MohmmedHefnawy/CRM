@@ -75,6 +75,9 @@ body {
 .sM0-bg-opacity-blue-25 {
   background-color: rgba(66, 168, 243, 0.25) !important;
 }
+.sM0-bg-opacity-white-5 {
+  background-color: rgba(252, 252, 252, 0.05) !important;
+}
 /* Colors */
 .sM0-main-cr {
   color: #e9c46a;
@@ -216,6 +219,10 @@ body {
   border: 0 !important;
   outline: none;
 }
+.sM0-border-3 {
+  border: solid 1px;
+  background-color: rgba(252, 252, 252, 0.05) !important;
+}
 /* .sM1-f-radius {
   border-radius: 20px;
 } */
@@ -331,12 +338,12 @@ input {
   min-width: 290px !important;
   max-width: 290px !important;
 }
-.M0-mini-card{
+.M0-mini-card {
   height: 350px;
   min-width: 260px !important;
   max-width: 260px !important;
 }
-.M0-mini-card-none{
+.M0-mini-card-none {
   min-width: 260px !important;
   max-width: 260px !important;
 }
