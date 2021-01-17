@@ -209,6 +209,9 @@ body {
 .sM0-t-l-radius {
   border-radius: 35px 0 0 35px !important;
 }
+.sM0-t-radius {
+  border-radius: 35px 0 0 0 !important;
+}
 .sM0-border-none {
   border: 0 !important;
   outline: none;
@@ -306,6 +309,10 @@ input {
 }
 .M0-card {
   height: 385px;
+  min-width: 290px !important;
+  max-width: 290px !important;
+}
+.M0-mini-container-side-data {
   min-width: 290px !important;
   max-width: 290px !important;
 }

@@ -7,10 +7,11 @@ import { LayoutComponent } from './layout.component';
 // modules
 import { UserModule }  from '../user/user.module';
 import { SideMenuComponent } from './side-menu/side-menu.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component'
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MiniContainerComponent } from './mini-container/mini-container.component'
 
 @NgModule({
-  declarations: [MasterContainerComponent, LayoutComponent, SideMenuComponent, NavBarComponent],
+  declarations: [MasterContainerComponent, LayoutComponent, SideMenuComponent, NavBarComponent, MiniContainerComponent],
   exports: [NavBarComponent, SideMenuComponent, MasterContainerComponent, LayoutComponent],
   imports: [
     CommonModule,
