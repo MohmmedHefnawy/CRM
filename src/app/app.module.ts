@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 // Module
 import { UserModule } from './user/user.module'
 import { LayoutModule } from './layout/layout.module'
+import { TaskModule } from './task/task.module'
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,7 +16,7 @@ import { LayoutModule } from './layout/layout.module'
     BrowserModule,
     AppRoutingModule,
     UserModule,
-    LayoutModule
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

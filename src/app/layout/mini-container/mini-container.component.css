@@ -1,14 +1,5 @@
 /* Profile Information */
 /* Cards */
-.OM-img-src {
-  background-image: url("/assets/Home/Home.jpg");
-}
-.OM-img-Locationgold {
-  background-image: url("/assets/Icons/Locationgold.svg");
-}
-.OM-img-call {
-  background-image: url("/assets/Icons/Call.svg");
-}
 .OM-scroller {
   overflow-y: scroll !important;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-side-menu',
@@ -8,6 +8,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SideMenuComponent implements OnInit {
   @Output() toggelSideMenu = new EventEmitter();
   @Output() openSideMenu = new EventEmitter();
+  // vars
+  innerSideMenuData
+  // @ViewChild("sideMenuBTN") sideMenuBTN: ElementRef;
   constructor() { }
   ngOnInit(): void {
     let holderWindowSize = (holder) => {// [?] holder is the selected holder <div> fo the component
@@ -35,5 +38,16 @@ export class SideMenuComponent implements OnInit {
     holderWindowSize('#sideMenuHolder')
   }
   // [#] COntrollers
+  checkDataToggle(elem){
+    switch (elem.getAttribute('data-toggle')){
+      case "true":
+        this.innerSideMenuData = true
+        break
+      case "false":
+        this.innerSideMenuData = false
+    }
+    
+    
+  }
   // [#] HTTP REQs
 }

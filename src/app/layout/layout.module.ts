@@ -9,6 +9,7 @@ import { UserModule }  from '../user/user.module';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MiniContainerComponent } from './mini-container/mini-container.component'
+import { TaskModule } from '../task/task.module'
 
 @NgModule({
   declarations: [MasterContainerComponent, LayoutComponent, SideMenuComponent, NavBarComponent, MiniContainerComponent],
@@ -16,7 +17,8 @@ import { MiniContainerComponent } from './mini-container/mini-container.componen
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    UserModule
+    UserModule,
+    TaskModule
   ]
 })
 export class LayoutModule { }
