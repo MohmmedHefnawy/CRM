@@ -195,6 +195,10 @@ body {
 /* Radius Rounded === END */
 
 /* radius ===START*/
+.sM0-f-radius-dotted {
+  border: #5cbb5c dashed 4px;
+  border-radius: 35px !important;
+}
 .sM0-f-radius {
   border-radius: 35px !important;
 }
