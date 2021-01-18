@@ -94,8 +94,6 @@
 }
 .M0-profile-card {
   height: 385px;
-  /* min-width: 580px !important;
-  max-width: 580px !important; */
 }
 /* Scroller */
 
@@ -113,17 +111,14 @@
   text-overflow: ellipsis;
   /* max-width: 500px; */
 }
-
-@media (max-width: 1500px) {
-  .OM-Holder-Taskes-Stat {
-    display: flex !important;
-    flex-wrap: wrap !important;
-  }
-  .OM-Holder-Taskes-Stratch {
-    display: flex !important;
-    flex-direction: row !important;
-  }
-  .OM-Holder-w {
-    width: 100% !important;
+.M0-card-for-status{
+  height: 193px;
+  width: 100%;
+}
+@media (min-width: 1200px) { 
+  .M0-card-for-status{
+  height: 385px;
+  min-width: 290px !important;
+  max-width: 290px !important;
   }
 }
