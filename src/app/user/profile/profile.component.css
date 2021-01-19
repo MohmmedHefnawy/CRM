@@ -73,6 +73,9 @@
   background-image: url("/assets/Profile/profile1.jpg");
   border: 3px solid #e9c46a;
 }
+.OM-img-acc {
+  background-image: url("/assets/Profile/profile1.jpg");
+}
 .OM-img-location {
   background-image: url("/assets/Icons/Location.svg");
 }
@@ -96,21 +99,6 @@
   height: 385px;
 }
 /* Scroller */
-
-.Content {
-  /* height: 224px;
-  overflow: auto; */
-  /* overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 8;
-  -webkit-box-orient: vertical; */
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 8;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  /* max-width: 500px; */
-}
 .M0-card-for-status{
   height: 193px;
   width: 100%;
@@ -122,3 +110,14 @@
   max-width: 290px !important;
   }
 }
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) { 
+  .M0-card-for-status{
+    height: 385px;
+    min-width: 290px !important;
+    max-width: 290px !important;
+  }
+ }
+ .M0-border-black{
+  border: 2px solid rgba(20, 20, 20, .8) !important;
+ }

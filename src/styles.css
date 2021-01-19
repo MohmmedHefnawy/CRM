@@ -258,16 +258,45 @@ input {
 }
 /* elements ===END */
 /* Font === START */
-
-.sM0-fs-18 {
-  font-size: 18px !important;
+* {
+    font-family: "Roboto";
+    font-weight: 400;
+  }
+  @font-face {
+  font-family: 'digital-7';
+  src: url('assets/fonts/digital_7/digital-7.ttf');
 }
+.sM0-font-clock{
+  font-family: "digital-7";
+}
+/* .sM0-fs-18 {
+  font-size: 18px !important;
+} */
+/* head lines */
+.sM0-fs-24 {
+  font-size: 24px !important;
+}
+.sM0-fs-b-24 {
+  font-size: 24px !important;
+  font-weight: 700;
+}
+/* sub head lines */
 .sM0-fs-16 {
   font-size: 16px !important;
 }
+.sM0-fs-b-16 {
+  font-size: 16px !important;
+  font-weight: 700;
+}
+/* mid text */
 .sM0-fs-12 {
   font-size: 12px !important;
 }
+.sM0-fs-mid-b-12 {
+  font-size: 12px !important;
+  font-weight: 500;
+}
+/* small text */
 .sM0-fs-10 {
   font-size: 10px !important;
 }
@@ -279,19 +308,22 @@ input {
 }
 .sM0-btn-w-160 {
   width: 160px !important;
+  height: 40px !important;
 }
 .sM0-btn-w-120 {
   width: 120px !important;
 }
 .sM0-btn-w-100 {
   width: 100px !important;
+   height: 40px !important;
 }
 .sM0-btn-w-65 {
   width: 65px !important;
+   height: 40px !important;
 }
-.sM0-btn-w-160 {
+/* .sM0-btn-w-160 {
   min-width: 160px !important;
-}
+} */
 /* BUTTONS ===END */
 /* .sM0- */
 /* SIZES ===END  */
@@ -306,6 +338,9 @@ input {
 }
 .sM0-inp-a {
   height: 60px !important;
+}
+.sM0-inp-b{
+  height: 40px !important;
 }
 
 /* FORM ===END */
