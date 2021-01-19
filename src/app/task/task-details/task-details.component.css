@@ -7,6 +7,32 @@
 .OM-img-src {
   background-image: url("/assets/Home/Home.jpg");
 }
+.OM-img-profile {
+  background-image: url("/assets/Profile/profile1.jpg");
+}
+/* Status Cards === START */
+.OM-img-inprogress {
+  background-image: url("/assets/Icons/Inprogress.svg");
+}
+.OM-img-propertystatus {
+  background-image: url("/assets/Icons/propertystatus.svg");
+}
+.OM-img-rightwhite {
+  background-image: url("/assets/Icons/rightwhite.svg");
+}
+.OM-img-user {
+  background-image: url("/assets/Icons/User.svg");
+}
+.OM-img-plus {
+  background-image: url("/assets/Icons/Plus.svg");
+}
+.OM-img-design {
+  background-image: url("/assets/Icons/Design.svg");
+}
+.OM-img-moderat {
+  background-image: url("/assets/Icons/Moderat.svg");
+}
+/* END */
 /* Progress Bar */
 .OM-border-Progress {
   border-color: rgba(233, 196, 106, 0.9) !important;

@@ -78,6 +78,12 @@ body {
 .sM0-bg-opacity-white-5 {
   background-color: rgba(252, 252, 252, 0.05) !important;
 }
+.sM0-bg-opacity-green-5 {
+  background-color: rgba(92, 184, 92, 0.5) !important;
+}
+.sM0-bg-opacity-supp-1-5 {
+  background-color: rgba(20, 20, 20, 0.5) !important;
+}
 /* Colors */
 .sM0-main-cr {
   color: #e9c46a;
