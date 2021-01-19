@@ -264,14 +264,18 @@ input {
 }
 /* elements ===END */
 /* Font === START */
-* {
-    font-family: "Roboto";
-    font-weight: 400;
-  }
   @font-face {
   font-family: 'digital-7';
   src: url('assets/fonts/digital_7/digital-7.ttf');
 }
+  @font-face {
+  font-family: 'RobotoIn';
+  src: url('assets/fonts/Roboto/Roboto-Medium.ttf');
+}
+* {
+    font-family: "Roboto" " RobotoIn";
+    font-weight: 400;
+  }
 .sM0-font-clock{
   font-family: "digital-7";
 }
