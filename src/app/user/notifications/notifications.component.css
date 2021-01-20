@@ -13,3 +13,20 @@
 .OM-img-profile {
   background-image: url("/assets/Profile/profile1.jpg");
 }
+
+.M0-card-full-w{
+  height: 168px;
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 768px) { 
+  .M0-card-full-w{
+    /* height: 385px; */
+    height: auto;
+  }
+  .OM-icon-holder {
+    width: 100%;
+  }
+  .sM0-t-l-radius{
+    border-radius: 35px 35px 0 0 !important;
+  }
+ }
