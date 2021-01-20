@@ -322,6 +322,7 @@ input {
 }
 .sM0-btn-w-120 {
   width: 120px !important;
+  height:50px;
 }
 .sM0-btn-w-100 {
   width: 100px !important;
@@ -330,6 +331,12 @@ input {
 .sM0-btn-w-65 {
   width: 65px !important;
    height: 40px !important;
+}
+.sM0-inp-h-40{
+  height: 40px !important;
+}
+.sM0-inp-h-50{
+  height: 50px !important;
 }
 /* .sM0-btn-w-160 {
   min-width: 160px !important;
