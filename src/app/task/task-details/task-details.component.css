@@ -32,10 +32,28 @@
 .OM-img-moderat {
   background-image: url("/assets/Icons/Moderat.svg");
 }
+.OM-img-upload {
+  background-image: url("/assets/Icons/Upload.svg");
+}
+.OM-img-edit {
+  background-image: url("/assets/Icons/Edit.svg");
+}
+.OM-img-star {
+  background-image: url("/assets/Icons/Star.svg");
+}
+.OM-img-trash {
+  background-image: url("/assets/Icons/Trash.svg");
+}
+.OM-img-uploadimage {
+  background-image: url("/assets/Icons/Uploadimage.svg");
+}
 /* END */
 /* Progress Bar */
 .OM-border-Progress {
   border-color: rgba(233, 196, 106, 0.9) !important;
+}
+.OM-border-Progress-green {
+  border-color: rgba(92, 184, 92, 0.5) !important;
 }
 .progress {
   width: 100px;

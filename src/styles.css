@@ -264,19 +264,19 @@ input {
 }
 /* elements ===END */
 /* Font === START */
-  @font-face {
-  font-family: 'digital-7';
-  src: url('assets/fonts/digital_7/digital-7.ttf');
+@font-face {
+  font-family: "digital-7";
+  src: url("assets/fonts/digital_7/digital-7.ttf");
 }
-  @font-face {
-  font-family: 'RobotoIn';
-  src: url('assets/fonts/Roboto/Roboto-Medium.ttf');
+@font-face {
+  font-family: "RobotoIn";
+  src: url("assets/fonts/Roboto/Roboto-Medium.ttf");
 }
 * {
-    font-family: "Roboto" " RobotoIn";
-    font-weight: 400;
-  }
-.sM0-font-clock{
+  font-family: "Roboto" " RobotoIn";
+  font-weight: 400;
+}
+.sM0-font-clock {
   font-family: "digital-7";
 }
 /* .sM0-fs-18 {
@@ -325,11 +325,11 @@ input {
 }
 .sM0-btn-w-100 {
   width: 100px !important;
-   height: 40px !important;
+  height: 40px !important;
 }
 .sM0-btn-w-65 {
   width: 65px !important;
-   height: 40px !important;
+  height: 40px !important;
 }
 /* .sM0-btn-w-160 {
   min-width: 160px !important;
@@ -349,7 +349,7 @@ input {
 .sM0-inp-a {
   height: 60px !important;
 }
-.sM0-inp-b{
+.sM0-inp-b {
   height: 40px !important;
 }
 
@@ -395,6 +395,11 @@ input {
   height: 350px;
   min-width: 260px !important;
   max-width: 260px !important;
+}
+.M0-micro-card {
+  height: 163px;
+  /* min-width: 260px !important;
+  max-width: 260px !important; */
 }
 .M0-mini-card-none {
   min-width: 260px !important;
