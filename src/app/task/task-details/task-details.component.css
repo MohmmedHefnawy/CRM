@@ -47,6 +47,9 @@
 .OM-img-uploadimage {
   background-image: url("/assets/Icons/Uploadimage.svg");
 }
+.OM-img-plusblack {
+  background-image: url("/assets/Icons/Plusblack.svg");
+}
 /* ! Start C.M. Location -1  */
 .OM-img-size {
   background-image: url("/assets/Icons/Size.svg");
@@ -60,26 +63,26 @@
 .OM-img-bedrooms {
   background-image: url("/assets/Icons/Bedrooms.svg");
 }
-.OM-img-Bathrooms {
-  background-image: url("/assets/Icons/Badrooms.svg");
+.OM-img-bathrooms {
+  background-image: url("/assets/Icons/Bathrooms.svg");
 }
 .OM-img-garage {
-  background-image: url("/assets/Icons/Garage.svg");
+  background-image: url("/assets/Icons/Garages.svg");
 }
-.OM-img-date {
-  background-image: url("/assets/Icons/Date.svg");
+.OM-img-calender {
+  background-image: url("/assets/Icons/Calender.svg");
 }
-.OM-img-uploadimage {
-  background-image: url("/assets/Icons/Uploadimage.svg");
+.OM-img-floors {
+  background-image: url("/assets/Icons/Floors.svg");
 }
-.OM-img-uploadimage {
-  background-image: url("/assets/Icons/Uploadimage.svg");
+.OM-img-rent {
+  background-image: url("/assets/Icons/Rent.svg");
 }
-.OM-img-uploadimage {
-  background-image: url("/assets/Icons/Uploadimage.svg");
+.OM-img-area {
+  background-image: url("/assets/Icons/Area.svg");
 }
-.OM-img-uploadimage {
-  background-image: url("/assets/Icons/Uploadimage.svg");
+.OM-img-callwhite {
+  background-image: url("/assets/Icons/callwhite.svg");
 }
 .OM-img-uploadimage {
   background-image: url("/assets/Icons/Uploadimage.svg");
