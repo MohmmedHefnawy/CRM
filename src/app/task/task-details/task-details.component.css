@@ -87,6 +87,9 @@
 .OM-img-uploadimage {
   background-image: url("/assets/Icons/Uploadimage.svg");
 }
+.OM-img-rightgreen {
+  background-image: url("/assets/Icons/Right.svg");
+}
 /* ! End C.M. Location -1  */
 /* END */
 /* Progress Bar */

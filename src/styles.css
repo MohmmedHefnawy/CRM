@@ -51,6 +51,9 @@ body {
 .sM0-bg-opacity-green-90 {
   background-color: rgba(92, 184, 92, 0.9) !important;
 }
+.sM0-bg-opacity-gold-90 {
+  background-color: rgba(233, 196, 106, 0.9) !important;
+}
 .sM0-bg-opacity-gray-90 {
   background-color: rgba(20, 20, 20, 0.9) !important;
 }
@@ -80,6 +83,9 @@ body {
 }
 .sM0-bg-opacity-green-5 {
   background-color: rgba(92, 184, 92, 0.5) !important;
+}
+.sM0-bg-opacity-gold-5 {
+  background-color: rgba(233, 196, 106, 0.5) !important;
 }
 .sM0-bg-opacity-supp-1-5 {
   background-color: rgba(20, 20, 20, 0.5) !important;
