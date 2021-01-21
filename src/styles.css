@@ -113,9 +113,8 @@ body {
   background-position: center !important;
   background-size: cover !important;
 }
-.sM0-img-double-a {
+.sM0-img-aa {
   width: 240px !important;
-  height: 140px !important;
 }
 .sM0-img-a {
   width: 120px !important;
@@ -128,6 +127,10 @@ body {
 .sM0-img-c {
   width: 60px !important;
   height: 60px !important;
+}
+.sM0-img-d {
+  width: 30px !important;
+  height: 30px !important;
 }
 /* BACKGROUND IMAGES ===END */
 
