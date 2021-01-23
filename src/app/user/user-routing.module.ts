@@ -11,7 +11,7 @@ import { ChangePasswordComponent } from './settings/change-password/change-passw
 import { ContactComponent } from './settings/contact/contact.component';
 const routes: Routes = [
   { path: 'user', redirectTo: 'user/profile', pathMatch: 'full' }, // redirect to `profile`
-  { path: 'user/setting', redirectTo: 'user/setting/personal-info', pathMatch: 'full' }, // redirect to `profile`
+  { path: 'user/settings', redirectTo: 'user/settings/personal-info', pathMatch: 'full' }, // redirect to `profile`
   {
     path: 'user', component: UserComponent,
     children: [
@@ -19,7 +19,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       {path : 'notifi', component : NotificationsComponent},
       { path : 'create-account', component : CreateAccountComponent},
-      { path : 'setting' , component : SettingsComponent,
+      { path : 'settings' , component : SettingsComponent,
        children: [
         { path : 'personal-info' , component : PersonalInfoComponent},
         { path : 'change-password' , component : ChangePasswordComponent},
