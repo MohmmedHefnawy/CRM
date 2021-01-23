@@ -90,6 +90,9 @@
 .OM-img-rightgreen {
   background-image: url("/assets/Icons/Right.svg");
 }
+.OM-img-icon {
+  background-image: url("/assets/Icons/Icon.svg");
+}
 /* ! End C.M. Location -1  */
 /* END */
 /* Progress Bar */
