@@ -90,8 +90,14 @@
 .OM-img-rightgreen {
   background-image: url("/assets/Icons/Right.svg");
 }
+.OM-img-play {
+  background-image: url("/assets/Icons/Play.svg");
+}
 .OM-img-icon {
   background-image: url("/assets/Icons/Icon.svg");
+}
+.OM-img-youtube {
+  background-image: url("/assets/Icons/Youtube.svg");
 }
 /* ! End C.M. Location -1  */
 /* END */
