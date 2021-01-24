@@ -1,0 +1,10 @@
+.OM-icon-inprogress {
+  background-image: url("/assets/Icons/Inprogress.svg");
+}
+.OM-icon-plus {
+  background-image: url("/assets/Icons/Plus.svg");
+}
+.OM-uer-tag {
+  /* min-width: 260px; */
+  width: 33%;
+}
