@@ -281,6 +281,7 @@ a {
 }
 input {
   border: 0 !important;
+  outline: none;
 }
 /* elements ===END */
 /* Font === START */
