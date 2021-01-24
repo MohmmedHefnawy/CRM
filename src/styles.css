@@ -420,17 +420,17 @@ input {
 }
 .M0-mini-card {
   height: 350px;
-  min-width: 260px !important;
-  max-width: 260px !important;
+  min-width: 255px !important;
+  max-width: 255px !important;
 }
 .M0-micro-card {
   height: 163px;
-  /* min-width: 260px !important;
-  max-width: 260px !important; */
+  /* min-width: 255px !important;
+  max-width: 255px !important; */
 }
 .M0-mini-card-none {
-  min-width: 260px !important;
-  max-width: 260px !important;
+  min-width: 255px !important;
+  max-width: 255px !important;
 }
 .M0-comment-tag {
   min-width: 200px !important;

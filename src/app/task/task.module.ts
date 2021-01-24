@@ -11,10 +11,13 @@ import { DesignersPanelComponent } from './task-details/designers-panel/designer
 import { ContentPanelComponent } from './task-details/content-panel/content-panel.component';
 import { ActivitiesComponent } from './task-details/activities/activities.component';
 import { TeamStatusComponent } from './task-details/team-status/team-status.component';
+import { DetailsComponent } from './task-details/content-panel/details/details.component';
+import { AmenitiesComponent } from './task-details/content-panel/amenities/amenities.component';
+import { MediaComponent } from './task-details/content-panel/media/media.component';
 
 
 @NgModule({
-  declarations: [TaskComponent, SideContentComponent, TaskDetailsComponent, DashBoardComponent, PhotographerPanelComponent, DesignersPanelComponent, ContentPanelComponent, ActivitiesComponent, TeamStatusComponent],
+  declarations: [TaskComponent, SideContentComponent, TaskDetailsComponent, DashBoardComponent, PhotographerPanelComponent, DesignersPanelComponent, ContentPanelComponent, ActivitiesComponent, TeamStatusComponent, DetailsComponent, AmenitiesComponent, MediaComponent],
   exports: [SideContentComponent, TaskDetailsComponent, TaskComponent],
   imports: [
     CommonModule,
