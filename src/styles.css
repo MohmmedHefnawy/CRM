@@ -432,6 +432,10 @@ input {
   min-width: 260px !important;
   max-width: 260px !important;
 }
+.M0-comment-tag {
+  min-width: 200px !important;
+  max-width: 260px !important;
+}
 .grid {
   display: flex;
   flex-flow: row wrap;

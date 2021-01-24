@@ -50,6 +50,12 @@
 .OM-img-plusblack {
   background-image: url("/assets/Icons/Plusblack.svg");
 }
+.OM-img-usertagcomment {
+  background-image: url("/assets/Icons/Usertagcomment.svg");
+}
+.OM-img-camera {
+  background-image: url("/assets/Icons/Camera.svg");
+}
 /* ! Start C.M. Location -1  */
 .OM-img-size {
   background-image: url("/assets/Icons/Size.svg");
