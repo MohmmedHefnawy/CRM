@@ -5,6 +5,9 @@
 .OM-img-src {
   background-image: url("/assets/Home/Home.jpg");
 }
+.Mo-acc-manager-img{
+  background-image: url("/assets/Profile/profile1.jpg");
+}
 .OM-img-Locationgold {
   background-image: url("/assets/Icons/Locationgold.svg");
 }
@@ -17,4 +20,7 @@
 .OM-property-img {
   min-height: 150px !important;
   max-height: 150px !important;
+}
+.M0-hr{
+  width: 30px;
 }
