@@ -5,11 +5,17 @@ import { TaskRoutingModule } from './task-routing.module';
 import { TaskComponent } from './task.component';
 import { SideContentComponent } from './side-content/side-content.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
+import { DashBoardComponent } from './task-details/dash-board/dash-board.component';
+import { PhotographerPanelComponent } from './task-details/photographer-panel/photographer-panel.component';
+import { DesignersPanelComponent } from './task-details/designers-panel/designers-panel.component';
+import { ContentPanelComponent } from './task-details/content-panel/content-panel.component';
+import { ActivitiesComponent } from './task-details/activities/activities.component';
+import { TeamStatusComponent } from './task-details/team-status/team-status.component';
 
 
 @NgModule({
-  declarations: [TaskComponent, SideContentComponent, TaskDetailsComponent],
-  exports: [SideContentComponent, TaskDetailsComponent],
+  declarations: [TaskComponent, SideContentComponent, TaskDetailsComponent, DashBoardComponent, PhotographerPanelComponent, DesignersPanelComponent, ContentPanelComponent, ActivitiesComponent, TeamStatusComponent],
+  exports: [SideContentComponent, TaskDetailsComponent, TaskComponent],
   imports: [
     CommonModule,
     TaskRoutingModule

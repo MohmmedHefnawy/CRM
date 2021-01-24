@@ -3,12 +3,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 // modules
-import { UserModule } from '../user/user.module'
-import { UserRoutingModule } from '../user/user-routing.module';
-import { MasterContainerComponent } from './master-container/master-container.component'
+import { MasterContainerComponent } from './master-container/master-container.component';
 const routes: Routes = [
+  { path: 'task', redirectTo: 'task/details/dashBoard', pathMatch: 'full' }, // redirect to `profile`
   { path: 'mrcontainer', component: MasterContainerComponent },
-  { path: 'mini-container', component: MiniContainerComponent }
+  { path: 'task', component: MiniContainerComponent, 
+    children:  [
+      { path: '', loadChildren: () => import('../task/task.module').then(m => m.TaskModule)}
+    ]
+ }
 ];
 
 @NgModule({
