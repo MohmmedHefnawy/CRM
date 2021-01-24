@@ -8,11 +8,13 @@ import { DashBoardComponent } from './task-details/dash-board/dash-board.compone
 import { DesignersPanelComponent } from './task-details/designers-panel/designers-panel.component';
 import { PhotographerPanelComponent } from './task-details/photographer-panel/photographer-panel.component';
 import { TaskDetailsComponent } from './task-details/task-details.component'
+import { TeamStatusComponent } from './task-details/team-status/team-status.component';
 import { TaskComponent } from './task.component';
 const routes: Routes = [
   { path: 'details', component: TaskComponent,
   children:  [
     { path: 'dashBoard', component: DashBoardComponent },
+    { path: 'teamstatus', component: TeamStatusComponent },
     { path: 'photographer', component: PhotographerPanelComponent },
     { path: 'designer', component: DesignersPanelComponent },
     { path: 'content', component: ContentPanelComponent, 

@@ -6,6 +6,7 @@ import { LayoutComponent } from './layout.component';
 import { MasterContainerComponent } from './master-container/master-container.component';
 const routes: Routes = [
   { path: 'task', redirectTo: 'task/details/dashBoard', pathMatch: 'full' }, // redirect to `profile`
+  { path: 'task/details', redirectTo: 'task/details/dashBoard', pathMatch: 'full' }, // redirect to `profile`
   { path: 'mrcontainer', component: MasterContainerComponent },
   { path: 'task', component: MiniContainerComponent, 
     children:  [
