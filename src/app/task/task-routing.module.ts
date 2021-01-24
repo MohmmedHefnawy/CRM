@@ -11,6 +11,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component'
 import { TeamStatusComponent } from './task-details/team-status/team-status.component';
 import { TaskComponent } from './task.component';
 const routes: Routes = [
+  { path: 'details', redirectTo: 'task/details/dashBoard', pathMatch: 'full' }, // redirect to `profile`
   { path: 'details', component: TaskComponent,
   children:  [
     { path: 'dashBoard', component: DashBoardComponent },

@@ -14,6 +14,9 @@
 .OM-img-inprogress {
   background-image: url("/assets/Icons/Inprogress.svg");
 }
+.OM-img-link {
+  background-image: url("/assets/Icons/link.svg");
+}
 .OM-img-propertystatus {
   background-image: url("/assets/Icons/propertystatus.svg");
 }
@@ -46,6 +49,9 @@
 }
 .OM-img-uploadimage {
   background-image: url("/assets/Icons/Uploadimage.svg");
+}
+.OM-img-uploadimage-white {
+  background-image: url("/assets/Icons/Uploadimagewhite.svg");
 }
 .OM-img-plusblack {
   background-image: url("/assets/Icons/Plusblack.svg");
