@@ -1,1 +1,4 @@
-<app-layout></app-layout>
+<!-- content pages -->
+<app-layout *ngIf='authService.isLoggedIn()'></app-layout>
+<!-- login page -->
+<router-outlet *ngIf='!authService.isLoggedIn()'></router-outlet>
