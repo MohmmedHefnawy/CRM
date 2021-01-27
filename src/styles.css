@@ -60,6 +60,9 @@ body {
 .sM0-bg-opacity-red-90 {
   background-color: rgba(208, 85, 85, 0.9) !important;
 }
+.sM0-bg-opacity-dark-90 {
+  background-color: rgba(29, 29, 29, 0.9) !important;
+}
 .sM0-bg-opacity-white-25 {
   background-color: rgba(252, 252, 252, 0.25) !important;
 }
@@ -81,8 +84,14 @@ body {
 .sM0-bg-opacity-red-5 {
   background-color: rgba(208, 85, 85, 0.5) !important;
 }
+.sM0-bg-opacity-gray-5 {
+  background-color: rgba(20, 20, 20, 0.5) !important;
+}
 .sM0-bg-opacity-white-5 {
   background-color: rgba(252, 252, 252, 0.05) !important;
+}
+.sM0-bg-opacity-green-05 {
+  background-color: rgba(92, 184, 92, 0.05) !important;
 }
 .sM0-bg-opacity-green-5 {
   background-color: rgba(92, 184, 92, 0.5) !important;
@@ -110,7 +119,7 @@ body {
   color: #d05555 !important;
 }
 .sM0-green-cr {
-  color: #5cbb5c;
+  color: #5cbb5c !important;
 }
 /* COLORS ===END */
 
@@ -230,6 +239,12 @@ body {
 }
 .sM0-l-radius {
   border-radius: 0 0 0 35px;
+}
+.sM0-r-radius {
+  border-radius: 0 35px 0 0;
+}
+.sM0-b-radius {
+  border-radius: 0 0 35px 0;
 }
 .sM0-t-r-radius {
   border-radius: 35px 35px 0 0;
@@ -351,6 +366,10 @@ input {
 }
 .sM0-btn-w-65 {
   width: 65px !important;
+  height: 40px !important;
+}
+.sM0-btn-w-58 {
+  width: 58px !important;
   height: 40px !important;
 }
 .sM0-inp-h-40 {

@@ -1,8 +1,51 @@
+@import "../task-details.component.css";
+.OM-img-profile {
+  background-image: url("/assets/Profile/profile1٢.jpg");
+}
 .OM-icon-inprogress {
   background-image: url("/assets/Icons/Inprogress.svg");
 }
+.OM-icon-inprogressred {
+  background-image: url("/assets/Icons/Inprogressred.svg");
+}
+.OM-icon-designwhite {
+  background-image: url("/assets/Icons/Designwhite.svg");
+}
+.OM-icon-rightgreen {
+  background-image: url("/assets/Icons/Rightgreen.svg");
+}
+.OM-icon-timergold {
+  background-image: url("/assets/Icons/Timergold.svg");
+}
+.OM-icon-exclamationgold {
+  background-image: url("/assets/Icons/Exclamationgold.svg");
+}
+.OM-icon-exclamation {
+  background-image: url("/assets/Icons/Exclamation.svg");
+}
+.OM-icon-rightred {
+  background-image: url("/assets/Icons/Rightred.svg");
+}
 .OM-icon-plus {
   background-image: url("/assets/Icons/Plus.svg");
+}
+.OM-icon-flaggreen {
+  background-image: url("/assets/Icons/Flaggreen.svg");
+}
+.OM-icon-alarm {
+  background-image: url("/assets/Icons/Alarm.svg");
+}
+.OM-icon-alarmred {
+  background-image: url("/assets/Icons/alarmRed.svg");
+}
+.OM-icon-alarmgreen {
+  background-image: url("/assets/Icons/Alarmgreen.svg");
+}
+.OM-icon-alarmgold {
+  background-image: url("/assets/Icons/Alarmgold.svg");
+}
+.OM-icon-flagred {
+  background-image: url("/assets/Icons/Flagred.svg");
 }
 .OM-uer-tag {
   /* min-width: 260px; */
