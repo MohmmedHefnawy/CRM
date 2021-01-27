@@ -10,6 +10,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MiniContainerComponent } from './mini-container/mini-container.component'
 import { TaskModule } from '../task/task.module'
+import { SharedModule } from '../shared/shared.module'
 
 @NgModule({
   declarations: [MasterContainerComponent, LayoutComponent, SideMenuComponent, NavBarComponent, MiniContainerComponent],
@@ -18,7 +19,8 @@ import { TaskModule } from '../task/task.module'
     CommonModule,
     LayoutRoutingModule,
     UserModule,
-    TaskModule
+    TaskModule,
+    SharedModule
   ]
 })
 export class LayoutModule { }

@@ -1,6 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 /* ? Style flags = sM0- */
-
+*{
+  outline: none  !important;
+  box-shadow: none  !important;
+}
+*:focus {
+    outline: none !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
 body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -272,9 +280,6 @@ body {
 
 /* elements ===START */
 /* Standers In All Pages */
-i {
-  cursor: pointer;
-}
 a {
   cursor: pointer;
   text-decoration: none !important;
@@ -282,6 +287,12 @@ a {
 input {
   border: 0 !important;
   outline: none;
+}
+input:focus {
+    outline:none;
+}
+.sM0-click{
+  cursor: pointer !important;
 }
 /* elements ===END */
 /* Font === START */

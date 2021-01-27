@@ -9,9 +9,11 @@ import { SettingsComponent } from './settings/settings.component';
 import { PersonalInfoComponent } from './settings/personal-info/personal-info.component';
 import { ChangePasswordComponent } from './settings/change-password/change-password.component';
 import { ContactComponent } from './settings/contact/contact.component';
+import { AuthGuard } from '../auth/components/auth/auth.guard';
 const routes: Routes = [
   { path: 'user', redirectTo: 'user/profile', pathMatch: 'full' }, // redirect to `profile`
   { path: 'user/settings', redirectTo: 'user/settings/personal-info', pathMatch: 'full' }, // redirect to `profile`
+  { path: '', redirectTo: 'user/profile', pathMatch: 'full'},
   {
     path: 'user', component: UserComponent,
     children: [
@@ -25,7 +27,7 @@ const routes: Routes = [
         { path : 'change-password' , component : ChangePasswordComponent},
         { path : 'contact' , component : ContactComponent}
       ]},
-    ]
+    ], canActivate: [AuthGuard]
   },
 ];
 

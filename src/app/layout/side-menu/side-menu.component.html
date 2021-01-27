@@ -5,49 +5,49 @@
             <!-- Small sideMenu button -->
             <!-- open Menu -->
             <i #sideMenuOpenBTN data-toggle='true' (click)="openSideMenu.emit([sideMenuOpenBTN, conditionI]); checkDataToggle(conditionI)"
-                class='M0-open-menu-icon sM0-icon-b sM0-bg-imgs-center align-self-center d-xl-none d-lg-block d-none position-absolute M0-side-open'></i>
+                class='sM0-click M0-open-menu-icon sM0-icon-b sM0-bg-imgs-center align-self-center d-xl-none d-lg-block d-none position-absolute M0-side-open'></i>
             <!-- larg sideMenu arrow -->
             <!-- Arrow icon -->
             <i #sideMenuBTN (click)="toggelSideMenu.emit([sideMenuBTN,conditionI]); checkDataToggle(conditionI)"
-                class='M0-arrow-in-icon sM0-icon-b sM0-bg-imgs-center align-self-center d-xl-block d-none position-absolute M0-side-arrow'></i>
+                class='sM0-click M0-arrow-in-icon sM0-icon-b sM0-bg-imgs-center align-self-center d-xl-block d-none position-absolute M0-side-arrow'></i>
             <!-- condition icon  for  data toggle -->
             <i  id='conditionIBTN' #conditionI data-toggle='false'></i>
             <!-- (Open)  Side-Menu Information -->
             <div class="w-100 mt-5 flex-column justify-content-between overflow-auto" [class.d-none]='innerSideMenuData' [class.d-flex]='!innerSideMenuData'>
                 <!-- Profile Info -->
                 <div class="h-50">
-                    <div class="w-100 d-flex justify-content-center p-xl-2 p-4">
-                        <i class="OM-img-profile1 sM0-bg-imgs-center sM0-img-b sM0-f-radius d-inline-block"></i>
+                    <div routerLink="/user/profile" class="w-100 d-flex justify-content-center p-xl-2 p-4">
+                        <i class="sM0-click OM-img-profile1 sM0-bg-imgs-center sM0-img-b sM0-f-radius d-inline-block"></i>
                     </div>
                     <div class="text-center">
-                        <p class="sM0-main-cr sM0-fs-b-24">Name Surname </p>
+                        <p routerLink="/user/profile" class="sM0-click sM0-main-cr sM0-fs-b-24">Name Surname </p>
                         <p class="sM0-text-0-cr m-0 sM0-fs-16">Project Manager </p>
                     </div>
                 </div>
                 <!-- navigations  -->
                 <div class="flex-column align-items-start mt-5">
                     <!-- Profile Line -->
-                    <button class="btn py-0 mb-5 d-flex justify-content-center">
+                    <button routerLink="/user/profile" class="btn py-0 mb-5 d-flex justify-content-center">
                         <i class="OM-img-profile sM0-icon-c sM0-bg-imgs-center mr-3"></i>
                         <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-16">Profile</p>
                     </button>
                     <!-- Teams Line -->
-                    <button class="btn py-0 mb-5 d-flex justify-content-center">
+                    <button routerLink="/user/teams" class="btn py-0 mb-5 d-flex justify-content-center">
                         <i class="OM-img-team sM0-icon-c sM0-bg-imgs-center mr-3"></i>
                         <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-16">Teams</p>
                     </button>
                     <!-- Notification Line -->
-                    <button class="btn py-0 mb-5 d-flex justify-content-center">
+                    <button routerLink="/user/notifi" class="btn py-0 mb-5 d-flex justify-content-center">
                         <i class="OM-img-notification sM0-icon-c sM0-bg-imgs-center mr-3"></i>
                         <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-16">Notification</p>
                     </button>
                     <!-- Settings Line -->
-                    <button class="btn py-0 mb-5 d-flex justify-content-center">
+                    <button routerLink="/user/settings/personal-info" class="btn py-0 mb-5 d-flex justify-content-center">
                         <i class="OM-img-setting sM0-icon-c sM0-bg-imgs-center mr-3"></i>
                         <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-16">Settings</p>
                     </button>
                     <!-- Add User Line -->
-                    <button class="btn py-0 mb-5 d-flex justify-content-center">
+                    <button routerLink="/user/create-account" class="btn py-0 mb-5 d-flex justify-content-center">
                         <i class="OM-img-Plus sM0-icon-c sM0-bg-imgs-center mr-3"></i>
                         <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-16">Add User</p>
                     </button>
@@ -55,7 +55,7 @@
                 <!-- logout button -->
                 <div class="h-25 mb-5 d-flex align-items-end">
                     <!-- Logout Line -->
-                    <button class="btn py-0 mb-3 d-flex justify-content-center">
+                    <button routerLink='/login' (click)='logOut()' class="btn py-0 mb-3 d-flex justify-content-center">
                         <i class="OM-img-logout sM0-icon-c sM0-bg-imgs-center mr-2"></i>
                         <p class="sM0-text-0-cr d-inline-block mb-0">Logout</p>
                     </button>
@@ -66,8 +66,9 @@
                 <!-- Profile Info -->
                 <div class="h-25">
                     <div class="w-100 d-flex justify-content-center py-4 M0-profile-img-holder">
-                        <i class="OM-img-profile1 sM0-bg-imgs-center sM0-img-c sM0-f-radius d-inline-block"></i>
+                        <i routerLink="/user/profile" class="sM0-click OM-img-profile1 sM0-bg-imgs-center sM0-img-c sM0-f-radius d-inline-block"></i>
                     </div>
+                    <!-- invisible -->
                     <div class="text-center invisible">
                         <p class="sM0-main-cr h5">Name Surname </p>
                         <p class="sM0-text-0-cr m-0 h6">Project Manager </p>
@@ -76,20 +77,20 @@
                 <!-- navigations  -->
                 <div class="flex-column justify-content-center align-items-center">
                     <!-- Profile Line -->
-                    <i class="OM-img-profile sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
+                    <i routerLink="/user/profile" class="sM0-click OM-img-profile sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                     <!-- Teams Line -->
-                    <i class="OM-img-team sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
+                    <i routerLink="/user/teams" class="sM0-click OM-img-team sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                     <!-- Notification Line -->
-                    <i class="OM-img-notification sM0-icon-c mx-auto mb-5 sM0-bg-imgs-center d-block"></i>
+                    <i routerLink="/user/notifi" class="sM0-click OM-img-notification sM0-icon-c mx-auto mb-5 sM0-bg-imgs-center d-block"></i>
                     <!-- Settings Line -->
-                    <i class="OM-img-setting sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
+                    <i routerLink="/user/settings/personal-info" class="sM0-click OM-img-setting sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                     <!-- Add User Line -->
-                    <i class="OM-img-Plus sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
+                    <i routerLink="/user/create-account" class="sM0-click OM-img-Plus sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                 </div>
                 <!-- logout button -->
                 <div class="h-25 mb-5 d-flex align-items-end">
                     <!-- Logout Line -->
-                    <i class="OM-img-logout sM0-icon-c  mx-auto sM0-bg-imgs-center d-block"></i>
+                    <i class="sM0-click OM-img-logout sM0-icon-c  mx-auto sM0-bg-imgs-center d-block"></i>
                 </div>
             </div>
         </div>
