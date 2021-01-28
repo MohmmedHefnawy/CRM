@@ -13,7 +13,8 @@ export class ProfileComponent implements OnInit {
   navigator = {
     icon: "/assets/Icons/Profile.svg",
     title: 'Profile',
-    navigators: ['All', 'Pending', 'In Progress', 'Didn\'t Finished', 'Completed',]
+    navigators: ['All', 'Pending', 'In Progress', 'Didn\'t Finished', 'Completed'],
+    routers: []
   }
   constructor(public navService: NavigatorServicesService, public authService: AuthService) { }
 

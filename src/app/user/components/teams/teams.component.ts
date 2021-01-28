@@ -12,6 +12,7 @@ export class TeamsComponent implements OnInit {
     icon: "/assets/Icons/Teamwork.svg",
     title: 'teams',
     navigators: ['Project Manegers', 'Dubai Admins', 'Account Manegers', 'Photographers', 'Designers', 'Content Creators'],
+    routers: []
   }
 
   constructor(public navService: NavigatorServicesService) { }

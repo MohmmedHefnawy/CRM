@@ -11,7 +11,9 @@ export class NotificationsComponent implements OnInit {
   // Navigators
   navigator = {
     icon: "/assets/Icons/notifi.svg",
-    title: 'Notifications'
+    title: 'Notifications',
+    navigators: [],
+    routers: []
   }
 
   constructor(public navService: NavigatorServicesService) { }
