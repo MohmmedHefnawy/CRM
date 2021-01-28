@@ -37,12 +37,10 @@ export class LoginComponent implements OnInit {
     }
     holderWindowSize('#loginContainer')
   }
-  onSubmit(form: NgForm){
-    console.log(form.value);
-    
-    this.authService.login(form.value).subscribe((res:any)=>{
-      console.log(res.data.token);
-      
+  onSubmit(form: NgForm) {
+
+    this.authService.login(form.value).subscribe((res: any) => {
+      this.authService.user = res;
       this.authService.setToken(res.data.token);
       this.authService.isAdmin = true
       this.router.navigateByUrl('/user');

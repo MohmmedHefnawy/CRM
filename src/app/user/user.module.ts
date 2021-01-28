@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { UserRoutingModule } from './user-routing.module';
-import { TeamsComponent } from './teams/teams.component';
-import { ProfileComponent } from './profile/profile.component';
+import { TeamsComponent } from './components/teams/teams.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { UserComponent } from './user.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { CreateAccountComponent } from './create-account/create-account.component';
-import { SettingsComponent } from './settings/settings.component';
-import { PersonalInfoComponent } from './settings/personal-info/personal-info.component';
-import { ChangePasswordComponent } from './settings/change-password/change-password.component';
-import { ContactComponent } from './settings/contact/contact.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { PersonalInfoComponent } from './components/settings/personal-info/personal-info.component';
+import { ChangePasswordComponent } from './components/settings/change-password/change-password.component';
+import { ContactComponent } from './components/settings/contact/contact.component';
+
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { ContactComponent } from './settings/contact/contact.component';
   exports: [UserRoutingModule],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule
   ]
 })
 export class UserModule { }

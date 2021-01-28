@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 /* ? Style flags = sM0- */
-*{
-  outline: none  !important;
-  box-shadow: none  !important;
+* {
+  outline: none !important;
+  box-shadow: none !important;
 }
 *:focus {
-    outline: none !important;
-    outline: 0 !important;
-    box-shadow: none !important;
+  outline: none !important;
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 body {
   -ms-overflow-style: none; /* IE and Edge */
@@ -304,9 +304,9 @@ input {
   outline: none;
 }
 input:focus {
-    outline:none;
+  outline: none;
 }
-.sM0-click{
+.sM0-click {
   cursor: pointer !important;
 }
 /* elements ===END */
@@ -479,3 +479,8 @@ input:focus {
   box-sizing: border-box;
 }
 /* MASTER CONTAIMER (Layuout) ===END */
+/*  Active Classes === START */
+.sM0-green-notActive {
+  opacity: 0.5;
+}
+/*  Active Classes === END */

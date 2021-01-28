@@ -7,13 +7,11 @@ import { User } from '../Model/user.model';
   providedIn: 'root'
 })
 export class AuthService {
-  selectedUser: User = {
-    email: '',
-    password: ''
-  };
   isAdmin: boolean = false;
-  noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True'}) };
-  _url = environment.apiBaseUrl + "login";
+  noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
+  // this current user
+  user;
+  _url = environment.apiBaseUrl;
   // _url = "http://jsonplaceholder.typicode.com/todos/1";
   constructor(private http: HttpClient, private router: Router) { }
   //HttpMethods
@@ -22,11 +20,11 @@ export class AuthService {
   }
 
   login(authCredentials) {
-    return this.http.post(this._url, authCredentials, this.noAuthHeader);
+    return this.http.post(`${this._url}login`, authCredentials, this.noAuthHeader);
   }
 
-  getUserProfile() {
-    return this.http.get(this._url + '/userProfile');
+  getUser() {
+    return this.http.post(`${this._url}getUser`, null);
   }
   //Helper Methods
 
@@ -54,7 +52,8 @@ export class AuthService {
   }
   isLoggedIn() {
     var userPayload = this.getUserPayload();
-    if (userPayload){
+
+    if (userPayload) {
       return userPayload
     }
     else
