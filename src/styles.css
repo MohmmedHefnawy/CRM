@@ -129,6 +129,9 @@ body {
 .sM0-green-cr {
   color: #5cbb5c !important;
 }
+.sM0-text-cr-5 {
+  color: rgb(252, 252, 252, 0.5) !important;
+}
 /* COLORS ===END */
 
 /* BACKGROUND IMAGES ===START */
@@ -480,7 +483,10 @@ input:focus {
 }
 /* MASTER CONTAIMER (Layuout) ===END */
 /*  Active Classes === START */
-.sM0-green-notActive {
+.sM0-notActive {
   opacity: 0.5;
+}
+.sM0-active {
+  opacity: 1;
 }
 /*  Active Classes === END */

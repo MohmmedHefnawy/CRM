@@ -1,6 +1,7 @@
 import { CreateAccountServiceService } from './../../services/create-account-service.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
+import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
 
 
 @Component({
@@ -9,10 +10,16 @@ import { NgForm } from "@angular/forms";
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
-
-  constructor(public create_srv: CreateAccountServiceService) { }
+  // Navigators
+  navigator = {
+    icon: "/assets/Icons/Plus.svg",
+    title: 'Add User',
+  }
+  constructor(public navService: NavigatorServicesService, public create_srv: CreateAccountServiceService) { }
 
   ngOnInit(): void {
+    this.navService.navigators = this.navigator;
+
   }
   // # Controller
 
