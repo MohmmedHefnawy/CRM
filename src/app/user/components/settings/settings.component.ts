@@ -13,7 +13,8 @@ export class SettingsComponent implements OnInit {
     icon: "/assets/Icons/Settings.svg",
     title: 'settings',
     navigators: ['Personal Info', 'Change Password', 'Contact'],
-    routers: ['user/settings/personal-info', 'user/settings/change-password', 'user/settings/contact']
+    routers: ['user/settings/personal-info', 'user/settings/change-password', 'user/settings/contact'],
+    api : []
   }
 
   constructor(public navService: NavigatorServicesService) { }

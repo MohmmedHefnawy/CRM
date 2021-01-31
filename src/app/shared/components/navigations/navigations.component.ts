@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigatorServicesService } from '../../services/navigator-services.service';
+import { TeamsService } from '../../../user/services/teams.service'
 
 @Component({
   selector: 'app-navigations',
@@ -8,7 +9,7 @@ import { NavigatorServicesService } from '../../services/navigator-services.serv
 })
 export class NavigationsComponent implements OnInit {
 
-  constructor(public navService: NavigatorServicesService) { }
+  constructor(public navService: NavigatorServicesService, public teamsService: TeamsService) { }
 
   ngOnInit(): void {
   }

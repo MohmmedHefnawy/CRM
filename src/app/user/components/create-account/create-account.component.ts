@@ -14,6 +14,9 @@ export class CreateAccountComponent implements OnInit {
   navigator = {
     icon: "/assets/Icons/Plus.svg",
     title: 'Add User',
+    navigators: [],
+    routers: [],
+    api: []
   }
   constructor(public navService: NavigatorServicesService, public create_srv: CreateAccountServiceService) { }
 

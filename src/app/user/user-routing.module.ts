@@ -13,11 +13,21 @@ import { AuthGuard } from '../auth/components/auth/auth.guard';
 const routes: Routes = [
   { path: 'user', redirectTo: 'user/profile', pathMatch: 'full' }, // redirect to `profile`
   { path: 'user/settings', redirectTo: 'user/settings/personal-info', pathMatch: 'full' }, // redirect to `profile`
+  { path: 'user/teams', redirectTo: 'user/teams/project-managers', pathMatch: 'full' }, // redirect to `profile`
   { path: '', redirectTo: 'user/profile', pathMatch: 'full' },
   {
     path: 'user', component: UserComponent,
     children: [
-      { path: 'teams', component: TeamsComponent },
+      { path: 'teams', component: TeamsComponent,
+        children:[
+          {path : 'project-managers', component: TeamsComponent},
+          {path : 'dubai-admins', component: TeamsComponent},
+          {path : 'account-managers', component: TeamsComponent},
+          {path : 'photographers', component: TeamsComponent},
+          {path : 'designers', component: TeamsComponent},
+          {path : 'content-creators', component: TeamsComponent}
+        ]
+      },
       { path: 'profile', component: ProfileComponent },
       { path: 'notifi', component: NotificationsComponent },
       { path: 'create-account', component: CreateAccountComponent },

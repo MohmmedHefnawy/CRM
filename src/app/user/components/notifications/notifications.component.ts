@@ -13,7 +13,8 @@ export class NotificationsComponent implements OnInit {
     icon: "/assets/Icons/notifi.svg",
     title: 'Notifications',
     navigators: [],
-    routers: []
+    routers: [],
+    api: []
   }
 
   constructor(public navService: NavigatorServicesService) { }
