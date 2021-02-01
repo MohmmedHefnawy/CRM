@@ -8,13 +8,16 @@ import { environment } from 'src/environments/environment';
 export class TeamsService {
   _url = environment.apiBaseUrl;
   team;
+  oneUser;
   constructor(private http: HttpClient) { }
 
 // [#] API handelers
   getTeamByRole(role){
     return this.http.get(`${this._url}getAllTeams?role_id=${role}`)
   }
-
+  getUserByID(iD){
+    return this.http.post(`${this._url}getUser`, iD)
+  }
 
   // [#] HTTPS REQs
   // getTeam

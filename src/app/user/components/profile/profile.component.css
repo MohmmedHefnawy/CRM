@@ -9,6 +9,9 @@
 .OM-img-Locationgold {
   background-image: url("/assets/Icons/Locationgold.svg");
 }
+.OM-img-edit {
+  background-image: url("/assets/Icons/Edit.svg");
+}
 .OM-img-progress {
   background-image: url("/assets/Icons/Inprogress.svg");
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
+import { TeamsService } from '../../services/teams.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,20 +9,19 @@ import { NavigatorServicesService } from 'src/app/shared/services/navigator-serv
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
+  visitedUserName = this.teamService.oneUser?.name ? this.teamService.oneUser?.name : ''
   // Navigators
   navigator = {
     icon: "/assets/Icons/Profile.svg",
-    title: 'Profile',
+    title: `${this.visitedUserName} Profile`,
     navigators: ['All', 'Pending', 'In Progress', 'Didn\'t Finished', 'Completed'],
     routers: [],
     api:[]
   }
-  constructor(public navService: NavigatorServicesService, public authService: AuthService) { }
+  constructor(public navService: NavigatorServicesService, public authService: AuthService, public teamService: TeamsService) { }
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
-
   }
 
 }

@@ -32,4 +32,18 @@ export class TeamsComponent implements OnInit {
       
     }
   }
+  goToUserProfile(iD){
+    let userID = { user_id: iD}
+    this.teamService.getUserByID(userID).subscribe((res:any)=>{
+      console.log(iD, res);
+      this.teamService.oneUser = res.data
+      console.log(this.teamService.oneUser);
+      
+    },err=>{
+
+    }, ()=>{
+        this.router.navigate(['/user/profile'])
+    })
+
+  }
 }
