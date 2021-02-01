@@ -14,7 +14,9 @@ export class SettingsServiceService {
   getPersonalInfo(){
     return this.http.post(`${this._url}getUser`, null)
   }
-
+  postPersonalInfo(personalData){
+    return this.http.post(`${this._url}updateUserData`,personalData)
+  }
 
   // [#] HTTPS REQs
 }

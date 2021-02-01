@@ -47,6 +47,7 @@ export class SideMenuComponent implements OnInit {
       resizeContentHolder(holder);
     }
     holderWindowSize('#sideMenuHolder')
+    
   }
   // [#] COntrollers
   checkDataToggle(elem){
