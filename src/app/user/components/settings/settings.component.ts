@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
+import { SettingsServiceService } from 'src/app/user/services/settings-service.service'
 
 @Component({
   selector: 'app-settings',
@@ -17,10 +18,9 @@ export class SettingsComponent implements OnInit {
     api : []
   }
 
-  constructor(public navService: NavigatorServicesService) { }
+  constructor(public navService: NavigatorServicesService, public settingsService: SettingsServiceService) { }
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
-
   }
 }

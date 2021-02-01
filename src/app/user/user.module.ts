@@ -13,8 +13,6 @@ import { PersonalInfoComponent } from './components/settings/personal-info/perso
 import { ChangePasswordComponent } from './components/settings/change-password/change-password.component';
 import { ContactComponent } from './components/settings/contact/contact.component';
 
-
-
 @NgModule({
   declarations: [TeamsComponent, ProfileComponent, UserComponent, NotificationsComponent, CreateAccountComponent, SettingsComponent, PersonalInfoComponent, ChangePasswordComponent, ContactComponent],
   exports: [UserRoutingModule],
