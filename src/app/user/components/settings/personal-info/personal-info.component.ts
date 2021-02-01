@@ -13,23 +13,24 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class PersonalInfoComponent implements OnInit {
 
   constructor(public settingsService: SettingsServiceService, public authService: AuthService) { }
+  gendersv = ['m', 'f']
   genders = ['male', 'female']
   ngOnInit(): void {
     this.getPersonalInfo()
   }
-  getPersonalInfo(){
-    this.settingsService.getPersonalInfo().subscribe((res: any)=>{
+  getPersonalInfo() {
+    this.settingsService.getPersonalInfo().subscribe((res: any) => {
       this.settingsService.userData = res.data
     })
   }
   onSubmit(form: NgForm) {
     console.log(form.value);
-    
+
     this.postPersonalData(form.value)
-    
+
   }
-  postPersonalData(data){
-    this.settingsService.postPersonalInfo(data).subscribe(res=>{
+  postPersonalData(data) {
+    this.settingsService.postPersonalInfo(data).subscribe(res => {
       this.authService.user = res
     })
   }

@@ -51,7 +51,7 @@
               <option value="null" disabled selected>
                 Gender...
               </option>
-              <option  [value]="gender" *ngFor='let gender of genders' [selected]='gender == this.settingsService.userData?.gender'>
+              <option  [value]="gendersv[i]" *ngFor='let gender of genders index as i;' [selected]='gender == this.settingsService.userData?.gender'>
                 {{gender}}
               </option>
             </select>
