@@ -3,13 +3,13 @@
     <div class='col-xl-6 col-lg-4 col-sm-6 pl-0 sM0-f-radius M0-card~ p-0 mb-4'>
       <form *ngIf='settingsService.userData'  #personalInfo="ngForm" (ngSubmit)="onSubmit(personalInfo)" class=''>
         <!-- User Name Input -->
-        <div class=" sM0-inp-a w-100 d-flex flex-column~ mb-4">
+        <div class="sM0-notActive sM0-inp-a w-100 d-flex flex-column~ mb-4">
           <div
             class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-b d-flex justify-content-center align-items-center'>
             <i class="OM-icon-user sM0-icon-d d-inline-block"></i>
           </div>
           <div class="col p-0">
-            <input ngModel #userName="ngModel" name='username' required [(ngModel)]='settingsService.userData.username' type="text" placeholder="User Name..." class="sM0-text-0-cr pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
+            <input ngModel disabled #userName="ngModel" name='username' required [(ngModel)]='settingsService.userData.username' type="text" placeholder="User Name..." class="sM0-text-0-cr pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
           </div>
         </div>
         <!-- First Name -->
@@ -46,12 +46,12 @@
             <i class="OM-icon-gender sM0-icon-d d-inline-block"></i>
           </div>
           <div class='col p-0'>
-            <select ngModel name='gender' #gender="ngModel" required
+            <select ngModel name='gender' #gender="ngModel" [(ngModel)]='this.settingsService.userData.gender' required
               class='sM0-text-0-cr pl-4 round w-100 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none px-3'>
               <option value="null" disabled selected>
                 Gender...
               </option>
-              <option  [value]="gendersv[i]" *ngFor='let gender of genders index as i;' [selected]='gender == this.settingsService.userData?.gender'>
+              <option [value]="gendersv[i]" *ngFor='let gender of genders index as i;' [selected]='gendersv[i] == this.settingsService.userData?.gender'>
                 {{gender}}
               </option>
             </select>

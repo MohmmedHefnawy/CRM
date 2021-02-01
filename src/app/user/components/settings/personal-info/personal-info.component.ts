@@ -13,7 +13,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class PersonalInfoComponent implements OnInit {
 
   constructor(public settingsService: SettingsServiceService, public authService: AuthService) { }
-  gendersv = ['m', 'f']
+  gendersv = ['M', 'F']
   genders = ['male', 'female']
   ngOnInit(): void {
     this.getPersonalInfo()

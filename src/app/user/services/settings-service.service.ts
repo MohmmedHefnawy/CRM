@@ -11,12 +11,20 @@ export class SettingsServiceService {
   userData;
   constructor(private http: HttpClient) { }
   // [#] API handelers
-  getPersonalInfo(){
+  getPersonalInfo() {
     return this.http.post(`${this._url}getUser`, null)
   }
-  postPersonalInfo(personalData){
-    return this.http.post(`${this._url}updateUserData`,personalData)
+  postPersonalInfo(personalData) {
+    return this.http.post(`${this._url}updateUserData`, personalData)
   }
-
+  // Get ChangePassword
+  postPassword(personalPassword) {
+    return this.http.post(`${this._url}updateUserPassword`, personalPassword)
+  }
+  // Post Contact Data
+  // postContactInfo(contactInfo) {
+  //   return this.http.post(`${this._url}updateUserData`, contactInfo)
+  // }
   // [#] HTTPS REQs
+
 }
