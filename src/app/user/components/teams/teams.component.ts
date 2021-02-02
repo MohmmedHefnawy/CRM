@@ -42,7 +42,7 @@ export class TeamsComponent implements OnInit {
     },err=>{
 
     }, ()=>{
-        this.router.navigate(['/user/profile'])
+        this.router.navigate(['/user/profile/user'])
     })
 
   }

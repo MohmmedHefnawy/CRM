@@ -29,6 +29,7 @@ const routes: Routes = [
         ]
       },
       { path: 'profile', component: ProfileComponent },
+      { path: 'profile/:user', component: ProfileComponent },
       { path: 'notifi', component: NotificationsComponent },
       { path: 'create-account', component: CreateAccountComponent },
       {

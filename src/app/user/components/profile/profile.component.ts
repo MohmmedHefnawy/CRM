@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
 import { TeamsService } from '../../services/teams.service';
@@ -9,6 +10,7 @@ import { TeamsService } from '../../services/teams.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  // visited user
   visitedUserName = this.teamService.oneUser?.name ? this.teamService.oneUser?.name : ''
   // Navigators
   navigator = {
@@ -18,8 +20,20 @@ export class ProfileComponent implements OnInit {
     routers: [],
     api: []
   }
+<<<<<<< Updated upstream
   obj: any;
   constructor(public navService: NavigatorServicesService, public authService: AuthService, public teamService: TeamsService) { }
+=======
+  constructor(
+    public navService: NavigatorServicesService,
+    public authService: AuthService,
+    public teamService: TeamsService,
+    private router: Router
+  ){ 
+    console.log(this.router.url);
+      
+    }
+>>>>>>> Stashed changes
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator
