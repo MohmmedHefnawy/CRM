@@ -25,10 +25,10 @@ export class ProfileComponent implements OnInit {
     public authService: AuthService,
     public teamService: TeamsService,
     private router: Router
-  ){ 
+  ) {
     console.log(this.router.url);
-      
-    }
+
+  }
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator
