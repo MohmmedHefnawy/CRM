@@ -11,7 +11,8 @@ import { TeamsService } from '../../services/teams.service';
 })
 export class ProfileComponent implements OnInit {
   // visited user
-  visitedUserName = this.teamService.oneUser?.name ? this.teamService.oneUser?.name : ''
+  visitedUserName = this.teamService.oneUser?.name ? this.teamService.oneUser?.name : '';
+  userProfile = true
   // Navigators
   navigator = {
     icon: "/assets/Icons/Profile.svg",
@@ -26,10 +27,20 @@ export class ProfileComponent implements OnInit {
     public teamService: TeamsService,
     private router: Router
   ) {
-    console.log(this.router.url);
+    let route = this.router.url
+    switch(route){
+      // current user
+      case '/user/profile' :        
+        this.userProfile = true
+        this.navigator.title = 'Profile'
+        break;
+      // team user
+      default: 
+        this.userProfile = false
+      break;
+    }
 
   }
-
   ngOnInit(): void {
     this.navService.navigators = this.navigator
   }
