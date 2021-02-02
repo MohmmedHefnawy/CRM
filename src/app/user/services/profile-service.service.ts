@@ -20,6 +20,4 @@ export class ProfileServiceService {
     formData.append('image', fileToUpload, fileToUpload.name);
     return this.http.post(`${this._url}updateUserData`, formData)
   }
-
-
-}
+} 
