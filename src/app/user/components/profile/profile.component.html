@@ -39,7 +39,7 @@
                     </div>
                     <!-- User Bio -->
                     <div class='ml-md-4 mb-5'>
-                        <p *ngIf="authService.user?.data.bio != '' " #ProfileBio class="sM0-text-0-cr sM0-fs-16 text-md-left text-center">
+                        <p *ngIf="authService.user?.data.bio != '' " class="sM0-text-0-cr sM0-fs-16 text-md-left text-center">
                             {{authService.user?.data.bio}}
                             <span><a href="#" class="sM0-main-cr">MORE...</a></span>
                         </p>
@@ -49,8 +49,8 @@
 
                     </div>
                     <div class="h-25 d-flex align-items-end justify-content-center">
-                        <button
-                            class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-gray-90 px-3 py-2">
+                        <button  *ngIf="authService.user?.data"
+                            class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-gray-90 px-3 py-2" >
                             <i class="OM-img-edit sM0-icon-d py-3 sM0-bg-imgs-center d-inline-block mr-3"></i>
                             <p class="m-0 pt-1 sM0-text-0-cr sM0-fs-b-16">Edit</p>
                         </button>

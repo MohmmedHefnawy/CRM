@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
     public navService: NavigatorServicesService,
     public authService: AuthService,
     public teamService: TeamsService,
-    private router: Router
+    private router: Router,
   ) {
     console.log(this.router.url);
 
@@ -39,11 +39,13 @@ export class ProfileComponent implements OnInit {
       var reader = new FileReader();
       reader.onload = (e: any) => {
         console.log('Got here: ', e.target.result);
-        this.obj.photoUrl = e.target.result;
+        // this.obj.photoUrl = e.target.result;
       }
       reader.readAsDataURL(input.files[0]);
     }
 
   }
+
+
 
 }
