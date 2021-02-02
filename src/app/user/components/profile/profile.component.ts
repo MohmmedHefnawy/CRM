@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
   constructor(public navService: NavigatorServicesService, public authService: AuthService, public teamService: TeamsService) { }
 
   ngOnInit(): void {
-    this.navService.navigators = this.navigator;
+    this.navService.navigators = this.navigator
   }
   onFileSelect(input) {
     console.log(input.files);
