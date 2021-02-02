@@ -39,13 +39,12 @@
                     </div>
                     <!-- User Bio -->
                     <div class='ml-md-4 mb-5'>
-                        <p class="sM0-text-0-cr sM0-fs-16 text-md-left text-center">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Eligendi culpa debitis alias quia! Dolorum.
+                        <p *ngIf="authService.user?.data.bio != '' " #ProfileBio class="sM0-text-0-cr sM0-fs-16 text-md-left text-center">
+                            {{authService.user?.data.bio}}
                             <span><a href="#" class="sM0-main-cr">MORE...</a></span>
                         </p>
-                        <p *ngIf="authService.user?.data.bio == '' "  class="sM0-text-0-cr w-100 sM0-fs-16 text-md-left text-center">
-                                 Type your Bio...
+                        <p *ngIf="authService.user?.data.bio == '' " class="sM0-text-0-cr w-100 sM0-fs-16 text-md-left text-center">
+                            Type your Bio...
                         </p>
 
                     </div>
