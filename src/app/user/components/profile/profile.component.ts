@@ -20,20 +20,15 @@ export class ProfileComponent implements OnInit {
     routers: [],
     api: []
   }
-<<<<<<< Updated upstream
-  obj: any;
-  constructor(public navService: NavigatorServicesService, public authService: AuthService, public teamService: TeamsService) { }
-=======
   constructor(
     public navService: NavigatorServicesService,
     public authService: AuthService,
     public teamService: TeamsService,
     private router: Router
-  ){ 
+  ) {
     console.log(this.router.url);
-      
-    }
->>>>>>> Stashed changes
+
+  }
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator
