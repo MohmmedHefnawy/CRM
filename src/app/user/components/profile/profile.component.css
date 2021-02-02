@@ -102,25 +102,25 @@
   height: 385px;
 }
 /* Scroller */
-.M0-card-for-status{
+.M0-card-for-status {
   height: 193px;
   width: 100%;
 }
-@media (min-width: 1200px) { 
-  .M0-card-for-status{
-  height: 385px;
-  min-width: 290px !important;
-  max-width: 290px !important;
-  }
-}
-/* Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) { 
-  .M0-card-for-status{
+@media (min-width: 1200px) {
+  .M0-card-for-status {
     height: 385px;
     min-width: 290px !important;
     max-width: 290px !important;
   }
- }
- .M0-border-black{
-  border: 2px solid rgba(20, 20, 20, .8) !important;
- }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+  .M0-card-for-status {
+    height: 385px;
+    min-width: 290px !important;
+    max-width: 290px !important;
+  }
+}
+.M0-border-black {
+  border: 2px solid rgba(20, 20, 20, 0.8) !important;
+}

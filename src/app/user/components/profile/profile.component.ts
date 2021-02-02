@@ -16,12 +16,25 @@ export class ProfileComponent implements OnInit {
     title: `${this.visitedUserName} Profile`,
     navigators: ['All', 'Pending', 'In Progress', 'Didn\'t Finished', 'Completed'],
     routers: [],
-    api:[]
+    api: []
   }
+  obj: any;
   constructor(public navService: NavigatorServicesService, public authService: AuthService, public teamService: TeamsService) { }
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
+  }
+  onFileSelect(input) {
+    console.log(input.files);
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (e: any) => {
+        console.log('Got here: ', e.target.result);
+        this.obj.photoUrl = e.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+
   }
 
 }

@@ -16,7 +16,6 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   onSubmit(form: NgForm) {
     this.changePass(form.value)
   }

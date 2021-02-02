@@ -6,8 +6,11 @@
             <!-- user Info -->
             <div class='d-flex flex-md-row flex-column sM0-supp-0-bg sM0-f-radius mb-4 mr-4 align-items-center'>
                 <!-- Profile Image -->
-                <i class="M0-card OM-img-profile d-flex justify-content-center align-items-end pb-4 sM0-bg-imgs-center sM0-f-radius  mt-md-0 mt-sm-4 mt-0">
-                    <i class="OM-img-twitter sM0-bg-opacity-supp-1-5  sM0-f-radius px-5 p-4 mx-4 sM0-icon-c sM0-bg-imgs-center d-inline-block"></i>
+                <i class="M0-card OM-img-profile d-flex justify-content-center align-items-end pb-4 sM0-bg-imgs-center sM0-f-radius  mt-md-0 mt-sm-4 mt-0 image-upload">
+                    <label for="uploadIMG">
+                        <i class="OM-img-twitter sM0-bg-opacity-supp-1-5  sM0-f-radius px-5 p-4 mx-4 sM0-icon-c sM0-bg-imgs-center d-inline-block sM0-click"></i>
+                    </label>
+                        <input (change)="onFileSelect($event.target)" type="file" id="uploadIMG" class="d-none">
                 </i>
                 <!-- Profile Information -->
                 <div class='M0-profile-card p-4 overflow-hidden d-md-block d-flex flex-column align-items-center'>
