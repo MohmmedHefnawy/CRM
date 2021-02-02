@@ -47,7 +47,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator
-    this.uploadFileToActivity()
   }
 
   handleFileInput(files: FileList) {
