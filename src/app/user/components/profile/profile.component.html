@@ -6,11 +6,8 @@
             <!-- user Info -->
             <div class='d-flex flex-md-row flex-column sM0-supp-0-bg sM0-f-radius mb-4 mr-4 align-items-center'>
                 <!-- Profile Image -->
-                <i class="M0-card OM-img-profile d-flex justify-content-center align-items-end pb-4 sM0-bg-imgs-center sM0-f-radius  mt-md-0 mt-sm-4 mt-0 image-upload">
-                    <label for="uploadIMG">
-                        <i class="OM-img-twitter sM0-bg-opacity-supp-1-5  sM0-f-radius px-5 p-4 mx-4 sM0-icon-c sM0-bg-imgs-center d-inline-block sM0-click"></i>
-                    </label>
-                        <input (change)="onFileSelect($event.target)" type="file" id="uploadIMG" class="d-none">
+                <i class="M0-card OM-img-profile d-flex justify-content-center align-items-end pb-4 sM0-bg-imgs-center sM0-f-radius  mt-md-0 mt-sm-4 mt-0">
+                    <i class="OM-img-twitter sM0-bg-opacity-supp-1-5  sM0-f-radius px-5 p-4 mx-4 sM0-icon-c sM0-bg-imgs-center d-inline-block"></i>
                 </i>
                 <!-- Profile Information -->
                 <div class='M0-profile-card p-4 overflow-hidden d-md-block d-flex flex-column align-items-center'>
@@ -39,16 +36,18 @@
                     </div>
                     <!-- User Bio -->
                     <div class='ml-md-4 mb-5'>
-                        <p class="sM0-text-0-cr sM0-fs-16 text-md-left text-center">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Eligendi culpa debitis alias quia! Dolorum.
+                        <p *ngIf="authService.user?.data.bio != '' " #ProfileBio class="sM0-text-0-cr sM0-fs-16 text-md-left text-center">
+                           {{authService.user?.data.bio}}
                             <span><a href="#" class="sM0-main-cr">MORE...</a></span>
+                        </p>
+                        <p *ngIf="authService.user?.data.bio == '' "  class="sM0-text-0-cr w-100 sM0-fs-16 text-md-left text-center">
+                                 Type your Bio
                         </p>
                     </div>
                     <div class="h-25 d-flex align-items-end justify-content-center">
                         <button
                             class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-gray-90 px-3 py-2">
-                            <i class="OM-img-edit sM0-icon-d py-3 sM0-bg-imgs-center d-inline-block mr-3"></i>
+                            <i class="OM-img-edit sM0-icon-d py-3 sM0-bg-imgs-center d-inline-block mr-3" ></i>
                             <p class="m-0 pt-1 sM0-text-0-cr sM0-fs-b-16">Edit</p>
                         </button>
                     </div>
