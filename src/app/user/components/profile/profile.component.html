@@ -44,6 +44,10 @@
                             Eligendi culpa debitis alias quia! Dolorum.
                             <span><a href="#" class="sM0-main-cr">MORE...</a></span>
                         </p>
+                        <p *ngIf="authService.user?.data.bio == '' "  class="sM0-text-0-cr w-100 sM0-fs-16 text-md-left text-center">
+                                 Type your Bio...
+                        </p>
+
                     </div>
                     <div class="h-25 d-flex align-items-end justify-content-center">
                         <button
