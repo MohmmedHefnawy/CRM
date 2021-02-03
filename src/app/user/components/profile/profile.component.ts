@@ -13,7 +13,7 @@ import { TeamsService } from '../../services/teams.service';
 export class ProfileComponent implements OnInit {
   // visited user
   visitedUserName = this.teamService.oneUser?.name ? this.teamService.oneUser?.name : '';
-  userProfile = true
+  userProfile: boolean;
   // Navigators
   navigator = {
     icon: "/assets/Icons/Profile.svg",
@@ -30,16 +30,16 @@ export class ProfileComponent implements OnInit {
     private router: Router
   ) {
     let route = this.router.url
-    switch(route){
+    switch (route) {
       // current user
-      case '/user/profile' :        
+      case '/user/profile':
         this.userProfile = true
         this.navigator.title = 'Profile'
         break;
       // team user
-      default: 
+      default:
         this.userProfile = false
-      break;
+        break;
     }
 
   }
