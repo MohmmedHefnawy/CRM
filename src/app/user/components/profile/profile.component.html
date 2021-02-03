@@ -18,7 +18,8 @@
                     <!-- User name and contacts -->
                     <div class="d-md-flex d-block align-items-center flex-wrap pb-2">
                         <!-- name -->
-                        <p class="sM0-main-cr sM0-fs-b-24 m-0 my-md-2 my-4 text-md-left text-center" [textContent]='userProfile ? authService.user?.data.name : teamService.oneUser.name'></p>
+                        <p *ngIf='!editMyInfo' class="sM0-main-cr sM0-fs-b-24 m-0 my-md-2 my-4 text-md-left text-center" [textContent]='userProfile ? authService.user?.data.name : teamService.oneUser.name'></p>
+                        <input class='p-2 w-100 sM0-supp-1-bg border-0 sM0-text-0-cr' *ngIf='editMyInfo' type="text" value="{{ authService.user?.data.name}}">
                         <!-- Group Icons -->
                         <div class="d-flex ml-auto my-md-2 my-4">
                             <!-- Call Icon -->
@@ -36,7 +37,8 @@
                     <!-- user location -->
                     <div class="d-flex ml-md-4">
                         <i class="OM-img-location sM0-icon-c sM0-bg-imgs-center mr-2"></i>
-                        <p class="sM0-text-0-cr sM0-fs-16 text-md-left text-center">Egypt, Cairo</p>
+                        <p *ngIf='!editMyInfo' class="sM0-text-0-cr sM0-fs-16 text-md-left text-center" #location>Egypt, Cairo</p>
+                        <input class='p-0 w-100 sM0-supp-1-bg border-0 sM0-text-0-cr' *ngIf='editMyInfo' type="text" value="Your Location">
                     </div>
                     <!-- User Bio -->
                     <div class='ml-md-4 mb-5~'>
