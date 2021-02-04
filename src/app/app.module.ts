@@ -9,7 +9,7 @@ import { UserModule } from './user/user.module'
 import { LayoutModule } from './layout/layout.module'
 import { TaskModule } from './task/task.module'
 import { SharedModule } from './shared/shared.module'
-import { AuthModule } from './auth/auth.module'
+import { AuthModule } from './auth/auth.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +22,8 @@ import { AuthModule } from './auth/auth.module'
     SharedModule,
     AuthModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

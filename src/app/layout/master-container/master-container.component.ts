@@ -1,3 +1,4 @@
+import { InLoadingService } from './../../shared/services/in-loading.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./master-container.component.css']
 })
 export class MasterContainerComponent implements OnInit {
-
-  constructor() { }
+  constructor(public loaderServices: InLoadingService) { }
 
   ngOnInit(): void {
     let holderWindowSize = (holder, sideMenu) => {// [?] holder is the selected holder <div> fo the component
@@ -100,7 +100,7 @@ export class MasterContainerComponent implements OnInit {
       case 'true': // close
         $(`#${holder}`).removeClass('col-md-4 col-8')
         $(`#${holder}`).addClass('col-md-1 col-3')
-        setTimeout(() => { $(`#${holder}`).addClass('d-none'); $(`#${holder}`).removeClass('d-block')},170)
+        setTimeout(() => { $(`#${holder}`).addClass('d-none'); $(`#${holder}`).removeClass('d-block') }, 170)
         $(btn).addClass("M0-arrow-in-icon")
         $(btn).removeClass("M0-arrow-out-icon")
         $(btn).attr('data-toggle', 'false')
@@ -108,10 +108,10 @@ export class MasterContainerComponent implements OnInit {
       case 'false': // open
         $(`#${holder}`).addClass('d-block');
         $(`#${holder}`).removeClass('d-none')
-      setTimeout(() => { 
-        $(`#${holder}`).removeClass('col-md-1 col-3')
-        $(`#${holder}`).addClass('col-md-4 col-8')
-      },0) 
+        setTimeout(() => {
+          $(`#${holder}`).removeClass('col-md-1 col-3')
+          $(`#${holder}`).addClass('col-md-4 col-8')
+        }, 0)
         $(btn).addClass("M0-arrow-out-icon")
         $(btn).removeClass("M0-arrow-in-icon")
         $(btn).attr('data-toggle', 'true')

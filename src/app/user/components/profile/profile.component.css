@@ -124,3 +124,6 @@
 .M0-border-black {
   border: 2px solid rgba(20, 20, 20, 0.8) !important;
 }
+.M0-user-info-holder{
+  width: 500px;
+}

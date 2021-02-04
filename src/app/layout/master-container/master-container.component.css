@@ -1,9 +1,14 @@
-.M0-side-menu-holder{
-        position: absolute;
-        z-index: 9999;
+.M0-side-menu-holder {
+  position: absolute;
+  z-index: 9999;
 }
-@media (min-width: 1200px) { 
-    .M0-side-menu-holder{
-        position: static;
-    }
+@media (min-width: 1200px) {
+  .M0-side-menu-holder {
+    position: static;
+  }
+}
+.loader-container {
+  position: absolute;
+  width: 100%;
+  z-index: 99;
 }
