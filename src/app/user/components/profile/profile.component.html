@@ -2,24 +2,26 @@
 <div class='container-fluid pr-0 m-0 h-100 M0-cards-holder'>
     <div class='row flex-wrap pl-4 mx-0 justify-content-center'>
         <!-- USER TAG Section -->
-        <div class='d-flex flex-xl-nowrap flex-wrap'>
+        <div class='d-flex flex-xl-nowrap flex-wrap w-100'>
             <!-- user Info -->
-            <div class='d-flex flex-md-row flex-column sM0-supp-0-bg sM0-f-radius mb-4 mr-4 align-items-center'>
+            <div class='d-flex flex-md-row flex-column sM0-supp-0-bg sM0-f-radius mb-4 mr-4 align-items-center w-100'>
                 <!-- Profile Image -->
-                <i class="M0-card OM-img-profile d-flex justify-content-center align-items-end pb-4 sM0-bg-imgs-center sM0-f-radius  mt-md-0 mt-sm-4 mt-0 image-upload">
-                    <label for="image ">
-                        <i class="OM-img-twitter sM0-bg-opacity-supp-1-5  sM0-f-radius px-5 p-4 mx-4 sM0-icon-c sM0-bg-imgs-center d-inline-block sM0-click"></i>
+                <div class="M0-card OM-img-profile d-flex justify-content-center align-items-end pb-4 sM0-bg-imgs-center sM0-f-radius  mt-md-0 mt-sm-4 mt-0">
+                    <!-- upload image -->
+                    <label class='m-0' for="image">
+                        <i class="OM-img-twitter sM0-bg-opacity-supp-1-5  sM0-f-radius px-5 py-4 sM0-icon-c sM0-bg-imgs-center d-inline-block sM0-click"></i>
                     </label>
                         <input name="image" (change)="handleFileInput($event.target.files)" type="file" id="image" class="d-none">
-                </i>
+                </div>
                 <!-- Profile Information -->
-                <div class='M0-profile-card p-4 overflow-hidden d-md-block d-flex flex-column align-items-center'>
+                <div class='M0-profile-card p-4 overflow-hidden d-md-block~ d-flex flex-column align-items-md-start align-items-center  w-100'>
                     <!-- User name and contacts -->
-                    <div class="d-md-flex d-block align-items-center flex-wrap pb-2">
+                    <div class="d-md-flex d-block align-items-center flex-wrap pb-2 w-100">
                         <!-- name -->
-                        <p class="sM0-main-cr sM0-fs-b-24 m-0 my-md-2 my-4 text-md-left text-center" [textContent]='userProfile ?  authService.user?.data.name : teamService.oneUser.name'></p>
+                        <p *ngIf='!editMyInfo' class="sM0-main-cr sM0-fs-b-24 m-0 my-md-2 my-4 text-md-left text-center" [textContent]='userProfile ? authService.user?.data.name : teamService.oneUser.name'></p>
+                        <input class='p-2 sM0-supp-1-bg border-0 sM0-text-0-cr' *ngIf='editMyInfo' type="text" value="{{ authService.user?.data.name}}">
                         <!-- Group Icons -->
-                        <div class="d-flex ml-auto my-md-2 my-4">
+                        <div class="d-flex ml-auto justify-content-center  my-md-2 my-4">
                             <!-- Call Icon -->
                             <i
                                 class="OM-img-green-call sM0-bg-opacity-green-25 sM0-circle-border p-4 sM0-icon-c sM0-bg-imgs-center d-inline-block"></i>
@@ -35,28 +37,26 @@
                     <!-- user location -->
                     <div class="d-flex ml-md-4">
                         <i class="OM-img-location sM0-icon-c sM0-bg-imgs-center mr-2"></i>
-                        <p class="sM0-text-0-cr sM0-fs-16 text-md-left text-center">Egypt, Cairo</p>
+                        <p *ngIf='!editMyInfo' class="sM0-text-0-cr sM0-fs-16 text-md-left text-center" #location>Egypt, Cairo</p>
+                        <input class='p-0 w-100 sM0-supp-1-bg border-0 sM0-text-0-cr' *ngIf='editMyInfo' type="text" value="Your Location">
                     </div>
                     <!-- User Bio -->
-                    <div class='ml-md-4 mb-5'>
-                        <p *ngIf="authService.user?.data.bio != '' " class="sM0-text-0-cr sM0-fs-16 text-md-left text-center">
-                            {{authService.user?.data.bio}}
-                            <span><a href="#" class="sM0-main-cr">MORE...</a></span>
+                    <div class='ml-md-4'>
+                        <p *ngIf='!editMyInfo' #bio class="sM0-text-0-cr sM0-fs-16 text-md-left text-center">
+                            {{authService.user?.data.bio ? authService.user?.data.bio : "Type your Bio..."}}
+                            <span *ngIf='authService.user?.data.bio'><a href="#" class="sM0-main-cr">MORE...</a></span>
                         </p>
-                        <p *ngIf="authService.user?.data.bio == '' " class="sM0-text-0-cr w-100 sM0-fs-16 text-md-left text-center">
-                            Type your Bio...
-                        </p>
-
+                        <textarea *ngIf='editMyInfo' #editBioArea class='p-4 w-100 sM0-supp-1-bg border-0 sM0-text-0-cr'>{{authService.user?.data.bio ? authService.user?.data.bio : "Type your Bio..."}}</textarea>
                     </div>
-                    <!-- Edit Icon -->
-                    <div class="h-25 d-flex align-items-end justify-content-center">
-                        <button  *ngIf="authService.user?.data"
-                            class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-gray-90 px-3 py-2" >
+                    <!-- Edit Button -->
+                    <div class="mt-auto w-100">
+                        <button (click)='editMyInfo = !editMyInfo'
+                            class="btn mx-auto sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-gray-90 px-3 py-2">
                             <i class="OM-img-edit sM0-icon-d py-3 sM0-bg-imgs-center d-inline-block mr-3"></i>
                             <p class="m-0 pt-1 sM0-text-0-cr sM0-fs-b-16">Edit</p>
                         </button>
                     </div>
-                </div>
+                </div>                
             </div>
             <!-- Taskes statistics Cards -->
             <div class='M0-card-for-status container-fluid p-0 pr-4 mb-xl-0 mb-sm-4 mb-0 sM0-text-0-cr sM0-f-radius d-flex flex-xl-column flex-sm-row flex-column align-items-center'>

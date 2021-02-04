@@ -10,9 +10,11 @@ import { LayoutModule } from './layout/layout.module'
 import { TaskModule } from './task/task.module'
 import { SharedModule } from './shared/shared.module'
 import { AuthModule } from './auth/auth.module';
+import { DashComponent } from './dash/dash.component'
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashComponent
   ],
   imports: [
     BrowserModule,

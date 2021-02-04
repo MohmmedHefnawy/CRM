@@ -13,7 +13,9 @@ import { TeamsService } from '../../services/teams.service';
 export class ProfileComponent implements OnInit {
   // visited user
   visitedUserName = this.teamService.oneUser?.name ? this.teamService.oneUser?.name : '';
-  userProfile: boolean;
+  userProfile = true
+  // edit var
+  editMyInfo = false
   // Navigators
   navigator = {
     icon: "/assets/Icons/Profile.svg",
@@ -35,9 +37,11 @@ export class ProfileComponent implements OnInit {
       case '/user/profile':
         this.userProfile = true
         this.navigator.title = 'Profile'
+        localStorage.removeItem("teamUser");
         break;
       // team user
       default:
+        teamService.oneUser = JSON.parse(localStorage.getItem("teamUser"))
         this.userProfile = false
         break;
     }
@@ -79,6 +83,8 @@ export class ProfileComponent implements OnInit {
 
   //   }
   // }
+
+
 
 }
 
