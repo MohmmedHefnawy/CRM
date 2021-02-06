@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
 import { TeamsService } from '../../services/teams.service';
+import { environment } from 'src/environments/environment'
 
 @Component({
   selector: 'app-profile',
@@ -11,11 +12,14 @@ import { TeamsService } from '../../services/teams.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  imageBaseURL = environment.imageBaseurl
   // visited user
   visitedUserName = this.teamService.oneUser?.name ? this.teamService.oneUser?.name : '';
   userProfile = true
   // edit var
   editMyInfo = false
+  // image base64
+  base64textString = [];
   // Navigators
   navigator = {
     icon: "/assets/Icons/Profile.svg",
@@ -29,7 +33,7 @@ export class ProfileComponent implements OnInit {
     public authService: AuthService,
     public teamService: TeamsService,
     public profileService: ProfileServiceService,
-    private router: Router
+    private router: Router,
   ) {
     let route = this.router.url
     switch (route) {
@@ -47,45 +51,50 @@ export class ProfileComponent implements OnInit {
     }
 
   }
-  fileToUpload: File = null;
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
+    setTimeout(() => { console.log(this.authService.user);},500)
+  }
+  // [#] Controller
+  saveMyInfo(textContent){
+    switch (textContent){
+      case 'Save':
+        let userLocInp = $('#userLocInp').val(),
+          userNameInp = $('#userNameInp').val(),
+          userBioInp = $('#userBioInp').val();
+        let userInfo =  { name: userNameInp, address: userLocInp, bio: userBioInp }
+        this.updateMyInfo(userInfo)
+        break;
+    }
+  }
+  uploadMyImage(evt: any) {
+    const file = evt.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = this.updateImage.bind(this);
+      reader.readAsBinaryString(file);
+    }
   }
 
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
-    console.log(this.fileToUpload);
-
-  }
-
-  uploadFileToActivity() {
-    this.profileService.postPersonalImage(this.fileToUpload).subscribe(res => {
+  updateImage(e) {
+    let imageObj = { image: 'data:image/png;base64,' + btoa(e.target.result)}
+    this.profileService.postImage(imageObj).subscribe(res=>{
       console.log(res);
-    }, error => {
-      console.log(error);
-    });
+      
+    })
+    
   }
-
-  // onFileSelect(input) {
-
-  //   console.log(input.files);
-  //   if (input.files && input.files[0]) {
-  //     var reader = new FileReader();
-  //     reader.onload = (e: any) => {
-  //       console.log('Got here: ', e.target.result);
-  //     }
-  //     reader.readAsDataURL(input.files[0]);
-  //     this.profileService.postPersonalImage(input.files[0]).subscribe(res => {
-  //       console.log(res);
-  //     })
-  //     console.log('done');
-
-  //   }
-  // }
-
-
-
+  // [#] HTTP REQs
+  updateMyInfo(userInfo){
+    this.profileService.postPersonalInfo(userInfo).subscribe(res=>{
+      this.authService.user = res
+      console.log(this.authService.user);
+      
+    })
+  }
 }
 
 

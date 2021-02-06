@@ -38,7 +38,7 @@ body {
 /* COLORS ===START */
 /* backgrounds */
 .sM0-main-bg {
-  background-color: #e9c46a;
+  background-color: #e9c46a !important;
 }
 .sM0-smoke-bg {
   background-color: #2e2e2e !important;
@@ -308,6 +308,9 @@ input {
 }
 input:focus {
   outline: none;
+}
+textarea {
+  resize: none !important;
 }
 .sM0-click {
   cursor: pointer !important;

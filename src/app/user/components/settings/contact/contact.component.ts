@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit {
   }
   onSubmit(form: NgForm) {
     console.log(form.value);
-
+    
     this.postContact(form.value)
   }
 

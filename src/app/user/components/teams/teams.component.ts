@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigatorServicesService } from './../../../shared/services/navigator-services.service';
 import { TeamsService } from '../../services/teams.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment'
 
 @Component({
   selector: 'app-teams',
@@ -18,7 +19,7 @@ export class TeamsComponent implements OnInit {
     routers: ['/user/teams/project-managers', '/user/teams/dubai-admins', '/user/teams/account-managers', '/user/teams/photographers', '/user/teams/designers', '/user/teams/content-creators'],
     api: [1, 2, 3, 4, 5, 6]
   }
-
+  imageBaseURL = environment.imageBaseurl
   constructor(public navService: NavigatorServicesService, public teamService: TeamsService, private router: Router) {}
 
   ngOnInit(): void {    

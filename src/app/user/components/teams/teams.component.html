@@ -6,7 +6,7 @@
         <div (click)='goToUserProfile(theUser.id)' *ngFor='let theUser of teamService.team' class='sM0-click col-xl-3 col-lg-4 col-sm-6 pl-0  M0-card  pr-4 mb-4'>
             <div class='sM0-supp-0-bg w-100 h-100 sM0-f-radius d-flex flex-column align-items-center pt-4'>
                 <!-- Image Profile -->
-                <div [ngStyle]="theUser?.image != '' ? {'background-image' : 'url('+ theUser?.image +')'} : {'background-image' : '/assets/Profile/profile1.jpg'}" class="sM0-white-border sM0-bg-imgs-center sM0-img-b sM0-f-radius mb-4 d-flex justify-content-end align-items-end">
+                <div [ngStyle]="theUser?.image != '' ? {'background-image' : 'url('+imageBaseURL+ theUser?.image +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}" class="sM0-white-border sM0-bg-imgs-center sM0-img-b sM0-f-radius mb-4 d-flex justify-content-end align-items-end">
                     <div class="sM0-bg-opacity-green-90 sM0-f-radius OM-icon-call-holder position-relative d-flex justify-content-center align-items-center">
                         <i class="OM-img-call sM0-icon-d sM0-bg-imgs-center d-inline-block"></i>
                     </div>

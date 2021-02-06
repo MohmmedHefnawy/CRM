@@ -14,10 +14,10 @@ export class ProfileServiceService {
   // postPersonalImage(personalImage) {
   //   return this.http.post(`${this._url}updateUserData`, personalImage)
   // }
-
-  postPersonalImage(fileToUpload: File) {
-    const formData: FormData = new FormData();
-    formData.append('image', fileToUpload, fileToUpload.name);
-    return this.http.post(`${this._url}updateUserData`, formData)
+  postPersonalInfo(personalData) {
+    return this.http.post(`${this._url}updateUserData`, personalData)
+  }
+  postImage(image){
+    return this.http.post(`${this._url}updateUserImage`, image)
   }
 } 
