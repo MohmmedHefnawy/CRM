@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from "../../auth/services/auth.service";
+import { environment } from 'src/environments/environment'
 @Component({
   selector: 'app-side-menu',
   templateUrl: './side-menu.component.html',
@@ -10,8 +11,7 @@ export class SideMenuComponent implements OnInit {
   @Output() openSideMenu = new EventEmitter();
   // vars
   innerSideMenuData
-  // @ViewChild("sideMenuBTN") sideMenuBTN: ElementRef;
-  // @ViewChild("conditionI") conditionI: ElementRef;
+  imageBaseURL = environment.imageBaseurl
   constructor(public authService: AuthService) { }
   ngOnInit(): void {
     let holderWindowSize = (holder) => {// [?] holder is the selected holder <div> fo the component

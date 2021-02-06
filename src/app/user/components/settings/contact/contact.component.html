@@ -37,7 +37,7 @@
             <i class="OM-icon-facebook sM0-icon-d d-inline-block"></i>
           </div>
           <div class="col p-0">
-            <input ngModel name="fb" [(ngModel)]='settingsService.userData.fb'  type="url" placeholder="Facebook..." class=" pl-4 h-100 w-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius">
+            <input ng-disabled="!myForm.$valid" ngModel name="fb" [(ngModel)]='settingsService.userData.fb'  type="url" placeholder="Facebook..." class=" pl-4 h-100 w-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius">
           </div>
         </div>
         <!-- Instgram Input -->
@@ -46,7 +46,7 @@
             <i class="OM-icon-instagram sM0-icon-d d-inline-block"></i>
           </div>
           <div class="col p-0">
-            <input ngModel name="insta" [(ngModel)]='settingsService.userData.insta' type="url" placeholder="Instagram..." class=" pl-4 h-100 w-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius">
+            <input ng-disabled="!myForm.$valid" ngModel name="insta" [(ngModel)]='settingsService.userData.insta' type="url" placeholder="Instagram..." class=" pl-4 h-100 w-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius">
           </div>
         </div>
         <!-- Twitter Input -->

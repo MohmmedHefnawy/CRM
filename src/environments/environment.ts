@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: "http://crm.deal360.ae/api/"
+  apiBaseUrl: "http://crm.deal360.ae/api/",
+  imageBaseurl: "http://crm.deal360.ae/public/"
 };
 
 /*

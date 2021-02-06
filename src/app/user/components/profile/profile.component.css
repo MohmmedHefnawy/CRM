@@ -1,5 +1,8 @@
 /* Profile Information */
 /* Cards */
+.OM-img-upload-image{
+  background-image: url("/assets/Icons/upload-image.svg");
+}
 .OM-img-src {
   background-image: url("/assets/Home/Home.jpg");
 }

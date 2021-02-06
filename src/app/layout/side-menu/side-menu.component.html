@@ -17,12 +17,13 @@
                 <!-- Profile Info -->
                 <div class="h-50">
                     <div routerLink="/user/profile" class="w-100 d-flex justify-content-center p-xl-2 p-4">
-                        <i class="sM0-click OM-img-profile1 sM0-bg-imgs-center sM0-img-b sM0-f-radius d-inline-block"></i>
+                        <i [ngStyle]="authService.user?.data?.image != '' ? {'background-image' : 'url('+ imageBaseURL + authService.user?.data?.image +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}"
+                         class="sM0-click OM-img-profile1 sM0-bg-imgs-center sM0-img-b sM0-f-radius d-inline-block"></i>
                     </div>
                     <!-- UserName -->
                     <div class="text-center">
-                        <p routerLink="/user/profile" class="sM0-click sM0-main-cr sM0-fs-b-24">{{authService.user?.data.username}} </p>
-                        <p class="sM0-text-0-cr m-0 sM0-fs-16">{{authService.user?.data.role_id}} </p>
+                        <p routerLink="/user/profile" class="sM0-click sM0-main-cr sM0-fs-b-24 my-4">{{authService.user?.data.username}} </p>
+                        <p class="sM0-text-0-cr m-0 sM0-fs-16">{{authService.user?.data.role_name}} </p>
                     </div>
                 </div>
                 <!-- navigations  -->
@@ -67,7 +68,8 @@
                 <!-- Profile Info -->
                 <div class="h-25">
                     <div class="w-100 d-flex justify-content-center py-4 M0-profile-img-holder">
-                        <i routerLink="/user/profile" class="sM0-click OM-img-profile1 sM0-bg-imgs-center sM0-img-c sM0-f-radius d-inline-block"></i>
+                        <i  [ngStyle]="authService.user?.data?.image != '' ? {'background-image' : 'url('+ imageBaseURL + authService.user?.data?.image +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}"
+                        routerLink="/user/profile" class="sM0-click OM-img-profile1 sM0-bg-imgs-center sM0-img-c sM0-f-radius d-inline-block"></i>
                     </div>
                     <!-- invisible -->
                     <div class="text-center invisible">
