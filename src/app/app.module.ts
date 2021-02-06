@@ -4,6 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+// import { LOADING_BAR_CONFIG } from '@ngx-loading-bar/core';
 // Module
 import { UserModule } from './user/user.module'
 import { LayoutModule } from './layout/layout.module'
@@ -27,7 +28,9 @@ import { DashComponent } from './dash/dash.component'
     FormsModule,
 
   ],
-  providers: [],
+  providers: [
+    // { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

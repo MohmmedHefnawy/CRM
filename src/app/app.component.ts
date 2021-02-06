@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   constructor(public authService: AuthService, private router: Router) { }
+
   ngOnInit(): void {
     this.isLoggedIn()
   }

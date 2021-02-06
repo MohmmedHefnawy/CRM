@@ -10,5 +10,5 @@
 .loader-container {
   position: absolute;
   width: 100%;
-  z-index: 99;
+  border-radius: 35px;
 }

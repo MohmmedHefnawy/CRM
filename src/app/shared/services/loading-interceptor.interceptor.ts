@@ -1,33 +1,32 @@
-import { InLoadingService } from './in-loading.service';
-import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor
-} from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+// import { InLoadingService } from './in-loading.service';
+// import { Injectable } from '@angular/core';
 
-@Injectable()
-export class LoadingInterceptor implements HttpInterceptor {
-  timer = new Date()
+// import {
+//   HttpRequest,
+//   HttpHandler,
+//   HttpEvent,
+//   HttpInterceptor
+// } from '@angular/common/http';
+// import { Observable } from 'rxjs';
+// import { finalize } from 'rxjs/operators';
 
-  constructor(public loadingServices: InLoadingService) { }
+// @Injectable()
+// export class LoadingInterceptor implements HttpInterceptor {
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    this.loadingServices.isLoading.next(true);
-    console.log("Out :" + this.timer);
-    return next.handle(request).pipe(
-      finalize(
-        () => {
-          setTimeout(() => {
-            this.loadingServices.isLoading.next(false);
-            let datenow = new Date()
-            console.log("Inside : " + datenow);
-          }, 2000)
-        }
-      )
-    )
-  }
-}
+//   constructor(public loadingServices: InLoadingService) { }
+
+//   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+//     // this.loadingServices.loader.start()
+//     console.log(next);
+
+//     return next.handle(request)
+//     // .pipe(
+//     //   finalize(() => {
+//     //     this.loadingServices.loader.complete()
+//     //   }
+//     //   )
+//     // )
+//   }
+// }
+
+
