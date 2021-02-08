@@ -15,7 +15,7 @@
             <!-- (Open)  Side-Menu Information -->
             <div class="w-100 mt-5 flex-column justify-content-between overflow-auto" [class.d-none]='innerSideMenuData' [class.d-flex]='!innerSideMenuData'>
                 <!-- Profile Info -->
-                <div class="h-50">
+                <div class="h-25" [class.h-50]='authService.user?.data?.role_id == 1 ||  authService.user?.data?.role_id == 2'>
                     <div routerLink="/user/profile" class="w-100 d-flex justify-content-center p-xl-2 p-4">
                         <i [ngStyle]="authService.user?.data?.image != '' ? {'background-image' : 'url('+ imageBaseURL + authService.user?.data?.image +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}"
                          class="sM0-click OM-img-profile1 sM0-bg-imgs-center sM0-img-b sM0-f-radius d-inline-block"></i>
@@ -34,7 +34,7 @@
                         <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-16">Profile</p>
                     </button>
                     <!-- Teams Line -->
-                    <button routerLinkActive="sM0-active" routerLink="/user/teams" class="sM0-notActive btn py-0 mb-5 d-flex justify-content-center">
+                    <button *ngIf='authService.user?.data?.role_id == 1 ||  authService.user?.data?.role_id == 2' routerLinkActive="sM0-active" routerLink="/user/teams" class="sM0-notActive btn py-0 mb-5 d-flex justify-content-center">
                         <i class="OM-img-team sM0-icon-c sM0-bg-imgs-center mr-3"></i>
                         <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-16">Teams</p>
                     </button>
@@ -49,7 +49,7 @@
                         <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-16">Settings</p>
                     </button>
                     <!-- Add User Line -->
-                    <button routerLinkActive="sM0-active" routerLink="/user/create-account" class="sM0-notActive btn py-0 mb-5 d-flex justify-content-center">
+                    <button *ngIf='authService.user?.data?.role_id == 1 ||  authService.user?.data?.role_id == 2' routerLinkActive="sM0-active" routerLink="/user/create-account" class="sM0-notActive btn py-0 mb-5 d-flex justify-content-center">
                         <i class="OM-img-Plus sM0-icon-c sM0-bg-imgs-center mr-3"></i>
                         <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-16">Add User</p>
                     </button>
@@ -82,13 +82,13 @@
                     <!-- Profile Line -->
                     <i routerLinkActive="sM0-active" routerLink="/user/profile" class="sM0-notActive sM0-click OM-img-profile sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                     <!-- Teams Line -->
-                    <i routerLinkActive="sM0-active" routerLink="/user/teams" class="sM0-notActive sM0-click OM-img-team sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
+                    <i *ngIf='authService.user?.data?.role_id == 1 ||  authService.user?.data?.role_id == 2' routerLinkActive="sM0-active" routerLink="/user/teams" class="sM0-notActive sM0-click OM-img-team sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                     <!-- Notification Line -->
                     <i routerLinkActive="sM0-active" routerLink="/user/notifi" class="sM0-notActive sM0-click OM-img-notification sM0-icon-c mx-auto mb-5 sM0-bg-imgs-center d-block"></i>
                     <!-- Settings Line -->
                     <i routerLinkActive="sM0-active" routerLink="/user/settings/personal-info" class="sM0-notActive sM0-click OM-img-setting sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                     <!-- Add User Line -->
-                    <i routerLinkActive="sM0-active" routerLink="/user/create-account" class="sM0-notActive sM0-click OM-img-Plus sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
+                    <i *ngIf='authService.user?.data?.role_id == 1 ||  authService.user?.data?.role_id == 2' routerLinkActive="sM0-active" routerLink="/user/create-account" class="sM0-notActive sM0-click OM-img-Plus sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                 </div>
                 <!-- logout button -->
                 <div class="h-25 mb-5 d-flex align-items-end">

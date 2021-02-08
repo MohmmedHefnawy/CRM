@@ -34,14 +34,8 @@
                 <div class='row M0-controller ml-0 px-md-5 px-4'>
                     <div class='col sM0-supp-0-bg sM0-b-l-radius'>
                         <div *ngIf="loading.value$ | async" class="loader-container pr-4">
-                            <!-- <ngx-loading-bar id='porgBar' [value]="loading.value$| async" ref=''></ngx-loading-bar> -->
                             <mat-progress-bar [value]="loading.value$ | async" class="sM0-f-radius" mode="determinate" ></mat-progress-bar>
                         </div>
-                        <button (click)="loading.loader.start()">start</button>
-                        <button (click)="loading.loader.stop()">stop</button>
-                        <button (click)="loading.loader.increment()">increment</button>
-                        <button (click)="loading.loader.disable()">disable</button>
-                        <button (click)="loading.loader.complete()">Complete</button>
                         <app-navigations></app-navigations>
                     </div>
                 </div>

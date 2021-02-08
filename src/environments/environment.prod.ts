@@ -1,5 +1,5 @@
 export const environment = {
-  apiBaseUrl: "http://crm.deal360.ae/api/",
-  imageBaseurl: "http://crm.deal360.ae/",
+  apiBaseUrl: "https://crm.deal360.ae/api/",
+  imageBaseurl: "https://crm.deal360.ae/",
   production: true
 };

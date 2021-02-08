@@ -71,7 +71,7 @@ export class ProfileComponent implements OnInit {
   uploadMyImage(evt: any) {
     const file = evt.target.files[0];
 
-    if (file) {
+    if (file) { 
       const reader = new FileReader();
 
       reader.onload = this.updateImage.bind(this);
@@ -82,7 +82,7 @@ export class ProfileComponent implements OnInit {
   updateImage(e) {
     let imageObj = { image: 'data:image/png;base64,' + btoa(e.target.result)}
     this.profileService.postImage(imageObj).subscribe(res=>{
-      console.log(res);
+      this.authService.user = res
       
     })
     

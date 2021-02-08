@@ -2,6 +2,7 @@ import { CreateAccountServiceService } from './../../services/create-account-ser
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
+import { from } from 'rxjs';
 
 
 @Component({
@@ -28,14 +29,18 @@ export class CreateAccountComponent implements OnInit {
 
   // # HTTP REQs
   onSubmit(form: NgForm) {
-
-    this.create_srv.postNewUser(form.value).subscribe(res => {
-      console.log(res);
-
-    }, err => {
-      console.log(err);
-
-    })
+    if (form.value.role_id === 'Employee Role...'){
+      alert('select user Role')
+      
+    }else{
+      this.create_srv.postNewUser(form.value).subscribe(res => {
+        console.log(res);
+  
+      }, err => {
+        console.log(err);
+  
+      })
+    }
 
   }
 }

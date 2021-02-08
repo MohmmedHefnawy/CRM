@@ -38,15 +38,27 @@
                 <i class="OM-icon-employee sM0-icon-d d-inline-block"></i>
               </div>
               <div  class='col p-0'>
-                <select ngModel required #role='ngModel' name='role_id' class='sM0-text-0-cr pl-4 round w-100 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none px-3'>
-                  <option selected disabled>
+                <select [(ngModel)]='option0.value' ngModel required #role='ngModel' name='role_id' class='sM0-text-0-cr pl-4 round w-100 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none px-3'>
+                  <option #option0 selected disabled value="Employee Role..." >
                     Employee Role...
                   </option>
-                  <option value="1" class=''>
+                  <option  value="1" class=''>
                     Project Maneger
                   </option>
                   <option value="2">
                     Dubai Admin
+                  </option>
+                  <option value="3">
+                    Acount Manager
+                  </option>
+                  <option value="4">
+                    Photoshop
+                  </option>
+                  <option value="5">
+                    Designer
+                  </option>
+                  <option value="6">
+                    Content Creator
                   </option>
                 </select>
               </div>
