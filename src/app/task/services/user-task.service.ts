@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   _url = environment.apiBaseUrl;
   userTasks;
   constructor(private http: HttpClient  ) { }
-  getUserTask(lang, page, num){
-    return this.http.get(`${this._url}properties?lang=${lang}&page=${page}&num=${num}`)
+  getUserTask(lang, page, num, status, userID){
+    return this.http.get(`${this._url}properties?lang=${lang}&page=${page}&num=${num}&status=${status}&user_id=${userID}`)
   }
 }

@@ -4,6 +4,7 @@ import { NavigatorServicesService } from './../../../shared/services/navigator-s
 import { TeamsService } from '../../services/teams.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment'
+import { UserTaskService } from 'src/app/task/services/user-task.service';
 
 @Component({
   selector: 'app-teams',
@@ -20,7 +21,12 @@ export class TeamsComponent implements OnInit {
     api: [1, 2, 3, 4, 5, 6]
   }
   imageBaseURL = environment.imageBaseurl
-  constructor(public navService: NavigatorServicesService, public teamService: TeamsService, private router: Router) {}
+  constructor(
+    public navService: NavigatorServicesService,
+    public teamService: TeamsService,
+    private router: Router,
+    public userTaskService: UserTaskService
+      ) {}
 
   ngOnInit(): void {    
     this.navService.navigators = this.navigator;    
@@ -41,8 +47,15 @@ export class TeamsComponent implements OnInit {
     },err=>{
 
     }, ()=>{
+        this.getUserTaskByUserID('en', 1, 10, '', iD)
         this.router.navigate(['/user/profile/user'])
     })
+  }
+  getUserTaskByUserID(lang, page, num, status, userID) {
+    this.userTaskService.getUserTask(lang, page, num, status, userID).subscribe((res: any) => {
+      this.userTaskService.userTasks = res.data
+      console.log(this.userTaskService.userTasks);
 
+    })
   }
 }

@@ -44,6 +44,7 @@ export class ProfileComponent implements OnInit {
         this.userProfile = true
         this.navigator.title = 'Profile'
         localStorage.removeItem("teamUser");
+        this.getAllProps('en', 1, 10, '', '')
         break;
       // team user
       default:
@@ -56,8 +57,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
-    setTimeout(() => { console.log(this.authService.user);},500)
-    this.getAllProps('en', 1, 10)
+    setTimeout(() => { console.log(this.authService.user);},1000)
   }
   // [#] Controller
   saveMyInfo(textContent){
@@ -98,8 +98,8 @@ export class ProfileComponent implements OnInit {
       
     })
   }
-  getAllProps(lang, page, num){
-    this.userTaskService.getUserTask(lang, page, num).subscribe((res: any)=>{
+  getAllProps(lang, page, num, status,userID){
+    this.userTaskService.getUserTask(lang, page, num, status, userID).subscribe((res: any)=>{
       this.userTaskService.userTasks = res.data
       console.log(this.userTaskService.userTasks);
       

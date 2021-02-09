@@ -80,8 +80,9 @@
                             <i class="OM-img-alarm sM0-icon-d sM0-bg-imgs-center d-inline-block"></i>
                         </div>
                         <div
-                            class=" M0-border-black sM0-bg-opacity-white-25 sM0-b-l-radius h-50 d-flex justify-content-center align-items-center">
-                            2</div>
+                            class=" M0-border-black sM0-bg-opacity-white-25 sM0-b-l-radius h-50 d-flex justify-content-center align-items-center"
+                            [textContent]='userProfile ? authService.user?.data.inProgress : teamService.oneUser?.inProgress'
+                            ></div>
                     </div>
                     <div class='pr-4 d-xl-block d-sm-none d-block'></div>
                     <!-- Didn't Started yet Section -->
@@ -93,8 +94,10 @@
                             <i class="OM-img-thunderwhite sM0-icon-d sM0-bg-imgs-center d-inline-block"></i>
                         </div>
                         <div
-                            class=" M0-border-black sM0-bg-opacity-gold-25 sM0-b-l-radius h-50 d-flex justify-content-center align-items-center sM0-main-cr">
-                            1</div>
+                            class=" M0-border-black sM0-bg-opacity-gold-25 sM0-b-l-radius h-50 d-flex justify-content-center align-items-center sM0-main-cr"
+                            [textContent]='userProfile ? authService.user?.data.pending : teamService.oneUser?.pending'
+                            >
+                            </div>
                     </div>
                 </div>
                 <!-- Row B -->
@@ -108,8 +111,10 @@
                             <i class="OM-img-alarm sM0-icon-d sM0-bg-imgs-center d-inline-block"></i>
                         </div>
                         <div
-                            class="M0-border-black sM0-bg-opacity-red-25 sM0-b-l-radius h-50 d-flex justify-content-center align-items-center sM0-danger-cr">
-                            2</div>
+                            class="M0-border-black sM0-bg-opacity-red-25 sM0-b-l-radius h-50 d-flex justify-content-center align-items-center sM0-danger-cr"
+                            [textContent]="userProfile ? authService.user?.data.didnt_finished : teamService.oneUser?.didnt_finished"
+                            >
+                            </div>
                     </div>
                     <div class='pr-4 d-xl-block d-sm-none d-block'></div>
                     <!-- Completed Section -->
@@ -121,8 +126,10 @@
                             <i class="OM-img-rightwhite sM0-icon-d sM0-bg-imgs-center d-inline-block"></i>
                         </div>
                         <div
-                            class="M0-border-black sM0-bg-opacity-green-25 sM0-b-l-radius h-50 d-flex justify-content-center align-items-center sM0-green-cr">
-                            30</div>
+                            class="M0-border-black sM0-bg-opacity-green-25 sM0-b-l-radius h-50 d-flex justify-content-center align-items-center sM0-green-cr"
+                            [textContent]="userProfile ? authService.user?.data.completed : teamService.oneUser?.completed"
+                            >
+                            </div>
                     </div>
                 </div>
             </div>
@@ -130,10 +137,10 @@
         <!--  Dummy Cards  -->
         <!-- Assign Task Card -->
         <div *ngFor='let task of userTaskService.userTasks' class='pl-0 d-inline-block  M0-card  pr-4 mb-4'>
-            <div class='sM0-supp-0-bg w-100 h-100 sM0-f-radius d-flex flex-column align-items-center'>
+            <div routerLink='/task/details/dashBoard'  class='sM0-click sM0-supp-0-bg w-100 h-100 sM0-f-radius d-flex flex-column align-items-center'>
                 <!-- Image Profile -->
                 <div 
-                    [ngStyle]="{'background-image' : 'url('+ task.images +')'}"
+                    [ngStyle]="{'background-image' : 'url('+ task?.images +')'}"
                  class="OM-img-src sM0-bg-imgs-center sM0-img-a sM0-t-r-radius mb-4 d-flex justify-content-end w-100 position-relative">
                     <!-- Over Layer -->
                     <div class="sM0-opacity-4 sM0-supp-0-bg h-100 w-100  position-absolute sM0-t-r-radius"></div>
@@ -141,13 +148,18 @@
                     <div class="sM0-bg-opacity-gray-90 sM0-b-l-radius OM-icon-profile-holder position-absolute d-flex justify-content-center align-items-end">
                             <i class="OM-img-acc sM0-circle-border mb-1 sM0-bg-imgs-center d-inline-block"></i>
                     </div>
-                    <!-- Timer icon -->
+                    <!-- Timer icon, Property Status -->
                     <div
-                    [class.sM0-green-bg]='task.post_status == "pending"'
-                     class="sM0-text-0-cr sM0-bg-opacity-gray-90 sM0-f-radius py-2 sM0-btn-w-160 position-absolute d-flex justify-content-center align-items-center m-3">
+                    [class.sM0-bg-opacity-gold-5]='task?.post_status == "pending"' [class.sM0-bg-opacity-green-5]='task?.post_status == "publish"'
+                     class="sM0-text-0-cr sM0-f-radius py-2 sM0-btn-w-160 position-absolute d-flex justify-content-center align-items-center m-3">
                         <!-- <i class="OM-img-alarm sM0-icon-d py-3 sM0-bg-imgs-center d-inline-block mr-3"></i> -->
                         <!-- <p class="m-0 pt-1 sM0-fs-b-16 sM0-font-clock">0 0 : 0 0</p> -->
-                        <p class="m-0 pt-1 sM0-fs-b-16 sM0-font-clock~" [textContent]='task.post_status'></p>
+                        <p class="m-0 sM0-fs-12 sM0-font-clock~">{{task?.post_status}} <span class='bg-white sM0-text-1-cr sM0-fs-10 sM0-f-radius px-2 ml-4 py-1'>{{task?.id}}</span></p>
+                    </div>
+                    <div 
+                    class="sM0-text-0-cr sM0-f-radius py-2 position-absolute d-flex justify-content-center align-items-center m-3 mr-4~ mt-5">
+                        <p [class.sM0-bg-opacity-gold-5]='task?.post_status == "pending"' [class.sM0-bg-opacity-green-5]='task?.post_status == "publish"'
+                        class="m-0 mt-3 ml-2 px-3 py-1 sM0-fs-10 sM0-text-0-cr sM0-f-radius ">{{task?.category}} <span class='sM0-supp-1-bg sM0-text-0-cr sM0-fs-10 sM0-f-radius px-2 ml-2 py-1'>{{task?.type}}</span></p>
                     </div>
                     <!-- call icon -->
                     <div class=" align-self-end sM0-bg-opacity-green-90 sM0-f-radius OM-icon-call-holder position-relative d-flex justify-content-center align-items-center mr-3">
@@ -157,10 +169,10 @@
                 <!-- property content -->
                 <div class='d-flex flex-column align-items-center px-4'>
                     <!-- Card name -->
-                    <p class=" sM0-text-0-cr mb-2 text-center sM0-fs-b-16">{{task.title | slice:0:25 }} ...</p>
+                    <p class=" sM0-text-0-cr mb-2 text-center sM0-fs-b-16 text-capitalize">{{task.title | slice:0:25 }} ...</p>
                     <!-- user -->
                     <div class="d-flex justify-content-center pb-2">
-                        <p class="sM0-main-cr d-inline-block mb-0 ml-2 text-center sM0-fs-16">Agent Name, Agency Name</p>
+                        <p class="sM0-main-cr d-inline-block mb-0 ml-2 text-center sM0-fs-16 text-capitalize">{{task?.agent_name}}, {{task?.agency_name}}</p>
                     </div>
                     <!-- Location -->
                     <div class="d-flex justify-content-center align-items-center pb-2">
@@ -169,24 +181,32 @@
                     </div>
                     <!-- Inprogress Task -->
                     <div class='pb-3'>
-                        <button class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
+                        <button *ngIf='task?.post_status == "pending"' class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
                             <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center mr-3"></i>
                             <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Assign Task</p>
+                        </button>
+                        <button *ngIf='task?.post_status == "publish"'
+                            class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25~ px-3 py-2">
+                            <i class="OM-img-right sM0-icon-d sM0-bg-imgs-center mr-3"></i>
+                            <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Completed</p>
                         </button>
                     </div>
                 </div>
                 <!-- Progress Bar -->
-                <div class="progress w-75 sM0-f-radius sM0-supp-1-bg">
-                    <div class="progress-bar sM0-smoke-bg d-flex align-items-end px-2 sM0-f-radius" role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                <div  class="progress w-75 sM0-f-radius sM0-supp-1-bg">
+                    <div *ngIf='task?.post_status == "pending"' class="progress-bar sM0-smoke-bg d-flex align-items-end px-2 sM0-f-radius" role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                         0%
+                    </div>
+                    <div *ngIf='task?.post_status == "publish"' class="progress-bar sM0-green-bg align-items-center d-flex align-items-end px-2 sM0-f-radius" style="width: 100%" role="progressbar"  aria-valuenow="100" aria-valuemin="100" aria-valuemax="100">
+                        Live Now
                     </div>
                 </div>
                 <!-- inner ICONS -->
-                <div class="w-75 d-flex justify-content-end pt-3">
+                <!-- <div class="w-75 d-flex justify-content-end pt-3">
                     <i class="OM-img-list sM0-icon-e sM0-bg-imgs-center d-inline-block "></i>
                     <i class="OM-img-attachment sM0-icon-e sM0-bg-imgs-center d-inline-block ml-2"></i>
                     <i class="OM-img-comment sM0-icon-e sM0-bg-imgs-center d-inline-block ml-2"></i>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- last cards -->
