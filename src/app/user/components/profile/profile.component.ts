@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
 import { TeamsService } from '../../services/teams.service';
-import { environment } from 'src/environments/environment'
+import { environment } from 'src/environments/environment';
+import { UserTaskService } from 'src/app/task/services/user-task.service'
 
 @Component({
   selector: 'app-profile',
@@ -34,6 +35,7 @@ export class ProfileComponent implements OnInit {
     public teamService: TeamsService,
     public profileService: ProfileServiceService,
     private router: Router,
+    public userTaskService: UserTaskService
   ) {
     let route = this.router.url
     switch (route) {
@@ -55,6 +57,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
     setTimeout(() => { console.log(this.authService.user);},500)
+    this.getAllProps('en', 1, 10)
   }
   // [#] Controller
   saveMyInfo(textContent){
@@ -92,6 +95,13 @@ export class ProfileComponent implements OnInit {
     this.profileService.postPersonalInfo(userInfo).subscribe(res=>{
       this.authService.user = res
       console.log(this.authService.user);
+      
+    })
+  }
+  getAllProps(lang, page, num){
+    this.userTaskService.getUserTask(lang, page, num).subscribe((res: any)=>{
+      this.userTaskService.userTasks = res.data
+      console.log(this.userTaskService.userTasks);
       
     })
   }
