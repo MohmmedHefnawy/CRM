@@ -10,9 +10,6 @@ export class MasterContainerComponent implements OnInit {
   constructor(public loading: InLoadingService) { }
 
   ngOnInit(): void {
-    console.log('Welcome' + JSON.stringify(this.loading.value$));
-    console.log('Welcome' + JSON.stringify(this.loading.loader));
-
     let holderWindowSize = (holder, sideMenu) => {// [?] holder is the selected holder <div> fo the component
       // [?] window reisze event | to resize holder every Browser winodw resize
       window.addEventListener("resize", function () {
