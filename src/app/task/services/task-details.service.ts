@@ -10,7 +10,7 @@ export class TaskDetailsService {
   taskDetails;
   constructor(private http: HttpClient) { }
   getTaskById(ID){
-    return this.http.get(`${this._url}properties/${ID}`)
+    return this.http.get(`${this._url}properties?id=${ID}`)
   }
 
 }

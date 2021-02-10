@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -7,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(private Activerouter: ActivatedRoute) { }
+  
+  ngOnInit(): void {}
 }

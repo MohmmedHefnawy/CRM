@@ -2,7 +2,6 @@ import { CreateAccountServiceService } from './../../services/create-account-ser
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
-import { from } from 'rxjs';
 
 
 @Component({

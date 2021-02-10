@@ -11,6 +11,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component'
 import { TeamStatusComponent } from './task-details/team-status/team-status.component';
 import { TaskComponent } from './task.component';
 import { AuthGuard } from '../auth/components/auth/auth.guard';
+import { DescriptionComponent } from './task-details/description/description.component'
 const routes: Routes = [
   { path: 'details', redirectTo: 'task/details/dashBoard:id', pathMatch: 'full' }, // redirect to `profile`
   { path: 'details', component: TaskComponent,
@@ -19,6 +20,7 @@ const routes: Routes = [
     { path: 'teamstatus/:id', component: TeamStatusComponent },
     { path: 'photographer/:id', component: PhotographerPanelComponent },
     { path: 'designer/:id', component: DesignersPanelComponent },
+    { path: 'description/:id', component: DescriptionComponent },
     { path: 'content', component: ContentPanelComponent, 
       children : [
         { path: 'amenities/:id', component: AmenitiesComponent },
