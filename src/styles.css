@@ -129,6 +129,7 @@ body {
 .sM0-green-cr {
   color: #5cbb5c !important;
 }
+
 .sM0-text-cr-5 {
   color: rgb(252, 252, 252, 0.5) !important;
 }
@@ -262,6 +263,9 @@ body {
 }
 .sM0-b-l-radius {
   border-radius: 0 0 35px 35px;
+}
+.sM0-l-b-radius {
+  border-radius: 0 35px 35px 0;
 }
 .sM0-l-r-radius {
   border-radius: 35px 0 0 35px;
@@ -473,6 +477,7 @@ textarea {
   min-width: 200px !important;
   max-width: 260px !important;
 }
+
 .grid {
   display: flex;
   flex-flow: row wrap;
@@ -505,3 +510,4 @@ body {
 .mat-progress-bar-fill::after {
   background-color: #e9c46a !important;
 }
+
