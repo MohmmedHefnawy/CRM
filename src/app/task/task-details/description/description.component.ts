@@ -23,8 +23,8 @@ export class DescriptionComponent implements OnInit {
       console.log(res.data);
     })
   }
-  onSubmit(form: NgForm){
+  onSubmit(form: NgForm) {
     console.log(form);
-    
+
   }
 }
