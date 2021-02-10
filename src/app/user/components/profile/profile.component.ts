@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { ProfileServiceService } from './../../services/profile-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -6,6 +7,7 @@ import { NavigatorServicesService } from 'src/app/shared/services/navigator-serv
 import { TeamsService } from '../../services/teams.service';
 import { environment } from 'src/environments/environment';
 import { UserTaskService } from 'src/app/task/services/user-task.service'
+import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +15,7 @@ import { UserTaskService } from 'src/app/task/services/user-task.service'
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  subscription: Subscription;
   imageBaseURL = environment.imageBaseurl
   // visited user
   visitedUserName = this.teamService.oneUser?.name ? this.teamService.oneUser?.name : '';
@@ -57,16 +60,16 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
-    setTimeout(() => { console.log(this.authService.user);},1000)
+    setTimeout(() => { console.log(this.authService.user); }, 1000)
   }
   // [#] Controller
-  saveMyInfo(textContent){
-    switch (textContent){
+  saveMyInfo(textContent) {
+    switch (textContent) {
       case 'Save':
         let userLocInp = $('#userLocInp').val(),
           userNameInp = $('#userNameInp').val(),
           userBioInp = $('#userBioInp').val();
-        let userInfo =  { name: userNameInp, address: userLocInp, bio: userBioInp }
+        let userInfo = { name: userNameInp, address: userLocInp, bio: userBioInp }
         this.updateMyInfo(userInfo)
         break;
     }
@@ -74,7 +77,7 @@ export class ProfileComponent implements OnInit {
   uploadMyImage(evt: any) {
     const file = evt.target.files[0];
 
-    if (file) { 
+    if (file) {
       const reader = new FileReader();
 
       reader.onload = this.updateImage.bind(this);
@@ -83,27 +86,31 @@ export class ProfileComponent implements OnInit {
   }
 
   updateImage(e) {
-    let imageObj = { image: 'data:image/png;base64,' + btoa(e.target.result)}
-    this.profileService.postImage(imageObj).subscribe(res=>{
+    let imageObj = { image: 'data:image/png;base64,' + btoa(e.target.result) }
+    this.profileService.postImage(imageObj).subscribe(res => {
       this.authService.user = res
-      
+
     })
-    
+
   }
   // [#] HTTP REQs
-  updateMyInfo(userInfo){
-    this.profileService.postPersonalInfo(userInfo).subscribe(res=>{
+  updateMyInfo(userInfo) {
+    this.profileService.postPersonalInfo(userInfo).subscribe(res => {
       this.authService.user = res
       console.log(this.authService.user);
-      
+
     })
   }
-  getAllProps(lang, page, num, status,userID){
-    this.userTaskService.getUserTask(lang, page, num, status, userID).subscribe((res: any)=>{
+  getAllProps(lang, page, num, status, userID) {
+    this.userTaskService.getUserTask(lang, page, num, status, userID).subscribe((res: any) => {
       this.userTaskService.userTasks = res.data
       console.log(this.userTaskService.userTasks);
-      
+
     })
+  }
+  ngOnDestroy(): void {
+    this.userTaskService.userTasks = ''
+    console.log('Destroyed');
   }
 }
 

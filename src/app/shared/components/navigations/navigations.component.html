@@ -3,7 +3,7 @@
     <li class="d-inline-block mr-4"><i class='sM0-icon-c d-block sM0-bg-imgs-center' [ngStyle]="{'background-image' : 'url('+ navService.navigators?.icon +')'}" ></i></li>
     <li class="d-inline-block text-uppercase sM0-fs-b-16 mr-4">{{navService.navigators?.title}} <span class='ml-4 sM0-fs-b-16'>|</span></li>
     <!-- if there is routers -->
-    <ng-container *ngIf='!navService.navigators?.api[0]'>
+    <ng-container *ngIf='!navService.navigators?.api[0    ]'>
       <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive sM0-click" routerLinkActive="sM0-active"
         [routerLink]="navService.navigators?.routers[i]" *ngFor='let nav of navService.navigators?.navigators ; index as i;'>
         {{nav}}</li>

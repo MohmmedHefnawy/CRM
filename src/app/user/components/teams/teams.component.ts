@@ -12,7 +12,6 @@ import { UserTaskService } from 'src/app/task/services/user-task.service';
   styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit, OnDestroy {
-  subscription: Subscription;
   // Navigators
   navigator = {
     icon: "/assets/Icons/Teamwork.svg",
