@@ -12,12 +12,12 @@
                 <input
                     ngModel name="title" required [(ngModel)]="taskDetails.taskDetails?.description.title"
                     type="text" placeholder="Property Name..."
-                    class=" sM0-text-0-cr pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
+                    class=" sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
             </div>
         </div>
         <!-- 2nd Row -->
         <div class="d-flex mb-4">
-            <!-- ? Gender -->
+            <!-- Price input -->
             <div class="w-100 d-flex">
                 <!-- Icon Holder -->
                 <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
@@ -25,7 +25,9 @@
                 </div>
                 <!-- Input Field -->
                 <div class="w-100 p-0">
-                    <input type="text" placeholder="Price..." class=" pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
+                    <input 
+                        ngModel name="price" required [(ngModel)]="taskDetails.taskDetails?.description.price"
+                        type="text" placeholder="Price..." class="sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
                 </div>
             </div>
             <!-- ? Start Divider -->
@@ -98,8 +100,11 @@
                     <i class="OM-icon-listnumber sM0-icon-c"></i>
                 </div>
                 <div class="w-100 h-75">
-                    <textarea type="text" placeholder="Description..."
-                        class="pl-4 h-100 w-100 sM0-supp-1-bg sM0-b-radius sM0-text-0-cr sM0-border-none p-4"></textarea>
+                    <textarea
+                     ngModel name="description" required [(ngModel)]="taskDetails.taskDetails?.description.description"
+                     type="text" placeholder="Description..."
+                        class="pl-4 h-100 w-100 sM0-supp-1-bg sM0-b-radius sM0-text-0-cr sM0-border-none p-4">
+                    </textarea>
                 </div>
             </div>
         </div>
