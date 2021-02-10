@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <!-- user Roul -->
-                    <p class="sM0-text-0-cr sM0-fs-16 ml-md-4 text-md-left text-center mt-2" [textContent]='teamService.oneUser ? teamService.oneUser.role_name : authService.user?.data.role_name'></p>
+                    <p class="sM0-text-0-cr sM0-fs-16 ml-md-4 text-md-left text-center mt-2" [textContent]='userProfile ? authService.user?.data.role_name : teamService.oneUser?.role_name'></p>
                     <!-- user location -->
                     <div class="d-flex ml-md-4 mt-3 justify-content-center">
                         <i class="OM-img-location sM0-icon-c sM0-bg-imgs-center mr-2"></i>
