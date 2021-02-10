@@ -7,7 +7,7 @@ import { NavigatorServicesService } from 'src/app/shared/services/navigator-serv
 import { TeamsService } from '../../services/teams.service';
 import { environment } from 'src/environments/environment';
 import { UserTaskService } from 'src/app/task/services/user-task.service'
-import { stringify } from '@angular/compiler/src/util';
+import { TaskDetailsService } from 'src/app/task/services/task-details.service'
 
 @Component({
   selector: 'app-profile',
@@ -38,7 +38,8 @@ export class ProfileComponent implements OnInit {
     public teamService: TeamsService,
     public profileService: ProfileServiceService,
     private router: Router,
-    public userTaskService: UserTaskService
+    public userTaskService: UserTaskService,
+    public taskDetails: TaskDetailsService
   ) {
     let route = this.router.url
     switch (route) {
@@ -108,9 +109,15 @@ export class ProfileComponent implements OnInit {
 
     })
   }
+  getPropById(ID){
+    this.taskDetails.getTaskById(ID).subscribe((res: any)=>{
+      this.taskDetails.taskDetails = res.data
+      
+    })
+  }
+  // [#]  Life cycles
   ngOnDestroy(): void {
     this.userTaskService.userTasks = ''
-    console.log('Destroyed');
   }
 }
 
