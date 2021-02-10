@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
 
 type NewType = any;
 
@@ -7,9 +8,6 @@ type NewType = any;
   templateUrl: './task-details.component.html',
   styleUrls: ['./task-details.component.css']
 })
-export class TaskDetailsComponent implements OnInit {
-  constructor() { }
-  // tslint:disable-next-line: typedef
-  ngOnInit() {
-  }
+export class TaskDetailsComponent {
+
 }
