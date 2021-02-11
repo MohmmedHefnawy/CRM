@@ -16,9 +16,10 @@ import { AmenitiesComponent } from './task-details/content-panel/amenities/ameni
 import { MediaComponent } from './task-details/content-panel/media/media.component';
 import { DescriptionComponent } from './task-details/description/description.component';
 import { FormsModule } from '@angular/forms';
+import { LocationComponent } from './task-details/content-panel/location/location.component';
 
 @NgModule({
-  declarations: [TaskComponent, SideContentComponent, TaskDetailsComponent, DashBoardComponent, PhotographerPanelComponent, DesignersPanelComponent, ContentPanelComponent, ActivitiesComponent, TeamStatusComponent, DetailsComponent, AmenitiesComponent, MediaComponent, DescriptionComponent],
+  declarations: [TaskComponent, SideContentComponent, TaskDetailsComponent, DashBoardComponent, PhotographerPanelComponent, DesignersPanelComponent, ContentPanelComponent, ActivitiesComponent, TeamStatusComponent, DetailsComponent, AmenitiesComponent, MediaComponent, DescriptionComponent, LocationComponent],
   exports: [SideContentComponent, TaskDetailsComponent, TaskComponent],
   imports: [
     CommonModule,

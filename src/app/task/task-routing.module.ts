@@ -12,6 +12,8 @@ import { TeamStatusComponent } from './task-details/team-status/team-status.comp
 import { TaskComponent } from './task.component';
 import { AuthGuard } from '../auth/components/auth/auth.guard';
 import { DescriptionComponent } from './task-details/description/description.component'
+import { LocationComponent } from './task-details/content-panel/location/location.component';
+import { ActivitiesComponent } from './task-details/activities/activities.component';
 const routes: Routes = [
   { path: 'details', redirectTo: 'task/details/dashBoard:id', pathMatch: 'full' }, // redirect to `profile`
   {
@@ -22,12 +24,14 @@ const routes: Routes = [
       { path: 'photographer/:id', component: PhotographerPanelComponent },
       { path: 'designer/:id', component: DesignersPanelComponent },
       { path: 'description/:id', component: DescriptionComponent },
+      { path: 'activities/:id', component: ActivitiesComponent },
       {
         path: 'content', component: ContentPanelComponent,
         children: [
           { path: 'amenities/:id', component: AmenitiesComponent },
           { path: 'details/:id', component: DetailsComponent },
-          { path: 'media/:id', component: MediaComponent }
+          { path: 'media/:id', component: MediaComponent },
+          { path: 'location/:id', component: LocationComponent }
         ]
       }
     ], canActivate: [AuthGuard]
