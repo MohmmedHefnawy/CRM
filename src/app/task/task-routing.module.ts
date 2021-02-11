@@ -23,11 +23,11 @@ const routes: Routes = [
       { path: 'teamstatus/:id', component: TeamStatusComponent },
       { path: 'photographer/:id', component: PhotographerPanelComponent },
       { path: 'designer/:id', component: DesignersPanelComponent },
-      { path: 'description/:id', component: DescriptionComponent },
       { path: 'activities/:id', component: ActivitiesComponent },
       {
         path: 'content', component: ContentPanelComponent,
         children: [
+          { path: 'description/:id', component: DescriptionComponent },
           { path: 'amenities/:id', component: AmenitiesComponent },
           { path: 'details/:id', component: DetailsComponent },
           { path: 'media/:id', component: MediaComponent },

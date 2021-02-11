@@ -1,6 +1,6 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProfileServiceService } from './../../services/profile-service.service';
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
@@ -8,14 +8,14 @@ import { TeamsService } from '../../services/teams.service';
 import { environment } from 'src/environments/environment';
 import { UserTaskService } from 'src/app/task/services/user-task.service'
 import { TaskDetailsService } from 'src/app/task/services/task-details.service'
-
+import { ModalComponent } from 'src/app/layout/popups/modal/modal.component';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  subscription: Subscription;
+  @ViewChild(ModalComponent) popUp : ModalComponent
   imageBaseURL = environment.imageBaseurl
   // visited user
   visitedUserName = this.teamService.oneUser?.name ? this.teamService.oneUser?.name : '';
@@ -64,6 +64,11 @@ export class ProfileComponent implements OnInit {
     setTimeout(() => { console.log(this.authService.user); }, 1000)
   }
   // [#] Controller
+  // open modal from ModalComponent
+  openPopUp(e){
+    e.stopPropagation();
+    this.popUp.openPopup()
+  }
   saveMyInfo(textContent) {
     switch (textContent) {
       case 'Save':
@@ -113,6 +118,8 @@ export class ProfileComponent implements OnInit {
     this.taskDetails.getTaskById(ID).subscribe((res: any)=>{
       this.taskDetails.taskDetails = res.data
       console.log(res.data);
+    },err=>{},()=>{
+        this.router.navigate([`/task/details/content/description/${ID}`])
     })
   }
   // [#]  Life cycles

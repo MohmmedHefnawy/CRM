@@ -1,19 +1,19 @@
 <div class='sM0-supp-1-bg w-100 h-100 sM0-t-l-radius d-flex flex-column align-items-center OM-scroller'>
     <!-- property image -->
-    <div class="OM-img-src sM0-bg-imgs-center sM0-t-radius d-flex justify-content-end d-inline-block w-100">
+    <div class="sM0-bg-imgs-center sM0-t-radius d-flex justify-content-end d-inline-block w-100" [ngStyle]="{'background-image' : 'url('+ taskDetailsService.taskDetails?.images +')'}">
         <!-- property image -->
         <i class='w-100 h-100 OM-property-img'></i>
     </div>
     <!-- Details -->
     <div class='d-flex flex-column justify-content-center w-100 py-4 px-4'>
         <!-- Card name -->
-        <p class=" sM0-text-0-cr sM0-fs-b-16 pb-2 m-0 text-center">Buy Apartment Luxury...</p>
+        <p class=" sM0-text-0-cr sM0-fs-b-16 pb-2 m-0 text-center">{{taskDetailsService.taskDetails?.description.title| slice:0:25}}  ...</p>
         <!-- user -->
-        <p class="sM0-main-cr d-inline-block sM0-fs-16 pb-2 text-center m-0">Agent Name, Agency Name</p>
+        <p class="sM0-main-cr d-inline-block sM0-fs-16 pb-2 text-center m-0">{{taskDetailsService.taskDetails?.agent_name}}, {{taskDetailsService.taskDetails?.agency_name}}</p>
         <!-- Location -->
         <div class="d-flex justify-content-center align-items-center pb-2">
             <i class="OM-img-Locationgold sM0-icon-d sM0-bg-imgs-center"></i>
-            <p class="sM0-main-cr d-inline-block mb-0 ml-2 text-center sM0-fs-16">Cairo, Maadi</p>
+            <p class="sM0-main-cr d-inline-block mb-0 ml-2 text-center sM0-fs-16">{{taskDetailsService.taskDetails?.location?.city}}</p>
         </div>
         <!-- Call Agent -->
         <button

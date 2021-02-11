@@ -1,3 +1,4 @@
+<app-modal></app-modal>
 <!-- Content Container -->
 <div class='container-fluid pr-0 m-0 h-100 M0-cards-holder'>
     <div class='row flex-wrap pl-4 mx-0 justify-content-center'>
@@ -137,7 +138,7 @@
         <!--  Dummy Cards  -->
         <!-- Assign Task Card -->
         <div *ngFor='let task of userTaskService.userTasks' class='pl-0 d-inline-block  M0-card  pr-4 mb-4'>
-            <div [routerLink]="'/task/details/description/'+ task.id" (click)='getPropById(task.id)'  class='sM0-click sM0-supp-0-bg w-100 h-100 sM0-f-radius d-flex flex-column align-items-center'>
+            <div (click)='getPropById(task.id)'  class='sM0-click sM0-supp-0-bg w-100 h-100 sM0-f-radius d-flex flex-column align-items-center'>
                 <!-- Image Profile -->
                 <div 
                     [ngStyle]="{'background-image' : 'url('+ task?.images +')'}"
@@ -181,7 +182,7 @@
                     </div>
                     <!-- Inprogress Task -->
                     <div class='pb-3'>
-                        <button *ngIf='task?.post_status == "pending"' class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
+                        <button (click)='openPopUp($event)' *ngIf='task?.post_status == "pending"' class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
                             <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center mr-3"></i>
                             <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Assign Task</p>
                         </button>
