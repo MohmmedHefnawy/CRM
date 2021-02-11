@@ -16,11 +16,11 @@ import { ModalComponent } from './popups/modal/modal.component'
 
 @NgModule({
   declarations: [MasterContainerComponent, LayoutComponent, SideMenuComponent, NavBarComponent, MiniContainerComponent, ModalComponent],
-  exports: [NavBarComponent, SideMenuComponent, MasterContainerComponent, LayoutComponent],
+  exports: [NavBarComponent, SideMenuComponent, MasterContainerComponent, LayoutComponent, ModalComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    UserModule,
+    // UserModule,
     TaskModule,
     SharedModule,
   ]

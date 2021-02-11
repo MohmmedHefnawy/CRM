@@ -1,4 +1,4 @@
-<div class='row justify-content-center mb-4'>
+<div  class='row justify-content-center mb-4'>
     <form class='w-100' #descriptionForm="ngForm" (ngSubmit)="descriptionForm.valid && onSubmit(descriptionForm)" >
         <!-- 1st Row -->
         <!-- User Name Input -->
@@ -10,7 +10,7 @@
             <!-- Input Field -->
             <div class="w-100">
                 <input
-                    ngModel name="title" required [(ngModel)]="taskDetails.taskDetails?.description.title"
+                    ngModel name="title" required [(ngModel)]="taskDetailsService.taskDetails?.description.title"
                     type="text" placeholder="Property Name..."
                     class=" sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
             </div>
@@ -26,7 +26,7 @@
                 <!-- Input Field -->
                 <div class="w-100 p-0">
                     <input 
-                        ngModel name="price" required [(ngModel)]="taskDetails.taskDetails?.description.price"
+                        ngModel name="price" required [(ngModel)]="taskDetailsService.taskDetails?.description.price"
                         type="text" placeholder="Price..." class="sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
                 </div>
             </div>
@@ -101,7 +101,7 @@
                 </div>
                 <div class="w-100 h-75">
                     <textarea
-                     ngModel name="description" required [(ngModel)]="taskDetails.taskDetails?.description.description"
+                     ngModel name="description" required [(ngModel)]="taskDetailsService.taskDetails?.description.description"
                      type="text" placeholder="Description..."
                         class="pl-4 h-100 w-100 sM0-supp-1-bg sM0-b-radius sM0-text-0-cr sM0-border-none p-4">
                     </textarea>

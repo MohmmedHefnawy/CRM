@@ -11,5 +11,7 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  openPopup(){
+    $('#openPop').click()
+  }
 }

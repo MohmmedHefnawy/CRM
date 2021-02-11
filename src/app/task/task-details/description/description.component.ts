@@ -8,19 +8,19 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./description.component.css']
 })
 export class DescriptionComponent implements OnInit {
-
-  constructor(public taskDetails: TaskDetailsService, private Activerouter: ActivatedRoute) { }
+  propID; 
+  constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute) { }
 
   ngOnInit(): void {
     // [#] snapshot prop [id]
-    let propertyID = this.Activerouter.snapshot.params['id']
-    this.getPropById(propertyID)
+    this.propID = this.Activerouter.snapshot.params['id']
+    this.getPropById(this.propID)
   }
   // [#] HTTP REQs
   getPropById(ID) {
-    this.taskDetails.getTaskById(ID).subscribe((res: any) => {
-      this.taskDetails.taskDetails = res.data
-      console.log(res.data);
+    this.taskDetailsService.getTaskById(ID).subscribe((res: any) => {
+      this.taskDetailsService.taskDetails = res.data
+      console.log('taskDetailsService', this.taskDetailsService.taskDetails);
     })
   }
   onSubmit(form: NgForm) {
