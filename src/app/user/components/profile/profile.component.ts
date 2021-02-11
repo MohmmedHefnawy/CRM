@@ -109,8 +109,8 @@ export class ProfileComponent implements OnInit {
 
     })
   }
-  getPropById(ID){
-    this.taskDetails.getTaskById(ID).subscribe((res: any)=>{
+  getPropById(ID) {
+    this.taskDetails.getTaskById(ID).subscribe((res: any) => {
       this.taskDetails.taskDetails = res.data
       console.log(res.data);
     })

@@ -120,16 +120,15 @@
                     <!-- Completed Section -->
                     <div class="col p-0 mr-xl-0 ">
                         <div class="sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">
-                            Completed</div>
+                            Completed
+                        </div>
                         <div
                             class="d-flex position-absolute OM-Icons-Holder sM0-circle-border sM0-bg-opacity-green-25 justify-content-center align-items-center">
                             <i class="OM-img-rightwhite sM0-icon-d sM0-bg-imgs-center d-inline-block"></i>
                         </div>
-                        <div
-                            class="M0-border-black sM0-bg-opacity-green-25 sM0-b-l-radius h-50 d-flex justify-content-center align-items-center sM0-green-cr"
-                            [textContent]="userProfile ? authService.user?.data.completed : teamService.oneUser?.completed"
-                            >
-                            </div>
+                        <div class="M0-border-black sM0-bg-opacity-green-25 sM0-b-l-radius h-50 d-flex justify-content-center align-items-center sM0-green-cr"
+                            [textContent]="userProfile ? authService.user?.data.completed : teamService.oneUser?.completed">
+                        </div>
                     </div>
                 </div>
             </div>
