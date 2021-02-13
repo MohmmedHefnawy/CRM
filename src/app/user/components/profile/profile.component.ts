@@ -15,7 +15,7 @@ import { ModalComponent } from 'src/app/shared/components/modal/modal.component'
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  @ViewChild(ModalComponent) popUp : ModalComponent
+  @ViewChild(ModalComponent) popUp: ModalComponent
   imageBaseURL = environment.imageBaseurl
   // visited user
   visitedUserName = this.teamService.oneUser?.name ? this.teamService.oneUser?.name : '';
@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
         this.userProfile = true
         this.navigator.title = 'Profile'
         localStorage.removeItem("teamUser");
-        this.getAllProps('en', 1, 10, '', '')
+        this.getAllProps('en', 1, 25, '', '')
         break;
       // team user
       default:
@@ -65,7 +65,7 @@ export class ProfileComponent implements OnInit {
   }
   // [#] Controller
   // open modal from ModalComponent
-  openPopUp(e){
+  openPopUp(e) {
     e.stopPropagation();
     this.popUp.openPopup()
     //  this.router.navigate([`/user/profile/assign-user`])
@@ -119,8 +119,8 @@ export class ProfileComponent implements OnInit {
     this.taskDetails.getTaskById(ID).subscribe((res: any) => {
       this.taskDetails.taskDetails = res.data
       console.log(res.data);
-    },err=>{},()=>{
-        this.router.navigate([`/task/details/content/description/${ID}`])
+    }, err => { }, () => {
+      this.router.navigate([`/task/details/content/description/${ID}`])
     })
   }
   // [#]  Life cycles

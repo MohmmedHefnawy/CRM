@@ -12,8 +12,8 @@ export class ContentPanelComponent implements OnInit, OnDestroy {
   navigator = {
     icon: "/assets/Icons/Teamwork.svg",
     title: 'Content Creator',
-    navigators: ['Description', 'Media', 'Details', 'Amenities'],
-    routers: ['/task/details/content/description/1', '/task/details/content/media/1', '/task/details/content/details/1', '/task/details/content/amenities/1'],
+    navigators: ['Description', 'Location', 'Media', 'Details', 'Amenities'],
+    routers: ['/task/details/content/description/1', '/task/details/content/location/1', '/task/details/content/media/1', '/task/details/content/details/1', '/task/details/content/amenities/1'],
     api: []
   }
   constructor(public navService: NavigatorServicesService) { }
