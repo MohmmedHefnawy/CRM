@@ -120,7 +120,8 @@ export class ProfileComponent implements OnInit {
       this.taskDetails.taskDetails = res.data
       console.log(res.data);
     }, err => { }, () => {
-      this.router.navigate([`/task/details/content/description/${ID}`])
+      this.taskDetails.propID = ID;
+      this.router.navigate([`/task/details/dashBoard/${ID}`])
     })
   }
   // [#]  Life cycles

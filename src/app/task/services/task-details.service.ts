@@ -7,8 +7,9 @@ import { environment } from 'src/environments/environment';
 export class TaskDetailsService {
   _url = environment.apiBaseUrl;
   taskDetails;
+  propID;
   constructor(private http: HttpClient) { }
-  getTaskById(ID){
+  getTaskById(ID) {
     return this.http.get(`${this._url}properties?id=${ID}`)
   }
 }

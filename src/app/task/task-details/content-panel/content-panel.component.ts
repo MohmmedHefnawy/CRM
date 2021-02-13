@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { TaskDetailsService } from 'src/app/task/services/task-details.service';
+import { AfterContentChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
 
 @Component({
@@ -6,19 +7,26 @@ import { NavigatorServicesService } from 'src/app/shared/services/navigator-serv
   templateUrl: './content-panel.component.html',
   styleUrls: ['./content-panel.component.css']
 })
-export class ContentPanelComponent implements OnInit, OnDestroy {
+export class ContentPanelComponent implements OnInit, OnDestroy, AfterViewInit {
 
+  constructor(public navService: NavigatorServicesService, public taskDetails: TaskDetailsService) { }
   // Navigators
-  navigator = {
-    icon: "/assets/Icons/Teamwork.svg",
-    title: 'Content Creator',
-    navigators: ['Description', 'Location', 'Media', 'Details', 'Amenities'],
-    routers: ['/task/details/content/description/1', '/task/details/content/location/1', '/task/details/content/media/1', '/task/details/content/details/1', '/task/details/content/amenities/1'],
-    api: []
-  }
-  constructor(public navService: NavigatorServicesService) { }
+  navigator
   ngOnInit() {
+    console.log('here', this.taskDetails.propID);
+    setTimeout(() => { console.log('here', this.taskDetails.propID); }, 1000)
+  }
+  ngAfterViewInit() {
+    this.navigator = {
+      icon: "/assets/Icons/Teamwork.svg",
+      title: 'Content Creator',
+      navigators: ['Description', 'Location', 'Media', 'Details', 'Amenities'],
+      routers: [`/task/details/content/description/${this.taskDetails.propID}`, `/task/details/content/location/${this.taskDetails.propID}`, `/task/details/content/media/${this.taskDetails.propID}`, `/task/details/content/details/${this.taskDetails.propID}`, `/task/details/content/amenities/${this.taskDetails.propID}`],
+      api: []
+    }
     this.navService.navigators = this.navigator;
+    console.log('chi');
+
   }
   ngOnDestroy() {
 

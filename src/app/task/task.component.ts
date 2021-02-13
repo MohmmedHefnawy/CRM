@@ -1,3 +1,4 @@
+import { TaskDetailsService } from 'src/app/task/services/task-details.service';
 import { Component, OnInit } from '@angular/core';
 import { NavigatorServicesService } from '../shared/services/navigator-services.service';
 
@@ -13,10 +14,10 @@ export class TaskComponent implements OnInit {
     icon: "/assets/Icons/Teamwork.svg",
     title: 'Prop Details',
     navigators: ['DashBoard', 'Team Status', 'Photographers', 'Designers', 'Property Details', 'Activities'],
-    routers: ['/task/details/dashBoard/1', '/task/details/teamstatus/1', '/task/details/photographer/1', '/task/details/designer/1', '/task/details/content/amenities/1', '/task/details/activities/1'],
+    routers: [`/task/details/dashBoard/${this.taskDetails.propID}`, `/task/details/teamstatus/${this.taskDetails.propID}`, `/task/details/photographer/${this.taskDetails.propID}`, `/task/details/designer/${this.taskDetails.propID}`, `/task/details/content/amenities/${this.taskDetails.propID}`, `/task/details/activities/${this.taskDetails.propID}`],
     api: []
   }
-  constructor(public navService: NavigatorServicesService) { }
+  constructor(public navService: NavigatorServicesService, public taskDetails: TaskDetailsService) { }
   ngOnInit() {
     this.navService.navigators = this.navigator;
   }

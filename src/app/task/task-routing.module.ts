@@ -11,7 +11,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component'
 import { TeamStatusComponent } from './task-details/team-status/team-status.component';
 import { TaskComponent } from './task.component';
 import { AuthGuard } from '../auth/components/auth/auth.guard';
-import { DescriptionComponent } from './task-details/description/description.component'
+import { DescriptionComponent } from './task-details/content-panel/description/description.component'
 import { LocationComponent } from './task-details/content-panel/location/location.component';
 import { ActivitiesComponent } from './task-details/activities/activities.component';
 const routes: Routes = [

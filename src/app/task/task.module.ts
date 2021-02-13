@@ -14,7 +14,7 @@ import { TeamStatusComponent } from './task-details/team-status/team-status.comp
 import { DetailsComponent } from './task-details/content-panel/details/details.component';
 import { AmenitiesComponent } from './task-details/content-panel/amenities/amenities.component';
 import { MediaComponent } from './task-details/content-panel/media/media.component';
-import { DescriptionComponent } from './task-details/description/description.component';
+import { DescriptionComponent } from './task-details/content-panel/description/description.component';
 import { FormsModule } from '@angular/forms';
 import { LocationComponent } from './task-details/content-panel/location/location.component';
 
