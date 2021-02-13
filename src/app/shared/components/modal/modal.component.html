@@ -41,10 +41,20 @@
                                     <p class="sM0-fs-10 mb-0 sM0-text-0-cr d-flex pl-1"><i class="OM-icon-designwhite sM0-icon-e sM0-bg-imgs-center mr-1 d-inline-block"></i>{{user?.role_name}}</p>
                                 </div>
                             </div>
+                            <!-- Assign Task Date -->
+                            <div class="">
+                                <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center d-inline-block ">
+                                </i>
+                                <input type="date" name="start_date">
+                                <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center d-inline-block "></i>
+                                <input #expiryDate type="date" name="expiry_date">
+
+
+                            </div>
                             <!-- Asign Task Button -->
-                            <button class="sM0-btn-w-160 sM0-text-0-cr sM0-smoke-bg sM0-f-radius btn d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-green-25 py-3">
+                            <button (click)="assignTask(user.id,expiryDate.value)" class="sM0-btn-w-160 sM0-text-0-cr sM0-smoke-bg sM0-f-radius btn d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-green-25 py-3" >
                                 <i  class="sM0-icon-d OM-img-Plus sM0-bg-imgs-center mr-4"> </i>
-                                <p  class="m-0 sM0-fs-12">Assign Task</p>
+                                <p  class="m-0 sM0-fs-12" >Assign Task</p>
                             </button>
                     </div>
                     <!-- If Not User -->

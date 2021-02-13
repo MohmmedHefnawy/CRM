@@ -16,13 +16,19 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {
   }
   // Controls
-  openPopup(){
+  openPopup(taskID){
     $('#openPop').click()
+    console.log(taskID);
+    
     this.activeRoute(2)
     // get dubai admin by ( role id 2)
     this.getUsersByRoleID(2)
+    this.searchText= ""
   }
-
+  // 
+  assignTask(userID,expiryDate){
+    // Todo 
+  }
   activeRoute(ID){
   this.rollId_isActive = ID
   }
