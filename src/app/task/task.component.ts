@@ -19,7 +19,7 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
       icon: "/assets/Icons/Teamwork.svg",
       title: 'Prop Details',
       navigators: ['DashBoard', 'Team Status', 'Photographers', 'Designers', 'Property Details', 'Activities'],
-      routers: [`/task/details/dashBoard/${this.taskDetails.propID}`, `/task/details/teamstatus/${this.taskDetails.propID}`, `/task/details/photographer/${this.taskDetails.propID}`, `/task/details/designer/${this.taskDetails.propID}`, `/task/details/content/amenities/${this.taskDetails.propID}`, `/task/details/activities/${this.taskDetails.propID}`],
+      routers: [`/task/details/dashBoard/${this.taskDetails.propID}`, `/task/details/teamstatus/${this.taskDetails.propID}`, `/task/details/photographer/${this.taskDetails.propID}`, `/task/details/designer/${this.taskDetails.propID}`, `/task/details/content/description/${this.taskDetails.propID}`, `/task/details/activities/${this.taskDetails.propID}`],
       api: []
     }
     this.navService.navigators = this.navigator;

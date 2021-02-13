@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
 import { TaskDetailsService } from '../../services/task-details.service';
 
 @Component({
@@ -8,8 +9,9 @@ import { TaskDetailsService } from '../../services/task-details.service';
   styleUrls: ['./dash-board.component.css']
 })
 export class DashBoardComponent implements OnInit {
+  navigator
 
-  constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute) { }
+  constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public navService: NavigatorServicesService) { }
 
   ngOnInit(): void {
     this.taskDetailsService.propID = this.Activerouter.snapshot.params['id']
@@ -39,6 +41,16 @@ export class DashBoardComponent implements OnInit {
       }
 
     });
+  }
+  ngAfterViewInit() {
+    this.navigator = {
+      icon: "/assets/Icons/Teamwork.svg",
+      title: 'Prop Details',
+      navigators: ['DashBoard', 'Team Status', 'Photographers', 'Designers', 'Property Details', 'Activities'],
+      routers: [`/task/details/dashBoard/${this.taskDetailsService.propID}`, `/task/details/teamstatus/${this.taskDetailsService.propID}`, `/task/details/photographer/${this.taskDetailsService.propID}`, `/task/details/designer/${this.taskDetailsService.propID}`, `/task/details/content/description/${this.taskDetailsService.propID}`, `/task/details/activities/${this.taskDetailsService.propID}`],
+      api: []
+    }
+    this.navService.navigators = this.navigator;
   }
 
 }
