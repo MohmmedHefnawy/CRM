@@ -9,8 +9,12 @@ export class TaskDetailsService {
   taskDetails;
   propID;
   constructor(private http: HttpClient) { }
-  getTaskById(ID) {
+  // Get property By ID
+  getTaskById(ID){
     return this.http.get(`${this._url}properties?id=${ID}`)
   }
-
+  // get static data like (property_features, property_category, ...)
+  getPropertyStaticData(lang){
+    return this.http.get(`getData?lang=${lang}`)
+  }
 }
