@@ -9,11 +9,12 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { SharedRoutingModule } from './shared-routing.module';
 import { NavigationsComponent } from './components/navigations/navigations.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
-  declarations: [NavigationsComponent],
-  exports: [NavigationsComponent, BrowserAnimationsModule, MatProgressBarModule, LoadingBarHttpClientModule],
+  declarations: [NavigationsComponent, ModalComponent],
+  exports: [NavigationsComponent, BrowserAnimationsModule, MatProgressBarModule, LoadingBarHttpClientModule, ModalComponent],
   imports: [
     CommonModule,
     SharedRoutingModule,

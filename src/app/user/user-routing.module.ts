@@ -28,7 +28,12 @@ const routes: Routes = [
           {path : 'content-creators', component: TeamsComponent}
         ]
       },
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profile', component: ProfileComponent,
+      // TODO modal routes 
+      // children: [
+      //   {path: 'assign-user'  ,component: ProfileComponent}
+      // ]
+      },
       { path: 'profile/:user', component: ProfileComponent },
       { path: 'notifi', component: NotificationsComponent },
       { path: 'create-account', component: CreateAccountComponent },

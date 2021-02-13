@@ -12,7 +12,6 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { PersonalInfoComponent } from './components/settings/personal-info/personal-info.component';
 import { ChangePasswordComponent } from './components/settings/change-password/change-password.component';
 import { ContactComponent } from './components/settings/contact/contact.component';
-import { LayoutModule } from '../layout/layout.module';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -22,7 +21,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    LayoutModule
+    SharedModule
   ]
 })
 export class UserModule { }
