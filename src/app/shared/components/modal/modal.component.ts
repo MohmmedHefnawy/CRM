@@ -10,7 +10,7 @@ import { AssignUserService } from './../../services/assign-user.service';
 export class ModalComponent implements OnInit {
   imageBaseURL = environment.imageBaseurl
   rollId_isActive;
-
+  searchText;
   constructor(public  assignUserService:AssignUserService) { }
 
   ngOnInit(): void {
@@ -35,5 +35,5 @@ export class ModalComponent implements OnInit {
     })
   }
 
-
 }
+

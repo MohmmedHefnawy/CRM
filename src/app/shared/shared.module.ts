@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 // import { LoadingInterceptor } from './services/loading-interceptor.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { NavigationsComponent } from './components/navigations/navigations.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ModalComponent } from './components/modal/modal.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { ModalComponent } from './components/modal/modal.component';
     SharedRoutingModule,
     LoadingBarHttpClientModule,
     MatProgressBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2SearchPipeModule,
+    FormsModule
   ],
   providers: [
     // { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },
