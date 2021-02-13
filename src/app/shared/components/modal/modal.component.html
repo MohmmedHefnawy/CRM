@@ -5,14 +5,14 @@
         <div class="modal-content border-0 sM0-supp-0-bg sM0-popup-w  sM0-f-radius overflow-hidden">
             <!-- Modal Header -->
             <div class="modal-header p-4 sM0-supp-1-bg border-0 align-items-center justify-content-center">
-                <h5 class="modal-title sM0-fs-b-16 sM0-text-0-cr m-0 p-0" id="exampleModalLabel">Asign Tasks</h5>
+                <h5 class="modal-title sM0-fs-b-16 sM0-text-0-cr m-0 p-0" id="exampleModalLabel">Assign User</h5>
                 <p class="sM0-fs-b-16 sM0-text-0-cr my-0 mx-4"> | </p>
                 <!-- Navs Bar -->
-                <ul class="sM0-text-0-cr m-0 d-flex align-items-center p-0">
-                    <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive sM0-Active sM0-click" (click)='getUsersByRoleID(2)' > Dubi Admin</li>     
-                    <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive sM0-Active sM0-click" (click)='getUsersByRoleID(4)' > PhotoGrapher</li>
-                    <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive sM0-Active sM0-click" (click)='getUsersByRoleID(5)' > Designers</li>
-                    <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive sM0-Active sM0-click" (click)='getUsersByRoleID(6)' > Content Creator</li>
+                <ul class="sM0-text-0-cr m-0 d-flex align-items-center p-0" >
+                    <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive sM0-click"  [class.sM0-notActive]="rollId_isActive != 2" [class.sM0-Active]="rollId_isActive == 2"   (click)='getUsersByRoleID(2);activeRoute(2)'> Dubi Admin</li>     
+                    <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive sM0-click" [class.sM0-notActive]="rollId_isActive != 4"  [class.sM0-Active]="rollId_isActive == 4"   (click)='getUsersByRoleID(4);activeRoute(4)'> PhotoGrapher</li>
+                    <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive  sM0-click" [class.sM0-notActive]="rollId_isActive !=5"  [class.sM0-Active]="rollId_isActive == 5"   (click)='getUsersByRoleID(5);activeRoute(5)'> Designers</li>
+                    <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive  sM0-click" [class.sM0-notActive]="rollId_isActive != 6"  [class.sM0-Active]="rollId_isActive == 6"   (click)='getUsersByRoleID(6);activeRoute(6)'> Content Creator</li>
                 </ul>
                 <!-- Serach Bar -->
                 <div  class="OM-Holder-search-w m-0  pl-4">
@@ -43,7 +43,7 @@
                     <!-- Asign Task Button -->
                     <button class="sM0-btn-w-160 sM0-text-0-cr sM0-smoke-bg sM0-f-radius btn d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-green-25 py-3">
                         <i  class="sM0-icon-d OM-img-Plus sM0-bg-imgs-center mr-4"> </i>
-                        <p  class="m-0 sM0-fs-12">Asign Task</p>
+                        <p  class="m-0 sM0-fs-12">Assign Task</p>
                     </button>
                 </div>
                 </div>
