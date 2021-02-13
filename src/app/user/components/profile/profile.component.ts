@@ -8,7 +8,7 @@ import { TeamsService } from '../../services/teams.service';
 import { environment } from 'src/environments/environment';
 import { UserTaskService } from 'src/app/task/services/user-task.service'
 import { TaskDetailsService } from 'src/app/task/services/task-details.service'
-import { ModalComponent } from 'src/app/layout/popups/modal/modal.component';
+import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -68,6 +68,7 @@ export class ProfileComponent implements OnInit {
   openPopUp(e){
     e.stopPropagation();
     this.popUp.openPopup()
+    //  this.router.navigate([`/user/profile/assign-user`])
   }
   saveMyInfo(textContent) {
     switch (textContent) {

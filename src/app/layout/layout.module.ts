@@ -11,16 +11,15 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MiniContainerComponent } from './mini-container/mini-container.component'
 import { TaskModule } from '../task/task.module'
 import { SharedModule } from '../shared/shared.module';
-import { ModalComponent } from './popups/modal/modal.component'
 
 
 @NgModule({
-  declarations: [MasterContainerComponent, LayoutComponent, SideMenuComponent, NavBarComponent, MiniContainerComponent, ModalComponent],
-  exports: [NavBarComponent, SideMenuComponent, MasterContainerComponent, LayoutComponent, ModalComponent],
+  declarations: [MasterContainerComponent, LayoutComponent, SideMenuComponent, NavBarComponent, MiniContainerComponent],
+  exports: [NavBarComponent, SideMenuComponent, MasterContainerComponent, LayoutComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    // UserModule,
+    UserModule,
     TaskModule,
     SharedModule,
   ]
