@@ -9,18 +9,24 @@ import { AssignUserService } from './../../services/assign-user.service';
 })
 export class ModalComponent implements OnInit {
   imageBaseURL = environment.imageBaseurl
-  isActive = true
+  rollId_isActive;
 
   constructor(public  assignUserService:AssignUserService) { }
 
   ngOnInit(): void {
   }
+  // Controls
   openPopup(){
     $('#openPop').click()
+    this.activeRoute(2)
     // get dubai admin by ( role id 2)
     this.getUsersByRoleID(2)
-
   }
+
+  activeRoute(ID){
+  this.rollId_isActive = ID
+  }
+
   // [#] HTTP REQs
   getUsersByRoleID(ID){
     this.assignUserService.getUsersByRoleID(ID).subscribe((res:any)=>{
@@ -28,4 +34,6 @@ export class ModalComponent implements OnInit {
       console.log(res);
     })
   }
+
+
 }
