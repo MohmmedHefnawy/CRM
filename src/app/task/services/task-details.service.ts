@@ -12,4 +12,5 @@ export class TaskDetailsService {
   getTaskById(ID) {
     return this.http.get(`${this._url}properties?id=${ID}`)
   }
+
 }

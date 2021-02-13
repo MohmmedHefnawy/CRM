@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { TaskDetailsService } from '../../services/task-details.service';
 
 @Component({
   selector: 'app-dash-board',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashBoardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.taskDetailsService.propID = this.Activerouter.snapshot.params['id']
     // progress bar
     $(function () {
       $(".progress").each(function () {
@@ -36,7 +39,6 @@ export class DashBoardComponent implements OnInit {
       }
 
     });
-
   }
 
 }
