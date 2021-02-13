@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
         this.userProfile = true
         this.navigator.title = 'Profile'
         localStorage.removeItem("teamUser");
-        this.getAllProps('en', 1, 10, '', '')
+        this.getAllProps('en', 1, 25, '', '')
         break;
       // team user
       default:
