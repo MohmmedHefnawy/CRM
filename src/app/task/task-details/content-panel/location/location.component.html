@@ -1,1 +1,117 @@
-<p>location works!</p>
+<div class='row justify-content-center mb-4'>
+  <form class='w-100' #descriptionForm="ngForm" (ngSubmit)="descriptionForm.valid && onSubmit(descriptionForm)">
+    <!-- 1st Row -->
+    <!-- User Name Input -->
+    <div class=" d-flex mb-4">
+      <!-- Icon Holder -->
+      <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
+        <i class="OM-img-inprogress sM0-icon-d d-block"></i>
+      </div>
+      <!-- Input Field -->
+      <div class="w-100">
+        <input ngModel name="title" required [(ngModel)]="taskDetailsService.taskDetails?.description.title" type="text"
+          placeholder="Property Name..." class=" sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
+      </div>
+    </div>
+    <!-- 2nd Row -->
+    <div class="d-flex mb-4">
+      <!-- Price input -->
+      <div class="w-100 d-flex">
+        <!-- Icon Holder -->
+        <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
+          <i class="OM-icon-price sM0-icon-d d-block"></i>
+        </div>
+        <!-- Input Field -->
+        <div class="w-100 p-0">
+          <input ngModel name="price" required [(ngModel)]="taskDetailsService.taskDetails?.description.price"
+            type="text" placeholder="Price..."
+            class="sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
+        </div>
+      </div>
+      <!-- ? Start Divider -->
+      <div class="px-3"></div>
+      <!-- ? End Divider -->
+      <!-- ? Gender -->
+      <div class="w-100 d-flex">
+        <!-- Icon Holder -->
+        <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
+          <i class="OM-icon-fire sM0-icon-d d-block"></i>
+        </div>
+        <!-- Select Input -->
+        <div class='w-100 p-0'>
+          <select class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
+            <option value="">
+              Status...
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- 3rd Row -->
+    <div class="d-flex mb-4">
+      <!-- ? Gender -->
+      <div class="w-100 d-flex">
+        <!-- Icon Holder -->
+        <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
+          <i class="OM-icon-home sM0-icon-d d-block"></i>
+        </div>
+        <!-- Select Input -->
+        <div class='w-100'>
+          <select class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
+            <option>
+              Category...
+            </option>
+          </select>
+        </div>
+      </div>
+      <!-- ? Start Divider -->
+      <div class="px-3"></div>
+      <!-- ? End Divider -->
+      <!-- ? Gender -->
+      <div class="w-100 d-flex">
+        <!-- Icon Holder -->
+        <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
+          <i class="OM-icon-rent sM0-icon-d d-block"></i>
+        </div>
+        <!-- Select Input -->
+        <div class='w-100'>
+          <select class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
+            <option>
+              Listed in...
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- Textarea Description -->
+    <div class="sM0-inp-description-holder-a d-flex mb-4">
+      <!-- Icon Holder -->
+      <div class='sM0-smoke-bg d-flex align-items-center sM0-t-l-radius p-4 h-100'>
+        <i class="OM-img-inprogress sM0-icon-d d-block"></i>
+      </div>
+      <!-- Input Field -->
+      <div class="w-100">
+        <div class="w-100~ h-25 d-flex align-items-center sM0-bg-opacity-gray-5 sM0-r-radius pl-4">
+          <i class="OM-icon-bold sM0-icon-c mr-4"></i>
+          <i class="OM-icon-italic sM0-icon-c mr-4"></i>
+          <i class="OM-icon-textlist sM0-icon-c mr-4"></i>
+          <i class="OM-icon-listnumber sM0-icon-c"></i>
+        </div>
+        <div class="w-100 h-75">
+          <textarea ngModel name="description" required
+            [(ngModel)]="taskDetailsService.taskDetails?.description.description" type="text"
+            placeholder="Description..."
+            class="pl-4 h-100 w-100 sM0-supp-1-bg sM0-b-radius sM0-text-0-cr sM0-border-none p-4">
+                    </textarea>
+        </div>
+      </div>
+    </div>
+    <!-- Button Save -->
+    <div class="d-flex justify-content-end mb-5">
+      <button
+        class="sM0-f-radius sM0-inp-a w-50 px-4 sM0-main-cr d-flex align-items-center pr-4 justify-content-center sM0-main-bg sM0-border-none">
+        <p class="mb-0 m-auto sM0-text-0-cr sM0-fs-b-16">Next</p><i class="OM-icon-arrowout sM0-icon-d"></i>
+      </button>
+    </div>
+  </form>
+</div>

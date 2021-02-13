@@ -1,0 +1,31 @@
+@import "../../task-details.component.css";
+.sM0-inp-description-holder-a {
+  height: 300px !important;
+}
+.OM-icon-home {
+  background-image: url("/assets/Icons/Home.svg");
+}
+.OM-icon-price {
+  background-image: url("/assets/Icons/Price.svg");
+}
+.OM-icon-fire {
+  background-image: url("/assets/Icons/Fire.svg");
+}
+.OM-icon-rent {
+  background-image: url("/assets/Icons/Rent.svg");
+}
+.OM-icon-bold {
+  background-image: url("/assets/Icons/Bold.svg");
+}
+.OM-icon-italic {
+  background-image: url("/assets/Icons/Italic.svg");
+}
+.OM-icon-textlist {
+  background-image: url("/assets/Icons/Textlist.svg");
+}
+.OM-icon-listnumber {
+  background-image: url("/assets/Icons/Listnumber.svg");
+}
+.OM-icon-arrowout {
+  background-image: url("/assets/Icons/arrow-out.svg");
+}
