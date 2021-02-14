@@ -7,10 +7,14 @@ import { environment } from 'src/environments/environment';
 export class AssignUserService {
   _url = environment.apiBaseUrl;
   usersByRole;
+  assignUsers;
   constructor(private http: HttpClient) { }
   // [#] get all user by pathing user role ID
   getUsersByRoleID(ID){
     return this.http.get(`${this._url}getAllTeams?role_id=${ID}`)
+  }
+  getAssignUsers(ID){
+    return this.http.get(`${this._url}getPropertiesTasks?id=${ID}`)
   }
   // [#] Assign Task To User
   postUsersByRoleID(data){

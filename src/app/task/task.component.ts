@@ -40,10 +40,10 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
     this.taskDetails.getPropertyStaticData(lang).subscribe((res: any) => {
       this.taskDetails.propStaticData = res.data
       console.log('langs', this.taskDetails.propStaticData);
-    }, err => { }, () => { this.checkIfSelected()})
+    }, err => { }, () => { this.checkIfAmenities()})
   }
-  // 
-  checkIfSelected() {
+  // Add Check Prop To propStaticData [Array]
+  checkIfAmenities() {
     let propStaticData = this.taskDetails.propStaticData?.property_features,
         taskDetails = this.taskDetails.taskDetails?.property_features
     for (let staticDatta of propStaticData) {
@@ -53,8 +53,6 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
         staticDatta.check = false
       }
     }
-    console.log('here',propStaticData);
-    
   }
   ngOnDestroy(): void {
 

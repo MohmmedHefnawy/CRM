@@ -181,7 +181,7 @@
                     </div>
                     <!-- Inprogress Task -->
                     <div class='pb-3'>
-                        <button (click)='openPopUp($event, task.id)' *ngIf='task?.post_status == "pending"' class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
+                        <button (click)='openPopUp($event, task.id);' *ngIf='task?.post_status == "pending"' class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
                             <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center mr-3"></i>
                             <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Assign User</p>
                         </button>
