@@ -1,5 +1,5 @@
-<form class='w-100' #detailsForm="ngForm" (ngSubmit)="detailsForm.valid && onSubmit(detailsForm)">
-    <div class="row justify-content-center overflow-auto h-100">
+<div class="row overflow-auto h-100">
+    <form class='w-100 d-flex flex-wrap justify-content-center' #detailsForm="ngForm" (ngSubmit)="detailsForm.valid && onSubmit(detailsForm)">
         <div class='M0-mini-card pr-4 mb-4'>
             <!-- Size In ft -->
             <div class="M0-micro-card sM0-bg-opacity-supp-1-5 sM0-f-radius w-100 p-3 mb-4">
@@ -23,7 +23,7 @@
                 </div>
                 <!-- Input -->
                 <div class="h-50 pt-3">
-                    <input type="text" placeholder="Only Numbers..."
+                    <input ngModel name="bedrooms" required [(ngModel)]="taskDetailsService.taskDetails?.details.bedrooms" type="text" placeholder="Only Numbers..."
                         class="w-100 px-3 sM0-smoke-bg sM0-f-radius sM0-text-0-cr sM0-fs-mid-b-12 h-100">
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 </div>
                 <!-- Input -->
                 <div class="h-50 pt-3">
-                    <input type="text" placeholder="Only Numbers..."
+                    <input ngModel name="lot_size" required [(ngModel)]="taskDetailsService.taskDetails?.details.lot_size" type="text" placeholder="Only Numbers..."
                         class="w-100 px-3 sM0-smoke-bg sM0-f-radius sM0-text-0-cr sM0-fs-mid-b-12 h-100">
                 </div>
             </div>
@@ -51,7 +51,7 @@
                 </div>
                 <!-- Input -->
                 <div class="h-50 pt-3">
-                    <input type="text" placeholder="Only Numbers..."
+                    <input ngModel name="Bathrooms" required [(ngModel)]="taskDetailsService.taskDetails?.details.bathrooms" type="text" placeholder="Only Numbers..."
                         class="w-100 px-3 sM0-smoke-bg sM0-f-radius sM0-text-0-cr sM0-fs-mid-b-12 h-100">
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 </div>
                 <!-- Input -->
                 <div class="h-50 pt-3">
-                    <input type="text" placeholder="Only Numbers..."
+                    <input ngModel name="rooms" required [(ngModel)]="taskDetailsService.taskDetails?.details.rooms" type="text" placeholder="Only Numbers..."
                         class="w-100 px-3 sM0-smoke-bg sM0-f-radius sM0-text-0-cr sM0-fs-mid-b-12 h-100">
                 </div>
             </div>
@@ -79,7 +79,7 @@
                 </div>
                 <!-- Input -->
                 <div class="h-50 pt-3">
-                    <input type="text" placeholder="Only Numbers..."
+                    <input ngModel name="garages" required [(ngModel)]="taskDetailsService.taskDetails?.details.garages" type="text" placeholder="Only Numbers..."
                         class="w-100 px-3 sM0-smoke-bg sM0-f-radius sM0-text-0-cr sM0-fs-mid-b-12 h-100">
                 </div>
             </div>
@@ -94,7 +94,7 @@
                 </div>
                 <!-- Input -->
                 <div class="h-50 pt-3">
-                    <input type="text" placeholder="Only Numbers..."
+                    <input ngModel name="property_date" required [(ngModel)]="taskDetailsService.taskDetails?.details.property_date" type="text" placeholder="Only Numbers..."
                         class="w-100 px-3 sM0-smoke-bg sM0-f-radius sM0-text-0-cr sM0-fs-mid-b-12 h-100">
                 </div>
             </div>
@@ -110,7 +110,7 @@
                 </div>
                 <!-- Input -->
                 <div class="h-50 pt-3">
-                    <input type="text" placeholder="Only Numbers..."
+                    <input ngModel name="area" required [(ngModel)]="taskDetailsService.taskDetails?.details.area" type="text" placeholder="Only Numbers..."
                         class="w-100 px-3 sM0-smoke-bg sM0-f-radius sM0-text-0-cr sM0-fs-mid-b-12 h-100">
                 </div>
             </div>
@@ -125,7 +125,7 @@
                 </div>
                 <!-- Input -->
                 <div class="h-50 pt-3">
-                    <input type="text" placeholder="Only Numbers..."
+                    <input ngModel name="floors_no" required [(ngModel)]="taskDetailsService.taskDetails?.details.floors_no" type="text" placeholder="Only Numbers..."
                         class="w-100 px-3 sM0-smoke-bg sM0-f-radius sM0-text-0-cr sM0-fs-mid-b-12 h-100">
                 </div>
             </div>
@@ -141,7 +141,7 @@
                 </div>
                 <!-- Input -->
                 <div class="h-50 pt-3">
-                    <input type="text" placeholder="Only Numbers..."
+                    <input ngModel name="broker_orn" required [(ngModel)]="taskDetailsService.taskDetails?.details.broker_orn" type="text" placeholder="Only Numbers..."
                         class="w-100 px-3 sM0-smoke-bg sM0-f-radius sM0-text-0-cr sM0-fs-mid-b-12 h-100">
                 </div>
             </div>
@@ -156,7 +156,7 @@
                 </div>
                 <!-- Input -->
                 <div class="h-50 pt-3">
-                    <input type="text" placeholder="Only Numbers..."
+                    <input ngModel name="rent_time" required [(ngModel)]="taskDetailsService.taskDetails?.details.rent_time" type="text" placeholder="Only Numbers..."
                         class="w-100 px-3 sM0-smoke-bg sM0-f-radius sM0-text-0-cr sM0-fs-mid-b-12 h-100">
                 </div>
             </div>
@@ -172,14 +172,21 @@
                 </div>
                 <!-- Input -->
                 <div class="h-50 pt-3">
-                    <input type="text" placeholder="Only Numbers..."
+                    <input ngModel name="trakheesi_permit" required [(ngModel)]="taskDetailsService.taskDetails?.details.trakheesi_permit" type="text" placeholder="Only Numbers..."
                         class="w-100 px-3 sM0-smoke-bg sM0-f-radius sM0-text-0-cr sM0-fs-mid-b-12 h-100">
                 </div>
             </div>
         </div>
+        
         <div class='M0-mini-card-none'></div>
         <div class='M0-mini-card-none'></div>
         <div class='M0-mini-card-none'></div>
         <div class='M0-mini-card-none'></div>
-    </div>
-</form>
+        <!-- Button Save -->
+        <div class=" M0-mini-card~  w-50">
+            <button class="sM0-f-radius sM0-inp-a w-100 px-4 sM0-main-cr d-flex align-items-center justify-content-center sM0-main-bg sM0-border-none">
+                <p class="mb-0 m-auto sM0-text-0-cr sM0-fs-b-16">Next</p><i class="OM-icon-arrowout sM0-icon-d"></i>
+            </button>
+        </div>
+    </form>
+</div>

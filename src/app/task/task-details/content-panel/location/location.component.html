@@ -1,5 +1,5 @@
 <div class='row justify-content-center mb-4'>
-  <form class='w-100'>
+  <form class='w-100'  #locationForm="ngForm" (ngSubmit)="locationForm.valid && onSubmit(locationForm)">
     <!-- Location Area -->
     <div class="sM0-inp-location-holder-a sM0-f-radius d-flex mb-4 bg-dark">
       
@@ -13,7 +13,7 @@
       </div>
       <!-- Input Field -->
       <div class="w-100">
-        <input type="text" placeholder="Address..." class=" sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
+        <input ngModel name="address" required [(ngModel)]="taskDetailsService.taskDetails?.location.address" type="text" placeholder="Address..." class=" sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
       </div>
     </div>
     <!-- 2nd Row -->
@@ -25,7 +25,7 @@
       </div>
       <!-- Input Field -->
       <div class="w-100">
-        <input type="text" placeholder="City..." class=" sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
+        <input ngModel name="city" required [(ngModel)]="taskDetailsService.taskDetails?.location.city" type="text" placeholder="City..." class=" sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
       </div>
     </div>
     <!-- 3rd Row -->
@@ -38,7 +38,7 @@
         </div>
         <!-- Select Input -->
         <div class='w-100'>
-          <input placeholder="Longitude ( For Google Map )..." class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
+          <input ngModel name="latitude" required [(ngModel)]="taskDetailsService.taskDetails?.location.latitude" placeholder="latitude ( For Google Map )..." class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
         </div>
       </div>
       <!-- ? Start Divider -->
@@ -52,7 +52,7 @@
         </div>
         <!-- Select Input -->
         <div class='w-100'>
-          <input placeholder="Longitude ( For Google Map )..." class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
+          <input ngModel name="longitude" required [(ngModel)]="taskDetailsService.taskDetails?.location.longitude" placeholder="Longitude ( For Google Map )..." class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
         </div>
       </div>
     </div>

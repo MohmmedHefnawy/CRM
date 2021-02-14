@@ -464,6 +464,11 @@ textarea {
   min-width: 255px !important;
   max-width: 255px !important;
 }
+.M0-mini-card-Amenites {
+  height: 163px;
+  min-width: 255px !important;
+  max-width: 255px !important;
+}
 .M0-micro-card {
   height: 163px;
   /* min-width: 255px !important;
