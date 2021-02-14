@@ -43,6 +43,7 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
     })
   }
 
+
   ngOnDestroy(): void {
 
   }

@@ -8,6 +8,7 @@ export class TaskDetailsService {
   _url = environment.apiBaseUrl;
   taskDetails;
   propStaticData;
+  taskAssignUser;
   propID;
   constructor(private http: HttpClient) { }
   // Get property By ID
@@ -17,5 +18,9 @@ export class TaskDetailsService {
   // get static data like (property_features, property_category, ...)
   getPropertyStaticData(lang) {
     return this.http.get(`${this._url}getData?lang=${lang}`)
+  }
+  // Get task Assign User
+  getTaskAssignUser(ID) {
+    return this.http.get(`${this._url}getPropertiesTasks?id=${ID}`)
   }
 }
