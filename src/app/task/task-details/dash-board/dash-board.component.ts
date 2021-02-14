@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
 import { TaskDetailsService } from '../../services/task-details.service';
@@ -41,6 +42,9 @@ export class DashBoardComponent implements OnInit {
       }
 
     });
+    this.getUsersToAssign(this.taskDetailsService.propID)
+    console.log(this.taskDetailsService.propID);
+
   }
   ngAfterViewInit() {
     this.navigator = {
@@ -52,5 +56,16 @@ export class DashBoardComponent implements OnInit {
     }
     this.navService.navigators = this.navigator;
   }
+  getUsersToAssign(ID) {
+    this.taskDetailsService.getTaskAssignUser(ID).subscribe((res: any) => {
+      this.taskDetailsService.propStaticData = res.data
+      console.log('Assign Users', this.taskDetailsService.propStaticData);
+    })
+  }
+  // [#] HTTP REQs
+  // onSubmit(form: NgForm) {
+  //   console.log(form);
+
+  // }
 
 }

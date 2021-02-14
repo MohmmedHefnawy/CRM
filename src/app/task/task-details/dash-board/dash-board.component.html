@@ -76,7 +76,7 @@
             </div>
             <!-- TODO make it Scroller div -->
             <!-- Roles -->
-            <div class="">
+            <div *ngFor="let assign of taskDetailsService.propStaticData?.data" class="">
                 <!-- First Div -->
                 <div class="sM0-supp-0-bg sM0-f-radius d-flex align-items-center mb-4">
                     <!-- account manager icon -->
@@ -85,7 +85,7 @@
                         <i class="OM-img-plus sM0-icon-d"></i>
                     </div>
                     <div class="pl-3">
-                        <p class="mb-0 sM0-fs-mid-b-12">Assign User</p>
+                        <p class="mb-0 sM0-fs-mid-b-12">assign.name</p>
                     </div>
                 </div>
                 <!-- Secound Div -->
