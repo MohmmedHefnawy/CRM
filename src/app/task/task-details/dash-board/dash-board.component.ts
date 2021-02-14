@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
 import { TaskDetailsService } from '../../services/task-details.service';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-dash-board',
@@ -11,6 +13,8 @@ import { TaskDetailsService } from '../../services/task-details.service';
 })
 export class DashBoardComponent implements OnInit {
   navigator
+  imageBaseURL = environment.imageBaseurl
+
 
   constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public navService: NavigatorServicesService) { }
 
@@ -58,8 +62,8 @@ export class DashBoardComponent implements OnInit {
   }
   getUsersToAssign(ID) {
     this.taskDetailsService.getTaskAssignUser(ID).subscribe((res: any) => {
-      this.taskDetailsService.propStaticData = res.data
-      console.log('Assign Users', this.taskDetailsService.propStaticData);
+      this.taskDetailsService.assignedUsers = res.data
+      console.log('Assign Users', this.taskDetailsService.assignedUsers);
     })
   }
   // [#] HTTP REQs

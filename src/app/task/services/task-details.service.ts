@@ -8,7 +8,7 @@ export class TaskDetailsService {
   _url = environment.apiBaseUrl;
   taskDetails;
   propStaticData;
-  taskAssignUser;
+  assignedUsers;
   propID;
   constructor(private http: HttpClient) { }
   // Get property By ID

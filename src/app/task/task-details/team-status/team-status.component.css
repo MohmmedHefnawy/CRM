@@ -47,6 +47,10 @@
 .OM-icon-flagred {
   background-image: url("/assets/Icons/Flagred.svg");
 }
+.OM-sticky-top {
+  top: 0 !important;
+  z-index: 10000;
+}
 .OM-uer-tag {
   /* min-width: 260px; */
   width: 33%;

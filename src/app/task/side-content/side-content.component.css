@@ -5,11 +5,20 @@
 .OM-img-src {
   background-image: url("/assets/Home/Home.jpg");
 }
-.Mo-acc-manager-img{
+.Mo-acc-manager-img {
   background-image: url("/assets/Profile/profile1.jpg");
 }
 .OM-img-Locationgold {
   background-image: url("/assets/Icons/Locationgold.svg");
+}
+.OM-img-alarmwhite {
+  background-image: url("/assets/Icons/Alarm.svg");
+}
+.OM-img-flagwhite {
+  background-image: url("/assets/Icons/Flagwhite.svg");
+}
+.OM-img-bedred {
+  background-image: url("/assets/Icons/Bedred.svg");
 }
 .OM-img-call {
   background-image: url("/assets/Icons/Call.svg");
@@ -21,6 +30,6 @@
   min-height: 150px !important;
   max-height: 150px !important;
 }
-.M0-hr{
+.M0-hr {
   width: 30px;
 }
