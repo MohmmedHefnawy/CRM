@@ -24,7 +24,6 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     this.navService.navigators = this.navigator;
     this.getPropById(this.taskDetails.propID)
-    this.getPropertyStaticData('en')
     console.log('fire');
   }
 
@@ -34,15 +33,29 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
       console.log('Details', this.taskDetails.taskDetails);
     }, err => { }, () => {
       this.taskDetails.propID = ID;
+      this.getPropertyStaticData('en')
     })
   }
   getPropertyStaticData(lang) {
     this.taskDetails.getPropertyStaticData(lang).subscribe((res: any) => {
       this.taskDetails.propStaticData = res.data
       console.log('langs', this.taskDetails.propStaticData);
-    })
+    }, err => { }, () => { this.checkIfSelected()})
   }
-
+  // 
+  checkIfSelected() {
+    let propStaticData = this.taskDetails.propStaticData?.property_features,
+        taskDetails = this.taskDetails.taskDetails?.property_features
+    for (let staticDatta of propStaticData) {
+      if (taskDetails.includes(staticDatta.name)) {
+        staticDatta.check = true
+      } else {
+        staticDatta.check = false
+      }
+    }
+    console.log('here',propStaticData);
+    
+  }
   ngOnDestroy(): void {
 
   }

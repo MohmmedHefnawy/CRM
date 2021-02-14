@@ -1,25 +1,18 @@
 <div class="row align-items-center justify-content-center overflow-auto h-100">
-    <div class='M0-mini-card-Amenites mb-4 pr-4' *ngFor="let amen of taskDetailsService.taskDetails?.property_features">
-        <div class="M0-micro-card sM0-bg-opacity-supp-1-5~ sM0-bg-opacity-green-25 sM0-f-radius w-100 p-4">
-            <!-- Edit Icon -->
-            <div class="d-flex flex-column align-items-center justify-content-center h-100">
-                <i class="sM0-bg-opacity-gold-25 sM0-f-radius p-4 OM-img-icon sM0-icon-d sM0-bg-imgs-center mb-4"></i>
-                <p class="mb-0 sM0-fs-b-16 sM0-text-0-cr text-center">{{amen | titlecase}} </p>
-            </div>
-    
-        </div>
-    </div>
-    <div class='M0-mini-card-Amenites mb-4 pr-4' *ngFor="let amenity of taskDetailsService.propStaticData?.property_features">
-        <div class="M0-micro-card sM0-bg-opacity-supp-1-5 sM0-bg-opacity-green-25~ sM0-f-radius w-100 p-4">
-            <!-- Edit Icon -->
-            <div class="d-flex flex-column align-items-center justify-content-center h-100">
-                <i class="sM0-bg-opacity-gold-25 sM0-f-radius p-4 OM-img-icon sM0-icon-d sM0-bg-imgs-center mb-4"></i>
-                <p class="mb-0 sM0-fs-b-16 sM0-text-0-cr text-center">{{amenity.name | titlecase}} </p>
+    <ng-container *ngFor="let amenity of taskDetailsService.propStaticData?.property_features">
+        <div class='M0-mini-card-Amenites mb-4 pr-4'>
+            <div [class.sM0-bg-opacity-green-25]="amenity.check"
+                [class.sM0-bg-opacity-supp-1-5]="!amenity.check"
+             class="M0-micro-card sM0-f-radius w-100 sM0-bg-opacity-green-25 p-4">
+                <!-- Edit Icon -->
+                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+                    <i class="sM0-bg-opacity-gold-25 sM0-f-radius p-4 OM-img-icon sM0-icon-d sM0-bg-imgs-center mb-4"></i>
+                    <p class="mb-0 sM0-fs-b-16 sM0-text-0-cr text-center">{{amenity.name | titlecase}} </p>
 
+                </div>
             </div>
         </div>
-    </div>
-
+    </ng-container>
     <div class='M0-mini-card-none pr-4'>
     </div>
     <div class='M0-mini-card-none pr-4'>
