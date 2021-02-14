@@ -12,4 +12,8 @@ export class AssignUserService {
   getUsersByRoleID(ID){
     return this.http.get(`${this._url}getAllTeams?role_id=${ID}`)
   }
+  // [#] Assign Task To User
+  postUsersByRoleID(data){
+    return this.http.post(`${this._url}assignTasks`,data)
+  }
 }

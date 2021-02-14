@@ -12,6 +12,7 @@ import { NavigationsComponent } from './components/navigations/navigations.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ModalComponent } from './components/modal/modal.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgbModule  } from '@ng-bootstrap/ng-bootstrap'
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatProgressBarModule,
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     // { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },

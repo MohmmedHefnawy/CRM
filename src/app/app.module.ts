@@ -11,11 +11,14 @@ import { LayoutModule } from './layout/layout.module'
 import { TaskModule } from './task/task.module'
 import { SharedModule } from './shared/shared.module'
 import { AuthModule } from './auth/auth.module';
-import { DashComponent } from './dash/dash.component'
+import { DashComponent } from './dash/dash.component';
+import { NgbModule  } from '@ng-bootstrap/ng-bootstrap'
+
 @NgModule({
   declarations: [
     AppComponent,
-    DashComponent
+    DashComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { DashComponent } from './dash/dash.component'
     AuthModule,
     HttpClientModule,
     FormsModule,
-
+    NgbModule,
+    
   ],
   providers: [
     // { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },

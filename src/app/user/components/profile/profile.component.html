@@ -52,7 +52,8 @@
                     <!-- User Bio -->
                     <div class='ml-md-4 mt-4 w-100 pr-4'>
                         <p *ngIf='!editMyInfo' #bio class="sM0-text-0-cr sM0-fs-16 text-md-left text-center">
-                            {{authService.user?.data.bio ? authService.user?.data.bio : "Type your Bio..."}}
+                            <!-- {{authService.user?.data.bio ? authService.user?.data.bio : "Type your Bio..."}} -->
+                            {{userProfile ? authService.user?.data.bio ? authService.user?.data.bio : "Type your Bio..." : teamService.oneUser?.bio ? teamService.oneUser?.bio : "No Bio !"}}
                             <!-- <span *ngIf='authService.user?.data.bio'><a href="#" class="sM0-main-cr">MORE...</a></span> -->
                         </p>
                         <textarea maxlength="40" id='userBioInp' *ngIf='editMyInfo'  class='sM0-fs-16 sM0-f-radius py-3 px-4 w-100 sM0-supp-1-bg border-0 sM0-text-0-cr w-100'>{{authService.user?.data.bio ? authService.user?.data.bio : "Type your Bio..."}}</textarea>
@@ -134,7 +135,6 @@
                 </div>
             </div>
         </div>
-        <!--  Dummy Cards  -->
         <!-- Assign Task Card -->
         <div *ngFor='let task of userTaskService.userTasks' class='pl-0 d-inline-block  M0-card  pr-4 mb-4'>
             <div (click)='getPropById(task.id)'  class='sM0-click sM0-supp-0-bg w-100 h-100 sM0-f-radius d-flex flex-column align-items-center'>

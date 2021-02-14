@@ -53,6 +53,8 @@ export class ProfileComponent implements OnInit {
       // team user
       default:
         teamService.oneUser = JSON.parse(localStorage.getItem("teamUser"))
+        this.navigator.title = `${teamService.oneUser?.name} Profile`
+        this.getAllProps('en', 1, 25, '', teamService.oneUser?.id)
         this.userProfile = false
         break;
     }
@@ -61,7 +63,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
-    setTimeout(() => { console.log(this.authService.user); }, 1000)
   }
   // [#] Controller
   // open modal from ModalComponent
