@@ -169,7 +169,7 @@
                 <!-- property content -->
                 <div class='d-flex flex-column align-items-center px-4'>
                     <!-- Card name -->
-                    <p class=" sM0-text-0-cr mb-2 text-center sM0-fs-b-16 text-capitalize">{{task.title | slice:0:25 }} ...</p>
+                    <p class=" sM0-text-0-cr mb-2 text-center sM0-fs-b-16 text-capitalize">{{task.title | slice:0:25 }}...</p>
                     <!-- user -->
                     <div class="d-flex justify-content-center pb-2">
                         <p class="sM0-main-cr d-inline-block mb-0 ml-2 text-center sM0-fs-16 text-capitalize">{{task?.agent_name}}, {{task?.agency_name}}</p>
@@ -181,7 +181,7 @@
                     </div>
                     <!-- Inprogress Task -->
                     <div class='pb-3'>
-                        <button (click)='openPopUp($event, task.id);' *ngIf='task?.post_status == "pending"' class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
+                        <button (click)='openPopUp($event, task);' *ngIf='task?.post_status == "pending"' class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
                             <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center mr-3"></i>
                             <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Assign User</p>
                         </button>

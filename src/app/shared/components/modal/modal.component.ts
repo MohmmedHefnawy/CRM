@@ -11,15 +11,18 @@ export class ModalComponent implements OnInit {
   imageBaseURL = environment.imageBaseurl
   rollId_isActive;
   searchText;
-  propID
+  // prop?.id;
+  // propTitle;
+  prop:any
   isAssigned:boolean = false
   constructor(public  assignUserService:AssignUserService){}
   ngOnInit(): void {
   }
   // Controls
-  openPopup(propID){
+  openPopup(prop){
     $('#openPop').click()
-    this.propID = propID
+    this.prop = prop
+    // this.propTitle = propTitle
     this.isAssigned = false
     this.activeRoute(2)
     // get dubai admin by ( role id 2)
@@ -28,7 +31,7 @@ export class ModalComponent implements OnInit {
   }
   // Assign Task 
   assignTask(userID,expiryDate){
-    this.postUsersByRoleID(userID, this.propID, expiryDate)
+    this.postUsersByRoleID(userID, this.prop.id, expiryDate)
   }
   activeRoute(ID){
   this.rollId_isActive = ID
@@ -36,11 +39,12 @@ export class ModalComponent implements OnInit {
   // [#] HTTP REQs
   // Get Users By Roll ID
   getUsersByRoleID(ID){
+    this.isAssigned = false
     this.assignUserService.getUsersByRoleID(ID).subscribe((res:any)=>{
       this.assignUserService.usersByRole = res.data
     },err => {},()=>{
   // get Assign Users ID
-    this.getAssignUsers(this.propID);
+    this.getAssignUsers(this.prop.id);
     })
   }
   // Get Assign Users
@@ -48,7 +52,6 @@ export class ModalComponent implements OnInit {
     this.assignUserService.getAssignUsers(ID).subscribe((res:any)=>{
     this.assignUserService.assignUsers = res.data
     console.log(this.assignUserService.assignUsers);
-    
     },err =>{},()=>{
       this.checkIfAssignedUsers()
     })
@@ -57,11 +60,11 @@ export class ModalComponent implements OnInit {
   postUsersByRoleID(userID, propID, expireDate){
     let data = {
       users_id : userID,
-      post_id : propID,
-      expiry_date : expireDate
+      post_id :this.prop.id,
+      expiry_date : expireDate,
     }
     this.assignUserService.postUsersByRoleID(data).subscribe((res:any)=>{},err =>{},()=>{
-         this.getAssignUsers(this.propID);
+         this.getAssignUsers(this.prop.id);
     })
   }
 // Add Check prop To Assign tasks [Array]
