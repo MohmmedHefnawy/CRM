@@ -1,3 +1,4 @@
+import { InLoadingService } from './../../services/in-loading.service';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AssignUserService } from './../../services/assign-user.service';
@@ -15,7 +16,7 @@ export class ModalComponent implements OnInit {
   // propTitle;
   prop:any
   isAssigned:boolean = false
-  constructor(public  assignUserService:AssignUserService){}
+  constructor(public  assignUserService:AssignUserService, public loading: InLoadingService){}
   ngOnInit(): void {
   }
   // Controls

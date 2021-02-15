@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ModalComponent } from '../../../shared/components/modal/modal.component';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 // services
 import { NavigatorServicesService } from './../../../shared/services/navigator-services.service';
 import { TeamsService } from '../../services/teams.service';
@@ -12,6 +13,8 @@ import { UserTaskService } from 'src/app/task/services/user-task.service';
   styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit, OnDestroy {
+  @ViewChild(ModalComponent) popUp: ModalComponent
+
   // Navigators
   navigator = {
     icon: "/assets/Icons/Teamwork.svg",
@@ -39,6 +42,9 @@ export class TeamsComponent implements OnInit, OnDestroy {
 
     }
   }
+   // [#] Controller
+  // open modal from ModalComponent
+
   goToUserProfile(iD) {
     let userID = { user_id: iD }
     this.teamService.getUserByID(userID).subscribe((res: any) => {
