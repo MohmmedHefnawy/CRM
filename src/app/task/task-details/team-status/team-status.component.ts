@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TaskDetailsService } from '../../services/task-details.service';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-team-status',
@@ -8,6 +10,8 @@ import { TaskDetailsService } from '../../services/task-details.service';
   styleUrls: ['./team-status.component.css']
 })
 export class TeamStatusComponent implements OnInit {
+  imageBaseURL = environment.imageBaseurl
+
 
   constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute) { }
 

@@ -40,12 +40,12 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
     this.taskDetails.getPropertyStaticData(lang).subscribe((res: any) => {
       this.taskDetails.propStaticData = res.data
       console.log('langs', this.taskDetails.propStaticData);
-    }, err => { }, () => { this.checkIfAmenities()})
+    }, err => { }, () => { this.checkIfAmenities() })
   }
   // Add Check Prop To propStaticData [Array]
   checkIfAmenities() {
     let propStaticData = this.taskDetails.propStaticData?.property_features,
-        taskDetails = this.taskDetails.taskDetails?.property_features
+      taskDetails = this.taskDetails.taskDetails?.property_features
     for (let staticDatta of propStaticData) {
       if (taskDetails.includes(staticDatta.name)) {
         staticDatta.check = true
@@ -53,12 +53,9 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
         staticDatta.check = false
       }
     }
-<<<<<<< Updated upstream
-=======
-    console.log('here',propStaticData);
+    console.log('here', propStaticData);
     console.log('hereeeeeee', taskDetails);
-    
->>>>>>> Stashed changes
+
   }
   ngOnDestroy(): void {
 
