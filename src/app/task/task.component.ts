@@ -53,12 +53,6 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
         staticDatta.check = false
       }
     }
-<<<<<<< Updated upstream
-=======
-    console.log('here',propStaticData);
-    console.log('hereeeeeee', taskDetails);
-    
->>>>>>> Stashed changes
   }
   ngOnDestroy(): void {
 

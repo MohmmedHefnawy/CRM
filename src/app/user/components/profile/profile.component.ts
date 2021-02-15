@@ -66,9 +66,9 @@ export class ProfileComponent implements OnInit {
   }
   // [#] Controller
   // open modal from ModalComponent
-  openPopUp(e, taskID) {
+  openPopUp(e, prop) {
     e.stopPropagation();
-    this.popUp.openPopup(taskID)
+    this.popUp.openPopup(prop)
     //  this.router.navigate([`/user/profile/assign-user`])
   }
   saveMyInfo(textContent) {
