@@ -10,6 +10,10 @@ export class TaskDetailsService {
   propStaticData;
   assignedUsers;
   propID;
+  // send old data to the backEnd
+  old_status;
+  old_category;
+  old_type;
   constructor(private http: HttpClient) { }
   // ! Method GET
   // Get property By ID
@@ -28,7 +32,7 @@ export class TaskDetailsService {
   // ! Method POST
 
   // ? Post Description Form
-  postPropertyDescription(desc) {
-    return this.http.post(`${this._url}getPropertiesTasks?id=${this.propID}`, desc)
+  postPropertyDescription(data) {
+    return this.http.post(`${this._url}properties`, data)
   }
 }

@@ -112,9 +112,10 @@
         </div>
         <!-- Button Save -->
         <div class="d-flex justify-content-end mb-5">
-            <button
+            <button type="submit" [disabled]='descriptionForm.invalid' [class.sM0-notActive]='descriptionForm.invalid'
                 class="sM0-f-radius sM0-inp-a w-50 px-4 sM0-main-cr d-flex align-items-center pr-4 justify-content-center sM0-main-bg sM0-border-none">
-                <p class="mb-0 m-auto sM0-text-0-cr sM0-fs-b-16">Next</p><i class="OM-icon-arrowout sM0-icon-d"></i>
+                <p class="mb-0 m-auto sM0-text-0-cr sM0-fs-b-16">Save</p>
+                <!-- <i class="OM-icon-arrowout sM0-icon-d"></i> -->
             </button>
         </div>
     </form>

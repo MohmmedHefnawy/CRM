@@ -24,22 +24,24 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     this.navService.navigators = this.navigator;
     this.getPropById(this.taskDetails.propID)
-    console.log('fire');
   }
 
   getPropById(ID) {
     this.taskDetails.getTaskById(ID).subscribe((res: any) => {
       this.taskDetails.taskDetails = res.data
-      console.log('Details', this.taskDetails.taskDetails);
+      
+      // old To Back end
     }, err => { }, () => {
       this.taskDetails.propID = ID;
+        this.taskDetails.old_status = this.taskDetails.taskDetails.description.status;
+        this.taskDetails.old_category = this.taskDetails.taskDetails.description.category;
+        this.taskDetails.old_type = this.taskDetails.taskDetails.description.type;
       this.getPropertyStaticData('en')
     })
   }
   getPropertyStaticData(lang) {
     this.taskDetails.getPropertyStaticData(lang).subscribe((res: any) => {
       this.taskDetails.propStaticData = res.data
-      console.log('langs', this.taskDetails.propStaticData);
     }, err => { }, () => { this.checkIfAmenities() })
   }
   // Add Check Prop To propStaticData [Array]
