@@ -19,14 +19,14 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {
   }
   // Controls
-  openPopup(prop){
+  openPopup(prop, roleId){
     $('#openPop').click()
     this.prop = prop
     // this.propTitle = propTitle
     this.isAssigned = false
-    this.activeRoute(2)
+    this.activeRoute(roleId)
     // get dubai admin by ( role id 2)
-    this.getUsersByRoleID(2)
+    this.getUsersByRoleID(roleId)
     this.searchText= ""
   }
   // Assign Task 
