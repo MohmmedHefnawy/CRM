@@ -11,6 +11,7 @@ export class TaskDetailsService {
   assignedUsers;
   propID;
   constructor(private http: HttpClient) { }
+  // ! Method GET
   // Get property By ID
   getTaskById(ID) {
     return this.http.get(`${this._url}properties?id=${ID}`)
@@ -22,5 +23,12 @@ export class TaskDetailsService {
   // Get task Assign User
   getTaskAssignUser(ID) {
     return this.http.get(`${this._url}getPropertiesTasks?id=${ID}`)
+  }
+
+  // ! Method POST
+
+  // ? Post Description Form
+  postPropertyDescription(desc) {
+    return this.http.post(`${this._url}getPropertiesTasks?id=${this.propID}, desc)
   }
 }

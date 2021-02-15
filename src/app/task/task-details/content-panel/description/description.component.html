@@ -9,8 +9,7 @@
             </div>
             <!-- Input Field -->
             <div class="w-100">
-                <input
-                    ngModel name="title" required [(ngModel)]="taskDetailsService.taskDetails?.description.title"
+                <input ngModel name="title" required [(ngModel)]="taskDetailsService.taskDetails?.description.title"
                     type="text" placeholder="Property Name..."
                     class=" sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
             </div>
@@ -25,15 +24,14 @@
                 </div>
                 <!-- Input Field -->
                 <div class="w-100 p-0">
-                    <input 
-                        ngModel name="price" required [(ngModel)]="taskDetailsService.taskDetails?.description.price"
+                    <input ngModel name="price" required [(ngModel)]="taskDetailsService.taskDetails?.description.price"
                         type="text" placeholder="Price..." class="sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
                 </div>
             </div>
             <!-- ? Start Divider -->
             <div class="px-3"></div>
             <!-- ? End Divider -->
-            <!-- ? Gender -->
+            <!-- ? Status -->
             <div class="w-100 d-flex">
                 <!-- Icon Holder -->
                 <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
@@ -41,9 +39,9 @@
                 </div>
                 <!-- Select Input -->
                 <div class='w-100 p-0'>
-                    <select class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
-                        <option value="">
-                            Status...
+                    <select ngModel name='status' #status="ngModel" [(ngModel)]='taskDetailsService.taskDetails?.description.status' required class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
+                        <option [value]="desc.name" [selected]='taskDetailsService.taskDetails?.description?.status == desc?.name' *ngFor="let desc of taskDetailsService.propStaticData?.property_status">
+                            {{desc.name}}
                         </option>
                     </select>
                 </div>
@@ -51,7 +49,7 @@
         </div>
         <!-- 3rd Row -->
         <div class="d-flex mb-4">
-            <!-- ? Gender -->
+            <!-- ? Category -->
             <div class="w-100 d-flex">
                 <!-- Icon Holder -->
                 <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
@@ -59,9 +57,11 @@
                 </div>
                 <!-- Select Input -->
                 <div class='w-100'>
-                    <select class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
-                        <option>
-                            Category...
+                    <select ngModel name='category' #category="ngModel" [(ngModel)]='taskDetailsService.taskDetails?.description.category'
+                        required class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
+                        <option [value]="desc.name" [selected]='taskDetailsService.taskDetails?.description?.category == desc?.name'
+                            *ngFor="let desc of taskDetailsService.propStaticData?.property_category">
+                            {{desc.name}}
                         </option>
                     </select>
                 </div>
@@ -69,7 +69,7 @@
             <!-- ? Start Divider -->
             <div class="px-3"></div>
             <!-- ? End Divider -->
-            <!-- ? Gender -->
+            <!-- ? Listed In -->
             <div class="w-100 d-flex">
                 <!-- Icon Holder -->
                 <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
@@ -77,9 +77,11 @@
                 </div>
                 <!-- Select Input -->
                 <div class='w-100'>
-                    <select class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
-                        <option>
-                            Listed in...
+                    <select ngModel name='type' #type="ngModel" [(ngModel)]='taskDetailsService.taskDetails?.description.type'
+                        required class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
+                        <option [value]="desc.name" [selected]='taskDetailsService.taskDetails?.description?.type == desc?.name'
+                            *ngFor="let desc of taskDetailsService.propStaticData?.property_action_category">
+                            {{desc.name}}
                         </option>
                     </select>
                 </div>
