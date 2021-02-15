@@ -29,6 +29,6 @@ export class TaskDetailsService {
 
   // ? Post Description Form
   postPropertyDescription(desc) {
-    return this.http.post(`${this._url}getPropertiesTasks?id=${this.propID}, desc)
+    return this.http.post(`${this._url}getPropertiesTasks?id=${this.propID}`, desc)
   }
 }
