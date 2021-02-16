@@ -15,7 +15,22 @@ export class LocationComponent implements OnInit {
     this.taskDetailsService.propID = this.Activerouter.snapshot.params['id']
   }
   onSubmit(form: NgForm) {
-    console.log(form);
+    console.log(this.taskDetailsService?.taskDetails);
+    form.value.id = this.taskDetailsService.propID
+    form.value.action = 'location'
+    form.value.old_city = this.taskDetailsService?.old_city
+    for (let city of this.taskDetailsService.propStaticData?.property_city) {
+      if (city.name == form.value.city) {
+        form.value.city = city.id;
+      }
+    }
+    // console.log(form.value);
 
+    this.postAllLocationData(form.value)
+  }
+  postAllLocationData(data) {
+    this.taskDetailsService.postPropertyData(data).subscribe(res => {
+      console.log(res);
+    })
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TaskDetailsService } from 'src/app/task/services/task-details.service';
 
@@ -8,26 +9,29 @@ import { TaskDetailsService } from 'src/app/task/services/task-details.service';
   styleUrls: ['./amenities.component.css']
 })
 export class AmenitiesComponent implements OnInit, OnDestroy {
+  amenitiesArr = []
 
   constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.taskDetailsService.propID = this.Activerouter.snapshot.params['id']
-    // this.checkIfSelected()
   }
+  selectedAmenity(amen) {
+    for (let singleAmen of this.amenitiesArr) {
+      if (singleAmen?.id == amen.id) {
+        this.amenitiesArr.splice(this.amenitiesArr.indexOf(singleAmen), 1)
+        console.log(this.amenitiesArr);
+        amen.check = false
+        return
+      }
+    }
+    this.amenitiesArr.push(amen)
+    amen.check = true
+    console.log(this.amenitiesArr);
+  }
+
   ngOnDestroy(): void {
     console.log('Destroyed');
 
   }
-  // checkIfSelected(){
-  //   let propStaticData = this.taskDetailsService.propStaticData?.property_features,
-  //     taskDetails = this.taskDetailsService.taskDetails?.property_features
-  //   for (let staticDatta of propStaticData){
-  //     if (taskDetails.includes(staticDatta.name)){
-  //       staticDatta.check = false
-  //     }else{
-  //       staticDatta.check = true
-  //     }
-  //   }
-  // }
 }

@@ -20,8 +20,8 @@ export class DescriptionComponent implements OnInit {
     form.value.old_type = this.taskDetailsService.old_type
     form.value.id = this.taskDetailsService.propID
     form.value.action = 'description'
-    for (let status of this.taskDetailsService.propStaticData?.property_status){
-      if (form.value.status == status.name ){
+    for (let status of this.taskDetailsService.propStaticData?.property_status) {
+      if (form.value.status == status.name) {
         form.value.status = status.id
       }
     }
@@ -36,13 +36,13 @@ export class DescriptionComponent implements OnInit {
       }
     }
     console.log(form.value);
-    
+
     // [#] post discription 
     this.postForm(form.value)
   }
 
   postForm(data) {
-    this.taskDetailsService.postPropertyDescription(data).subscribe(res => {
+    this.taskDetailsService.postPropertyData(data).subscribe(res => {
       // this.taskDetailsService.propID = ID
       console.log(res);
     })

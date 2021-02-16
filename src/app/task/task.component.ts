@@ -29,13 +29,14 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
   getPropById(ID) {
     this.taskDetails.getTaskById(ID).subscribe((res: any) => {
       this.taskDetails.taskDetails = res.data
-      
+
       // old To Back end
     }, err => { }, () => {
       this.taskDetails.propID = ID;
-        this.taskDetails.old_status = this.taskDetails.taskDetails.description.status;
-        this.taskDetails.old_category = this.taskDetails.taskDetails.description.category;
-        this.taskDetails.old_type = this.taskDetails.taskDetails.description.type;
+      this.taskDetails.old_status = this.taskDetails.taskDetails.description.status;
+      this.taskDetails.old_category = this.taskDetails.taskDetails.description.category;
+      this.taskDetails.old_type = this.taskDetails.taskDetails.description.type;
+      this.taskDetails.old_city = this.taskDetails.taskDetails?.location.city
       this.getPropertyStaticData('en')
     })
   }

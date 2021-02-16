@@ -87,5 +87,12 @@
                 <i class="OM-img-profile sM0-img-d p-4  sM0-circle-border sM0-bg-imgs-center"></i>
             </div>
         </div>
+        <!-- Button Save -->
+        <div class="pl-3 w-50 ml-auto">
+            <button class="sM0-f-radius py-4 w-100 sM0-main-bg sM0-border-none" [disabled]='mediaForm.invalid'
+                [class.sM0-notActive]='mediaForm.invalid'>
+                <p class="mb-0 m-auto sM0-text-0-cr sM0-fs-b-16">Save</p>
+            </button>
+        </div>
     </form>         
 </div>

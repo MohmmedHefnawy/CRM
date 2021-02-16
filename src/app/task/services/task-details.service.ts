@@ -14,6 +14,7 @@ export class TaskDetailsService {
   old_status;
   old_category;
   old_type;
+  old_city;
   constructor(private http: HttpClient) { }
   // ! Method GET
   // Get property By ID
@@ -32,7 +33,7 @@ export class TaskDetailsService {
   // ! Method POST
 
   // ? Post Description Form
-  postPropertyDescription(data) {
+  postPropertyData(data) {
     return this.http.post(`${this._url}properties`, data)
   }
 }
