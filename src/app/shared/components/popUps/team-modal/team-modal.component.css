@@ -1,0 +1,25 @@
+/* Custom Main Modal Width */
+.sM0-popup-w{
+  min-width: 900px !important; 
+  height: 700px !important;
+}
+/* ICONES === Start */
+.OM-icon-designwhite{
+    background-image: url("/assets/Icons/Designwhite.svg");
+}
+.OM-img-profile{
+    background-image: url("/assets/Profile/profile1.jpg");
+}
+.OM-img-Plus {
+  background-image: url("/assets/Icons/Plus.svg");
+}
+.OM-search-icon{
+  background-image: url("/assets/Icons/Search.svg");
+}
+.OM-icon-calender {
+  background-image: url("/assets/Icons/Calender.svg");
+}
+.OM-icon-timergold {
+  background-image: url("/assets/Icons/Timergold.svg");
+}
+/* ICONES === END */

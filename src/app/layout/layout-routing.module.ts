@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 // modules
 import { MasterContainerComponent } from './master-container/master-container.component';
-import { ModalComponent } from '../shared/components/modal/modal.component';
+import { ModalComponent } from '../shared/components/popUps/task-modal/modal.component';
 const routes: Routes = [
   { path: 'task', redirectTo: 'task/details/dashBoard', pathMatch: 'full' }, // redirect to `profile`
   { path: 'task/details', redirectTo: 'task/details/dashBoard', pathMatch: 'full' }, // redirect to `profile`

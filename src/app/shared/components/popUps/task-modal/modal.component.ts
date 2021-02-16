@@ -1,7 +1,7 @@
-import { InLoadingService } from './../../services/in-loading.service';
+import { InLoadingService } from '../../../services/in-loading.service';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { AssignUserService } from './../../services/assign-user.service';
+import { AssignUserService } from '../../../services/assign-user.service';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',

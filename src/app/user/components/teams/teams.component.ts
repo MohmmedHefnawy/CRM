@@ -1,4 +1,4 @@
-import { ModalComponent } from '../../../shared/components/modal/modal.component';
+import { TeamModalComponent } from '../../../shared/components/popUps/team-modal/team-modal.component';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 // services
 import { NavigatorServicesService } from './../../../shared/services/navigator-services.service';
@@ -13,7 +13,7 @@ import { UserTaskService } from 'src/app/task/services/user-task.service';
   styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit, OnDestroy {
-  @ViewChild(ModalComponent) popUp: ModalComponent
+  @ViewChild(TeamModalComponent) teamModalPopUp: TeamModalComponent
 
   // Navigators
   navigator = {
@@ -44,6 +44,10 @@ export class TeamsComponent implements OnInit, OnDestroy {
   }
    // [#] Controller
   // open modal from ModalComponent
+  openPopUpTeam(e, theUser){
+    e.stopPropagation()
+    this.teamModalPopUp.teamPopUp(theUser)
+  }
 
   goToUserProfile(iD) {
     let userID = { user_id: iD }

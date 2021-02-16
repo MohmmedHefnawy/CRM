@@ -1,3 +1,4 @@
+<app-team-modal></app-team-modal>
 <!-- Content Container -->
 <div class='container-fluid pr-0 m-0 h-100 M0-cards-holder'>
     <div class='row flex-wrap pl-4 mx-0 justify-content-center'>
@@ -24,7 +25,7 @@
                     <p class="sM0-main-cr d-inline-block mb-0 ml-2 sM0-fs-16 text-center">{{theUser?.address}}</p>
                 </div>
                 <!-- Inprogress Task -->
-                <button
+                <button (click)="openPopUpTeam($event, theUser)"
                     class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2 my-3">
                     <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center mr-3"></i>
                     <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Asign Task</p>
