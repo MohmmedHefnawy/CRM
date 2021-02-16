@@ -25,7 +25,14 @@
       </div>
       <!-- Input Field -->
       <div class="w-100">
-        <input ngModel name="city" required [(ngModel)]="taskDetailsService.taskDetails?.location.city" type="text" placeholder="City..." class=" sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
+        <!-- <input ngModel name="city" required [(ngModel)]="taskDetailsService.taskDetails?.location.city" type="text" placeholder="City..." class=" sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius"> -->
+        <select ngModel name="city" required [(ngModel)]="taskDetailsService.taskDetails?.location.city"
+          class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
+          <option [value]="location.name" [selected]='taskDetailsService.taskDetails?.location?.city == location?.name'
+            *ngFor="let location of taskDetailsService.propStaticData?.property_city">
+            {{location.name}}
+          </option>
+        </select>
       </div>
     </div>
     <!-- 3rd Row -->
@@ -58,13 +65,9 @@
     </div>
     
     <!-- Button Save -->
-    <div class="d-flex justify-content-end pl-4 mb-5 w-50 ml-auto">
-      <button class="sM0-t-l-radius sM0-inp-a flex-row-reverse w-50 px-4 sM0-main-cr d-flex align-items-center pr-4 justify-content-center sM0-main-bg sM0-border-none">
-        <p class="mb-0 m-auto sM0-text-0-cr sM0-fs-b-16">Previous</p><i class="OM-icon-arrowin sM0-icon-d"></i>
-      </button>
-      <div class="p-2"></div>
-      <button class="sM0-r-b-radius sM0-inp-a w-50 px-4 sM0-main-cr d-flex align-items-center pr-4 justify-content-center sM0-main-bg sM0-border-none">
-        <p class="mb-0 m-auto sM0-text-0-cr sM0-fs-b-16">Next</p><i class="OM-icon-arrowout sM0-icon-d"></i>
+    <div class="pl-3 w-50 ml-auto">
+      <button class="sM0-f-radius py-4 w-100 sM0-main-bg sM0-border-none" [disabled]='locationForm.invalid' [class.sM0-notActive]='locationForm.invalid'>
+        <p class="mb-0 m-auto sM0-text-0-cr sM0-fs-b-16">Save</p>
       </button>
     </div>
   </form>

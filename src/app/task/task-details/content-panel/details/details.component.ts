@@ -20,17 +20,17 @@ export class DetailsComponent implements OnInit {
     // console.log('after aslkfnlkasnflkn');
 
   }
-  // getPropById(ID) {
-  //   this.taskDetailsService.getTaskById(ID).subscribe((res: any) => {
-  //     this.taskDetailsService.taskDetails = res.data
-  //     console.log('Details', this.taskDetailsService.taskDetails);
-  //   }, err => { }, () => {
-  //     this.taskDetailsService.propID = ID;
-  //   })
-  // }
-  onSubmit(form: NgForm) {
-    console.log(form);
 
+  onSubmit(form: NgForm) {
+    form.value.action = 'details'
+    form.value.id = this.taskDetailsService.propID
+    console.log(form.value);
+    this.postDetailsData(form.value)
   }
 
+  postDetailsData(data) {
+    this.taskDetailsService.postPropertyData(data).subscribe(res => {
+      console.log(res);
+    })
+  }
 }
