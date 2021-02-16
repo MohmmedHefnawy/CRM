@@ -13,11 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ModalComponent } from './components/modal/modal.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgbModule  } from '@ng-bootstrap/ng-bootstrap'
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [NavigationsComponent, ModalComponent],
-  exports: [NavigationsComponent, BrowserAnimationsModule, MatProgressBarModule, LoadingBarHttpClientModule, ModalComponent],
+  exports: [NavigationsComponent, BrowserAnimationsModule, MatProgressBarModule, LoadingBarHttpClientModule, ModalComponent, NgxPaginationModule],
   imports: [
     CommonModule,
     SharedRoutingModule,
@@ -26,7 +26,8 @@ import { NgbModule  } from '@ng-bootstrap/ng-bootstrap'
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: [
     // { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },

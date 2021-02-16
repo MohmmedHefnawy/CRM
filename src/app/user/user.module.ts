@@ -13,7 +13,7 @@ import { PersonalInfoComponent } from './components/settings/personal-info/perso
 import { ChangePasswordComponent } from './components/settings/change-password/change-password.component';
 import { ContactComponent } from './components/settings/contact/contact.component';
 import { SharedModule } from '../shared/shared.module';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [TeamsComponent, ProfileComponent, UserComponent, NotificationsComponent, CreateAccountComponent, SettingsComponent, PersonalInfoComponent, ChangePasswordComponent, ContactComponent],
   exports: [UserRoutingModule],
@@ -21,7 +21,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    MatPaginatorModule
   ]
 })
 export class UserModule { }

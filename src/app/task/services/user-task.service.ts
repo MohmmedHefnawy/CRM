@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
   export class UserTaskService {
   _url = environment.apiBaseUrl;
   userTasks;
+  pagination;
   constructor(private http: HttpClient  ) { }
   // get tasks for user in user profile
   getUserTask(lang, page, num, status, userID){

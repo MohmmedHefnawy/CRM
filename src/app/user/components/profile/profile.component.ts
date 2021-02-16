@@ -42,6 +42,14 @@ export class ProfileComponent implements OnInit {
     public taskDetails: TaskDetailsService
   ) {
     let route = this.router.url
+    this.checkUser(route)
+  }
+
+  ngOnInit(): void {
+    this.navService.navigators = this.navigator;
+  }
+  // [#] Controller
+  checkUser(route){
     switch (route) {
       // current user
       case '/user/profile':
@@ -52,19 +60,13 @@ export class ProfileComponent implements OnInit {
         break;
       // team user
       default:
-        teamService.oneUser = JSON.parse(localStorage.getItem("teamUser"))
-        this.navigator.title = `${teamService.oneUser?.name} Profile`
-        this.getAllProps('en', 1, 25, '', teamService.oneUser?.id)
+        this.teamService.oneUser = JSON.parse(localStorage.getItem("teamUser"))
+        this.navigator.title = `${this.teamService.oneUser?.name} Profile`
+        this.getAllProps('en', 1, 25, '', this.teamService.oneUser?.id)
         this.userProfile = false
         break;
     }
-
   }
-
-  ngOnInit(): void {
-    this.navService.navigators = this.navigator;
-  }
-  // [#] Controller
   // open modal from ModalComponent
   openPopUp(e, prop, roleId) {
     e.stopPropagation();
@@ -92,7 +94,6 @@ export class ProfileComponent implements OnInit {
       reader.readAsBinaryString(file);
     }
   }
-
   updateImage(e) {
     let imageObj = { image: 'data:image/png;base64,' + btoa(e.target.result) }
     this.profileService.postImage(imageObj).subscribe(res => {
@@ -100,6 +101,12 @@ export class ProfileComponent implements OnInit {
 
     })
 
+  }
+  handlePageChange(event) {
+    console.log($('.M0-content-holder').get(0));
+    
+    $('.M0-content-holder').get(0).scrollTo({ top: 0, behavior: 'smooth' });
+    this.getAllProps('en', event, 25, '', '')
   }
   // [#] HTTP REQs
   updateMyInfo(userInfo) {
@@ -112,8 +119,7 @@ export class ProfileComponent implements OnInit {
   getAllProps(lang, page, num, status, userID) {
     this.userTaskService.getUserTask(lang, page, num, status, userID).subscribe((res: any) => {
       this.userTaskService.userTasks = res.data
-      console.log(this.userTaskService.userTasks);
-
+      this.userTaskService.pagination = res.pages
     })
   }
   getPropById(ID) {
