@@ -30,6 +30,21 @@ export class AmenitiesComponent implements OnInit, OnDestroy {
     console.log(this.amenitiesArr);
   }
 
+  sendAmenData() {
+    let data = {
+      action: 'property_features',
+      id: this.taskDetailsService.propID,
+      features: this.amenitiesArr
+    }
+    this.postAmenities(data)
+  }
+  postAmenities(data) {
+    this.taskDetailsService.postPropertyData(data).subscribe(res => {
+      console.log(res);
+
+    })
+  }
+
   ngOnDestroy(): void {
     console.log('Destroyed');
 
