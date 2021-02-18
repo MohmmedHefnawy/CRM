@@ -2,6 +2,8 @@ import { InLoadingService } from '../../../services/in-loading.service';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AssignUserService } from '../../../services/assign-user.service';
+import { UserTaskService } from 'src/app/task/services/user-task.service';
+import { UsersMapService } from 'src/app/shared/services/users-map.service'
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -12,9 +14,14 @@ export class ModalComponent implements OnInit {
   imageBaseURL = environment.imageBaseurl
   rollId_isActive;
   searchText;
+  userRoleID
   prop:any
   isAssigned:boolean = false
-  constructor(public assignUserService:AssignUserService, public loading: InLoadingService){}
+  constructor(public assignUserService: AssignUserService,
+     public loading: InLoadingService, 
+     public userTaskService: UserTaskService,
+    public usersMapService: UsersMapService
+     ){}
   ngOnInit(): void {
   }
   // Controls
@@ -29,8 +36,21 @@ export class ModalComponent implements OnInit {
     this.searchText= ""
   }
   // Assign Task 
-  assignTask(userID,expiryDate){
-    this.postUsersByRoleID(userID, this.prop.id, expiryDate)
+  assignTask(userID, expiryDate, userRole_id){
+    this.userRoleID = userRole_id
+    expiryDate ? this.postUsersByRoleID(userID, this.prop.id, expiryDate) : false
+  }
+  updateTaskOuterCard(userRole_id){
+    let userMap = this.usersMapService.usersMap[userRole_id.toString()]
+    for (let singleProp of this.userTaskService.userTasks) {
+      if (singleProp.id == this.prop.id) {
+        // console.log(userMap);  
+        // console.log()
+        singleProp.tasks[userMap]++;
+        // singleProp.tasks.userMap =  parseInt(singleProp.tasks.userMap);
+        // singleProp.tasks.userMap++;
+      }
+    }
   }
   activeRoute(ID){
   this.rollId_isActive = ID
@@ -62,15 +82,9 @@ export class ModalComponent implements OnInit {
       post_id :this.prop.id,
       expiry_date : expireDate,
     }
-    this.assignUserService.postUsersByRoleID(data).subscribe(
-    (res:any)=>{
-
-    },
-    err =>{
-
-    },
-    ()=>{
-         this.getAssignUsers(this.prop.id);
+    this.assignUserService.postUsersByRoleID(data).subscribe((res:any)=>{},err =>{},()=>{
+        this.getAssignUsers(this.prop.id);
+        this.updateTaskOuterCard(this.userRoleID)
     })
   }
 // Add Check prop To Assign tasks [Array]
