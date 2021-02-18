@@ -204,10 +204,12 @@
                                 <i class="iM0-icon-contentManger-white  sM0-icon-d sM0-bg-imgs-center"></i>
                             </button>
                             <!-- assign user small button -->
-                            <button *ngIf='task?.tasks_status == "2" && task?.tasks?.CM || task?.tasks?.GD || task?.tasks?.PH || task?.tasks?.DA' (click)='openPopUp($event, task, 2)'
-                                class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-bg-opacity-green-25 mr-2">
-                                <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center"></i>
-                            </button>
+                            <ng-container *ngIf='!(task?.tasks?.CM != 0 && task?.tasks?.GD != 0 && task?.tasks?.PH != 0 && task?.tasks?.DA != 0)'>
+                                <button *ngIf='task?.tasks_status == "2" && task?.tasks?.CM || task?.tasks?.GD || task?.tasks?.PH || task?.tasks?.DA' (click)='openPopUp($event, task, 2)'
+                                    class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-bg-opacity-green-25 mr-2">
+                                    <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center"></i>
+                                </button>
+                            </ng-container>
                             <!-- assign user Larg button (inProgress = 2) -->
                             <button  *ngIf='task?.tasks_status == "2" && task?.tasks?.CM == 0 && task?.tasks?.GD == 0 && task?.tasks?.PH == 0 && task?.tasks?.DA == 0' (click)='openPopUp($event, task, 2);'
                                 class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
