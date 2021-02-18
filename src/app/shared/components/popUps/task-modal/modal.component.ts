@@ -44,7 +44,7 @@ export class ModalComponent implements OnInit {
     let userMap = this.usersMapService.usersMap[userRole_id.toString()]
     for (let singleProp of this.userTaskService.userTasks) {
       if (singleProp.id == this.prop.id) {
-        // console.log(userMap);  
+        console.log(userMap);  
         // console.log()
         singleProp.tasks[userMap]++;
         // singleProp.tasks.userMap =  parseInt(singleProp.tasks.userMap);
