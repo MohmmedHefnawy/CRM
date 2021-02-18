@@ -16,7 +16,7 @@ export class ModalComponent implements OnInit {
   // propTitle;
   prop:any
   isAssigned:boolean = false
-  constructor(public  assignUserService:AssignUserService, public loading: InLoadingService){}
+  constructor(public assignUserService:AssignUserService, public loading: InLoadingService){}
   ngOnInit(): void {
   }
   // Controls

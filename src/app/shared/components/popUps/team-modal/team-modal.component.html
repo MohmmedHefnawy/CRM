@@ -5,10 +5,11 @@
             <!-- Modal Header -->
             <div class="modal-header sM0-supp-1-bg border-0 align-items-center justify-content-between">
                 <!-- Assign Imge And Title -->
-                <div class="d-flex align-items-center ">
-                    <i class=" sM0-img-c rounded-circle sM0-gold-border sM0-f-radius~ d-flex justify-content-center sM0-bg-imgs-center mr-4">
+                <div class="d-flex justify-content-center align-items-center">
+                    <i [ngStyle]="theUser?.image != '' ? {'background-image' : 'url('+imageBaseURL+ theUser?.image +')'} : {'background-image' : 'url(src/assets/Icons/new-user.svg)'}" class=" sM0-white-border sM0-bg-imgs-center sM0-img-b sM0-f-radius mb-4 d-flex justify-content-end align-items-end "
+                    class="sM0-click sM0-img-c rounded-circle sM0-gold-border sM0-f-radius~ d-flex justify-content-center sM0-bg-imgs-center mr-4">
                     </i>
-                    <p class="modal-title sM0-fs-b-16 sM0-text-0-cr m-0 p-0" id="exampleModalLabel"></p>
+                    <p class="modal-title sM0-fs-b-16 sM0-text-0-cr m-0 p-0" id="exampleModalLabel"> {{theUser?.name}} </p>
                 </div>
                 <!-- Serach Bar -->
                 <div class="OM-Holder-search-w m-0  pl-4">
@@ -16,7 +17,7 @@
                         <button class="px-3 py-2 sM0-smoke-bg sM0-t-l-radius btn d-flex">
                             <i class="sM0-icon-d OM-search-icon"></i>
                         </button>
-                        <input type="search"  placeholder="Search..."
+                        <input type="search" [(ngModel)]="searchProps"  placeholder="Search..."
                             class="w-100~ sM0-smoke-bg sM0-text-0-cr sM0-r-b-radius pr-4">
                     </div>
                 </div>
@@ -32,21 +33,24 @@
             </div>
             <!--  Modal Content  -->
             <div class="modal-body sM0-supp-0-bg px-4 py-0 overflow-auto my-4 ">
-                <ng-container>
-                    <ng-container>
+                <ng-container *ngIf="(assignPropertiesService?.propList | filter: searchProps) as results" >
+                    <ng-container >
                         <!-- user ROW -->
-                        <div class="row p-4 sM0-supp-1-bg mb-4 d-flex justify-content-between align-items-center m-0 sM0-f-radius">
+                        <div *ngFor=" let taskProps of results "  class="row p-4 sM0-supp-1-bg mb-4 d-flex justify-content-between align-items-center m-0 sM0-f-radius">
                             <!-- Profile Icons And SurnName -->
                             <div class="col-4 d-flex w-100 align-items-center justify-content-start ">
                                 <!-- img -->
                                 <div>
-                                    <i class="OM-img-profile d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center"></i>
+                                    <i [ngStyle]="taskProps?.images != '' ? {'background-image' : 'url('+ taskProps?.images +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}"
+                                     class=" d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center">
+                                    </i>
                                 </div>
                                 <!-- info -->
                                 <div class="pl-2">
-                                    <p class="m-0 sM0-main-cr"></p>
+                                    <p class="m-0 sM0-main-cr">{{taskProps?.title | slice:0:20}}...</p>
                                     <p class="sM0-fs-10 m-0 sM0-text-0-cr d-flex align-items-center ">
-                                        <i class="sM0-icon-e sM0-bg-imgs-center mb-1 mr-1"></i>
+                                        <i class="OM-img-Locationgold sM0-icon-e sM0-bg-imgs-center mb-1 mr-1"></i>
+                                        {{taskProps?.city}}
                                     </p>
                                 </div>
                             </div>
@@ -76,7 +80,7 @@
                             </div>
                             <!-- Asign Task Button -->
                             <div class="col-3 w-100 d-flex justify-content-center p-0 ">
-                                <button
+                                <button (click)="assignProp(theUser.id, taskProps.id, expiryDate.value)"
                                     class="sM0-btn-w-160 sM0-text-0-cr sM0-smoke-bg sM0-f-radius btn d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-green-25 py-3">
                                     <i class="sM0-icon-d OM-img-Plus sM0-bg-imgs-center mr-4"> </i>
                                     <p class="m-0 sM0-fs-12">Assign Task</p>
@@ -89,8 +93,7 @@
                             </div>
                         </div>
                         <!-- If Not User -->
-                        <p class="sM0-text-0-cr sM0-fs-16 text-center p-4">No Users Found !
-                        </p>
+                         <p *ngIf="results.length === 0" class="sM0-text-0-cr sM0-fs-16 text-center p-4">No Users Found ! </p> 
                     </ng-container>
                 </ng-container>
             </div>
