@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { UserTaskService } from 'src/app/task/services/user-task.service'
 import { TaskDetailsService } from 'src/app/task/services/task-details.service'
 import { ModalComponent } from 'src/app/shared/components/popUps/task-modal/modal.component';
+import { AssignUserService } from 'src/app/shared/services/assign-user.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -39,7 +40,8 @@ export class ProfileComponent implements OnInit {
     public profileService: ProfileServiceService,
     private router: Router,
     public userTaskService: UserTaskService,
-    public taskDetails: TaskDetailsService
+    public taskDetails: TaskDetailsService,
+    public assignUserService: AssignUserService
   ) {
     let route = this.router.url
     this.checkUser(route)
@@ -66,6 +68,15 @@ export class ProfileComponent implements OnInit {
         this.userProfile = false
         break;
     }
+  }
+  // [#] get completed propertys by (click) completed status
+  getCompletedProps(){
+    this.getAllProps('en', 1, 25, 'publish', '' )
+  }
+  // [?] start Task
+  startTask(e, propID){
+    e.stopPropagation();
+    this.assignTask(propID)
   }
   // open modal from ModalComponent
   openPopUp(e, prop, roleId) {
@@ -129,6 +140,23 @@ export class ProfileComponent implements OnInit {
     }, err => { }, () => {
       this.taskDetails.propID = ID;
       this.router.navigate([`/task/details/dashBoard/${ID}`])
+    })
+  }
+  assignTask(propID){
+    let data = {
+      users_id: this.authService.user?.data.id,
+      post_id: propID,
+      expiry_date: '',
+      status_id:  2
+    }
+    this.assignUserService.postUsersByRoleID(data).subscribe(res => {
+    },err=>{},()=>{
+        for (let singleProp of this.userTaskService.userTasks){
+          if (singleProp.id == propID){
+            singleProp.tasks_status = '2'
+            this.authService.user.data.inProgress++
+          }
+        }
     })
   }
   // [#]  Life cycles

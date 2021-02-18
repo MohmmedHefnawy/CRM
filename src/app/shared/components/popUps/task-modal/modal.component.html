@@ -99,7 +99,7 @@
                             </div>
                             <!-- Asign Task Button -->
                             <div class="col-3 w-100 d-flex justify-content-center p-0 ">
-                                <button *ngIf="!user.check" (click)='assignTask(user.id, expiryDate.value)' class="sM0-btn-w-160 sM0-text-0-cr sM0-smoke-bg sM0-f-radius btn d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-green-25 py-3" >
+                                <button *ngIf="!user.check" (click)='assignTask(user.id, expiryDate.value, user.role_id)' class="sM0-btn-w-160 sM0-text-0-cr sM0-smoke-bg sM0-f-radius btn d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-green-25 py-3" >
                                     <i  class="sM0-icon-d OM-img-Plus sM0-bg-imgs-center mr-4"> </i>
                                     <p  class="m-0 sM0-fs-12" >Assign Task</p>
                                 </button>

@@ -89,38 +89,35 @@
                     <div class='pr-4 d-xl-block d-sm-none d-block'></div>
                     <!-- Didn't Started yet Section -->
                     <div class="col p-0 mr-xl-0 mr-sm-4 mr-0">
-                        <div class="sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">Didn't
-                            Statred Yet</div>
+                        <div class="sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">Pinding</div>
                         <div
                             class="d-flex position-absolute OM-Icons-Holder sM0-circle-border sM0-bg-opacity-gold-25 justify-content-center align-items-center">
                             <i class="OM-img-thunderwhite sM0-icon-d sM0-bg-imgs-center d-inline-block"></i>
                         </div>
                         <div
                             class=" M0-border-black sM0-bg-opacity-gold-25 sM0-b-l-radius h-50 d-flex justify-content-center align-items-center sM0-main-cr"
-                            [textContent]='userProfile ? authService.user?.data.pending : teamService.oneUser?.pending'
-                            >
-                            </div>
+                            [textContent]='userProfile ? authService.user?.data.pending : teamService.oneUser?.pending'>
+                        </div>
                     </div>
                 </div>
                 <!-- Row B -->
                 <div class="row m-sm-0 mb-4 justify-content-center text-center w-100 h-100">
                     <!-- Didn'y Finished yet Section -->
                     <div class="col p-0 mr-xl-0 mr-sm-4 mr-0">
-                        <div class="sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">Didn't
-                            Finished Yet</div>
+                        <div class="sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">Expired</div>
                         <div
                             class="d-flex position-absolute OM-Icons-Holder sM0-circle-border sM0-bg-opacity-red-25 justify-content-center align-items-center">
                             <i class="OM-img-alarm sM0-icon-d sM0-bg-imgs-center d-inline-block"></i>
                         </div>
                         <div
                             class="M0-border-black sM0-bg-opacity-red-25 sM0-b-l-radius h-50 d-flex justify-content-center align-items-center sM0-danger-cr"
-                            [textContent]="userProfile ? authService.user?.data.didnt_finished : teamService.oneUser?.didnt_finished"
+                            [textContent]="userProfile ? authService.user?.data.expired : teamService.oneUser?.expired"
                             >
                             </div>
                     </div>
                     <div class='pr-4 d-xl-block d-sm-none d-block'></div>
                     <!-- Completed Section -->
-                    <div class="col p-0 mr-xl-0 ">
+                    <div (click)='getCompletedProps()' class="col p-0 mr-xl-0 sM0-click">
                         <div class="sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">
                             Completed
                         </div>
@@ -135,8 +132,8 @@
                 </div>
             </div>
         </div>
+        <!-- Assign Task Card -->
         <ng-container>
-            <!-- Assign Task Card -->
             <div *ngFor='let task of userTaskService.userTasks  | paginate:{
                                                         itemsPerPage: userTaskService.pagination?.perPage,
                                                         currentPage: userTaskService.pagination?.currentPage,
@@ -186,31 +183,52 @@
                         </div>
                         <!-- Inprogress Task -->
                         <div class='pb-3 d-flex'>
-                            <button *ngIf='task?.post_status == "pending"' (click)='openPopUp($event, task, 2)'
+                            <!-- assigned dubiAdmin -->
+                            <button *ngIf='task?.tasks?.DA' (click)='openPopUp($event, task, 2)'
                                 class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40 sM0-circle-border sM0-supp-1-bg mr-2">
                                 <i class="iM0-icon-dubiAdmin-white sM0-icon-d sM0-bg-imgs-center"></i>
                             </button>
-                            <button *ngIf='task?.post_status == "pending"' (click)='openPopUp($event, task , 4)'
+                            <!-- assigned Photographer -->
+                            <button *ngIf='task?.tasks?.PH' (click)='openPopUp($event, task , 4)'
                                 class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-supp-1-bg mr-2">
                                 <i class="iM0-icon-camera-white  sM0-icon-d sM0-bg-imgs-center"></i>
                             </button>
-                            <button *ngIf='task?.post_status == "pending"' (click)='openPopUp($event, task , 5)'
+                            <!-- assigned Designer -->
+                            <button *ngIf='task?.tasks?.GD' (click)='openPopUp($event, task , 5)'
                                 class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-supp-1-bg mr-2">
                                 <i class="iM0-icon-designers-white  sM0-icon-d sM0-bg-imgs-center"></i>
                             </button>
-                            <button *ngIf='task?.post_status == "pending"' (click)='openPopUp($event, task, 6)'
+                            <!-- assigned Content Creator -->
+                            <button *ngIf='task?.tasks?.CM' (click)='openPopUp($event, task, 6)'
                                 class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-supp-1-bg mr-2">
                                 <i class="iM0-icon-contentManger-white  sM0-icon-d sM0-bg-imgs-center"></i>
                             </button>
-                            <button *ngIf='task?.post_status == "pending"' (click)='openPopUp($event, task, 2)'
+                            <!-- assign user small button -->
+                            <button *ngIf='task?.tasks_status == "2" && task?.tasks?.CM || task?.tasks?.GD || task?.tasks?.PH || task?.tasks?.DA' (click)='openPopUp($event, task, 2)'
                                 class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-bg-opacity-green-25 mr-2">
                                 <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center"></i>
                             </button>
-                            <!-- <button (click)='openPopUp($event, task, 2);' *ngIf='task?.post_status == "pending"' class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
+                            <!-- assign user Larg button (inProgress = 2) -->
+                            <button  *ngIf='task?.tasks_status == "2" && task?.tasks?.CM == 0 && task?.tasks?.GD == 0 && task?.tasks?.PH == 0 && task?.tasks?.DA == 0' (click)='openPopUp($event, task, 2);'
+                                class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
                                 <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center mr-3"></i>
                                 <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Assign User</p>
-                            </button> -->
-                            <button *ngIf='task?.post_status == "publish"'
+                            </button>
+                            <!-- start button (pinding = 1) -->
+                            <ng-container *ngIf='task?.tasks_status == "1"'>
+                                <button (click)='startTask($event, task?.id)'
+                                    class="btn sM0-btn-w-100 d-flex justify-content-center align-items-center sM0-t-l-radius sM0-bg-opacity-gold-25 pl-2 py-2">
+                                    <i class="OM-img-thunder sM0-icon-d sM0-bg-imgs-center mr-2"></i>
+                                    <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Start</p>
+                                </button>
+                                <!-- cancle button -->
+                                <button
+                                    class="btn sM0-btn-w-65 d-flex justify-content-center align-items-center sM0-r-b-radius sM0-bg-opacity-red-25 ml-2 pr-4 py-2">
+                                    <i class="OM-img-wrong sM0-icon-d sM0-bg-imgs-center"></i>
+                                </button>
+                            </ng-container>
+                            <!-- complete button (complete = 4) -->
+                            <button *ngIf='task?.tasks_status == "4"'
                                 class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25~ px-3 py-2">
                                 <i class="OM-img-right sM0-icon-d sM0-bg-imgs-center mr-3"></i>
                                 <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Completed</p>
