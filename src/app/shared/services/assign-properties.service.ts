@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 export class AssignPropertiesService {
   _url = environment.apiBaseUrl;
   propLists
+  pagination
   constructor(private http: HttpClient, ) { }
 
   getAllProperties(lang, num, page, status, user_id){
