@@ -2,7 +2,6 @@ import { AssignPropertiesService } from './../../../services/assign-properties.s
 import { Component, OnInit } from '@angular/core';
 import { InLoadingService } from '../../../services/in-loading.service';
 import { environment } from 'src/environments/environment';
-import { AssignUserService } from 'src/app/shared/services/assign-user.service';
 
 @Component({
   selector: 'app-team-modal',
@@ -18,21 +17,21 @@ export class TeamModalComponent implements OnInit {
   isAssigned:boolean = false
   constructor(public loading: InLoadingService, public assignPropertiesService: AssignPropertiesService) { }
   ngOnInit(): void {
-    
+   
   }
   // [#] Controls
   teamPopUp(theUsers){
     $('#openTeamPop').click()
     this.theUsers = theUsers
+    console.log( this.theUsers)
     this.getAllProperties("en", 25, 1, "pending","" )
     console.log(this.theUsers);
-    
   }
   // Assign Properties 
   assignProp(theUsersID, taskPropsID, expiryDate){
     this.postAssignProps(theUsersID, taskPropsID, expiryDate)
   }
-  // [#] REQ
+  // [#] HTTP REQs
   getAllProperties(lang, num, page, status, user_id){
     return this.assignPropertiesService.getAllProperties(lang, num, page, status, user_id).subscribe((res:any)=>{
       this.assignPropertiesService.propLists = res.data
@@ -49,22 +48,21 @@ export class TeamModalComponent implements OnInit {
       expiry_date : expiryDate
     }
     this.assignPropertiesService.postAssignProps(data).subscribe((res)=>{
+      console.log(res);
       
     })
   }
 
   checkIfAssignProps() {
-  
-       let assignedUsers = this.assignPropertiesService.propLists
-      for(let assingedUser of assignedUsers ){
+      let props = this.assignPropertiesService.propLists
+      for(let prop of props ){
+          if(prop.users_id == this.theUsers.id){
 
-          if(assingedUser.users_id == this.theUsers.id){
-            this.theUsers.check = true
-            this.theUsers.expDate = assingedUser.expiry_date
+            prop.check = true
+            prop.expDate = prop.expiry_date
           }
         }
-      
     this.isAssigned = true
   }
-   
+
 }

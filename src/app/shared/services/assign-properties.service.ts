@@ -17,5 +17,7 @@ export class AssignPropertiesService {
   postAssignProps(data){
     return this.http.post(`${this._url}assignTasks`,data)
   }
-
+  getAssignUsers(ID){
+    return this.http.get(`${this._url}getPropertiesTasks?id=${ID}`)
+  }
 }

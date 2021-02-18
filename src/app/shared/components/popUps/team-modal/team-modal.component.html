@@ -35,7 +35,7 @@
             <!--  Modal Content  -->
             <div class="modal-body sM0-supp-0-bg px-4 py-0 overflow-auto my-4 ">
                 <ng-container *ngIf="(assignPropertiesService?.propLists | filter: searchProps) as results" >
-                    <ng-container *ngIf="isAssigned">
+                    <ng-container >
                         <!-- user ROW -->
                         <div *ngFor=" let taskProps of results "  class="row p-4 sM0-supp-1-bg mb-4 d-flex justify-content-between align-items-center m-0 sM0-f-radius">
                             <!-- Profile Icons And SurnName -->
@@ -81,12 +81,12 @@
                             </div>
                             <!-- Asign Task Button -->
                             <div class="col-3 w-100 d-flex justify-content-center p-0 ">
-                                <button *ngIf="!this.theUsers.check" (click)="assignProp(theUsers.id, taskProps.id, expiryDate.value)"
+                                <button (click)="assignProp(theUsers.id, taskProps.id, expiryDate.value)"
                                     class="sM0-btn-w-160 sM0-text-0-cr sM0-smoke-bg sM0-f-radius btn d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-green-25 py-3">
                                     <i class="sM0-icon-d OM-img-Plus sM0-bg-imgs-center mr-4"> </i>
                                     <p class="m-0 sM0-fs-12">Assign Task</p>
                                 </button>
-                                <button *ngIf="this.theUsers.check"
+                                <button
                                     class=" mr-2 sM0-btn-w-160 sM0-text-0-cr sM0-smoke-bg sM0-f-radius btn d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-gold-25 py-3">
                                     <i class=" OM-icon-timergold d-inline-block sM0-icon-d sM0-bg-imgs-center mr-3"></i>
                                     <p class="m-0 sM0-fs-12">Pending</p>
