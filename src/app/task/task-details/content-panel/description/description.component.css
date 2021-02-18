@@ -2,6 +2,12 @@
 .sM0-inp-description-holder-a {
   height: 390px !important;
 }
+.sM0-inp-header-holder-a {
+  height: 48px !important;
+}
+.sM0-inp-textArea-holder-a {
+  height: 342px !important;
+}
 .OM-icon-home {
   background-image: url("/assets/Icons/Home.svg");
 }

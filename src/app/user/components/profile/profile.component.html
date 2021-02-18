@@ -44,7 +44,7 @@
                     <!-- user Roul -->
                     <p class="sM0-text-0-cr sM0-fs-16 ml-md-4 text-md-left text-center mt-2" [textContent]='userProfile ? authService.user?.data.role_name : teamService.oneUser?.role_name'></p>
                     <!-- user location -->
-                    <div class="d-flex ml-md-4 mt-3 justify-content-center">
+                    <div class="d-flex ml-md-4 mt-3 justify-content-center align-items-center">
                         <i class="OM-img-location sM0-icon-c sM0-bg-imgs-center mr-2"></i>
                         <p *ngIf='!editMyInfo' class="sM0-text-0-cr sM0-fs-16 text-md-left text-center m-0" #location [textContent]='userProfile ? authService.user?.data.address : teamService.oneUser?.address'></p>
                         <input id='userLocInp' class='py-2 px-4 w-100 sM0-supp-1-bg border-0 sM0-fs-16 sM0-text-0-cr sM0-f-radius' *ngIf='editMyInfo' type="text" [value]="teamService.oneUser ? teamService.oneUser.address : authService.user?.data.address">

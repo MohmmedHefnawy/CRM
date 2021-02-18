@@ -40,7 +40,7 @@
                 </div>
                 <!-- Select Input -->
                 <div class='w-100 p-0'>
-                    <select ngModel name='status' #status="ngModel" [(ngModel)]='taskDetailsService.taskDetails?.description.status' required class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none'>
+                    <select ngModel name='status' #status="ngModel" [(ngModel)]='taskDetailsService.taskDetails?.description.status' required class='pl-4 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none '>
                         <option [value]="desc.name" [selected]='taskDetailsService.taskDetails?.description?.status == desc?.name' *ngFor="let desc of taskDetailsService.propStaticData?.property_status">
                             {{desc.name}}
                         </option>
@@ -97,13 +97,13 @@
             </div>
             <!-- Input Field -->
             <div class="w-100">
-                <div class="w-100~ h-25 d-flex align-items-center sM0-bg-opacity-gray-5 sM0-r-radius pl-4">
-                    <i class="OM-icon-bold sM0-icon-c mr-4 sM0-click"></i>
-                    <i class="OM-icon-italic sM0-icon-c mr-4 sM0-click"></i>
-                    <i class="OM-icon-textlist sM0-icon-c mr-4 sM0-click"></i>
-                    <i class="OM-icon-listnumber sM0-icon-c sM0-click"></i>
+                <div class="w-100~ sM0-inp-header-holder-a d-flex align-items-center sM0-bg-opacity-gray-5 sM0-r-radius pl-4">
+                    <i class="OM-icon-bold sM0-icon-d mr-4 sM0-click"></i>
+                    <i class="OM-icon-italic sM0-icon-d mr-4 sM0-click"></i>
+                    <i class="OM-icon-textlist sM0-icon-d mr-4 sM0-click"></i>
+                    <i class="OM-icon-listnumber sM0-icon-d sM0-click"></i>
                 </div>
-                <div class="w-100 h-75">
+                <div class="w-100 sM0-inp-textArea-holder-a">
                     <textarea
                      ngModel name="description" required [(ngModel)]="taskDetailsService.taskDetails?.description.description"
                      type="text" placeholder="Description..."
