@@ -2,28 +2,29 @@
     <form class='w-100' #descriptionForm="ngForm" (ngSubmit)="descriptionForm.valid && onSubmit(descriptionForm)" >
         <!-- 1st Row -->
         <!-- User Name Input -->
-        <div class=" d-flex mb-4">
+        <div>
+        <div class="d-flex mb-4 sM0-inp-h-49">
             <!-- Icon Holder -->
-            <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
+            <div class='sM0-smoke-bg sM0-t-l-radius px-4 d-flex align-items-center'>
                 <i class="OM-img-inprogress sM0-icon-d d-block"></i>
             </div>
             <!-- Input Field -->
             <div class="w-100">
                 <input ngModel name="title" required [(ngModel)]="taskDetailsService.taskDetails?.description.title"
                     type="text" placeholder="Property Name..."
-                    class=" sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
+                    class="sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
             </div>
         </div>
         <!-- 2nd Row -->
-        <div class="d-flex mb-4">
+        <div class="d-flex mb-4 sM0-inp-h-49">
             <!-- Price input -->
             <div class="w-100 d-flex">
                 <!-- Icon Holder -->
-                <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
+                <div class='sM0-smoke-bg sM0-t-l-radius px-4 d-flex align-items-center'>
                     <i class="OM-icon-price sM0-icon-d d-block"></i>
                 </div>
                 <!-- Input Field -->
-                <div class="w-100 p-0">
+                <div class="w-100">
                     <input ngModel name="price" required [(ngModel)]="taskDetailsService.taskDetails?.description.price"
                         type="text" placeholder="Price..." class="sM0-text-0-cr sM0-fs-16 pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
                 </div>
@@ -34,7 +35,7 @@
             <!-- ? Status -->
             <div class="w-100 d-flex">
                 <!-- Icon Holder -->
-                <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
+                <div class='sM0-smoke-bg sM0-t-l-radius px-4 d-flex align-items-center'>
                     <i class="OM-icon-fire sM0-icon-d d-block"></i>
                 </div>
                 <!-- Select Input -->
@@ -48,11 +49,11 @@
             </div>
         </div>
         <!-- 3rd Row -->
-        <div class="d-flex mb-4">
+        <div class="d-flex mb-4 sM0-inp-h-49">
             <!-- ? Category -->
             <div class="w-100 d-flex">
                 <!-- Icon Holder -->
-                <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
+                <div class='sM0-smoke-bg sM0-t-l-radius px-4 d-flex align-items-center'>
                     <i class="OM-icon-home sM0-icon-d d-block"></i>
                 </div>
                 <!-- Select Input -->
@@ -72,7 +73,7 @@
             <!-- ? Listed In -->
             <div class="w-100 d-flex">
                 <!-- Icon Holder -->
-                <div class='sM0-smoke-bg sM0-t-l-radius p-4'>
+                <div class='sM0-smoke-bg sM0-t-l-radius px-4 d-flex align-items-center'>
                     <i class="OM-icon-rent sM0-icon-d d-block"></i>
                 </div>
                 <!-- Select Input -->
@@ -86,6 +87,7 @@
                     </select>
                 </div>
             </div>
+        </div>
         </div>
         <!-- Textarea Description -->
         <div class="sM0-inp-description-holder-a d-flex mb-4">
@@ -111,10 +113,10 @@
             </div>
         </div>
         <!-- Button Save -->
-        <div class="d-flex justify-content-end mb-5">
+        <div class="d-flex justify-content-end sM0-inp-h-49">
             <button type="submit" [disabled]='descriptionForm.invalid' [class.sM0-notActive]='descriptionForm.invalid'
-                class="sM0-f-radius sM0-inp-a w-50 px-4 sM0-main-cr d-flex align-items-center pr-4 justify-content-center sM0-main-bg sM0-border-none">
-                <p class="mb-0 m-auto sM0-text-0-cr sM0-fs-b-16">Save</p>
+                class="sM0-f-radius w-25 sM0-main-bg sM0-border-none">
+                <p class="mb-0 sM0-text-0-cr sM0-fs-b-16">Save</p>
                 <!-- <i class="OM-icon-arrowout sM0-icon-d"></i> -->
             </button>
         </div>

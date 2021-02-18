@@ -16,6 +16,49 @@ body {
   max-width: 1920px;
   margin: auto !important;
 }
+/* ! START=== Select Style */
+
+select {
+  /* styling */
+  /* background-color: #141414 !important; */
+  border: thin solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+select {
+  background-image: linear-gradient(45deg, transparent 50%, #2e2e2e 50%),
+    linear-gradient(135deg, #2e2e2e 50%, transparent 50%),
+    radial-gradient(#141414 70%, transparent 72%);
+  background-position: calc(100% - 23px) calc(1em + 9px),
+    calc(100% - 15px) calc(1em + 9px), calc(100% - 0.5em) 0.5em;
+  background-size: 8px 8px, 8px 8px, 1.5em 1.5em;
+  background-repeat: no-repeat;
+}
+select:focus {
+  background-image: linear-gradient(45deg, #2e2e2e 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, #2e2e2e 50%),
+    radial-gradient(#141414 70%, transparent 72%);
+  background-position: calc(100% - 15px) 1.5em, calc(100% - 23px) 1.5em,
+    calc(100% - 0.5em) 0.5em;
+  background-size: 8px 8px, 8px 8px, 1.5em 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+/* ! END=== Select Style */
 ::-webkit-scrollbar {
   /* display: none; */
   width: 3px;
@@ -401,6 +444,11 @@ textarea {
   width: 50px !important;
   height: 40px !important;
 }
+/* ! START=== Property Details */
+.sM0-inp-h-49 {
+  height: 49px !important;
+}
+/* ! END=== Property Details */
 .sM0-inp-h-40 {
   height: 40px !important;
 }
@@ -527,12 +575,13 @@ body {
 .mat-progress-bar-fill::after {
   background-color: #e9c46a !important;
 }
-.ngx-pagination .current{
+.ngx-pagination .current {
   background: rgba(233, 196, 106, 0.25) !important;
   color: #e9c46a !important;
   border-radius: 5px !important;
 }
-.ngx-pagination a:hover, .ngx-pagination button:hover {
-    background-color: rgba(29, 29, 29, 0.25) !important;
-    border-radius: 5px !important;
+.ngx-pagination a:hover,
+.ngx-pagination button:hover {
+  background-color: rgba(29, 29, 29, 0.25) !important;
+  border-radius: 5px !important;
 }

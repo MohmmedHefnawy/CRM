@@ -3,41 +3,41 @@
     <div class='col-xl-6 col-lg-4 col-sm-6 pl-0 sM0-f-radius M0-card~ p-0 mb-4'>
           <form #createForm="ngForm" (ngSubmit)="createForm.valid && onSubmit(createForm)" class="sM0-text-0-cr">
             <!-- User Input -->
-            <div class=" sM0-inp-a w-100 d-flex flex-column~ mb-4">
-              <div class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-b d-flex justify-content-center align-items-center'>
-                <i class="OM-icon-user sM0-icon-d d-inline-block"></i>
+            <div class="w-100 d-flex mb-4 sM0-inp-h-49">
+              <div class='sM0-supp-0-bg sM0-t-l-radius px-4 d-flex align-items-center'>
+                <i class="OM-icon-user sM0-icon-d"></i>
               </div>
               <div class="col p-0">
                 <input ngModel required #userName="ngModel" name='username' type="text" placeholder="User Name..." class=" sM0-text-0-cr pl-4 h-100 w-100 sM0-supp-1-bg sM0-r-b-radius">
               </div>
             </div>
             <!-- Email Input -->
-            <div class="sM0-inp-a w-100 d-flex mb-4">
-              <div class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-b d-flex justify-content-center align-items-center'>
-                <i class="OM-icon-email sM0-icon-d d-inline-block"></i>
+            <div class="w-100 d-flex mb-4 sM0-inp-h-49">
+              <div class='sM0-supp-0-bg sM0-t-l-radius d-flex px-4 align-items-center'>
+                <i class="OM-icon-email sM0-icon-d"></i>
               </div>
               <div class="col p-0">
                 <input ngModel required #eMail='ngModel' name='email' type="email" placeholder="E-Mail..." class="sM0-text-0-cr pl-4 w-100 h-100 sM0-supp-1-bg sM0-r-b-radius">
               </div>
             </div>
             <!-- Password Input -->
-            <div class="sM0-inp-a w-100 d-flex mb-4">
-              <div  class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-b d-flex justify-content-center align-items-center'>
-                <i class="OM-icon-password sM0-icon-d d-inline-block"></i>
+            <div class="sM0-inp-a~ w-100 d-flex mb-4 sM0-inp-h-49">
+            <div  class='sM0-supp-0-bg sM0-t-l-radius px-4 d-flex align-items-center'>
+                <i class="OM-icon-password sM0-icon-d"></i>
               </div>
               <div class="col p-0">
                 <input ngModel required #password='ngModel' name='password' type="password" placeholder="Password..." class="sM0-text-0-cr pl-4 w-100 h-100 sM0-supp-1-bg">
               </div>
-              <div class='sM0-supp-1-bg sM0-r-b-radius sM0-inp-icon-holder-b d-flex justify-content-center align-items-center'>
-                <i class="OM-icon-eye sM0-icon-d d-inline-block"></i>
+              <div class='sM0-supp-1-bg sM0-r-b-radius px-4 d-flex justify-content-center align-items-center'>
+                <i class="OM-icon-eye sM0-icon-d"></i>
               </div>
             </div>
             <!-- Employee Input -->
-            <div class="w-100 d-flex mb-4">
-              <div class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-b d-flex justify-content-center align-items-center'>
-                <i class="OM-icon-employee sM0-icon-d d-inline-block"></i>
+            <div class="w-100 d-flex mb-4 sM0-inp-h-49">
+              <div class='sM0-supp-0-bg sM0-t-l-radius px-4 d-flex align-items-center'>
+                <i class="OM-icon-employee sM0-icon-d"></i>
               </div>
-              <div  class='col p-0'>
+              <div  class='col p-0 '>
                 <select [(ngModel)]='option0.value' ngModel required #role='ngModel' name='role_id' class='sM0-text-0-cr pl-4 round w-100 h-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius w-100 sM0-border-none px-3'>
                   <option #option0 selected disabled value="Employee Role..." >
                     Employee Role...
@@ -64,8 +64,8 @@
               </div>
             </div>
             <!-- BtN Create -->
-            <div class="d-flex justify-content-end">
-              <button type="submit" [disabled]='createForm.invalid' [class.sM0-notActive]='createForm.invalid' class="sM0-f-radius sM0-inp-a w-50 sM0-text-0-cr sM0-green-bg sM0-border-none">Create</button>
+            <div class="w-100 d-flex justify-content-end">
+              <button type="submit" [disabled]='createForm.invalid' [class.sM0-notActive]='createForm.invalid' class="sM0-f-radius sM0-inp-h-49 w-25 sM0-text-0-cr sM0-green-bg sM0-border-none">Create</button>
             </div>
           </form>
       </div>

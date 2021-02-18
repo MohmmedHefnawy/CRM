@@ -52,6 +52,7 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
     for (let staticDatta of propStaticData) {
       if (taskDetails.includes(staticDatta.name)) {
         staticDatta.check = true
+        this.taskDetails.selectedAmen.push(staticDatta.id)
       } else {
         staticDatta.check = false
       }

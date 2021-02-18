@@ -15,6 +15,8 @@ export class TaskDetailsService {
   old_category;
   old_type;
   old_city;
+  // was selected amaenities
+  selectedAmen = []
   constructor(private http: HttpClient) { }
   // ! Method GET
   // Get property By ID

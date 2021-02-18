@@ -3,10 +3,10 @@
     <div class='col-xl-6 col-lg-4 col-sm-6 pl-0 sM0-f-radius M0-card~ p-0 mb-4'>
       <form *ngIf='settingsService.userData' class='' #contactInfo="ngForm" (ngSubmit)="onSubmit(contactInfo)" >
         <!-- Email Input -->
-        <div class="sM0-notActive sM0-inp-a w-100 d-flex flex-column~ mb-4">
+        <div class="sM0-notActive w-100 d-flex sM0-inp-h-49 mb-4">
           <div
-            class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-b d-flex justify-content-center align-items-center'>
-            <i class="OM-icon-email sM0-icon-d d-inline-block"></i>
+            class='sM0-supp-0-bg sM0-t-l-radius px-4 d-flex align-items-center'>
+            <i class="OM-icon-email sM0-icon-d"></i>
           </div>
           <div class="col p-0">
             <input ngModel disabled name='email' type="email" placeholder="Email..." class=" pl-4 h-100 w-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius"
@@ -14,52 +14,52 @@
           </div>
         </div>
         <!-- Call Input -->
-        <div class=" sM0-inp-a w-100 d-flex flex-column~ mb-4">
-          <div class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-b d-flex justify-content-center align-items-center'>
-            <i class="OM-icon-callwhite sM0-icon-d d-inline-block"></i>
+        <div class="w-100 d-flex sM0-inp-h-49 mb-4">
+          <div class='sM0-supp-0-bg sM0-t-l-radius px-4 d-flex align-items-center'>
+            <i class="OM-icon-callwhite sM0-icon-d"></i>
           </div>
           <div class="col p-0">
             <input ngModel name="phone" [(ngModel)]="settingsService.userData.phone" type="text" placeholder="Contact Number..." class=" pl-4 h-100 w-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius">
           </div>
         </div>
         <!-- Address Input -->
-        <div class=" sM0-inp-a w-100 d-flex flex-column~ mb-4">
-          <div class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-b d-flex justify-content-center align-items-center'>
-            <i class="OM-icon-location sM0-icon-d d-inline-block"></i>
+        <div class="w-100 d-flex sM0-inp-h-49 mb-4">
+          <div class='sM0-supp-0-bg sM0-t-l-radius px-4 d-flex align-items-center'>
+            <i class="OM-icon-location sM0-icon-d"></i>
           </div>
           <div class="col p-0">
             <input ngModel name="address" [(ngModel)]="settingsService.userData.address" type="text" placeholder="Address..." class=" pl-4 h-100 w-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius">
           </div>
         </div>
         <!-- FaceBook Input -->
-        <div class=" sM0-inp-a w-100 d-flex flex-column~ mb-4">
-          <div class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-b d-flex justify-content-center align-items-center'>
-            <i class="OM-icon-facebook sM0-icon-d d-inline-block"></i>
+        <div class="w-100 d-flex sM0-inp-h-49 mb-4">
+          <div class='sM0-supp-0-bg sM0-t-l-radius px-4 d-flex align-items-center'>
+            <i class="OM-icon-facebook sM0-icon-d"></i>
           </div>
           <div class="col p-0">
             <input ng-disabled="!myForm.$valid" ngModel name="fb" [(ngModel)]='settingsService.userData.fb'  type="url" placeholder="Facebook..." class=" pl-4 h-100 w-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius">
           </div>
         </div>
         <!-- Instgram Input -->
-        <div class=" sM0-inp-a w-100 d-flex flex-column~ mb-4">
-          <div class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-b d-flex justify-content-center align-items-center'>
-            <i class="OM-icon-instagram sM0-icon-d d-inline-block"></i>
+        <div class="w-100 d-flex sM0-inp-h-49 mb-4">
+          <div class='sM0-supp-0-bg sM0-t-l-radius px-4 d-flex align-items-center'>
+            <i class="OM-icon-instagram sM0-icon-d"></i>
           </div>
           <div class="col p-0">
             <input ng-disabled="!myForm.$valid" ngModel name="insta" [(ngModel)]='settingsService.userData.insta' type="url" placeholder="Instagram..." class=" pl-4 h-100 w-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius">
           </div>
         </div>
         <!-- Twitter Input -->
-        <div class=" sM0-inp-a w-100 d-flex flex-column~ mb-4">
-          <div class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-b d-flex justify-content-center align-items-center'>
-            <i class="OM-icon-twitter sM0-icon-d d-inline-block"></i>
+        <div class="w-100 d-flex sM0-inp-h-49 mb-4">
+          <div class='sM0-supp-0-bg sM0-t-l-radius px-4 d-flex align-items-center'>
+            <i class="OM-icon-twitter sM0-icon-d"></i>
           </div>
           <div class="col p-0">
             <input ngModel name="tw" [(ngModel)]='settingsService.userData.tw' type="url" placeholder="Twitter..." class=" pl-4 h-100 w-100 sM0-text-0-cr sM0-supp-1-bg sM0-r-b-radius">
           </div>
         </div>
-        <div class="d-flex justify-content-end">
-          <button class="sM0-f-radius sM0-inp-a w-50 sM0-main-cr sM0-supp-1-bg sM0-border-none">Save</button>
+        <div class="d-flex justify-content-end sM0-inp-h-49">
+          <button class="sM0-f-radius w-25 sM0-main-cr sM0-supp-1-bg sM0-border-none">Save</button>
         </div>
       </form>
     </div>
