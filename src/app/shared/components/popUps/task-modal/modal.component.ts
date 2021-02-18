@@ -12,8 +12,6 @@ export class ModalComponent implements OnInit {
   imageBaseURL = environment.imageBaseurl
   rollId_isActive;
   searchText;
-  // prop?.id;
-  // propTitle;
   prop:any
   isAssigned:boolean = false
   constructor(public assignUserService:AssignUserService, public loading: InLoadingService){}
@@ -64,7 +62,14 @@ export class ModalComponent implements OnInit {
       post_id :this.prop.id,
       expiry_date : expireDate,
     }
-    this.assignUserService.postUsersByRoleID(data).subscribe((res:any)=>{},err =>{},()=>{
+    this.assignUserService.postUsersByRoleID(data).subscribe(
+    (res:any)=>{
+
+    },
+    err =>{
+
+    },
+    ()=>{
          this.getAssignUsers(this.prop.id);
     })
   }
