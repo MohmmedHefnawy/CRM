@@ -72,9 +72,9 @@ export class ProfileComponent implements OnInit {
         break;
     }
   }
-  // [#] get completed propertys by (click) completed status
-  getCompletedProps(){
-    this.getAllProps('en', 1, 25, 'publish', '' )
+  // [#] get propertys by status by (click) status cards
+  getPropsByStatus(status){
+    this.getAllProps('en', 1, 25, status, '' )
   }
   // [?] start Task
   startTask(e, propID){
