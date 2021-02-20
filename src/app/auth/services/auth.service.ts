@@ -31,11 +31,15 @@ export class AuthService {
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
-
+  setUserID(userID) {
+    localStorage.setItem('userID', userID);
+  }
   getToken() {
     return localStorage.getItem('token');
   }
-
+  deleteUserID() {
+    localStorage.removeItem('userID');
+  }
   deleteToken() {
     localStorage.removeItem('token');
     this.router.navigateByUrl('login');

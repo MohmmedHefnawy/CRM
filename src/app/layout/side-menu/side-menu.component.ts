@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from "../../auth/services/auth.service";
 import { environment } from 'src/environments/environment'
+import { SocketService } from 'src/app/shared/socket/socket.service';
 @Component({
   selector: 'app-side-menu',
   templateUrl: './side-menu.component.html',
@@ -12,7 +13,7 @@ export class SideMenuComponent implements OnInit {
   // vars
   innerSideMenuData
   imageBaseURL = environment.imageBaseurl
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, public socketService: SocketService) { }
   ngOnInit(): void {
     let holderWindowSize = (holder) => {// [?] holder is the selected holder <div> fo the component
       // [?] window reisze event | to resize holder every Browser winodw resize
@@ -47,20 +48,22 @@ export class SideMenuComponent implements OnInit {
       resizeContentHolder(holder);
     }
     holderWindowSize('#sideMenuHolder')
-    
+
   }
   // [#] COntrollers
-  checkDataToggle(elem){
-    switch (elem.getAttribute('data-toggle')){
+  checkDataToggle(elem) {
+    switch (elem.getAttribute('data-toggle')) {
       case "true":
         this.innerSideMenuData = true
         break
       case "false":
         this.innerSideMenuData = false
-    } 
+    }
   }
   // [#] HTTP REQs
-  logOut(){
-    this.authService.deleteToken()
+  logOut() {
+    this.authService.deleteToken();
+    this.authService.deleteUserID();
+    this.socketService.socketDisconnect();
   }
 }

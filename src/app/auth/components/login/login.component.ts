@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(form.value).subscribe((res: any) => {
       this.authService.user = res;
       this.authService.setToken(res.data.token);
+      this.authService.setUserID(res.data.id)
       this.authService.isAdmin = true
       this.router.navigateByUrl('/user');
     },

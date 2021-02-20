@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn()
+
   }
   title = 'crm';
   isLoggedIn() {
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
       case false:
         break;
       default:
+        console.log('me')
         this.getUser()
         break;
     }
@@ -26,5 +28,8 @@ export class AppComponent implements OnInit {
     this.authService.getUser().subscribe(res => {
       this.authService.user = res;
     })
+
   }
+
+
 }
