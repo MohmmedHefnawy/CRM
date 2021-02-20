@@ -12,7 +12,7 @@ export class TeamModalComponent implements OnInit {
   today =  new Date().toJSON().slice(0,10).replace(/-/g,'/');
   imageBaseURL = environment.imageBaseurl
   searchProps
-  theUsers
+  theUser
   propLists
   isAssigned:boolean = false
   constructor(public loading: InLoadingService, public assignPropertiesService: AssignPropertiesService) { }
@@ -20,17 +20,16 @@ export class TeamModalComponent implements OnInit {
    
   }
   // [#] Controls
-  teamPopUp(theUsers){
+  openTeamPopup(theUser){
     $('#openTeamPop').click()
-    this.theUsers = theUsers
-    console.log( this.theUsers)
-    this.getAllProperties("en", 25, 1, "pending","" )
-    console.log(this.theUsers);
+    this.isAssigned = false
+    this.theUser = theUser
+    console.log( this.theUser)
+    this.getAllProperties("en", 25, 1, "inProgress","" )
   }
     handlePageChange(event) {
-    
     // $('.M0-content-holder').get(0).scrollTo({ top: 0, behavior: 'smooth' });
-    this.getAllProperties('en', 25 , event, 'pending', '')
+    this.getAllProperties('en', 25 , event, 'inProgress', '')
   }
   // Assign Properties 
   assignProp(theUsersID, taskPropsID, expiryDate){
@@ -40,8 +39,15 @@ export class TeamModalComponent implements OnInit {
   getAllProperties(lang, num, page, status, user_id){
      this.assignPropertiesService.getAllProperties(lang, num, page, status, user_id).subscribe((res:any)=>{
       this.assignPropertiesService.propLists = res.data
-      console.log(this.assignPropertiesService.propLists);
       this.assignPropertiesService.pagination =  res.pages
+    },err =>{},()=>{
+      this.getTeamProperties(this.theUser.id);
+      })
+  }
+  getTeamProperties(user_id){
+    this.assignPropertiesService.getAllProperties("", "", "", "", user_id).subscribe((res:any)=>{
+    this.assignPropertiesService.userProperties = res.data
+    console.log(this.assignPropertiesService.userProperties);
     },err =>{},()=>{
       this.checkIfAssignProps()
     })
@@ -56,17 +62,22 @@ export class TeamModalComponent implements OnInit {
     this.assignPropertiesService.postAssignProps(data).subscribe((res)=>{
       console.log(res);
       
+    },err =>{},()=>{
+      this.getTeamProperties(this.theUser.id)
     })
   }
+  // Check Properties By ID 
   checkIfAssignProps() {
-      let props = this.assignPropertiesService.propLists
-      for(let prop of props ){
-          if(prop.users_id == this.theUsers.id){
-
+    let userProperties = this.assignPropertiesService.userProperties,
+        allProperties = this.assignPropertiesService.propLists;
+    for(let userProp of userProperties){
+      for(let prop of allProperties ){
+          if(prop.id == userProp.id){
             prop.check = true
-            prop.expDate = prop.expiry_date
-          }
-        }
-    this.isAssigned = true
+      }
+    }
   }
+  this.isAssigned = true
+
+}
 }

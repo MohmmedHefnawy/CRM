@@ -9,6 +9,7 @@ export class AssignPropertiesService {
   _url = environment.apiBaseUrl;
   propLists
   pagination
+  userProperties
   constructor(private http: HttpClient, ) { }
 
   getAllProperties(lang, num, page, status, user_id){

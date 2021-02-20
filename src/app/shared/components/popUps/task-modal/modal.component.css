@@ -22,6 +22,9 @@
 .OM-icon-timergold {
   background-image: url("/assets/Icons/Timergold.svg");
 }
+.OM-icon-trash {
+  background-image: url("/assets/Icons/Trash.svg");
+}
 /* ICONES === END */
 .OM-progress-holder {
   /* height: 20px; */

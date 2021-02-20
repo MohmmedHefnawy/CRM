@@ -46,7 +46,7 @@ export class TeamsComponent implements OnInit, OnDestroy {
   // open modal from ModalComponent
   openPopUpTeam(e, theUser){
     e.stopPropagation()
-    this.teamModalPopUp.teamPopUp(theUser)
+    this.teamModalPopUp.openTeamPopup(theUser)
   }
 
   goToUserProfile(iD) {
