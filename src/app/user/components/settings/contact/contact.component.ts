@@ -15,15 +15,12 @@ export class ContactComponent implements OnInit {
     this.getContact()
   }
   onSubmit(form: NgForm) {
-    console.log(form.value);
-    
     this.postContact(form.value)
   }
 
   getContact() {
     this.settingsService.getPersonalInfo().subscribe((res: any) => {
       this.settingsService.userData = res.data
-      console.log(this.settingsService.userData);
     })
   }
 

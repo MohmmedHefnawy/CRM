@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
       case false:
         break;
       default:
-        console.log('me')
         this.getUser()
         break;
     }

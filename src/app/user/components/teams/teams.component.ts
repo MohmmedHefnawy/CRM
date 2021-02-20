@@ -64,11 +64,9 @@ export class TeamsComponent implements OnInit, OnDestroy {
   getUserTaskByUserID(lang, page, num, status, userID) {
     this.userTaskService.getUserTask(lang, page, num, status, userID).subscribe((res: any) => {
       this.userTaskService.userTasks = res.data
-      console.log(this.userTaskService.userTasks);
 
     })
   }
   ngOnDestroy(): void {
-    console.log('Destroyed');
   }
 }

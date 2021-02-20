@@ -74,7 +74,9 @@
                 <!-- Row A -->
                 <div class="row m-sm-0 justify-content-center text-center w-100 h-100 mb-xl-4 mb-4">
                     <!-- In-Progress Section -->
-                    <div class="col p-0 mr-xl-0 mr-sm-4 mr-0">
+                    <div
+                    (click)='getPropsByStatus("inProgress")'
+                     class="sM0-click col p-0 mr-xl-0 mr-sm-4 mr-0">
                         <div class=" sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">
                             In-Progress</div>
                         <div
@@ -88,7 +90,9 @@
                     </div>
                     <div class='pr-4 d-xl-block d-sm-none d-block'></div>
                     <!-- Didn't Started yet Section -->
-                    <div class="col p-0 mr-xl-0 mr-sm-4 mr-0">
+                    <div
+                     (click)='getPropsByStatus("pending")'
+                     class="sM0-click col p-0 mr-xl-0 mr-sm-4 mr-0">
                         <div class="sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">Pinding</div>
                         <div
                             class="d-flex position-absolute OM-Icons-Holder sM0-circle-border sM0-bg-opacity-gold-25 justify-content-center align-items-center">
@@ -104,7 +108,9 @@
                 <div class="row m-sm-0 mb-4 justify-content-center text-center w-100 h-100">
                     <!-- Didn'y Finished yet Section -->
                     <div class="col p-0 mr-xl-0 mr-sm-4 mr-0">
-                        <div class="sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">Expired</div>
+                        <div
+                        (click)='getPropsByStatus("expired")'
+                         class="sM0-click sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">Expired</div>
                         <div
                             class="d-flex position-absolute OM-Icons-Holder sM0-circle-border sM0-bg-opacity-red-25 justify-content-center align-items-center">
                             <i class="OM-img-alarm sM0-icon-d sM0-bg-imgs-center d-inline-block"></i>
@@ -117,7 +123,7 @@
                     </div>
                     <div class='pr-4 d-xl-block d-sm-none d-block'></div>
                     <!-- Completed Section -->
-                    <div (click)='getCompletedProps()' class="col p-0 mr-xl-0 sM0-click">
+                    <div (click)='getPropsByStatus("publish")' class="col p-0 mr-xl-0 sM0-click">
                         <div class="sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">
                             Completed
                         </div>
@@ -148,7 +154,13 @@
                         <!-- acount manager icon -->
                         <div class="sM0-bg-opacity-gray-90 sM0-b-l-radius OM-icon-profile-holder position-absolute d-flex justify-content-center align-items-end">
                             <!-- <i class="OM-a-acc sM0-circle-border mb-1 sM0-bg-imgs-center d-inline-block"></i> -->
-                            <i (click)='openPopUp($event, task, 3)' class="iM0-icon-accountManger-white sM0-click sM0-icon-d sM0-bg-imgs-center sM0-circle-border mb-2 d-inline-block"></i>
+                            <!-- no account manager -->
+                            <i *ngIf='!task.tasks.AM'
+                            (click)='openPopUp($event, task, 3)' class="iM0-icon-accountManger-white sM0-click sM0-icon-d sM0-bg-imgs-center sM0-circle-border mb-2 d-inline-block"></i>
+                            <!-- there is account manager -->
+                            <i *ngIf='task.tasks.AM'
+                            [ngStyle]="{'background-image' : 'url('+ imageBaseURL + task?.tasks?.AM.image +')'}"
+                            (click)='openPopUp($event, task, 3)' class="iM0-icon-accountManger-white sM0-click sM0-icon-c sM0-bg-imgs-center sM0-circle-border mb-2 d-inline-block"></i>
                         </div>
                         <!-- Timer icon, Property Status -->
                         <div

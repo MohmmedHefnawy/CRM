@@ -58,7 +58,6 @@ export class TeamModalComponent implements OnInit {
       
     })
   }
-
   checkIfAssignProps() {
       let props = this.assignPropertiesService.propLists
       for(let prop of props ){
@@ -70,5 +69,4 @@ export class TeamModalComponent implements OnInit {
         }
     this.isAssigned = true
   }
-
 }

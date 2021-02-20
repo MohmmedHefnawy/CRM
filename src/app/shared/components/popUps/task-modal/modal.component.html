@@ -103,11 +103,18 @@
                                     <i  class="sM0-icon-d OM-img-Plus sM0-bg-imgs-center mr-4"> </i>
                                     <p  class="m-0 sM0-fs-12" >Assign Task</p>
                                 </button>
-                                <button *ngIf="user.check"
-                                    class=" mr-2 sM0-btn-w-160 sM0-text-0-cr sM0-smoke-bg sM0-f-radius btn d-flex flex-nowrap align-items-center justify-content-center sM0-bg-opacity-gold-25 py-3">
-                                    <i class=" OM-icon-timergold d-inline-block sM0-icon-d sM0-bg-imgs-center mr-3"></i>
-                                    <p class="m-0 sM0-fs-12">Pending</p>
-                                </button>
+                                <ng-container *ngIf="user.check">
+                                    <button disabled
+                                        class="btn sM0-btn-w-100 d-flex justify-content-center align-items-center sM0-t-l-radius sM0-bg-opacity-gold-25 pl-2 py-2">
+                                        <i class=" OM-icon-timergold d-inline-block sM0-icon-d sM0-bg-imgs-center mr-2"></i>
+                                        <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Pending</p>
+                                    </button>
+                                    <!-- cancle button -->
+                                    <button (click)='deleteAssignedUser(user)'
+                                        class="btn sM0-btn-w-65 d-flex justify-content-center align-items-center sM0-r-b-radius sM0-bg-opacity-red-25 ml-2 pr-3 py-2">
+                                        <i class="iM0-icon-trash-red sM0-icon-d sM0-bg-imgs-center"></i>
+                                    </button>
+                                </ng-container>
                             </div>
                         </div>
                         <!-- If Not User -->

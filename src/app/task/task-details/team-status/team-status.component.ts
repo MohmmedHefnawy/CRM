@@ -18,13 +18,10 @@ export class TeamStatusComponent implements OnInit {
   ngOnInit(): void {
     this.taskDetailsService.propID = this.Activerouter.snapshot.params['id']
     this.getUsersToAssign(this.taskDetailsService.propID)
-    console.log(this.taskDetailsService.propID);
-
   }
   getUsersToAssign(ID) {
     this.taskDetailsService.getTaskAssignUser(ID).subscribe((res: any) => {
       this.taskDetailsService.assignedUsers = res.data
-      console.log('Assign Users', this.taskDetailsService.assignedUsers);
     })
   }
 

@@ -24,7 +24,7 @@ export class ModalComponent implements OnInit {
      ){}
   ngOnInit(): void {
   }
-  // Controls
+  // [#] Controlers
   openPopup(prop, roleId){
     $('#openPop').click()
     this.prop = prop
@@ -44,16 +44,26 @@ export class ModalComponent implements OnInit {
     let userMap = this.usersMapService.usersMap[userRole_id.toString()]
     for (let singleProp of this.userTaskService.userTasks) {
       if (singleProp.id == this.prop.id) {
-        console.log(userMap);  
-        // console.log()
         singleProp.tasks[userMap]++;
-        // singleProp.tasks.userMap =  parseInt(singleProp.tasks.userMap);
-        // singleProp.tasks.userMap++;
       }
     }
   }
   activeRoute(ID){
   this.rollId_isActive = ID
+  }
+  // Add Check prop To Assign tasks [Array]
+  checkIfAssignedUsers() {
+    let allUsers = this.assignUserService.usersByRole,
+      assignedUsers = this.assignUserService.assignUsers;
+    for (let assingedUser of assignedUsers) {
+      for (let user of allUsers) {
+        if (assingedUser.users_id == user.id) {
+          user.check = true
+          user.expDate = assingedUser.expiry_date
+        }
+      }
+    }
+    this.isAssigned = true
   }
   // [#] HTTP REQs
   // Get Users By Roll ID
@@ -87,18 +97,14 @@ export class ModalComponent implements OnInit {
         this.updateTaskOuterCard(this.userRoleID)
     })
   }
-// Add Check prop To Assign tasks [Array]
-  checkIfAssignedUsers() {
-    let allUsers = this.assignUserService.usersByRole,
-        assignedUsers = this.assignUserService.assignUsers;
-      for(let assingedUser of assignedUsers ){
-        for(let user of allUsers){
-          if(assingedUser.users_id == user.id){
-            user.check = true
-            user.expDate = assingedUser.expiry_date
-          }
-        }
-      }
-    this.isAssigned = true
+  deleteAssignedUser(user){
+    let userMap = this.usersMapService.usersMap[user.role_id.toString()]    
+    this.assignUserService.deleteUserFromProp(user.id, this.prop.id ).subscribe(res=>{
+    },err=>{},()=>{
+        user.check = false
+        this.getAssignUsers(this.prop.id);
+        this.prop.tasks[userMap]--
+    })
   }
+
 } 
