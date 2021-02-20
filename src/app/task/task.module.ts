@@ -15,8 +15,9 @@ import { DetailsComponent } from './task-details/content-panel/details/details.c
 import { AmenitiesComponent } from './task-details/content-panel/amenities/amenities.component';
 import { MediaComponent } from './task-details/content-panel/media/media.component';
 import { DescriptionComponent } from './task-details/content-panel/description/description.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocationComponent } from './task-details/content-panel/location/location.component';
+
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { LocationComponent } from './task-details/content-panel/location/locatio
   imports: [
     CommonModule,
     TaskRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class TaskModule { }

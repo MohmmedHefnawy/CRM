@@ -32,16 +32,18 @@
             <div class="sM0-img-aa OM-img-src sM0-bg-imgs-center bg-danger h-100 sM0-f-radius">
             </div>
             <!-- HTTP Input -->
+            
             <div class="w-100 px-4 d-flex flex-column justify-content-center">
                 <p class="sM0-text-0-cr sM0-fs-b-16">Property Image Name</p>
                 <div class="d-flex w-100">
-                    <div
-                        class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-a d-flex justify-content-center align-items-center'>
-                        <i class="OM-img-link sM0-icon-d"></i>
-                    </div>
+                    <label for="uploadFile" class=" d-flex justify-content-center mb-0 sM0-click">
+                        <div class='sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-a d-flex justify-content-center align-items-center'>
+                            <input #uploadFile (change)='uploadMyImage($event)' type="file" class="d-none form-group" name="uploadFile" id="uploadFile">
+                            <i class="OM-img-link sM0-icon-d d-block"></i>
+                        </div>
+                    </label>
                     <div class="w-100 p-0">
-                        <input type="text" placeholder="URL..."
-                            class="sM0-fs-mid-b-12 sM0-r-b-radius px-4 w-100 h-100 sM0-supp-1-bg sM0-text-0-cr">
+                        <input type="text" placeholder="URL..." class="sM0-fs-mid-b-12 sM0-r-b-radius px-4 w-100 h-100 sM0-supp-1-bg sM0-text-0-cr">
                     </div>
                 </div>
             </div>

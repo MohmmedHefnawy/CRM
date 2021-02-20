@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 })
 export class TaskDetailsService {
   _url = environment.apiBaseUrl;
+  _urlUploadFile = environment.runTimeServer
   taskDetails;
   propStaticData;
   assignedUsers;
@@ -37,5 +38,8 @@ export class TaskDetailsService {
   // ? Post Description Form
   postPropertyData(data) {
     return this.http.post(`${this._url}properties`, data)
+  }
+  postFileUpload(data) {
+    return this.http.post(`${this._urlUploadFile}Upload/AWSUnzip`, data)
   }
 }

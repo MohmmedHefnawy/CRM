@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
     this.navService.navigators = this.navigator;
   }
   // [#] Controller
-  checkUser(route){
+  checkUser(route) {
     switch (route) {
       // current user
       case '/user/profile':
@@ -70,11 +70,11 @@ export class ProfileComponent implements OnInit {
     }
   }
   // [#] get completed propertys by (click) completed status
-  getCompletedProps(){
-    this.getAllProps('en', 1, 25, 'publish', '' )
+  getCompletedProps() {
+    this.getAllProps('en', 1, 25, 'publish', '')
   }
   // [?] start Task
-  startTask(e, propID){
+  startTask(e, propID) {
     e.stopPropagation();
     this.assignTask(propID)
   }
@@ -115,7 +115,7 @@ export class ProfileComponent implements OnInit {
   }
   handlePageChange(event) {
     console.log($('.M0-content-holder').get(0));
-    
+
     $('.M0-content-holder').get(0).scrollTo({ top: 0, behavior: 'smooth' });
     this.getAllProps('en', event, 25, '', '')
   }
@@ -142,21 +142,21 @@ export class ProfileComponent implements OnInit {
       this.router.navigate([`/task/details/dashBoard/${ID}`])
     })
   }
-  assignTask(propID){
+  assignTask(propID) {
     let data = {
       users_id: this.authService.user?.data.id,
       post_id: propID,
       expiry_date: '',
-      status_id:  2
+      status_id: 2
     }
     this.assignUserService.postUsersByRoleID(data).subscribe(res => {
-    },err=>{},()=>{
-        for (let singleProp of this.userTaskService.userTasks){
-          if (singleProp.id == propID){
-            singleProp.tasks_status = '2'
-            this.authService.user.data.inProgress++
-          }
+    }, err => { }, () => {
+      for (let singleProp of this.userTaskService.userTasks) {
+        if (singleProp.id == propID) {
+          singleProp.tasks_status = '2'
+          this.authService.user.data.inProgress++
         }
+      }
     })
   }
   // [#]  Life cycles

@@ -17,7 +17,7 @@ export class ProfileServiceService {
   postPersonalInfo(personalData) {
     return this.http.post(`${this._url}updateUserData`, personalData)
   }
-  postImage(image){
+  postImage(image) {
     return this.http.post(`${this._url}updateUserImage`, image)
   }
 } 

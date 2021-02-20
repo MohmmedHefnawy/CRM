@@ -4,6 +4,7 @@
 * {
   outline: none !important;
   box-shadow: none !important;
+  transition: all ease-in-out 0.1s;
 }
 *:focus {
   outline: none !important;
@@ -15,6 +16,12 @@ body {
   scrollbar-width: none; /* Firefox */
   max-width: 1920px;
   margin: auto !important;
+}
+button:hover {
+  filter: brightness(1.3);
+}
+i:hover {
+  filter: brightness(1.5);
 }
 /* ! START=== Select Style */
 
@@ -89,7 +96,7 @@ select:focus {
 /* COLORS ===START */
 /* backgrounds */
 .sM0-main-bg {
-  background-color: #e9c46a !important;
+  background-color: #c9c0ac !important;
 }
 .sM0-smoke-bg {
   background-color: #2e2e2e !important;
@@ -509,6 +516,10 @@ textarea {
   height: 385px;
   min-width: 290px !important;
   max-width: 290px !important;
+}
+.M0-card > div:hover {
+  box-shadow: rgb(201, 192, 172, 0.5) 0px 0px 0px 2px !important;
+  transform: scale(1.03);
 }
 .M0-mini-container-side-data {
   min-width: 290px !important;
