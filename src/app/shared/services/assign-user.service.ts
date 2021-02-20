@@ -20,4 +20,8 @@ export class AssignUserService {
   postUsersByRoleID(data){
     return this.http.post(`${this._url}assignTasks`,data)
   }
+  // [#] delete User From Tasks
+  deleteUserFromProp(userID, propID){
+    return this.http.delete(`${this._url}deleteTask?users_id=${userID}&wp_post_id=${propID}`)
+  }
 }

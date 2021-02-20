@@ -24,7 +24,6 @@ export class TeamsService {
   getTeam(role_id) {
     this.getTeamByRole(role_id).subscribe((res: any) => {
       this.team = res.data
-      console.log( this.team);
     })
   }
 }

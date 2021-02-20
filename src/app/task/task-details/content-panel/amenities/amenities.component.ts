@@ -27,7 +27,6 @@ export class AmenitiesComponent implements OnInit, OnDestroy {
     }
     this.taskDetailsService.selectedAmen.push(amen.id)
     amen.check = true
-    console.log(this.taskDetailsService.selectedAmen);
   }
 
   sendAmenData() {
@@ -41,13 +40,9 @@ export class AmenitiesComponent implements OnInit, OnDestroy {
   }
   postAmenities(data) {
     this.taskDetailsService.postPropertyData(data).subscribe(res => {
-      console.log(res);
-
     })
   }
 
   ngOnDestroy(): void {
-    console.log('Destroyed');
-
   }
 }

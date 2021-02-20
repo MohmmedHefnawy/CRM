@@ -49,6 +49,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
+    setTimeout(() => {
+      console.log(this.userTaskService.userTasks);
+    }, 2000)
   }
   // [#] Controller
   checkUser(route){
@@ -114,8 +117,6 @@ export class ProfileComponent implements OnInit {
 
   }
   handlePageChange(event) {
-    console.log($('.M0-content-holder').get(0));
-    
     $('.M0-content-holder').get(0).scrollTo({ top: 0, behavior: 'smooth' });
     this.getAllProps('en', event, 25, '', '')
   }
@@ -123,8 +124,6 @@ export class ProfileComponent implements OnInit {
   updateMyInfo(userInfo) {
     this.profileService.postPersonalInfo(userInfo).subscribe(res => {
       this.authService.user = res
-      console.log(this.authService.user);
-
     })
   }
   getAllProps(lang, page, num, status, userID) {
@@ -136,7 +135,6 @@ export class ProfileComponent implements OnInit {
   getPropById(ID) {
     this.taskDetails.getTaskById(ID).subscribe((res: any) => {
       this.taskDetails.taskDetails = res.data
-      console.log(res.data);
     }, err => { }, () => {
       this.taskDetails.propID = ID;
       this.router.navigate([`/task/details/dashBoard/${ID}`])

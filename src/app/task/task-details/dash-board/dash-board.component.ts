@@ -47,8 +47,6 @@ export class DashBoardComponent implements OnInit {
 
     });
     this.getUsersToAssign(this.taskDetailsService.propID)
-    console.log(this.taskDetailsService.propID);
-
   }
   ngAfterViewInit() {
     this.navigator = {
@@ -60,16 +58,10 @@ export class DashBoardComponent implements OnInit {
     }
     this.navService.navigators = this.navigator;
   }
+  // [#] HTTP REQs
   getUsersToAssign(ID) {
     this.taskDetailsService.getTaskAssignUser(ID).subscribe((res: any) => {
       this.taskDetailsService.assignedUsers = res.data
-      console.log('Assign Users', this.taskDetailsService.assignedUsers);
     })
   }
-  // [#] HTTP REQs
-  // onSubmit(form: NgForm) {
-  //   console.log(form);
-
-  // }
-
 }
