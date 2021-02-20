@@ -27,15 +27,21 @@ export class TeamModalComponent implements OnInit {
     this.getAllProperties("en", 25, 1, "pending","" )
     console.log(this.theUsers);
   }
+    handlePageChange(event) {
+    
+    // $('.M0-content-holder').get(0).scrollTo({ top: 0, behavior: 'smooth' });
+    this.getAllProperties('en', 25 , event, 'pending', '')
+  }
   // Assign Properties 
   assignProp(theUsersID, taskPropsID, expiryDate){
     this.postAssignProps(theUsersID, taskPropsID, expiryDate)
   }
   // [#] HTTP REQs
   getAllProperties(lang, num, page, status, user_id){
-    return this.assignPropertiesService.getAllProperties(lang, num, page, status, user_id).subscribe((res:any)=>{
+     this.assignPropertiesService.getAllProperties(lang, num, page, status, user_id).subscribe((res:any)=>{
       this.assignPropertiesService.propLists = res.data
       console.log(this.assignPropertiesService.propLists);
+      this.assignPropertiesService.pagination =  res.pages
     },err =>{},()=>{
       this.checkIfAssignProps()
     })
