@@ -4,6 +4,7 @@ import { InLoadingService } from '../../../services/in-loading.service';
 import { environment } from 'src/environments/environment';
 import { AssignUserService } from 'src/app/shared/services/assign-user.service';
 import { TeamsService } from 'src/app/user/services/teams.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-team-modal',
@@ -17,7 +18,7 @@ export class TeamModalComponent implements OnInit {
   theUser
   propLists
   isAssigned:boolean = false
-  constructor(public loading: InLoadingService,public assignUserService: AssignUserService, public teamService: TeamsService) { }
+  constructor(public loading: InLoadingService,public assignUserService: AssignUserService, public teamService: TeamsService, private router: Router) { }
   ngOnInit(): void {
    
   }
@@ -110,6 +111,18 @@ export class TeamModalComponent implements OnInit {
       this.propCounts("delete",theUser.id)
       taskProps.check = false
       taskProps.expiryDate = ""
+    })
+  }
+  goToUserProfile(iD) {
+    let userID = { user_id: iD }
+    this.teamService.getUserByID(userID).subscribe((res: any) => {
+      this.teamService.oneUser = res.data
+      localStorage.setItem("teamUser", JSON.stringify(this.teamService.oneUser))
+    }, err => {
+
+    }, () => {
+      this.getAllProperties('en', 1, 10, '', iD)
+      this.router.navigate(['/user/profile/user'])
     })
   }
 }

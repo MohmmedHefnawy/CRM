@@ -6,7 +6,7 @@
             <div class="modal-header sM0-supp-1-bg border-0 align-items-center justify-content-between">
                 <!-- Assign Imge And Title -->
                 <div class="d-flex justify-content-center align-items-center">
-                    <i [ngStyle]="theUser?.image != '' ? {'background-image' : 'url('+imageBaseURL+ theUser?.image +')'} : {'background-image' : 'url(src/assets/Icons/new-user.svg)'}"
+                    <i  (click)='goToUserProfile(theUser.id)'  data-dismiss="modal" [ngStyle]="theUser?.image != '' ? {'background-image' : 'url('+imageBaseURL+ theUser?.image +')'} : {'background-image' : 'url(src/assets/Icons/buildingavaterwhite.svg)'}"
                      class=" sM0-white-border sM0-bg-imgs-center sM0-img-b sM0-f-radius mb-4 d-flex justify-content-end align-items-end "
                      class="sM0-click sM0-img-c rounded-circle sM0-gold-border sM0-f-radius~ d-flex justify-content-center sM0-bg-imgs-center mr-4">
                     </i>
