@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { InLoadingService } from '../../../services/in-loading.service';
 import { environment } from 'src/environments/environment';
 import { AssignUserService } from 'src/app/shared/services/assign-user.service';
+import { TeamsService } from 'src/app/user/services/teams.service';
 
 @Component({
   selector: 'app-team-modal',
@@ -16,7 +17,7 @@ export class TeamModalComponent implements OnInit {
   theUser
   propLists
   isAssigned:boolean = false
-  constructor(public loading: InLoadingService,public assignUserService: AssignUserService) { }
+  constructor(public loading: InLoadingService,public assignUserService: AssignUserService, public teamService: TeamsService) { }
   ngOnInit(): void {
    
   }
@@ -44,16 +45,34 @@ export class TeamModalComponent implements OnInit {
       for(let prop of allProperties ){
         if(prop.id == userProp.id){
           prop.check = true
+          prop.expiryDate = userProp.tasks_exp
         }
       }
     }
     this.isAssigned = true
+  }
+  // Properties Counts
+  propCounts(action, theUsersID){
+    let users = this.teamService.team
+    for( let user of users){
+      if(theUsersID == user.id) {
+        switch(action){
+          case "assign":
+            user.prop_count++
+            break;
+          case "delete":
+            user.prop_count--
+            break;
+        }
+      }
+    }
   }
   // [#] HTTP REQs
   // Get All Properties
   getAllProperties(lang, num, page, status, user_id){
     this.assignUserService.getAllProperties(lang, num, page, status, user_id).subscribe((res:any)=>{
     this.assignUserService.propLists = res.data
+    console.log(this.assignUserService.propLists);
     
     this.assignUserService.pagination =  res.pages
     },err =>{},()=>{
@@ -64,6 +83,8 @@ export class TeamModalComponent implements OnInit {
   getTeamProperties(user_id){
     this.assignUserService.getAllProperties("", "", "", "", user_id).subscribe((res:any)=>{
     this.assignUserService.userProperties = res.data
+    console.log(this.assignUserService.userProperties);
+    
     },err =>{},()=>{
       this.checkIfAssignProps()
     })
@@ -77,6 +98,7 @@ export class TeamModalComponent implements OnInit {
     }
     this.assignUserService.postUsersByRoleID(data).subscribe((res)=>{
     },err =>{},()=>{
+      this.propCounts("assign",theUsersID)
       this.getTeamProperties(this.theUser.id)
     })
   }
@@ -85,7 +107,9 @@ export class TeamModalComponent implements OnInit {
     this.assignUserService.deleteUserFromProp(theUser.id, taskProps.id).subscribe(res=>{
       console.log(theUser.id, taskProps.id);
     },err=>{},()=>{
+      this.propCounts("delete",theUser.id)
       taskProps.check = false
+      taskProps.expiryDate = ""
     })
   }
 }

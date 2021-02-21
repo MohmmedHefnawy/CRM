@@ -80,7 +80,6 @@ export class ProfileComponent implements OnInit {
   startTask(e, propID) {
     let userRoleID = this.authService.user.data.role_id
     console.log(userRoleID);
-    
     e.stopPropagation();
     userRoleID == 1 ? this.assignTask(propID) : this.changeTaskStatus(propID)
   }

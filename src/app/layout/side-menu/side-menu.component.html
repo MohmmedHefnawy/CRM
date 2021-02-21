@@ -91,9 +91,9 @@
                     <i *ngIf='authService.user?.data?.role_id == 1 ||  authService.user?.data?.role_id == 2' routerLinkActive="sM0-active" routerLink="/user/create-account" class="sM0-notActive sM0-click OM-img-Plus sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                 </div>
                 <!-- logout button -->
-                <div class="h-25 mb-5 d-flex align-items-end">
+                <div routerLink='/login' (click)='logOut()' class="h-25 mb-5 d-flex align-items-end">
                     <!-- Logout Line -->
-                    <i class="sM0-click OM-img-logout sM0-icon-c  mx-auto sM0-bg-imgs-center d-block"></i>
+                    <i  class="sM0-click OM-img-logout sM0-icon-c  mx-auto sM0-bg-imgs-center d-block"></i>
                 </div>
             </div>
         </div>

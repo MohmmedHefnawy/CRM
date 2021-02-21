@@ -72,7 +72,7 @@
                                             class="form-control sM0-smoke-bg sM0-text-0-cr sM0-r-b-radius pr-4 sM0-btn-w-160 "
                                             placeholder="Expiry Date..." name="dp" ngbDatepicker
                                             [footerTemplate]="footerTemplate" #d="ngbDatepicker" #expiryDate
-                                            autocomplete="off">
+                                            autocomplete="off" >
                                     </div>
                                 </form>
                                 <!-- Date Button Footer -->
@@ -113,7 +113,8 @@
                     previousLabel="Prev" 
                     nextLabel="Next" 
                     responsive="true"
-                    maxSize="25"
+                    maxSize="5"
+                    autoHide="true"
                     screenReaderPaginationLabel="Pagination"
                     screenReaderPageLabel="page"
                     screenReaderCurrentLabel="You're on page"
