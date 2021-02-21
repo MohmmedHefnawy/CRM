@@ -36,6 +36,7 @@ export class TeamsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
     this.matchedRoutes()
+    
   }
   // fire if it thie component restarted to get the api caling index
   matchedRoutes() {
@@ -45,8 +46,6 @@ export class TeamsComponent implements OnInit, OnDestroy {
     }
   }
    // [#] Controller
-     // [?] start Task
-
   // open modal from ModalComponent
   openPopUpTeam(e, theUser){
     e.stopPropagation()
@@ -73,7 +72,6 @@ export class TeamsComponent implements OnInit, OnDestroy {
 
     })
   }
-
   ngOnDestroy(): void {
   }
 }

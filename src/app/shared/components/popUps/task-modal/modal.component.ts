@@ -95,6 +95,7 @@ export class ModalComponent implements OnInit {
     this.assignUserService.postUsersByRoleID(data).subscribe((res:any)=>{},err =>{},()=>{
         this.getAssignUsers(this.prop.id);
         this.updateTaskOuterCard(this.userRoleID)
+        
     })
   }
   deleteAssignedUser(user){

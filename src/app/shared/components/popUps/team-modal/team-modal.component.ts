@@ -40,9 +40,7 @@ export class TeamModalComponent implements OnInit {
   checkIfAssignProps(){
     let userProperties = this.assignUserService.userProperties,
         allProperties = this.assignUserService.propLists;
-        console.log(userProperties);
-        
-    for(let userProp of userProperties){
+      for(let userProp of userProperties){
       for(let prop of allProperties ){
         if(prop.id == userProp.id){
           prop.check = true
@@ -77,7 +75,6 @@ export class TeamModalComponent implements OnInit {
       expiry_date : expiryDate
     }
     this.assignUserService.postUsersByRoleID(data).subscribe((res)=>{
-      console.log(res);
     },err =>{},()=>{
       this.getTeamProperties(this.theUser.id)
     })
