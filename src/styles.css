@@ -377,6 +377,9 @@ textarea {
 .sM0-click {
   cursor: pointer !important;
 }
+.modal{
+  z-index: 20000 !important;
+}
 /* elements ===END */
 /* Font === START */
 @font-face {

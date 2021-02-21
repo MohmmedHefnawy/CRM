@@ -23,7 +23,7 @@ export class DesignersPanelComponent implements OnInit {
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
     if (this.fileToUpload) {
-      this.socketService.listenOnUploading('Uploaded', msg => { }).subscribe(res => {
+      this.socketService.listenOnUploading('Uploaded').subscribe(res => {
         console.log(res);
 
         console.log('here in designers comp');
