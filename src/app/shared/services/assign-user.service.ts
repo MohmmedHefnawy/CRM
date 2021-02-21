@@ -34,4 +34,7 @@ export class AssignUserService {
   deleteUserFromProp(userID, propID){
     return this.http.delete(`${this._url}deleteTask?users_id=${userID}&wp_post_id=${propID}`)
   }
+  propChangeStatus(data){
+    return this.http.post(`${this._url}changeTaskStatus`, data)
+  }
 }

@@ -58,7 +58,6 @@ export class ProfileComponent implements OnInit {
     switch (route) {
       // current user
       case '/user/profile':
-        console.log(this.authService.user);
         this.userProfile = true
         this.navigator.title = 'Profile'
         localStorage.removeItem("teamUser");
@@ -79,8 +78,11 @@ export class ProfileComponent implements OnInit {
   }
   // [?] start Task
   startTask(e, propID) {
+    let userRoleID = this.authService.user.data.role_id
+    console.log(userRoleID);
+    
     e.stopPropagation();
-    this.assignTask(propID)
+    userRoleID == 1 ? this.assignTask(propID) : this.changeTaskStatus(propID)
   }
   // open modal from ModalComponent
   openPopUp(e, prop, roleId) {
@@ -141,6 +143,7 @@ export class ProfileComponent implements OnInit {
       this.router.navigate([`/task/details/dashBoard/${ID}`])
     })
   }
+  // if PM
   assignTask(propID) {
     let data = {
       users_id: this.authService.user?.data.id,
@@ -156,6 +159,24 @@ export class ProfileComponent implements OnInit {
           this.authService.user.data.inProgress++
         }
       }
+    })
+  }
+  // if !PM
+  changeTaskStatus(propID){
+    let data  = {
+      users_id: this.authService.user?.data.id,
+      post_id: propID,
+      status_id: 2
+    }
+    this.assignUserService.propChangeStatus(data).subscribe(res=>{
+
+    },err=>{}, ()=>{
+        for (let singleProp of this.userTaskService.userTasks) {
+          if (singleProp.id == propID) {
+            singleProp.tasks_status = '2'
+            this.authService.user.data.inProgress++
+          }
+        }
     })
   }
   // [#]  Life cycles
