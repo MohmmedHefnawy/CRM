@@ -15,9 +15,26 @@
             <i class="OM-img-Locationgold sM0-icon-d sM0-bg-imgs-center"></i>
             <p class="sM0-main-cr d-inline-block mb-0 ml-2 text-center sM0-fs-16">{{taskDetailsService.taskDetails?.location?.city}}</p>
         </div>
+        <!-- Property Status -->
+        <div [class.sM0-bg-opacity-gold-5]='taskDetailsService.taskDetails?.post_status == "pending"'
+            [class.sM0-bg-opacity-green-5]='taskDetailsService.taskDetails?.post_status == "publish"'
+            class=" d-flex mx-auto justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-1">
+            <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">{{taskDetailsService.taskDetails?.post_status}} <span
+                    class='bg-white sM0-text-1-cr sM0-fs-10 sM0-f-radius px-2 ml-4 py-1'>{{taskDetailsService.taskDetails?.id}}</span>
+            </p>
+        </div>
+        <!-- Property Category -->
+        <div class="sM0-text-0-cr sM0-f-radius d-flex justify-content-center align-items-center mt-2">
+            <p [class.sM0-bg-opacity-gold-5]='taskDetailsService.taskDetails?.post_status == "pending"'
+                [class.sM0-bg-opacity-green-5]='taskDetailsService.taskDetails?.post_status == "publish"'
+                class="m-0 ml-2 px-3 py-1 sM0-fs-10 sM0-text-0-cr sM0-f-radius ">{{taskDetailsService.taskDetails?.description?.category}}
+                <span
+                    class='sM0-supp-1-bg sM0-text-0-cr sM0-fs-10 sM0-f-radius px-2 ml-2 py-1'>{{taskDetailsService.taskDetails?.description?.type}}</span>
+            </p>
+        </div>
         <!-- Call Agent -->
         <button
-            class="btn sM0-btn-w-160 d-flex m-auto justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
+            class="mt-2 btn sM0-btn-w-160 d-flex mx-auto justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
             <i class="OM-img-call sM0-icon-d sM0-bg-imgs-center mr-3"></i>
             <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Call Agent</p>
         </button>

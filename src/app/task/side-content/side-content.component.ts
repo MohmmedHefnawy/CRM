@@ -12,6 +12,7 @@ export class SideContentComponent implements OnInit {
   constructor(public taskDetailsService: TaskDetailsService, public Activerouter: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
-
+    console.log(this.taskDetailsService.taskDetails);
+    
   }
 }

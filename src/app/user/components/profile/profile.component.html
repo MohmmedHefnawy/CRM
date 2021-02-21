@@ -107,10 +107,10 @@
                 <!-- Row B -->
                 <div class="row m-sm-0 mb-4 justify-content-center text-center w-100 h-100">
                     <!-- Didn'y Finished yet Section -->
-                    <div class="col p-0 mr-xl-0 mr-sm-4 mr-0 static-cards sM0-f-radius">
+                    <div (click)='getPropsByStatus("expired")' class="sM0-click col p-0 mr-xl-0 mr-sm-4 mr-0 static-cards sM0-f-radius">
                         <div
-                        (click)='getPropsByStatus("expired")'
-                         class="sM0-click sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">Expired</div>
+                        
+                         class="sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">Expired</div>
                         <div
                             class="d-flex position-absolute OM-Icons-Holder sM0-circle-border sM0-bg-opacity-red-25 justify-content-center align-items-center">
                             <i class="OM-img-alarm sM0-icon-d sM0-bg-imgs-center d-inline-block"></i>
@@ -162,7 +162,7 @@
                             [ngStyle]="{'background-image' : 'url('+ imageBaseURL + task?.tasks?.AM.image +')'}"
                             (click)='openPopUp($event, task, 3)' class="iM0-icon-accountManger-white sM0-click sM0-icon-c sM0-bg-imgs-center sM0-circle-border mb-2 d-inline-block"></i>
                         </div>
-                        <!-- Timer icon, Property Status -->
+                        <!-- property Status -->
                         <div
                         [class.sM0-bg-opacity-gold-5]='task?.post_status == "pending"' [class.sM0-bg-opacity-green-5]='task?.post_status == "publish"'
                         class="sM0-text-0-cr sM0-f-radius py-2 sM0-btn-w-160 position-absolute d-flex justify-content-center align-items-center m-3">
@@ -272,6 +272,10 @@
         <div class='M0-card-none'></div>
         <div class='M0-card-none'></div>
         <div class='M0-card-none'></div>
+        <!-- there is no tasks -->
+        <div class='p-4 sM0-f-radius sM0-bg-opacity-dark-25 w-100 text-center mr-4' *ngIf='userTaskService.userTasks == "" '>
+            <p class='sM0-text-0-cr d-inline-block sM0-fs-b-16 py-4 m-0'>There Is No Tasks !</p>
+        </div>
     </div>
     <!-- pagination -->
     <div class='container-fluid d-flex justify-content-center py-4 sM0-smoke-bg sM0-main-cr'>

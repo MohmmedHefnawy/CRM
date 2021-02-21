@@ -58,6 +58,7 @@ export class ProfileComponent implements OnInit {
     switch (route) {
       // current user
       case '/user/profile':
+        console.log(this.authService.user);
         this.userProfile = true
         this.navigator.title = 'Profile'
         localStorage.removeItem("teamUser");
