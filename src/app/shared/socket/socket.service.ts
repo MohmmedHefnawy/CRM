@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SocketService implements OnInit {
   runTimeServer_URL = environment.runTimeServer
   public socket: io;
@@ -14,7 +15,13 @@ export class SocketService implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // this.listenOnUploading()
+    this.listenOnUploading().subscribe(msg => {
+      console.log(msg);
+      console.log('Here In Socket Services');
+    })
+    this.listenOnErrorUploading().subscribe(msg => {
+      console.log(msg);
+    })
   }
 
   socketDisconnect() {
@@ -26,9 +33,24 @@ export class SocketService implements OnInit {
     this.socket = io(this.runTimeServer_URL);
     return this.socket.emit(listener, userID, callBack);
   }
-  listenOnUploading() {
-    this.socket.on('Error_Uploaded', res => {
-      console.log('res is done');
+
+  listenOnUploading(resiver) {
+    // return new Observable(observer => {
+    //   this.socket.on('Uploaded', msg => {
+    //     observer.next(msg)
+    //   })
+    // })
+    return new Observable(observer => {
+      this.socket.on(resiver, msg => { observer.next(msg) })
+    })
+  }
+
+  listenOnErrorUploading() {
+    return new Observable(observer => {
+      this.socket.on('Error_Uploaded', msg => {
+        observer.next(msg)
+        console.log(`Uploading is Rejected${msg}`);
+      })
     })
   }
 }

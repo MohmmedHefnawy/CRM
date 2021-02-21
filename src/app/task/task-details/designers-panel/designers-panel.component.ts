@@ -17,12 +17,17 @@ export class DesignersPanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskDetailsService.propID = this.Activerouter.snapshot.params['id']
-    this.socketService.listenOnUploading()
+
   }
 
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
     if (this.fileToUpload) {
+      this.socketService.listenOnUploading('Uploaded', msg => { }).subscribe(res => {
+        console.log(res);
+
+        console.log('here in designers comp');
+      })
       this.uploadFileToActivity()
     }
   }
@@ -30,17 +35,9 @@ export class DesignersPanelComponent implements OnInit {
   uploadFileToActivity() {
     this.taskDetailsService.postFileUpload(this.fileToUpload, this.taskDetailsService.propID).subscribe(res => {
       console.log(res);
-      this.socketService.listenOnUploading()
-
     }, err => {
       console.log(err);
-      this.socketService.listenOnUploading()
-
-    }, () => {
-      // console.log('File Is Uploaded Omar Allam Gamed Fash5');
-      this.socketService.listenOnUploading()
-
-    });
+    }, () => { });
   }
 
 }

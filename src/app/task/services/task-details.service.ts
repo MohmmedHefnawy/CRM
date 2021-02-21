@@ -45,6 +45,7 @@ export class TaskDetailsService {
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload);
     formData.append('PostID', propID);
+    formData.append('unzip', 'true');
     return this.http.post(`${this._urlUploadFile}Upload/AWSUnzip`, formData)
   }
 }
