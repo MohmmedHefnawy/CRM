@@ -34,7 +34,7 @@ export class TeamModalComponent implements OnInit {
   }
   // Assign Properties 
   assignProp(theUsersID, taskPropsID, expiryDate){
-    this.postAssignProps(theUsersID, taskPropsID, expiryDate)
+    expiryDate ? this.postAssignProps(theUsersID, taskPropsID, expiryDate) : false
   }
   // Add Check Properties To Assign User [Array]
   checkIfAssignProps(){
@@ -54,6 +54,7 @@ export class TeamModalComponent implements OnInit {
   getAllProperties(lang, num, page, status, user_id){
     this.assignUserService.getAllProperties(lang, num, page, status, user_id).subscribe((res:any)=>{
     this.assignUserService.propLists = res.data
+    
     this.assignUserService.pagination =  res.pages
     },err =>{},()=>{
       this.getTeamProperties(this.theUser.id);
