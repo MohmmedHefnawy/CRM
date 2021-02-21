@@ -1,3 +1,5 @@
+import { SocketService } from 'src/app/shared/socket/socket.service';
+import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TaskDetailsService } from '../../services/task-details.service';
@@ -9,32 +11,36 @@ import { TaskDetailsService } from '../../services/task-details.service';
 })
 export class DesignersPanelComponent implements OnInit {
 
-  constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute) {
+  fileToUpload: File = null;
 
-  }
+  constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public socketService: SocketService) { }
 
   ngOnInit(): void {
     this.taskDetailsService.propID = this.Activerouter.snapshot.params['id']
+    this.socketService.listenOnUploading()
   }
-  uploadMyImage(evt: any) {
-    const file = evt.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = this.updateImage.bind(this);
-      reader.readAsBinaryString(file);
-    }
-  }
-  updateImage(e) {
-    // let imageObj = { image: 'data:image/png;base64,' + btoa(e.target.result) }
-    let data = {
-      file: btoa(e.target.result),
-      PostID: this.taskDetailsService.propID
-    }
-    this.taskDetailsService.postFileUpload(data).subscribe(res => {
-      // this.authService.user = res
-      console.log(res);
 
-    })
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+    if (this.fileToUpload) {
+      this.uploadFileToActivity()
+    }
+  }
+
+  uploadFileToActivity() {
+    this.taskDetailsService.postFileUpload(this.fileToUpload, this.taskDetailsService.propID).subscribe(res => {
+      console.log(res);
+      this.socketService.listenOnUploading()
+
+    }, err => {
+      console.log(err);
+      this.socketService.listenOnUploading()
+
+    }, () => {
+      // console.log('File Is Uploaded Omar Allam Gamed Fash5');
+      this.socketService.listenOnUploading()
+
+    });
   }
 
 }

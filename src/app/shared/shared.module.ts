@@ -13,12 +13,13 @@ import { NavigationsComponent } from './components/navigations/navigations.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ModalComponent } from './components/popUps/task-modal/modal.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { NgbModule  } from '@ng-bootstrap/ng-bootstrap'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
-  declarations: [NavigationsComponent, ModalComponent, TeamModalComponent],
-  exports: [NavigationsComponent, BrowserAnimationsModule, MatProgressBarModule, LoadingBarHttpClientModule, ModalComponent, NgxPaginationModule, TeamModalComponent],
+  declarations: [NavigationsComponent, ModalComponent, TeamModalComponent, NotificationComponent],
+  exports: [NavigationsComponent, BrowserAnimationsModule, MatProgressBarModule, LoadingBarHttpClientModule, ModalComponent, NgxPaginationModule, TeamModalComponent, NotificationComponent],
   imports: [
     CommonModule,
     SharedRoutingModule,

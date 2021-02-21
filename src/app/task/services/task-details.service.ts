@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,11 @@ export class TaskDetailsService {
   postPropertyData(data) {
     return this.http.post(`${this._url}properties`, data)
   }
-  postFileUpload(data) {
-    return this.http.post(`${this._urlUploadFile}Upload/AWSUnzip`, data)
+
+  postFileUpload(fileToUpload: File, propID): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('file', fileToUpload);
+    formData.append('PostID', propID);
+    return this.http.post(`${this._urlUploadFile}Upload/AWSUnzip`, formData)
   }
 }
