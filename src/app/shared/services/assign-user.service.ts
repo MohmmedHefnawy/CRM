@@ -5,10 +5,20 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AssignUserService {
+
   _url = environment.apiBaseUrl;
   usersByRole;
   assignUsers;
+  propLists
+  pagination
+  userProperties
+
   constructor(private http: HttpClient) { }
+
+  // [#] Get All Properties
+  getAllProperties(lang, num, page, status, user_id){
+    return this.http.get(`${this._url}properties?lang=${lang}&num=${num}&page=${page}&status=${status}&user_id=${user_id}`)
+  }
   // [#] get all user by pathing user role ID
   getUsersByRoleID(ID){
     return this.http.get(`${this._url}getAllTeams?role_id=${ID}`)

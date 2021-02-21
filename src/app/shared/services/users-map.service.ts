@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class UsersMapService {
   usersMap= {
-    '2' : 'DA',
+    '2': 'DA',
     '3': 'AM',
     '4': 'PH',
     '5': 'GD',

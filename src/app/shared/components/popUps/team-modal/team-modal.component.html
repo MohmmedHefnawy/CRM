@@ -8,18 +8,20 @@
                 <div class="d-flex justify-content-center align-items-center">
                     <i [ngStyle]="theUser?.image != '' ? {'background-image' : 'url('+imageBaseURL+ theUser?.image +')'} : {'background-image' : 'url(src/assets/Icons/new-user.svg)'}"
                      class=" sM0-white-border sM0-bg-imgs-center sM0-img-b sM0-f-radius mb-4 d-flex justify-content-end align-items-end "
-                    class="sM0-click sM0-img-c rounded-circle sM0-gold-border sM0-f-radius~ d-flex justify-content-center sM0-bg-imgs-center mr-4">
+                     class="sM0-click sM0-img-c rounded-circle sM0-gold-border sM0-f-radius~ d-flex justify-content-center sM0-bg-imgs-center mr-4">
                     </i>
                     <p class="modal-title sM0-fs-b-16 sM0-text-0-cr m-0 p-0" id="exampleModalLabel"> {{theUser?.name}} </p>
                 </div>
                 <!-- Serach Bar -->
                 <div class="OM-Holder-search-w m-0  pl-4">
                     <div class="d-flex w-100">
+                        <!-- SearcBar Icone -->
                         <button class="px-3 py-2 sM0-smoke-bg sM0-t-l-radius btn d-flex">
-                            <i class="sM0-icon-d OM-search-icon"></i>
+                            <i class="sM0-icon-d OM-search-icon" (click)="searchINP.focus()"></i>
                         </button>
-                        <input type="search" [(ngModel)]="searchProps"  placeholder="Search..."
-                            class="w-100~ sM0-smoke-bg sM0-text-0-cr sM0-r-b-radius pr-4">
+                        <!-- SearcBar Input -->
+                        <input #searchINP type="search" [(ngModel)]="searchProps"  placeholder="Search..."
+                        class="w-100~ sM0-smoke-bg sM0-text-0-cr sM0-r-b-radius pr-4">
                     </div>
                 </div>
             </div>
@@ -34,19 +36,20 @@
             </div>
             <!--  Modal Content  -->
             <div class="modal-body sM0-supp-0-bg px-4 py-0 overflow-auto my-4 ">
-                <ng-container *ngIf="(assignPropertiesService?.propLists | filter: searchProps ) as results " >
-                    <ng-container *ngIf="isAssigned" >
+                <ng-container *ngIf="(assignUserService?.propLists | filter: searchProps ) as results">
+                    <ng-container *ngIf="isAssigned">
                         <!-- user ROW -->
                         <div *ngFor=" let taskProps of results  | paginate:{
-                                                        itemsPerPage: assignPropertiesService.pagination?.perPage,
-                                                        currentPage: assignPropertiesService.pagination?.currentPage,
-                                                        totalItems: assignPropertiesService.pagination?.total} "  class="row p-4 sM0-supp-1-bg mb-4 d-flex justify-content-between align-items-center m-0 sM0-f-radius">
+                                                        itemsPerPage: assignUserService.pagination?.perPage,
+                                                        currentPage: assignUserService.pagination?.currentPage,
+                                                        totalItems: assignUserService.pagination?.total}"
+                                                        class="row p-4 sM0-supp-1-bg mb-4 d-flex justify-content-between align-items-center m-0 sM0-f-radius">
                             <!-- Profile Icons And SurnName -->
                             <div class="col-4 d-flex w-100 align-items-center justify-content-start ">
                                 <!-- img -->
                                 <div>
                                     <i [ngStyle]="taskProps?.images != '' ? {'background-image' : 'url('+ taskProps?.images +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}"
-                                     class=" d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center">
+                                       class=" d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center">
                                     </i>
                                 </div>
                                 <!-- info -->
@@ -62,11 +65,10 @@
                             <div class="col-5 d-flex justify-content-start w-100 p-0">
                                 <form class="form-inline">
                                     <div class="d-flex ">
-                                        <button class="px-3 py-2 sM0-bg-opacity-white-25 sM0-t-l-radius btn d-flex "
-                                            (click)="d.toggle()">
+                                        <button class="px-3 py-2 sM0-bg-opacity-white-25 sM0-t-l-radius btn d-flex" (click)="d.toggle()">
                                             <i class="OM-icon-calender sM0-icon-d "></i>
                                         </button>
-                                        <input
+                                        <input [value]="taskProps?.expiryDate?taskProps?.expiryDate:''"
                                             class="form-control sM0-smoke-bg sM0-text-0-cr sM0-r-b-radius pr-4 sM0-btn-w-160 "
                                             placeholder="Expiry Date..." name="dp" ngbDatepicker
                                             [footerTemplate]="footerTemplate" #d="ngbDatepicker" #expiryDate
@@ -76,10 +78,8 @@
                                 <!-- Date Button Footer -->
                                 <ng-template #footerTemplate>
                                     <hr class="my-0">
-                                    <button class="btn btn-primary btn-sm m-2 float-left"
-                                        (click)="expiryDate.value = today; d.close()">Today</button>
-                                    <button class="btn btn-secondary btn-sm m-2 float-right"
-                                        (click)="d.close()">Close</button>
+                                    <button class="btn btn-primary btn-sm m-2 float-left" (click)="expiryDate.value = today; d.close()">Today</button>
+                                    <button class="btn btn-secondary btn-sm m-2 float-right" (click)="d.close()">Close</button>
                                 </ng-template>
                             </div>
                             <!-- Asign Task Button -->
@@ -89,44 +89,38 @@
                                     <i class="sM0-icon-d OM-img-Plus sM0-bg-imgs-center mr-4"></i>
                                     <p class="m-0 sM0-fs-12">Assign Task</p>
                                 </button>
-
                                 <ng-container *ngIf="taskProps?.check" >
-                                <button disabled
-                                    class=" btn sM0-btn-w-100 d-flex justify-content-center align-items-center sM0-t-l-radius sM0-bg-opacity-gold-25 pl-2 py-2">
-                                    <i class=" OM-icon-timergold d-inline-block sM0-icon-d sM0-bg-imgs-center mr-3"></i>
-                                    <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Pending</p>
-                                </button>
-                                <button (click)='deleteAssignedUser(user)'
-                                class="btn sM0-btn-w-65 d-flex justify-content-center align-items-center sM0-r-b-radius sM0-bg-opacity-red-25 ml-2 pr-3 py-2">
-                                <i class="OM-icon-trash sM0-icon-d sM0-bg-imgs-center"></i>
-                                </button>
-                            </ng-container>
+                                    <button disabled class=" btn sM0-btn-w-100 d-flex justify-content-center align-items-center sM0-t-l-radius sM0-bg-opacity-gold-25 pl-2 py-2">
+                                        <i class=" OM-icon-timergold d-inline-block sM0-icon-d sM0-bg-imgs-center mr-3"></i>
+                                        <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Pending</p>
+                                    </button>
+                                    <button (click)='deleteAssignedUser(theUser, taskProps, expiryDate)'
+                                            class="btn sM0-btn-w-65 d-flex justify-content-center align-items-center sM0-r-b-radius sM0-bg-opacity-red-25 ml-2 pr-3 py-2">
+                                        <i class="OM-icon-trash sM0-icon-d sM0-bg-imgs-center"></i>
+                                    </button>
+                                </ng-container>
                             </div>
                         </div>
                         <!-- If Not User -->
-                         <p *ngIf="results.length === 0" class="sM0-text-0-cr sM0-fs-16 text-center p-4">No Users Found ! </p> 
+                        <p *ngIf="results.length === 0" class="sM0-text-0-cr sM0-fs-16 text-center p-4">No Users Found ! </p> 
                     </ng-container>
                 </ng-container>
             </div>
             <!-- Modal Footerz -->
-                <div class='container-fluid d-flex justify-content-center py-4 sM0-smoke-bg sM0-main-cr'>
-                    <div class='row'>
-                        <div class='col'>
-                            <pagination-controls
-                            previousLabel="Prev" 
-                            nextLabel="Next" 
-                            responsive="true"
-                            maxSize="25"
-                            screenReaderPaginationLabel="Pagination"
-                            screenReaderPageLabel="page"
-                            screenReaderCurrentLabel="You're on page"
-                            (pageChange)="handlePageChange($event)"
-                            >
-                            </pagination-controls>
-                        </div>
-                    </div>
-                </div>
             <div class="modal-footer sM0-supp-1-bg border-0 py-3 px-4">
+                <div class='w-100 d-flex justify-content-center sM0-main-cr'>
+                    <pagination-controls
+                    previousLabel="Prev" 
+                    nextLabel="Next" 
+                    responsive="true"
+                    maxSize="25"
+                    screenReaderPaginationLabel="Pagination"
+                    screenReaderPageLabel="page"
+                    screenReaderCurrentLabel="You're on page"
+                    (pageChange)="handlePageChange($event)"
+                    >
+                    </pagination-controls>
+                </div>
                 <button type="button"
                     class="btn sM0-btn-w-160 sM0-fs-b-16 sM0-text-0-cr sM0-f-radius sM0-smoke-bg border-0 "
                     data-dismiss="modal">Close</button>
@@ -138,4 +132,3 @@
 <button id='openTeamPop' type="button" class="btn btn-primary d-none" data-toggle="modal" data-target="#exampleModal">
     Asign Task
 </button>
-

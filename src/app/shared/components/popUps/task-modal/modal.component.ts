@@ -104,6 +104,7 @@ export class ModalComponent implements OnInit {
         user.check = false
         this.getAssignUsers(this.prop.id);
         this.prop.tasks[userMap]--
+        user.expDate = ""
     })
   }
 

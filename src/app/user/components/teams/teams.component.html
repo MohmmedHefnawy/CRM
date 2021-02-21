@@ -30,6 +30,26 @@
                     <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center mr-3"></i>
                     <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Asign Task</p>
                 </button>
+                <!-- assign user small button -->
+                <!-- <ng-container *ngIf='!(theUser?.tasks?.CM != 0 && theUser?.tasks?.GD != 0 && theUser?.tasks?.PH != 0 && theUser?.tasks?.DA != 0)'>
+                    <button *ngIf='theUser?.tasks_status == "2" && theUser?.tasks?.CM || theUser?.tasks?.GD || theUser?.tasks?.PH || theUser?.tasks?.DA' (click)='openPopUp($event, task, 2)'
+                        class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-bg-opacity-green-25 mr-2">
+                        <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center"></i>
+                    </button>
+                </ng-container> -->
+                <!-- start button (pinding = 1) -->
+                <ng-container *ngIf='theUser?.prop_count == "0"'>
+                    <button (click)='startTask($event, theUser?.id)'
+                        class="btn sM0-btn-w-100 d-flex justify-content-center align-items-center sM0-t-l-radius sM0-bg-opacity-gold-25 pl-2 py-2">
+                        <i class="OM-img-thunder sM0-icon-d sM0-bg-imgs-center mr-2"></i>
+                        <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Start</p>
+                    </button>
+                    <!-- cancle button -->
+                    <button
+                        class="btn sM0-btn-w-65 d-flex justify-content-center align-items-center sM0-r-b-radius sM0-bg-opacity-red-25 ml-2 pr-4 py-2">
+                        <i class="OM-img-wrong sM0-icon-d sM0-bg-imgs-center"></i>
+                    </button>
+                </ng-container>
                 <!-- Progress Bar -->
                 <div class="progress w-75 sM0-f-radius sM0-supp-1-bg">
                     <div class="progress-bar sM0-green-bg d-flex align-items-center px-2 sM0-f-radius" role="progressbar"

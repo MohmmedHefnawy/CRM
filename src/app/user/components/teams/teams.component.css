@@ -19,6 +19,9 @@
 .OM-img-Plus {
   background-image: url("/assets/Icons/Plus.svg");
 }
+.OM-img-wrong {
+  background-image: url("/assets/Icons/wrong.svg");
+}
 .OM-icon-call-holder {
   width: 40px;
   height: 40px;

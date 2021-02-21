@@ -6,6 +6,7 @@ import { TeamsService } from '../../services/teams.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment'
 import { UserTaskService } from 'src/app/task/services/user-task.service';
+import { AssignUserService } from 'src/app/shared/services/assign-user.service';
 
 @Component({
   selector: 'app-teams',
@@ -28,7 +29,8 @@ export class TeamsComponent implements OnInit, OnDestroy {
     public navService: NavigatorServicesService,
     public teamService: TeamsService,
     private router: Router,
-    public userTaskService: UserTaskService
+    public userTaskService: UserTaskService,
+    public assignUserService: AssignUserService
   ) { }
 
   ngOnInit(): void {
@@ -43,12 +45,16 @@ export class TeamsComponent implements OnInit, OnDestroy {
     }
   }
    // [#] Controller
+     // [?] start Task
+
   // open modal from ModalComponent
   openPopUpTeam(e, theUser){
     e.stopPropagation()
     this.teamModalPopUp.openTeamPopup(theUser)
   }
 
+
+  // [#] REQ
   goToUserProfile(iD) {
     let userID = { user_id: iD }
     this.teamService.getUserByID(userID).subscribe((res: any) => {
@@ -67,6 +73,7 @@ export class TeamsComponent implements OnInit, OnDestroy {
 
     })
   }
+
   ngOnDestroy(): void {
   }
 }
