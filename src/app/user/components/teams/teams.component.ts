@@ -36,23 +36,19 @@ export class TeamsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
     this.matchedRoutes()
-    
   }
   // fire if it thie component restarted to get the api caling index
   matchedRoutes() {
     for (let route of this.navService.navigators?.routers) {
       this.router.url === route ? this.teamService.getTeam(this.navigator.api[this.navService.navigators?.routers.indexOf(route)]) : false
-
     }
   }
    // [#] Controller
   // open modal from ModalComponent
-  openPopUpTeam(e, theUser){
+  openPopUpTeam(e, theUser, action){
     e.stopPropagation()
-    this.teamModalPopUp.openTeamPopup(theUser)
+    this.teamModalPopUp.openTeamPopup(action, theUser)
   }
-
-
   // [#] REQ
   goToUserProfile(iD) {
     let userID = { user_id: iD }

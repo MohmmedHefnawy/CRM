@@ -25,20 +25,20 @@
                     <p class="sM0-main-cr d-inline-block mb-0 ml-2 sM0-fs-16 text-center">{{theUser?.address}}</p>
                 </div>
                 <!-- Inprogress Task -->
-                <button *ngIf='theUser?.prop_count == "0"'  (click)="openPopUpTeam($event, theUser)"
+                <button *ngIf='theUser?.prop_count == "0"'  (click)="openPopUpTeam($event, theUser, 'assign')"
                     class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2 my-3">
                     <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center mr-3"></i>
                     <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Assign Task</p>
                 </button>
                 <ng-container *ngIf='theUser?.prop_count != "0"'>
                     <div class="d-flex my-3">
-                    <button (click)="openPopUpTeam($event, theUser)"
+                    <button (click)="openPopUpTeam($event, theUser, 'assign')"
                         class="btn sM0-btn-w-100 d-flex justify-content-center align-items-center sM0-t-l-radius sM0-bg-opacity-green-25 pl-2 py-2">
                         <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center mr-2"></i>
                         <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Assign</p>
                     </button>
                     <!-- cancle button -->
-                    <div class="sM0-btn-w-65 d-flex justify-content-center align-items-center sM0-r-b-radius sM0-supp-1-bg ml-2 py-2">
+                    <div (click)="openPopUpTeam($event, theUser, 'userList')" class="sM0-btn-w-65 d-flex justify-content-center align-items-center sM0-r-b-radius sM0-supp-1-bg ml-2 py-2">
                         <div class="sM0-icon-d sM0-bg-imgs-center sM0-main-cr sM0-fs-12 text-center">{{theUser.prop_count}}</div>
                     </div>
                     </div>

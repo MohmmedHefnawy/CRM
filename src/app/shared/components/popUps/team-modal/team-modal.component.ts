@@ -23,12 +23,19 @@ export class TeamModalComponent implements OnInit {
    
   }
   // [#] Controls
-  openTeamPopup(theUser){
+  openTeamPopup(action, theUser){
     $('#openTeamPop').click()
     this.isAssigned = false
     this.theUser = theUser
     console.log( this.theUser)
-    this.getAllProperties("en", 25, 1, "inProgress","" )
+    switch(action){
+      case "userList":
+        this.getAllProperties("en", 25, 1, "pending", theUser.id );
+        break;
+      case "assign":
+        this.getAllProperties("en", 25, 1, "inProgress","" );
+        break;
+    }
   }
   // Handling Pagination
   handlePageChange(event) {
@@ -111,7 +118,9 @@ export class TeamModalComponent implements OnInit {
       this.propCounts("delete",theUser.id)
       taskProps.check = false
       taskProps.expiryDate = ""
+      this.getTeamProperties(theUser.id)
     })
+    this.isAssigned = true
   }
   goToUserProfile(iD) {
     let userID = { user_id: iD }
@@ -119,7 +128,6 @@ export class TeamModalComponent implements OnInit {
       this.teamService.oneUser = res.data
       localStorage.setItem("teamUser", JSON.stringify(this.teamService.oneUser))
     }, err => {
-
     }, () => {
       this.getAllProperties('en', 1, 10, '', iD)
       this.router.navigate(['/user/profile/user'])
