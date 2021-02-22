@@ -11,7 +11,7 @@ export class NotificationComponent implements OnInit {
   constructor(public socketService: SocketService) { }
 
   ngOnInit(): void {
-    this.socketService.listenOnUploading().subscribe(res => {
+    this.socketService.listenOnUploading('Uploaded').subscribe(res => {
       console.log(res);
       console.log('here in designers comp');
     })

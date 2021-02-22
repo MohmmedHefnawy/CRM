@@ -15,7 +15,7 @@ export class SocketService implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.listenOnUploading().subscribe(msg => {
+    this.listenOnUploading('Uploaded').subscribe(msg => {
       console.log(msg);
       console.log('Here In Socket Services');
     })
