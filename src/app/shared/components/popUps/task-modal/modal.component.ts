@@ -4,6 +4,9 @@ import { environment } from 'src/environments/environment';
 import { AssignUserService } from '../../../services/assign-user.service';
 import { UserTaskService } from 'src/app/task/services/user-task.service';
 import { UsersMapService } from 'src/app/shared/services/users-map.service'
+import { TaskDetailsService } from 'src/app/task/services/task-details.service';
+import { Router } from '@angular/router';
+import { TeamsService } from 'src/app/user/services/teams.service';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -20,7 +23,10 @@ export class ModalComponent implements OnInit {
   constructor(public assignUserService: AssignUserService,
      public loading: InLoadingService, 
      public userTaskService: UserTaskService,
-    public usersMapService: UsersMapService
+     public usersMapService: UsersMapService,
+     public taskDetails: TaskDetailsService,
+     public teamService: TeamsService,
+     private router: Router
      ){}
   ngOnInit(): void {
   }
@@ -65,6 +71,15 @@ export class ModalComponent implements OnInit {
     }
     this.isAssigned = true
   }
+  // Route To Properties Profile
+  getPropertiesById(ID){
+    this.taskDetails.getTaskById(ID).subscribe((res:any)=>{
+      this.taskDetails.taskDetails = res.data
+    }, err => {},()=>{
+      this.taskDetails.propID = ID
+      this.router.navigate([`/task/details/dashBoard/${ID}`])
+    })
+  }
   // [#] HTTP REQs
   // Get Users By Roll ID
   getUsersByRoleID(ID){
@@ -106,6 +121,18 @@ export class ModalComponent implements OnInit {
         this.getAssignUsers(this.prop.id);
         this.prop.tasks[userMap]--
         user.expDate = ""
+    })
+  }
+
+  goToUserProfile(iD) {
+    let userID = { user_id: iD }
+    this.teamService.getUserByID(userID).subscribe((res: any) => {
+      this.teamService.oneUser = res.data
+      localStorage.setItem("teamUser", JSON.stringify(this.teamService.oneUser))
+    }, err => {
+    }, () => {
+      this.getAssignUsers(iD)
+      this.router.navigate(['/user/profile/user'])
     })
   }
 

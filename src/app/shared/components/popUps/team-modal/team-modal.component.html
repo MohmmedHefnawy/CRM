@@ -45,16 +45,16 @@
                                                         totalItems: assignUserService.pagination?.total}"
                                                         class="row p-4 sM0-supp-1-bg mb-4 d-flex justify-content-between align-items-center m-0 sM0-f-radius">
                             <!-- Profile Icons And SurnName -->
-                            <div class="col-4 d-flex w-100 align-items-center justify-content-start ">
+                            <div (click)="getPropertiesById(taskProps.id)" data-dismiss="modal" class="col-4 sM0-click d-flex w-100 align-items-center justify-content-start ">
                                 <!-- img -->
                                 <div>
-                                    <i [ngStyle]="taskProps?.images != '' ? {'background-image' : 'url('+ taskProps?.images +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}"
-                                       class=" d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center">
+                                    <i  [ngStyle]="taskProps?.images != '' ? {'background-image' : 'url('+ taskProps?.images +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}"
+                                       class="  d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center">
                                     </i>
                                 </div>
                                 <!-- info -->
                                 <div class="pl-2">
-                                    <p class="m-0 sM0-main-cr">{{taskProps?.title | slice:0:20}}...</p>
+                                    <p class="m-0 sM0-main-cr">{{taskProps.title | slice:0:20}}...</p>
                                     <p class="sM0-fs-10 m-0 sM0-text-0-cr d-flex align-items-center ">
                                         <i class="OM-img-Locationgold sM0-icon-e sM0-bg-imgs-center mb-1 mr-1"></i>
                                         {{taskProps?.city}}

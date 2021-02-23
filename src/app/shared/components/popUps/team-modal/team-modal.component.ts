@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { AssignUserService } from 'src/app/shared/services/assign-user.service';
 import { TeamsService } from 'src/app/user/services/teams.service';
 import { Router } from '@angular/router';
+import { TaskDetailsService } from 'src/app/task/services/task-details.service';
 
 @Component({
   selector: 'app-team-modal',
@@ -18,7 +19,10 @@ export class TeamModalComponent implements OnInit {
   theUser
   propLists
   isAssigned:boolean = false
-  constructor(public loading: InLoadingService,public assignUserService: AssignUserService, public teamService: TeamsService, private router: Router) { }
+  constructor(public loading: InLoadingService,public assignUserService: AssignUserService,
+              public teamService: TeamsService,
+              private router: Router,
+              public taskDetails: TaskDetailsService) { }
   ngOnInit(): void {
    
   }
@@ -74,6 +78,15 @@ export class TeamModalComponent implements OnInit {
         }
       }
     }
+  }
+  // Route To Properties Profile
+  getPropertiesById(ID){
+    this.taskDetails.getTaskById(ID).subscribe((res:any)=>{
+      this.taskDetails.taskDetails = res.data
+    }, err => {},()=>{
+      this.taskDetails.propID = ID
+      this.router.navigate([`/task/details/dashBoard/${ID}`])
+    })
   }
   // [#] HTTP REQs
   // Get All Properties
