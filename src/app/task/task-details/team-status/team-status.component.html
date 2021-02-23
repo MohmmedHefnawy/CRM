@@ -31,9 +31,9 @@
     </div>
   </div>
   <!-- Pending Row mx-0 -->
-  <div *ngFor="let assignUser of taskDetailsService?.assignedUsers" class="row mx-0 py-3 sM0-bg-opacity-gray-90~ sM0-bg-opacity-gold-25 mb-1 d-flex ">
+  <div *ngFor="let assignUser of taskDetailsService?.assignedUsers" class="row mx-0 py-3 sM0-bg-opacity-gray-90~ sM0-bg-opacity-gold-25~ sM0-bg-opacity-gray-90 mb-1 d-flex ">
     <!-- 1st Column Holder { User Profile Img } -->
-    <div class="col-4 py-2 pl-5 sM0-bg-opacity-dark-90~ sM0-bg-opacity-gold-25 sM0-r-b-radius d-flex align-items-center">
+    <div class="col-4 py-2 pl-5 sM0-bg-opacity-dark-90~ sM0-bg-opacity-white-5 sM0-r-b-radius d-flex align-items-center">
       <div>
         <i class="OM-img-profile~ d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center" [ngStyle]="{'background-image' : 'url('+ imageBaseURL + assignUser.image +')'}"></i>
       </div>
