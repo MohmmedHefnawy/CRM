@@ -24,6 +24,7 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     this.navService.navigators = this.navigator;
     this.getPropById(this.taskDetails.propID)
+    this.photographerImageURL(this.taskDetails.propID)
   }
 
   getPropById(ID) {
@@ -57,6 +58,14 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
         staticDatta.check = false
       }
     }
+  }
+  // ! API GET 
+
+  photographerImageURL(id) {
+    this.taskDetails.getPhotographerImageURL(id).subscribe(res => {
+      console.log(res);
+      this.taskDetails.phImageURL = res
+    })
   }
   ngOnDestroy(): void {
 

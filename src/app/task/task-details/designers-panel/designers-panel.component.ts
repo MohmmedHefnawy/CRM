@@ -12,6 +12,7 @@ import { TaskDetailsService } from '../../services/task-details.service';
 })
 export class DesignersPanelComponent implements OnInit {
   // unSubscribe: Subscription
+  inpUploadDesigner;
   constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public socketService: SocketService) { }
 
   ngOnInit(): void {
@@ -20,6 +21,10 @@ export class DesignersPanelComponent implements OnInit {
     this.socketON('Error_Uploaded')
   }
 
+  changeValue(val) {
+    console.log(val.Package3DPhoto);
+    this.inpUploadDesigner = val.Package3DPhoto
+  }
   handleFileInput(files: FileList) {
     let fileToUpload = files.item(0);
     if (fileToUpload) {
@@ -32,6 +37,8 @@ export class DesignersPanelComponent implements OnInit {
   }
   socketON(listner) {
     this.socketService.socketON(listner).subscribe(res => {
+      this.changeValue(res)
+
       console.log(`Receiver From Designer Component : ...... ${res}`);
     }, err => {
     }, () => {

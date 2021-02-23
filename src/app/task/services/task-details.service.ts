@@ -12,6 +12,7 @@ export class TaskDetailsService {
   propStaticData;
   assignedUsers;
   propID;
+  phImageURL;
   // send old data to the backEnd
   old_status;
   old_category;
@@ -33,6 +34,10 @@ export class TaskDetailsService {
   getTaskAssignUser(ID) {
     return this.http.get(`${this._url}getPropertiesTasks?id=${ID}`)
   }
+  // Get Get Photographer Image URL
+  getPhotographerImageURL(ID) {
+    return this.http.get(`${this._urlUploadFile}AWSPhoto/${ID}/2/2`)
+  }
 
   // ! Method POST
 
@@ -47,5 +52,13 @@ export class TaskDetailsService {
     formData.append('PostID', propID);
     formData.append('unzip', 'true');
     return this.http.post(`${this._urlUploadFile}Upload/AWSUnzip`, formData)
+  }
+
+  updatePhotographerImageURL(fileToUpload: File, imageID): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('file', fileToUpload);
+    formData.append('PostID', imageID);
+    formData.append('unzip', 'true');
+    return this.http.patch(`${this._urlUploadFile}Update/AWSPhoto/${imageID}`, formData)
   }
 }

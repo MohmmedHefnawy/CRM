@@ -27,23 +27,33 @@
                 <i class="OM-img-profile sM0-img-d p-4  sM0-circle-border sM0-bg-imgs-center"></i>
             </div>
         </div>
-        <div class="M0-micro-card d-flex sM0-bg-opacity-supp-1-5 sM0-f-radius w-100 p-4 mb-4">
+        <div *ngFor='let awsPhoto of taskDetailsService.phImageURL?.data' class="M0-micro-card d-flex sM0-bg-opacity-supp-1-5 sM0-f-radius w-100 p-4 mb-4">
             <!-- Holder Image Icon -->
             <div class="sM0-img-aa OM-img-src sM0-bg-imgs-center bg-danger h-100 sM0-f-radius">
             </div>
             <!-- HTTP Input -->
             
             <div class="w-100 px-4 d-flex flex-column justify-content-center">
-                <p class="sM0-text-0-cr sM0-fs-b-16">Property Image Name</p>
+                <p class="sM0-text-0-cr sM0-fs-b-16 mb-2">Property Image Name</p>
+                <!-- photographer Link -->
+                <!-- <div class="w-100"> -->
+                    <a [href]="awsPhoto.image_link" target='_blank' class='mb-3'>PhotoGrapher Package</a>
+                <!-- </div> -->
                 <div class="d-flex w-100">
-                    <div class='form-group mb-0 sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-a d-flex justify-content-center align-items-center'>
-                        <label for="uploadFile" class=" d-flex justify-content-center mb-0 sM0-click">
+                    <div class='form-group mb-0 sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-a d-flex justify-content-center align-items-center px-4'>
                             <i class="OM-img-link sM0-icon-d d-block"></i>
-                        </label>
-                            <input type="file" class="d-none form-group" id="uploadFile" (change)='handleFileInput($event.target.files)'>
                     </div>
                     <div class="w-100 p-0">
-                        <input type="text" placeholder="URL..." class="sM0-fs-mid-b-12 sM0-r-b-radius px-4 w-100 h-100 sM0-supp-1-bg sM0-text-0-cr">
+                        <input #inpUploadDesigner [value]='inpUploadDesigner' type="text" placeholder="URL..." (change)='changeValue(inpUploadDesigner?.value)' class="sM0-fs-mid-b-12  px-4 w-100 h-100 sM0-supp-1-bg sM0-text-0-cr" >
+                    </div>
+                    <!-- Button Save -->
+                    <div class="d-flex justify-content-end ml-4~">
+                        <button type="submit" class="sM0-r-b-radius w-100 sM0-supp-1-bg sM0-border-none px-4">
+                            <label for="uploadFile" class=" d-flex justify-content-center mb-0 sM0-click">
+                            <p class="mb-0 sM0-text-0-cr sM0-fs-b-12 d-flex"><i class="OM-img-link sM0-icon-d mr-2"></i> Upload</p>
+                            </label>
+                            <input type="file" class="d-none form-group" id="uploadFile" (change)='handleFileInput($event.target.files)'>
+                        </button>
                     </div>
                 </div>
             </div>
