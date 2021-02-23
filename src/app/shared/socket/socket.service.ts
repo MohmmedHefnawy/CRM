@@ -15,42 +15,29 @@ export class SocketService implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.listenOnUploading('Uploaded').subscribe(msg => {
-      console.log(msg);
-      console.log('Here In Socket Services');
-    })
-    this.listenOnErrorUploading().subscribe(msg => {
-      console.log(msg);
-    })
-  }
 
+  }
   socketDisconnect() {
     this.socket.disconnect()
   }
-
   // [#] login with user id at socket
   loginSocket(listener, userID, callBack) {
     this.socket = io(this.runTimeServer_URL);
     return this.socket.emit(listener, userID, callBack);
   }
 
-  listenOnUploading(resiver) {
-    // return new Observable(observer => {
-    //   this.socket.on('Uploaded', msg => {
-    //     observer.next(msg)
-    //   })
-    // })
+  socketON(listner) {
     return new Observable(observer => {
-      this.socket.on(resiver, msg => { observer.next(msg) })
+      this.socket.on(listner, msg => { observer.next(msg) })
     })
   }
 
-  listenOnErrorUploading() {
-    return new Observable(observer => {
-      this.socket.on('Error_Uploaded', msg => {
-        observer.next(msg)
-        console.log(`Uploading is Rejected${msg}`);
-      })
-    })
-  }
+  // listenOnErrorUploading() {
+  //   return new Observable(observer => {
+  //     this.socket.on('Error_Uploaded', msg => {
+  //       observer.next(msg)
+  //       console.log(`Uploading is Rejected${msg}`);
+  //     })
+  //   })
+  // }
 }

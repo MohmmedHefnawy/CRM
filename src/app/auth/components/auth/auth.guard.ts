@@ -23,14 +23,6 @@ export class AuthGuard implements CanActivate {
       this.socketService.socketDisconnect()
       return false;
     }
-    // call login socket 
-    this.onSocket()
     return true;
-  }
-  // [#] login with user id at Socket
-  onSocket() {
-    this.socketService.loginSocket('join', localStorage.getItem('userID'), err => {
-      if (err) throw err;
-    })
   }
 }

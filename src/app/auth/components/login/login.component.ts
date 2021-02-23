@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { Router } from '@angular/router';
+import { SocketService } from 'src/app/shared/socket/socket.service';
 import { AuthService } from "../../services/auth.service";
 
 @Component({
@@ -10,7 +11,7 @@ import { AuthService } from "../../services/auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService, private router: Router, public socketService: SocketService) { }
 
   ngOnInit(): void {
     let holderWindowSize = (holder) => {// [?] holder is the selected holder <div> fo the component
@@ -45,9 +46,16 @@ export class LoginComponent implements OnInit {
       this.authService.setUserID(res.data.id)
       this.authService.isAdmin = true
       this.router.navigateByUrl('/user');
+      this.onSocket()
     },
       err => {
         console.log(err)
       })
+  }
+  // [#] login with user id at Socket
+  onSocket() {
+    this.socketService.loginSocket('join', localStorage.getItem('userID'), err => {
+      if (err) throw err;
+    })
   }
 }
