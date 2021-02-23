@@ -73,8 +73,8 @@ export class ProfileComponent implements OnInit {
     }
   }
   // [#] get propertys by status by (click) status cards
-  getPropsByStatus(status) {
-    this.getAllProps('en', 1, 25, status, '')
+  getPropsByStatus(status, userID = '') {
+    this.getAllProps('en', 1, 25, status, userID)
   }
   // [?] start Task
   startTask(e, propID) {

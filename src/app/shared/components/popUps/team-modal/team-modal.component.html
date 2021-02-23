@@ -6,7 +6,7 @@
             <div class="modal-header sM0-supp-1-bg border-0 align-items-center justify-content-between">
                 <!-- Assign Imge And Title -->
                 <div class="d-flex justify-content-center align-items-center">
-                    <i  (click)='goToUserProfile(theUser.id)'  data-dismiss="modal" [ngStyle]="theUser?.image != '' ? {'background-image' : 'url('+imageBaseURL+ theUser?.image +')'} : {'background-image' : 'url(src/assets/Icons/buildingavaterwhite.svg)'}"
+                    <i  (click)='goToUserProfile(theUser.id)'  data-dismiss="modal" [ngStyle]="theUser?.image != '' ? {'background-image' : 'url('+imageBaseURL+ theUser?.image +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}"
                      class=" sM0-white-border sM0-bg-imgs-center sM0-img-b sM0-f-radius mb-4 d-flex justify-content-end align-items-end "
                      class="sM0-click sM0-img-c rounded-circle sM0-gold-border sM0-f-radius~ d-flex justify-content-center sM0-bg-imgs-center mr-4">
                     </i>
@@ -48,8 +48,13 @@
                             <div (click)="getPropertiesById(taskProps.id)" data-dismiss="modal" class="col-4 sM0-click d-flex w-100 align-items-center justify-content-start ">
                                 <!-- img -->
                                 <div>
+<<<<<<< Updated upstream
                                     <i  [ngStyle]="taskProps?.images != '' ? {'background-image' : 'url('+ taskProps?.images +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}"
                                        class="  d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center">
+=======
+                                    <i [ngStyle]="taskProps?.images != '' ? {'background-image' : 'url('+ taskProps?.images +')'} : {'background-image' : 'url(/assets/Icons/buildingavaterwhite.svg)'}"
+                                       class=" d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center">
+>>>>>>> Stashed changes
                                     </i>
                                 </div>
                                 <!-- info -->
