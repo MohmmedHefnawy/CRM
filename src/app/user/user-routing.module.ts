@@ -28,13 +28,17 @@ const routes: Routes = [
           {path : 'content-creators', component: TeamsComponent}
         ]
       },
-      { path: 'profile', component: ProfileComponent,
-      // TODO modal routes 
-      // children: [
-      //   {path: 'assign-user'  ,component: ProfileComponent}
-      // ]
-      },
-      { path: 'profile/:user', component: ProfileComponent },
+      { path: 'profile', component: ProfileComponent},
+      { path: 'me/profile/pending'  ,component: ProfileComponent},
+      { path: 'me/profile/inProgress'  ,component: ProfileComponent},
+      { path: 'me/profile/expired'  ,component: ProfileComponent},
+      { path: 'me/profile/publish'  ,component: ProfileComponent},
+      
+      { path: 'profile/user', component: ProfileComponent },
+      { path: 'profile/user/pending', component: ProfileComponent },
+      { path: 'profile/user/inProgress', component: ProfileComponent },
+      { path: 'profile/user/expired', component: ProfileComponent },
+      { path: 'profile/user/publish', component: ProfileComponent },
       { path: 'notifi', component: NotificationsComponent },
       { path: 'create-account', component: CreateAccountComponent },
       {

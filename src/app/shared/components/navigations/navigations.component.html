@@ -13,7 +13,7 @@
         [routerLink]="navService.navigators?.routers[i]" *ngFor='let nav of navService.navigators?.navigators ; index as i;'>
         {{nav}}</li>
     </ng-container>
-
+    <!-- if there is APIs -->
     <ng-container *ngIf='navService.navigators?.api[0]'>
       <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive sM0-click" 
         routerLinkActive="sM0-active"
