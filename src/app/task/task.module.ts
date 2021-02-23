@@ -27,7 +27,7 @@ import { LocationComponent } from './task-details/content-panel/location/locatio
     CommonModule,
     TaskRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class TaskModule { }

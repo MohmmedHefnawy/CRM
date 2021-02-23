@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProfileServiceService } from './../../services/profile-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
 import { TeamsService } from '../../services/teams.service';
@@ -29,8 +29,8 @@ export class ProfileComponent implements OnInit {
   navigator = {
     icon: "/assets/Icons/Profile.svg",
     title: `${this.visitedUserName} Profile`,
-    navigators: ['All', 'Pending', 'In Progress', 'Didn\'t Finished', 'Completed'],
-    routers: [],
+    navigators: ['All', 'Pending', 'In Progress', 'Expired', 'Completed'],
+    routers: ['/user/profile', '/user/me/profile/pending', '/user/me/profile/inProgress', '/user/me/profile/expired', '/user/me/profile/publish'],
     api: []
   }
   constructor(
@@ -39,12 +39,15 @@ export class ProfileComponent implements OnInit {
     public teamService: TeamsService,
     public profileService: ProfileServiceService,
     private router: Router,
+    private activeRouter: ActivatedRoute,
     public userTaskService: UserTaskService,
     public taskDetails: TaskDetailsService,
     public assignUserService: AssignUserService
   ) {
     let route = this.router.url
-    this.checkUser(route)
+    // statuss
+    let urlStatus = this.activeRouter.snapshot?.url[2]?.path
+    this.checkUser(route, urlStatus)
   }
 
   ngOnInit(): void {
@@ -54,26 +57,35 @@ export class ProfileComponent implements OnInit {
     }, 2000)
   }
   // [#] Controller
-  checkUser(route) {
+  checkUser(route, status) {
+    !status ? status =  "" :false    
+    console.log(status);
+    
     switch (route) {
       // current user
       case '/user/profile':
+      case '/user/me/profile/pending':
+      case '/user/me/profile/inProgress':
+      case '/user/me/profile/expired':
+      case '/user/me/profile/publish':
         this.userProfile = true
         this.navigator.title = 'Profile'
         localStorage.removeItem("teamUser");
-        this.getAllProps('en', 1, 25, '', '')
+        this.getPropsByStatus(status)
         break;
       // team user
       default:
+        this.userProfile = false
         this.teamService.oneUser = JSON.parse(localStorage.getItem("teamUser"))
         this.navigator.title = `${this.teamService.oneUser?.name} Profile`
-        this.getAllProps('en', 1, 25, '', this.teamService.oneUser?.id)
-        this.userProfile = false
+        this.navigator.routers = ['/user/profile/user', '/user/profile/user/pending', '/user/profile/user/inProgress', '/user/profile/user/expired', '/user/profile/user/publish']
+        // this.getAllProps('en', 1, 25, '', this.teamService.oneUser?.id)
+        this.getPropsByStatus(status, this.teamService.oneUser?.id)
         break;
     }
   }
   // [#] get propertys by status by (click) status cards
-  getPropsByStatus(status, userID = '') {
+  getPropsByStatus(status = "", userID = '') {
     this.getAllProps('en', 1, 25, status, userID)
   }
   // [?] start Task
