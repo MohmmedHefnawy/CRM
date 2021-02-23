@@ -1,3 +1,4 @@
+<app-modal></app-modal>
 <div class="overflow-auto h-100 ">
 <!-- Assign User Row -->
   <div class="sM0-supp-0-bg position-sticky OM-sticky-top">
@@ -5,7 +6,7 @@
     <!-- 1st Column Holder { Assign User } -->
     <div class="col-4 py-2 pl-5">
       <p class="m-0 sM0-fs-16 sM0-text-0-cr d-flex align-items-center">
-        <i class="sM0-icon-d sM0-bg-opacity-green-25 rounded-circle p-4 OM-icon-plus sM0-bg-imgs-center mr-2"></i>Assign User
+        <i (click)="openModal()" class="sM0-icon-d sM0-bg-opacity-green-25 rounded-circle p-4 OM-icon-plus sM0-bg-imgs-center mr-2"></i>Assign User
       </p>
     </div>
     <!-- 2st Column Holder { Button } -->
@@ -31,7 +32,7 @@
   </div>
   <!-- Pending Row mx-0 -->
   <div *ngFor="let assignUser of taskDetailsService?.assignedUsers" class="row mx-0 py-3 sM0-bg-opacity-gray-90~ sM0-bg-opacity-gold-25 mb-1 d-flex ">
-    <!-- 1st Column Holder { Assign User } -->
+    <!-- 1st Column Holder { User Profile Img } -->
     <div class="col-4 py-2 pl-5 sM0-bg-opacity-dark-90~ sM0-bg-opacity-gold-25 sM0-r-b-radius d-flex align-items-center">
       <div>
         <i class="OM-img-profile~ d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center" [ngStyle]="{'background-image' : 'url('+ imageBaseURL + assignUser.image +')'}"></i>

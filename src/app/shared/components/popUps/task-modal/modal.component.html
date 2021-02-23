@@ -20,11 +20,10 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="w-100 OM-progress-holder sM0-supp-1-bg"> -->
+            <!-- progress bar -->
                 <div *ngIf="loading.value$ | async" class=" loader-container p-0 ml-1 mr-5 position-relative">
                     <mat-progress-bar [value]="loading.value$ | async" class="position-absolute sM0-f-radius mx-4 pl-4~ " mode="determinate"></mat-progress-bar>
                 </div>
-            <!-- </div> -->
             <!-- Navs Bar -->
             <div class="modal-header p-4 sM0-supp-1-bg border-0 align-items-center justify-content-start">
                 <h5 class="modal-title sM0-fs-b-16 sM0-text-0-cr m-0 p-0" id="exampleModalLabel">Assign User</h5>

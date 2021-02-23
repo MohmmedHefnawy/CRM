@@ -19,7 +19,7 @@ export class DashBoardComponent implements OnInit {
   @ViewChild(ModalComponent) taskModal: ModalComponent
   navigator
   imageBaseURL = environment.imageBaseurl
-
+  prop
 
   constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public navService: NavigatorServicesService,  public userTaskService: UserTaskService,
     public usersMapService: UsersMapService,) { }
@@ -48,14 +48,14 @@ export class DashBoardComponent implements OnInit {
     this.getUsersToAssign(this.taskDetailsService.propID)
   }
   // [#] Controls
-  openTeamModal(action){
-    let prop = {
+  openModal(){
+    console.log(this.taskDetailsService.taskDetails)
+    this.prop = {
       title : this.taskDetailsService.taskDetails.description.title,
       id : this.taskDetailsService.taskDetails.id,
       images : this.taskDetailsService.taskDetails.images
     }
-    this.taskModal.openPopup(action, prop , 2)
-    console.log("here");
+    this.taskModal.openPopup(this.prop  , 2)
   }
   ngAfterViewInit() {
     this.navigator = {

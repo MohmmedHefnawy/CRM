@@ -52,9 +52,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
-    setTimeout(() => {
-      console.log(this.userTaskService.userTasks);
-    }, 2000)
   }
   // [#] Controller
   checkUser(route, status) {
@@ -96,10 +93,10 @@ export class ProfileComponent implements OnInit {
     userRoleID == 1 ? this.assignTask(propID) : this.changeTaskStatus(propID)
   }
   // open modal from ModalComponent
-  openPopUp(e, prop, roleId, action) {
+  openPopUp(e, prop, roleId) {
     console.log(prop)
     e.stopPropagation();
-    this.popUp.openPopup(action, prop, roleId)
+    this.popUp.openPopup(prop, roleId)
     //  this.router.navigate([`/user/profile/assign-user`])
   }
   saveMyInfo(textContent) {

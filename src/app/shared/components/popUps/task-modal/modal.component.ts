@@ -5,7 +5,7 @@ import { AssignUserService } from '../../../services/assign-user.service';
 import { UserTaskService } from 'src/app/task/services/user-task.service';
 import { UsersMapService } from 'src/app/shared/services/users-map.service'
 import { TaskDetailsService } from 'src/app/task/services/task-details.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { TeamsService } from 'src/app/user/services/teams.service';
 @Component({
   selector: 'app-modal',
@@ -19,7 +19,7 @@ export class ModalComponent implements OnInit {
   searchText;
   userRoleID
   prop:any
-  action
+  _urlPath
   isAssigned:boolean = false
   constructor(public assignUserService: AssignUserService,
      public loading: InLoadingService, 
@@ -27,15 +27,18 @@ export class ModalComponent implements OnInit {
      public usersMapService: UsersMapService,
      public taskDetails: TaskDetailsService,
      public teamService: TeamsService,
-     private router: Router
+     private router: Router,
+     private acitveRouter :ActivatedRoute
      ){}
   ngOnInit(): void {
+    this._urlPath = this.acitveRouter.snapshot.url[0].path
+    console.log(this._urlPath);
+    
   }
   // [#] Controlers
-  openPopup(action, prop, roleId){
+  openPopup(prop, roleId){
     $('#openPop').click()
     this.prop = prop
-    this.prop = action
     // this.propTitle = propTitle
     this.isAssigned = false
     this.activeRoute(roleId)
@@ -48,14 +51,25 @@ export class ModalComponent implements OnInit {
     this.userRoleID = userRole_id
     expiryDate ? this.postUsersByRoleID(userID, expiryDate) : false
   }
-  // Update Task Out Card
+  // Update Task Out Card profile
   updateTaskOuterCard(userRole_id){
     let userMap = this.usersMapService.usersMap[userRole_id.toString()]
-    for (let singleProp of this.userTaskService.userTasks) {
-      if (singleProp.id == this.prop.id) {
-        singleProp.tasks[userMap]++;
-      }
+    switch(this._urlPath){
+      case "profile":
+        // loop for porps in profile
+        let props = this.userTaskService.userTasks
+        for (let singleProp of props ) {
+          if (singleProp.id == this.prop.id) {
+            singleProp.tasks[userMap]++;
+          }
+        }
+        break
+      default :
+        // loop for users in dashboard members List
+        this.getUsersToAssign(this.prop.id)
+        break
     }
+   
   }
   activeRoute(ID){
   this.rollId_isActive = ID
@@ -111,24 +125,24 @@ export class ModalComponent implements OnInit {
       expiry_date : expireDate,
     }
     this.assignUserService.postUsersByRoleID(data).subscribe((res:any)=>{},err =>{},()=>{
-        this.getAssignUsers(this.prop.id);
-        switch(this.action){
-          case 'dashBorad' :
-          break;
-          case 'profile' :
-          this.updateTaskOuterCard(this.userRoleID)
-          break;
-        }
+      // ! change get Users and edit in Service array
+      this.getAssignUsers(this.prop.id);
+      this.updateTaskOuterCard(this.userRoleID)
         
     })
   }
   deleteAssignedUser(user){
     let userMap = this.usersMapService.usersMap[user.role_id.toString()]    
+    console.log(userMap)
     this.assignUserService.deleteUserFromProp(user.id, this.prop.id ).subscribe(res=>{
     },err=>{},()=>{
         user.check = false
+        // ! change get Users and edit in Service array
         this.getAssignUsers(this.prop.id);
-        this.prop.tasks[userMap]--
+        // if this moadl opend from profile only
+        this._urlPath == "profile" ? this.prop.tasks[userMap]-- : false
+        // if this moadl opend from dashBoard only // ! change get usres 
+        this._urlPath != "profile" ?  this.getUsersToAssign(this.prop.id) : false
         user.expDate = ""
     })
   }
@@ -144,5 +158,10 @@ export class ModalComponent implements OnInit {
       this.router.navigate(['/user/profile/user'])
     })
   }
-
+  getUsersToAssign(ID) {
+    this.taskDetails.getTaskAssignUser(ID).subscribe((res: any) => {
+      this.taskDetails.assignedUsers = res.data
+      
+    })
+  }
 } 
