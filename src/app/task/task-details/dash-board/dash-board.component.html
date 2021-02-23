@@ -90,10 +90,10 @@
                     </div>
                 </div>
                 <!-- Users List -->
-                <div *ngFor="let user of taskDetailsService?.assignedUsers" class="sM0-supp-0-bg sM0-f-radius d-flex align-items-center mb-4">
+                <div *ngFor="let user of taskDetailsService?.assignedUsers" (click)='goToUserProfile(user.users_id)' class="sM0-click sM0-supp-0-bg sM0-f-radius d-flex align-items-center mb-4" >
                     <!-- account manager icon -->
                     <div class="">
-                        <i [ngStyle]="{'background-image' : 'url('+ imageBaseURL + user.image +')'}" class="OM-img-profile~ d-block sM0-icon-a~ sM0-img-c sM0-circle-border sM0-bg-imgs-center"></i>
+                        <i [ngStyle]="{'background-image' : 'url('+ imageBaseURL + user.image +')'}" class="d-block sM0-icon-a~ sM0-img-c sM0-circle-border sM0-bg-imgs-center"></i>
                     </div>
                     <div class="pl-2">
                         <p class="mb-0 sM0-fs-mid-b-12">{{user.name |  slice:0:10}}...</p>

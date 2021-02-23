@@ -1,12 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavigatorServicesService } from 'src/app/shared/services/navigator-services.service';
 import { TaskDetailsService } from '../../services/task-details.service';
 import { environment } from 'src/environments/environment';
 import { ModalComponent } from '../../../shared/components/popUps/task-modal/modal.component';
 import { UserTaskService } from '../../services/user-task.service';
 import { UsersMapService } from 'src/app/shared/services/users-map.service';
+import { TeamsService } from 'src/app/user/services/teams.service';
 
 
 
@@ -20,9 +21,8 @@ export class DashBoardComponent implements OnInit {
   navigator
   imageBaseURL = environment.imageBaseurl
   prop
-
   constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public navService: NavigatorServicesService,  public userTaskService: UserTaskService,
-    public usersMapService: UsersMapService,) { }
+    public usersMapService: UsersMapService, public teamService: TeamsService, private router: Router) { }
 
   ngOnInit(): void {
     this.taskDetailsService.propID = this.Activerouter.snapshot.params['id']
@@ -49,7 +49,7 @@ export class DashBoardComponent implements OnInit {
   }
   // [#] Controls
   openModal(){
-    console.log(this.taskDetailsService.taskDetails)
+    
     this.prop = {
       title : this.taskDetailsService.taskDetails.description.title,
       id : this.taskDetailsService.taskDetails.id,
@@ -72,6 +72,18 @@ export class DashBoardComponent implements OnInit {
     this.taskDetailsService.getTaskAssignUser(ID).subscribe((res: any) => {
       this.taskDetailsService.assignedUsers = res.data
       
+    })
+  }
+  // Go To User Profile
+  goToUserProfile(iD) {
+    let userID = { user_id: iD }
+    this.teamService.getUserByID(userID).subscribe((res: any) => {
+      this.teamService.oneUser = res.data
+      localStorage.setItem("teamUser", JSON.stringify(this.teamService.oneUser))
+    }, err => {
+    }, () => {
+      this.getUsersToAssign(iD)
+      this.router.navigate(['/user/profile/user'])
     })
   }
 

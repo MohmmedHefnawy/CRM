@@ -13,6 +13,7 @@ import { TeamsService } from 'src/app/user/services/teams.service';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
+
   today =  new Date().toJSON().slice(0,10).replace(/-/g,'/');
   imageBaseURL = environment.imageBaseurl
   rollId_isActive;
@@ -161,7 +162,6 @@ export class ModalComponent implements OnInit {
   getUsersToAssign(ID) {
     this.taskDetails.getTaskAssignUser(ID).subscribe((res: any) => {
       this.taskDetails.assignedUsers = res.data
-      
     })
   }
 } 
