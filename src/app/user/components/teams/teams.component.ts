@@ -20,9 +20,9 @@ export class TeamsComponent implements OnInit, OnDestroy {
   navigator = {
     icon: "/assets/Icons/Teamwork.svg",
     title: 'teams',
-    navigators: ['Project Manegers', 'Dubai Admins', 'Account Manegers', 'Photographers', 'Designers', 'Content Creators'],
-    routers: ['/user/teams/project-managers', '/user/teams/dubai-admins', '/user/teams/account-managers', '/user/teams/photographers', '/user/teams/designers', '/user/teams/content-creators'],
-    api: [1, 2, 3, 4, 5, 6]
+    navigators: [ 'Dubai Admins', 'Account Manegers', 'Photographers', 'Designers', 'Content Creators'],
+    routers: [ '/user/teams/dubai-admins', '/user/teams/account-managers', '/user/teams/photographers', '/user/teams/designers', '/user/teams/content-creators'],
+    api: [2, 3, 4, 5, 6]
   }
   imageBaseURL = environment.imageBaseurl
   constructor(
