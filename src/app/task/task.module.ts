@@ -17,17 +17,19 @@ import { MediaComponent } from './task-details/content-panel/media/media.compone
 import { DescriptionComponent } from './task-details/content-panel/description/description.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocationComponent } from './task-details/content-panel/location/location.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
 @NgModule({
-  declarations: [TaskComponent, SideContentComponent, TaskDetailsComponent, DashBoardComponent, PhotographerPanelComponent, DesignersPanelComponent, ContentPanelComponent, ActivitiesComponent, TeamStatusComponent, DetailsComponent, AmenitiesComponent, MediaComponent, DescriptionComponent, LocationComponent],
+  declarations: [ TaskComponent, SideContentComponent, TaskDetailsComponent, DashBoardComponent, PhotographerPanelComponent, DesignersPanelComponent, ContentPanelComponent, ActivitiesComponent, TeamStatusComponent, DetailsComponent, AmenitiesComponent, MediaComponent, DescriptionComponent, LocationComponent],
   exports: [SideContentComponent, TaskDetailsComponent, TaskComponent],
   imports: [
     CommonModule,
     TaskRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class TaskModule { }

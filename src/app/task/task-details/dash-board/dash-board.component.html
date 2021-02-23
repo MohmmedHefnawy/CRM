@@ -1,3 +1,4 @@
+<app-modal></app-modal>
 <div class="row align-items-center~ justify-content-center overflow-auto h-100">
     <!-- Property Status Card -->
     <div class='M0-mini-card pr-4 mb-4'>
@@ -78,13 +79,13 @@
             <!-- Roles -->
             <div class="h-75 overflow-auto">
                 <!-- First Div -->
-                <div class="sM0-supp-0-bg sM0-f-radius d-flex align-items-center mb-4">
+                <div (click)="openTeamModal('dashBorad')" class="sM0-click sM0-supp-0-bg sM0-f-radius d-flex align-items-center mb-4">
                     <!-- account manager icon -->
                     <div
                         class="sM0-img-c sM0-bg-opacity-green-25 sM0-circle-border d-flex justify-content-center align-items-center">
                         <i class="OM-img-plus sM0-icon-d"></i>
                     </div>
-                    <div class="pl-3">
+                    <div  class="pl-3">
                         <p class="mb-0 sM0-fs-mid-b-12">Assign User</p>
                     </div>
                 </div>

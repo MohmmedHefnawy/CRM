@@ -19,6 +19,7 @@ export class ModalComponent implements OnInit {
   searchText;
   userRoleID
   prop:any
+  action
   isAssigned:boolean = false
   constructor(public assignUserService: AssignUserService,
      public loading: InLoadingService, 
@@ -31,9 +32,10 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {
   }
   // [#] Controlers
-  openPopup(prop, roleId){
+  openPopup(action, prop, roleId){
     $('#openPop').click()
     this.prop = prop
+    this.prop = action
     // this.propTitle = propTitle
     this.isAssigned = false
     this.activeRoute(roleId)
@@ -44,8 +46,9 @@ export class ModalComponent implements OnInit {
   // Assign Task 
   assignTask(userID, expiryDate, userRole_id){
     this.userRoleID = userRole_id
-    expiryDate ? this.postUsersByRoleID(userID, this.prop.id, expiryDate) : false
+    expiryDate ? this.postUsersByRoleID(userID, expiryDate) : false
   }
+  // Update Task Out Card
   updateTaskOuterCard(userRole_id){
     let userMap = this.usersMapService.usersMap[userRole_id.toString()]
     for (let singleProp of this.userTaskService.userTasks) {
@@ -101,7 +104,7 @@ export class ModalComponent implements OnInit {
     })
   }
   //  Assign Task To User 
-  postUsersByRoleID(userID, propID, expireDate){
+  postUsersByRoleID(userID, expireDate){
     let data = {
       users_id : userID,
       post_id :this.prop.id,
@@ -109,7 +112,13 @@ export class ModalComponent implements OnInit {
     }
     this.assignUserService.postUsersByRoleID(data).subscribe((res:any)=>{},err =>{},()=>{
         this.getAssignUsers(this.prop.id);
-        this.updateTaskOuterCard(this.userRoleID)
+        switch(this.action){
+          case 'dashBorad' :
+          break;
+          case 'profile' :
+          this.updateTaskOuterCard(this.userRoleID)
+          break;
+        }
         
     })
   }

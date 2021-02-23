@@ -13,6 +13,7 @@ import { TaskDetailsService } from 'src/app/task/services/task-details.service';
   styleUrls: ['./team-modal.component.css']
 })
 export class TeamModalComponent implements OnInit {
+  
   today =  new Date().toJSON().slice(0,10).replace(/-/g,'/');
   imageBaseURL = environment.imageBaseurl
   searchProps

@@ -84,9 +84,10 @@ export class ProfileComponent implements OnInit {
     userRoleID == 1 ? this.assignTask(propID) : this.changeTaskStatus(propID)
   }
   // open modal from ModalComponent
-  openPopUp(e, prop, roleId) {
+  openPopUp(e, prop, roleId, action) {
+    console.log(prop)
     e.stopPropagation();
-    this.popUp.openPopup(prop, roleId)
+    this.popUp.openPopup(action, prop, roleId)
     //  this.router.navigate([`/user/profile/assign-user`])
   }
   saveMyInfo(textContent) {
