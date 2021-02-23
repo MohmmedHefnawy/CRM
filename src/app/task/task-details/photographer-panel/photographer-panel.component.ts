@@ -26,29 +26,25 @@ export class PhotographerPanelComponent implements OnInit {
     let fileToUpload = files.item(0);
     if (fileToUpload) {
       this.uploadFileToActivity(fileToUpload)
-      this.updatePHImageURL(fileToUpload)
       console.log('done Uploaded');
     }
   }
 
   uploadFileToActivity(uploadedFIle) {
-    this.taskDetailsService.postFileUpload(uploadedFIle, this.taskDetailsService.propID).subscribe(res => { });
+    this.taskDetailsService.postFileUpload(uploadedFIle).subscribe(res => {
+      console.log(res);
+    });
   }
   // Update Photographer URL
-  updatePHImageURL(file) {
-    this.taskDetailsService.updatePhotographerImageURL(file, this.taskDetailsService.phImageURL.data.id).subscribe(res => {
-      console.log('Response From PH ' + res);
 
-    })
+  addRow() {
+    this.taskDetailsService.phImageURL?.data.push(this.taskDetailsService.phImageURL?.data.length)
   }
 
   socketON(listner) {
     this.socketService.socketON(listner).subscribe(res => {
-      console.log(`Receiver From Designer Component : ...... ${res}`);
-    }, err => {
-    }, () => {
-
-    })
+      console.log(`Receiver From PhotoGraphers Component : ...... ${res}`);
+    }, err => { }, () => { })
   }
 
 }

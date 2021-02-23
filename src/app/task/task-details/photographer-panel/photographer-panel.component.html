@@ -4,9 +4,9 @@
         <!-- + add -->
         <div class="M0-micro-card sM0-f-radius w-100 mb-4">
             <div class="h-100 sM0-bg-opacity-green-25 sM0-f-radius d-flex justify-content-center align-items-center">
-                <div
-                    class="sM0-img-c sM0-bg-opacity-green-25 sM0-circle-border d-flex justify-content-center align-items-center">
-                    <i class="OM-img-plus sM0-icon-d"></i>
+                <div (click)="addRow()"   
+                    class="sM0-img-c sM0-bg-opacity-green-25 sM0-click sM0-circle-border d-flex justify-content-center align-items-center">
+                    <i class="OM-img-plus sM0-icon-d sM0-click~"></i>
                 </div>
             </div>
         </div> 
@@ -39,7 +39,7 @@
             </div>
         </div>
         <!-- task row -->
-        <div #taskRow *ngFor='let awsPhoto of taskDetailsService.phImageURL?.data' (mouseover)="changeText=true" (mouseout)="changeText=false"  
+        <div #taskRow *ngFor='let awsPhoto of taskDetailsService.phImageURL?.data.reverse()' (mouseover)="changeText=true" (mouseout)="changeText=false"
          class="M0-micro-card d-flex sM0-bg-opacity-supp-1-5 sM0-f-radius w-100 p-4 mb-4 position-relative">
             <!-- HTTP Input -->
             <div class="w-100 px-4 d-flex flex-column justify-content-center">

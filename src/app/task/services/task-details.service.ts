@@ -35,8 +35,8 @@ export class TaskDetailsService {
     return this.http.get(`${this._url}getPropertiesTasks?id=${ID}`)
   }
   // Get Get Photographer Image URL
-  getPhotographerImageURL(ID) {
-    return this.http.get(`${this._urlUploadFile}AWSPhoto/${ID}/2/2`)
+  getPhotographerImageURL(propID) {
+    return this.http.get(`${this._urlUploadFile}AWSPhoto/${propID}/100/0`)
   }
 
   // ! Method POST
@@ -46,19 +46,18 @@ export class TaskDetailsService {
     return this.http.post(`${this._url}properties`, data)
   }
 
-  postFileUpload(fileToUpload: File, propID): Observable<any> {
+  postFileUpload(fileToUpload: File): Observable<any> {
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload);
-    formData.append('PostID', propID);
-    formData.append('unzip', 'true');
+    formData.append('PostID', this.propID);
+    // formData.append('unzip', 'true');
     return this.http.post(`${this._urlUploadFile}Upload/AWSUnzip`, formData)
   }
 
-  updatePhotographerImageURL(fileToUpload: File, imageID): Observable<any> {
-    const formData: FormData = new FormData();
-    formData.append('file', fileToUpload);
-    formData.append('PostID', imageID);
-    formData.append('unzip', 'true');
-    return this.http.patch(`${this._urlUploadFile}Update/AWSPhoto/${imageID}`, formData)
-  }
+  // postPhotographerImageURL(fileToUpload: File, propID): Observable<any> {
+  //   const formData: FormData = new FormData();
+  //   formData.append('file', fileToUpload);
+  //   formData.append('PostID', propID);
+  //   return this.http.post(`${this._urlUploadFile}Update/AWSPhoto`, formData)
+  // }
 }

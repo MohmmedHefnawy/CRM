@@ -33,12 +33,14 @@ export class DesignersPanelComponent implements OnInit {
   }
 
   uploadFileToActivity(uploadedFIle) {
-    this.taskDetailsService.postFileUpload(uploadedFIle, this.taskDetailsService.propID).subscribe(res => { });
+    this.taskDetailsService.postFileUpload(uploadedFIle).subscribe(res => {
+      console.log(res);
+
+    });
   }
   socketON(listner) {
     this.socketService.socketON(listner).subscribe(res => {
       this.changeValue(res)
-
       console.log(`Receiver From Designer Component : ...... ${res}`);
     }, err => {
     }, () => {
