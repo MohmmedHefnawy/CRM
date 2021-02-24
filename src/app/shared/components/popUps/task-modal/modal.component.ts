@@ -13,7 +13,7 @@ import { TeamsService } from 'src/app/user/services/teams.service';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-
+  // [@] Verbs
   today =  new Date().toJSON().slice(0,10).replace(/-/g,'/');
   imageBaseURL = environment.imageBaseurl
   rollId_isActive;
@@ -22,19 +22,14 @@ export class ModalComponent implements OnInit {
   prop:any
   _urlPath
   isAssigned:boolean = false
-  constructor(public assignUserService: AssignUserService,
-     public loading: InLoadingService, 
-     public userTaskService: UserTaskService,
-     public usersMapService: UsersMapService,
-     public taskDetails: TaskDetailsService,
-     public teamService: TeamsService,
-     private router: Router,
-     private acitveRouter :ActivatedRoute
-     ){}
+  // ! Constructor
+  constructor(public assignUserService: AssignUserService, public loading: InLoadingService, public userTaskService: UserTaskService,
+     public usersMapService: UsersMapService, public taskDetails: TaskDetailsService, public teamService: TeamsService,
+     private router: Router, private acitveRouter :ActivatedRoute){}
+  // ! OnInit
   ngOnInit(): void {
     this._urlPath = this.acitveRouter.snapshot.url[0].path
     console.log(this._urlPath);
-    
   }
   // [#] Controlers
   openPopup(prop, roleId){
@@ -64,23 +59,22 @@ export class ModalComponent implements OnInit {
             singleProp.tasks[userMap]++;
           }
         }
-        break
+      break
       default :
         // loop for users in dashboard members List
         this.getUsersToAssign(this.prop.id)
-        break
+      break
     }
-   
   }
   activeRoute(ID){
   this.rollId_isActive = ID
   }
   // Add Check prop To Assign tasks [Array]
-  checkIfAssignedUsers() {
+  checkIfAssignedUsers(){
     let allUsers = this.assignUserService.usersByRole,
-      assignedUsers = this.assignUserService.assignUsers;
-    for (let assingedUser of assignedUsers) {
-      for (let user of allUsers) {
+        assignedUsers = this.assignUserService.assignUsers;
+    for (let assingedUser of assignedUsers){
+      for (let user of allUsers){
         if (assingedUser.users_id == user.id) {
           user.check = true
           user.expDate = assingedUser.expiry_date
@@ -118,7 +112,7 @@ export class ModalComponent implements OnInit {
       this.checkIfAssignedUsers()
     })
   }
-  //  Assign Task To User 
+  // Assign Task To User 
   postUsersByRoleID(userID, expireDate){
     let data = {
       users_id : userID,
@@ -129,9 +123,9 @@ export class ModalComponent implements OnInit {
       // ! change get Users and edit in Service array
       this.getAssignUsers(this.prop.id);
       this.updateTaskOuterCard(this.userRoleID)
-        
     })
   }
+  // Deleted Assign User From Properties
   deleteAssignedUser(user){
     let userMap = this.usersMapService.usersMap[user.role_id.toString()]    
     console.log(userMap)
@@ -147,7 +141,7 @@ export class ModalComponent implements OnInit {
         user.expDate = ""
     })
   }
-
+  // Open Selected User profile
   goToUserProfile(iD) {
     let userID = { user_id: iD }
     this.teamService.getUserByID(userID).subscribe((res: any) => {
@@ -159,9 +153,10 @@ export class ModalComponent implements OnInit {
       this.router.navigate(['/user/profile/user'])
     })
   }
+  // Get User Data
   getUsersToAssign(ID) {
     this.taskDetails.getTaskAssignUser(ID).subscribe((res: any) => {
       this.taskDetails.assignedUsers = res.data
     })
   }
-} 
+}

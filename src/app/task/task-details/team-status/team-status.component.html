@@ -4,7 +4,7 @@
   <div class="sM0-supp-0-bg position-sticky OM-sticky-top">
     <div class="row mx-0 py-4 sM0-supp-1-bg d-flex mb-1 sM0-t-r-radius ">
     <!-- 1st Column Holder { Assign User } -->
-    <div class="col-4 py-2 pl-5">
+    <div class="col-4 sM0-click py-2 pl-5" >
       <p class="m-0 sM0-fs-16 sM0-text-0-cr d-flex align-items-center">
         <i (click)="openModal()" class="sM0-icon-d sM0-bg-opacity-green-25 rounded-circle p-4 OM-icon-plus sM0-bg-imgs-center mr-2"></i>Assign User
       </p>
@@ -33,14 +33,22 @@
   <!-- Pending Row mx-0 -->
   <div *ngFor="let assignUser of taskDetailsService?.assignedUsers" class="row mx-0 py-3 sM0-bg-opacity-gray-90~ sM0-bg-opacity-gold-25~ sM0-bg-opacity-gray-90 mb-1 d-flex ">
     <!-- 1st Column Holder { User Profile Img } -->
-    <div class="col-4 py-2 pl-5 sM0-bg-opacity-dark-90~ sM0-bg-opacity-white-5 sM0-r-b-radius d-flex align-items-center">
+    <div (click)="goToUserProfile(assignUser.users_id)" class="sM0-click col-4 py-2 pl-5 sM0-bg-opacity-dark-90~ sM0-bg-opacity-white-5 sM0-r-b-radius d-flex align-items-center">
       <div>
-        <i class="OM-img-profile~ d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center" [ngStyle]="{'background-image' : 'url('+ imageBaseURL + assignUser.image +')'}"></i>
+        <i class="d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center" [ngStyle]="{'background-image' : 'url('+ imageBaseURL + assignUser.image +')'}"></i>
       </div>
       <div class="pl-2">
         <p class="mb-0 sM0-main-cr">{{assignUser.name}}</p>
-        <p class="sM0-fs-10 mb-0 sM0-text-0-cr d-flex pl-1"><i
-          class="OM-icon-designwhite sM0-icon-e sM0-bg-imgs-center mr-1"></i>{{assignUser?.role_name}}</p>
+          <p class="sM0-fs-10 m-0 sM0-text-0-cr d-flex align-items-center ">
+            <i
+            [class.iM0-icon-dubiAdmin-white]="assignUser?.role_id == 2"
+            [class.iM0-icon-accountManger-white]="assignUser?.role_id == 3"
+            [class.iM0-icon-camera-white]="assignUser?.role_id == 4"
+            [class.iM0-icon-designers-white]="assignUser?.role_id == 5"
+            [class.iM0-icon-contentManger-white]="assignUser?.role_id == 6"
+            class="sM0-icon-e sM0-bg-imgs-center mb-1 mr-1"></i>
+            {{assignUser?.role_name}}
+        </p>
       </div>
     </div>
     <!-- 2st Column Holder { Button } -->
