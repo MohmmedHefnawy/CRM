@@ -11,7 +11,9 @@ import { AuthService } from "../../services/auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public authService: AuthService, private router: Router, public socketService: SocketService) { }
+  constructor(public authService: AuthService, private router: Router, public socketService: SocketService) { 
+    
+  }
 
   ngOnInit(): void {
     let holderWindowSize = (holder) => {// [?] holder is the selected holder <div> fo the component
@@ -37,6 +39,8 @@ export class LoginComponent implements OnInit {
       resizeContentHolder(holder);
     }
     holderWindowSize('#loginContainer')
+    console.log("here");
+    
   }
   onSubmit(form: NgForm) {
 

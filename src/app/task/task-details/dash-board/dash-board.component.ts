@@ -73,54 +73,54 @@ export class DashBoardComponent implements OnInit {
     this.navService.navigators = this.navigator;
   }
   // [#] HTTP REQs
-  getUsersToAssign(ID) {
-    this.taskDetailsService.getTaskAssignUser(ID).subscribe((res: any) => {
+  getUsersToAssign(propID) {
+    this.taskDetailsService.getTaskAssignUser(propID).subscribe((res: any) => {
       this.taskDetailsService.assignedUsers = res.data
       console.log(this.taskDetailsService.assignedUsers);
     })
   }
   // Go To User Profile
-  goToUserProfile(iD) {
-    let userID = { user_id: iD }
+  goToUserProfile(userId) {
+    let userID = { user_id: userId }
     this.teamService.getUserByID(userID).subscribe((res: any) => {
       this.teamService.oneUser = res.data
       localStorage.setItem("teamUser", JSON.stringify(this.teamService.oneUser))
     }, err => {
     }, () => {
-      this.getUsersToAssign(iD)
+      this.getUsersToAssign(userId)
       this.router.navigate(['/user/profile/user'])
     })
   }
   // Get Comment Value From Input
-  getCommentValue(val){
-    console.log(val);
-    let data = {
-      comment : val,
-      post_id : this.taskDetailsService.propID
-    } 
-    this.postCommentToServer(data)
-    console.log(data);
-  }
+  // getCommentValue(val){
+  //   console.log(val);
+  //   let data = {
+  //     comment : val,
+  //     post_id : this.taskDetailsService.propID
+  //   } 
+  //   this.postCommentToServer(data)
+  //   console.log(data);
+  // }
   // Get All Comment PostID & Count & Page_Num
   getAllComment(ID){
     this.taskDetailsService.getAllComment(ID).subscribe((res:any)=>{
       this.taskDetailsService.comments = res.data
       console.log(this.taskDetailsService.comments);
-    })
+    }, err=>{this.taskDetailsService.comments = []})
   }
   // Post Comment To Server
-  postCommentToServer(data){
+  postComment(commentInputValue){
+    let data = {
+          comment : commentInputValue,
+          post_id : this.taskDetailsService.propID
+        } 
     this.taskDetailsService.postComment(data).subscribe((res)=>{
       console.log(res);
     })
   }
   // Delete Comments By PostID
-  deleteComments(comment){
-    let data = {
-      post_id: comment.id
-    }
-    console.log(data);
-    this.taskDetailsService.deleteComments(data).subscribe((res)=>{
+  deleteComments(commentID){
+    this.taskDetailsService.deleteComments(commentID).subscribe((res)=>{
       console.log(res);
     })
   }

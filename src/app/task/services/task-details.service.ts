@@ -13,7 +13,7 @@ export class TaskDetailsService {
   assignedUsers;
   propID;
   tour3DPackage: any = [];
-  comments
+  comments: any = []
   // send old data to the backEnd
   old_status;
   old_category;
@@ -64,8 +64,8 @@ export class TaskDetailsService {
     return this.http.post(`${this._urlUploadFile}Create/Comment`, data)
   }
 
-  deleteComments(post_id) {
-    return this.http.delete(`${this._urlUploadFile}Classes/search.php`, post_id)
+  deleteComments(commentID) {
+    return this.http.delete(`${this._urlUploadFile}Delete/Post/${commentID}`)
   }
 
 }

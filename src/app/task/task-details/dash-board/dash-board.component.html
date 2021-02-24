@@ -96,18 +96,18 @@
                 <div *ngFor="let user of taskDetailsService?.assignedUsers" (click)='goToUserProfile(user.users_id)' class="sM0-click sM0-supp-0-bg sM0-f-radius d-flex align-items-center mb-4" >
                     <!-- account manager icon -->
                     <div class="">
-                        <i [ngStyle]="{'background-image' : 'url('+ imageBaseURL + user.image +')'}" class="d-block sM0-icon-a~ sM0-img-c sM0-circle-border sM0-bg-imgs-center"></i>
+                        <i [ngStyle]="{'background-image' : 'url('+ imageBaseURL + user.image +')'}" class="d-block sM0-img-c sM0-circle-border sM0-bg-imgs-center"></i>
                     </div>
                     <!-- User Name With Icons -->
                     <div class="pl-2">
                         <p class="mb-0 sM0-fs-mid-b-12">{{user.name |  slice:0:10}}...</p>
-                        <p class="sM0-fs-10 m-0 sM0-text-0-cr d-flex align-items-center ">
+                        <p class="sM0-fs-10 m-0 sM0-main-cr d-flex align-items-center ">
                             <i
-                            [class.iM0-icon-dubiAdmin-white]="user?.role_id == 2"
-                            [class.iM0-icon-accountManger-white]="user?.role_id == 3"
-                            [class.iM0-icon-camera-white]="user?.role_id == 4"
-                            [class.iM0-icon-designers-white]="user?.role_id == 5"
-                            [class.iM0-icon-contentManger-white]="user?.role_id == 6"
+                            [class.iM0-icon-dubiAdmin-gold]="user?.role_id == 2"
+                            [class.iM0-icon-accountManger-gold]="user?.role_id == 3"
+                            [class.iM0-icon-camera-gold]="user?.role_id == 4"
+                            [class.iM0-icon-designers-gold]="user?.role_id == 5"
+                            [class.iM0-icon-contentManger-gold]="user?.role_id == 6"
                             class="sM0-icon-e sM0-bg-imgs-center mb-1 mr-1"></i>
                             {{user.role_name}}
                         </p>
@@ -126,7 +126,7 @@
         <div class="w-100 py-4 pr-4 d-flex flex-column">
             <p class="sM0-text-0-cr pl-4 pb-4 m-0 sM0-fs-b-16 d-flex align-items-center"><i
                     class="OM-img-usertagcomment sM0-icon-d sM0-bg-imgs-center mr-2 sM0-text-0-cr"></i>Comments :</p>
-            <input type="text" #commentInput placeholder="Write a Comment..." class="sM0-fs-mid-b-12 sM0-f-radius p-4 sM0-supp-1-bg sM0-text-0-cr" (change)="getCommentValue(commentInput.value)">
+            <input type="text" #commentInput placeholder="Write a Comment..." class="sM0-fs-mid-b-12 sM0-f-radius p-4 sM0-supp-1-bg sM0-text-0-cr" (change)="postComment(commentInput.value)">
         </div>
     </div>
     <!-- Comment -->
@@ -161,7 +161,7 @@
                   <span class="sM0-text-0-cr sM0-fs-16">Edit</span>
                 </button>
                 <!-- Trach Icon And Button -->
-                <button mat-menu-item (click)="deleteComments(comment)" >
+                <button mat-menu-item (click)="deleteComments(comment.id)" >
                   <mat-icon class="OM-icon-trash sM0-click sM0-icon-d sM0-bg-imgs-center mr-2 "></mat-icon>
                   <span class="sM0-text-0-cr sM0-fs-16">Delete</span>
                 </button>
