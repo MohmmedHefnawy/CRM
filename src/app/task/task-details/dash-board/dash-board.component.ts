@@ -8,6 +8,7 @@ import { ModalComponent } from '../../../shared/components/popUps/task-modal/mod
 import { UserTaskService } from '../../services/user-task.service';
 import { UsersMapService } from 'src/app/shared/services/users-map.service';
 import { TeamsService } from 'src/app/user/services/teams.service';
+import { SocketService } from 'src/app/shared/socket/socket.service';
 
 
 
@@ -21,8 +22,9 @@ export class DashBoardComponent implements OnInit {
   navigator
   imageBaseURL = environment.imageBaseurl
   prop
+
   constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public navService: NavigatorServicesService,  public userTaskService: UserTaskService,
-    public usersMapService: UsersMapService, public teamService: TeamsService, private router: Router) { }
+    public usersMapService: UsersMapService, public teamService: TeamsService, private router: Router,public socketService: SocketService) { }
 
   ngOnInit(): void {
     this.taskDetailsService.propID = this.Activerouter.snapshot.params['id']
@@ -46,10 +48,13 @@ export class DashBoardComponent implements OnInit {
       }
     });
     this.getUsersToAssign(this.taskDetailsService.propID)
+    this.socketON('Uploaded')
+    this.socketON('Error_Uploaded')
+    this.getAllComment(this.taskDetailsService.propID)
   }
+
   // [#] Controls
   openModal(){
-    
     this.prop = {
       title : this.taskDetailsService.taskDetails.description.title,
       id : this.taskDetailsService.taskDetails.id,
@@ -71,7 +76,7 @@ export class DashBoardComponent implements OnInit {
   getUsersToAssign(ID) {
     this.taskDetailsService.getTaskAssignUser(ID).subscribe((res: any) => {
       this.taskDetailsService.assignedUsers = res.data
-      
+      console.log(this.taskDetailsService.assignedUsers);
     })
   }
   // Go To User Profile
@@ -84,6 +89,47 @@ export class DashBoardComponent implements OnInit {
     }, () => {
       this.getUsersToAssign(iD)
       this.router.navigate(['/user/profile/user'])
+    })
+  }
+  // Get Comment Value From Input
+  getCommentValue(val){
+    console.log(val);
+    let data = {
+      comment : val,
+      post_id : this.taskDetailsService.propID
+    } 
+    this.postCommentToServer(data)
+    console.log(data);
+  }
+  // Get All Comment PostID & Count & Page_Num
+  getAllComment(ID){
+    this.taskDetailsService.getAllComment(ID).subscribe((res:any)=>{
+      this.taskDetailsService.comments = res.data
+      console.log(this.taskDetailsService.comments);
+    })
+  }
+  // Post Comment To Server
+  postCommentToServer(data){
+    this.taskDetailsService.postComment(data).subscribe((res)=>{
+      console.log(res);
+    })
+  }
+  // Delete Comments By PostID
+  deleteComments(comment){
+    let data = {
+      post_id: comment.id
+    }
+    console.log(data);
+    this.taskDetailsService.deleteComments(data).subscribe((res)=>{
+      console.log(res);
+    })
+  }
+  // Listner To Data From Server
+  socketON(listner) {
+    this.socketService.socketON(listner).subscribe(res => {
+      console.log(`Receiver From DashBoard Component : ...... ${res}`);
+    }, err => {
+    }, () => {
     })
   }
 

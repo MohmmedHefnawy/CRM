@@ -1,1 +1,7 @@
 @import "../task-details.component.css";
+.OM-icon-trash {
+    background-image: url("/assets/Icons/Trash.svg");
+}
+.OM-img-edit {
+    background-image: url("/assets/Icons/Edit.svg");
+}

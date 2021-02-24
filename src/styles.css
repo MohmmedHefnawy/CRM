@@ -23,6 +23,12 @@ button:hover {
 i:hover {
   filter: brightness(1.2);
 }
+.cdk-overlay-connected-position-bounding-box{
+  outline: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+
+}
 /* ! START=== Select Style */
 
 select {

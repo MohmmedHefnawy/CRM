@@ -32,7 +32,7 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
     FormsModule,
     NgbModule,
     BrowserAnimationsModule,
-    LoadingBarHttpClientModule
+    LoadingBarHttpClientModule,
   ],
   providers: [
     // { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },
