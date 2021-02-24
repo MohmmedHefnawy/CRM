@@ -20,6 +20,12 @@
 .OM-icon-exclamationgold {
   background-image: url("/assets/Icons/Exclamationgold.svg");
 }
+.OM-img-thunder {
+  background-image: url("/assets/Icons/Thunder.svg");
+}
+.OM-img-wrong {
+  background-image: url("/assets/Icons/wrong.svg");
+}
 .OM-icon-exclamation {
   background-image: url("/assets/Icons/Exclamation.svg");
 }

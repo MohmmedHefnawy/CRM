@@ -10,11 +10,29 @@
       </p>
     </div>
     <!-- 2st Column Holder { Button } -->
-    <div class="col-4 p-0 d-flex justify-content-center align-items-center">
-      <button class="sM0-btn-w-160 sM0-text-0-cr sM0-fs-12 sM0-f-radius d-flex align-items-center justify-content-center btn sM0-supp-0-bg">
-        <i class="sM0-icon-d OM-icon-inprogress sM0-bg-imgs-center mr-3"></i>In-Progress
-      </button>
-    </div>
+      <!-- start button (pinding = 1) -->
+      <ng-container *ngIf='taskDetailsService.taskDetails?.tasks_status == "1"'>
+        <div class="col-4 p-0 d-flex justify-content-center align-items-center">
+          <button (click)='startTask($event, taskDetailsService.propID)'
+            class="btn sM0-btn-w-100 d-flex justify-content-center align-items-center sM0-t-l-radius sM0-bg-opacity-gold-25 pl-2 py-2">
+            <i class="OM-img-thunder sM0-icon-d sM0-bg-imgs-center mr-2"></i>
+            <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Start</p>
+          </button>
+          <!-- cancle button -->
+          <button
+            class="btn sM0-btn-w-65 d-flex justify-content-center align-items-center sM0-r-b-radius sM0-bg-opacity-red-25 ml-2 pr-4 py-2">
+            <i class="OM-img-wrong sM0-icon-d sM0-bg-imgs-center"></i>
+          </button>
+        </div>
+      </ng-container>
+    <!-- In progress task Status (InProgress = 2) -->
+    <ng-container *ngIf='taskDetailsService.taskDetails?.tasks_status == "2" ' >
+      <div class="col-4 p-0 d-flex justify-content-center align-items-center">
+        <button class="sM0-btn-w-160 sM0-text-0-cr sM0-fs-12 sM0-f-radius d-flex align-items-center justify-content-center btn sM0-supp-0-bg">
+          <i class="sM0-icon-d OM-icon-inprogress sM0-bg-imgs-center mr-3"></i>In-Progress
+        </button>
+      </div>
+    </ng-container>
     <!-- 3st Column Holder { Timer } -->
     <div class="col-4 d-flex pr-5 pl-0 align-items-center">
       <div class="w-100 d-flex justify-content-end">
@@ -30,7 +48,7 @@
     </div>
     </div>
   </div>
-  <!-- Pending Row mx-0 -->
+  <!--Users Row -->
   <div *ngFor="let assignUser of taskDetailsService?.assignedUsers" class="row mx-0 py-3 sM0-bg-opacity-gray-90~ sM0-bg-opacity-gold-25~ sM0-bg-opacity-gray-90 mb-1 d-flex ">
     <!-- 1st Column Holder { User Profile Img } -->
     <div (click)="goToUserProfile(assignUser.users_id)" class="sM0-click col-4 py-2 pl-5 sM0-bg-opacity-dark-90~ sM0-bg-opacity-white-5 sM0-r-b-radius d-flex align-items-center">
@@ -53,17 +71,27 @@
     </div>
     <!-- 2st Column Holder { Button } -->
     <div class="col-4 d-flex justify-content-center align-items-center">
-      <!-- start buttton -->
-      <button
-        class="btn sM0-btn-w-100 d-flex justify-content-center align-items-center sM0-t-l-radius sM0-bg-opacity-gold-25 pl-2 py-2">
-        <i class="OM-icon-timergold sM0-icon-d sM0-bg-imgs-center mr-2"></i>
-        <p class="sM0-main-cr d-inline-block mb-0 sM0-fs-12">Pending</p>
-      </button>
-      <!-- cancle button -->
-      <button
-        class="btn sM0-btn-w-58 d-flex justify-content-center align-items-center sM0-r-b-radius sM0-bg-opacity-gold-25 ml-1 pr-4 py-2">
-        <i class="OM-icon-exclamationgold sM0-icon-d sM0-bg-imgs-center"></i>
-      </button>
+      <!-- Pending buttton -->
+      <ng-container *ngIf='assignUser?.current_status_id == "1"'>
+        <!-- Pending buttton -->
+        <button
+          class="btn sM0-btn-w-100 d-flex justify-content-center align-items-center sM0-t-l-radius sM0-bg-opacity-gold-25 pl-2 py-2">
+          <i class="OM-icon-timergold sM0-icon-d sM0-bg-imgs-center mr-2"></i>
+          <p class="sM0-main-cr d-inline-block mb-0 sM0-fs-12">Pending</p>
+        </button>
+        <!-- cancle button -->
+        <button
+          class="btn sM0-btn-w-58 d-flex justify-content-center align-items-center sM0-r-b-radius sM0-bg-opacity-gold-25 ml-1 pr-4 py-2">
+          <i class="OM-icon-exclamationgold sM0-icon-d sM0-bg-imgs-center"></i>
+        </button>
+      </ng-container>
+      <!--  -->
+      <ng-container *ngIf='assignUser?.current_status_id == "2"'>
+        <button
+          class="sM0-btn-w-160 sM0-text-0-cr sM0-fs-12 sM0-f-radius d-flex align-items-center justify-content-center btn sM0-supp-0-bg">
+          <i class="sM0-icon-d OM-icon-inprogress sM0-bg-imgs-center mr-3"></i>In-Progress
+        </button>
+      </ng-container>
     </div>
     <!-- 3st Column Holder { Timer } -->
     <div class="col-4 d-flex pr-5 pl-0 align-items-center">

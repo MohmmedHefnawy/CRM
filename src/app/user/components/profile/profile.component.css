@@ -94,6 +94,12 @@
 .OM-img-twitter {
   background-image: url("/assets/Icons/Twitter.svg");
 }
+.OM-icon-timergold {
+  background-image: url("/assets/Icons/Timergold.svg");
+}
+.OM-icon-exclamationgold {
+  background-image: url("/assets/Icons/Exclamationgold.svg");
+}
 .OM-img-profile-holder {
   width: 31.5% !important;
 }
