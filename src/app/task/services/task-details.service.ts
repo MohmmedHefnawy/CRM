@@ -12,7 +12,7 @@ export class TaskDetailsService {
   propStaticData;
   assignedUsers;
   propID;
-  phImageURL;
+  tour3DPackage = [];
   // send old data to the backEnd
   old_status;
   old_category;
@@ -46,18 +46,27 @@ export class TaskDetailsService {
     return this.http.post(`${this._url}properties`, data)
   }
 
-  postFileUpload(fileToUpload: File): Observable<any> {
-    const formData: FormData = new FormData();
-    formData.append('file', fileToUpload);
-    formData.append('PostID', this.propID);
-    // formData.append('unzip', 'true');
-    return this.http.post(`${this._urlUploadFile}Upload/AWSUnzip`, formData)
+  postPhotographerBoxRow(porpID): Observable<any> {
+    return this.http.post(`${this._urlUploadFile}Upload/AWSUnzip`, porpID)
   }
-
-  // postPhotographerImageURL(fileToUpload: File, propID): Observable<any> {
+  deletePhotographerPackage(boxRowID) {
+    return this.http.delete(`${this._urlUploadFile}Delete/AWSPhoto/${boxRowID}`)
+  }
+  updatePhotographerPackage(boxRowID, data) {
+    return this.http.patch(`${this._urlUploadFile}Update/AWSPhoto/${boxRowID}`, data)
+  }
+  // postFileUpload(fileToUpload: File): Observable<any> {
   //   const formData: FormData = new FormData();
   //   formData.append('file', fileToUpload);
-  //   formData.append('PostID', propID);
-  //   return this.http.post(`${this._urlUploadFile}Update/AWSPhoto`, formData)
+  //   formData.append('PostID', this.propID);
+  // formData.append('unzip', 'true');
+  //   return this.http.post(`${this._urlUploadFile}Upload/AWSUnzip`, formData)
+  // }
+
+  // updatePhotographerImageURL(fileToUpload: File, ID): Observable<any> {
+  //   const formData: FormData = new FormData();
+  //   formData.append('file', fileToUpload);
+  //   formData.append('title', this.phImageURL.title);
+  //   return this.http.patch(`${this._urlUploadFile}Update/AWSPhoto?id=${ID}`, formData)
   // }
 }
