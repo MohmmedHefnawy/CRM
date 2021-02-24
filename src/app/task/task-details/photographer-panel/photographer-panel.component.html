@@ -11,21 +11,21 @@
             </div>
         </div> 
         <!-- task row -->
-        <div #taskRow *ngFor='let awsPhoto of taskDetailsService?.tour3DPackage' (mouseover)="deleteBttn[data-view] = true" (mouseout)="deleteBttn[data-view] =false"
+        <div #taskRow *ngFor='let awsPhoto of taskDetailsService.tour3DPackage' (mouseover)="deleteBttn[data-view] = true" (mouseout)="deleteBttn[data-view] =false"
          class="M0-micro-card d-flex sM0-bg-opacity-supp-1-5 sM0-f-radius w-100 p-4 mb-4 position-relative">
             <!-- HTTP Input -->
             <div class="w-100 px-4 d-flex flex-column justify-content-center">
                 <!-- Delete button -->
                 <div #deleteBttn [data-view]='false' class='d-flex'>
                     <i
-                        (click)='deletePhotographerPackage(awsPhoto.id)'
+                        (click)='deletePhotographerPackage(awsPhoto?.id)'
                      [class.d-block]="deleteBttn[data-view]" [class.d-none]="!deleteBttn[data-view]" class=" position-absolute OM-icon-Holder-Delete OM-img-deletered d-block~ sM0-click  sM0-icon-b"></i>
                 </div>
                 <div class="d-flex w-100 mb-2">
                     <!-- ? Title Input -->
                     <div class="w-100 mb-2">
-                        <input #imageINPTitle type="text" placeholder="Property Image Name" [value]='awsPhoto.title'
-                        (blur)='updatePhotographerPackage(awsPhoto.id, imageINPTitle.value, false)' class="sM0-text-0-cr sM0-bg-opacity-supp-1-5 sM0-fs-b-16 sM0-f-radius px-4">
+                        <input #imageINPTitle type="text" placeholder="Property Image Name" [value]='awsPhoto?.title'
+                        (blur)='updatePhotographerPackage(awsPhoto?.id, imageINPTitle.value, false)' class="sM0-text-0-cr sM0-bg-opacity-supp-1-5 sM0-fs-b-16 sM0-f-radius px-4">
                     </div>
                 </div>
                 <div class="d-flex w-100">
@@ -34,16 +34,16 @@
                     </div>
                      <!-- ? Image URL Input -->
                     <div class="w-100 p-0">
-                        <input type="text" placeholder="URL..." [value]='awsPhoto.image_link'
+                        <input type="text" placeholder="URL..." [value]='awsPhoto?.image_link'
                             class="sM0-fs-mid-b-12  px-4 w-100 h-100 sM0-supp-1-bg sM0-text-0-cr"readonly>
                     </div>
                     <!-- Button Save -->
                     <div class="d-flex justify-content-end ml-4~">
                         <button type="submit" class="sM0-r-b-radius w-100 sM0-supp-1-bg sM0-border-none px-4">
-                            <label [for]="awsPhoto.id" class=" d-flex justify-content-center mb-0 sM0-click">
+                            <label [for]="awsPhoto?.id" class=" d-flex justify-content-center mb-0 sM0-click w-100 h-100">
                                 <p class="mb-0 sM0-text-0-cr sM0-fs-b-12 d-flex"><i class="OM-img-link sM0-icon-d mr-2"></i> Upload</p>
                             </label>
-                            <input  type="file" class="d-none form-group" id="{{awsPhoto.id}}" (change)='updatePhotographerPackage(awsPhoto.id, false, $event.target.files)'>
+                            <input  type="file" class="d-none form-group" id="{{awsPhoto?.id}}" (change)='updatePhotographerPackage(awsPhoto?.id, false, $event.target.files)'>
                         </button>
                     </div>
                 </div>

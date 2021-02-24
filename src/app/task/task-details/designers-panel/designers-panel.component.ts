@@ -34,9 +34,9 @@ export class DesignersPanelComponent implements OnInit {
   }
   // Post Upload File To Server
   uploadFileToActivity(uploadedFIle) {
-    this.taskDetailsService.postFileUpload(uploadedFIle).subscribe(res => {
-      console.log(res);
-    });
+    //   this.taskDetailsService.postFileUpload(uploadedFIle).subscribe(res => {
+    //     console.log(res);
+    //   });
   }
   // Listner To Data From Server
   socketON(listner) {

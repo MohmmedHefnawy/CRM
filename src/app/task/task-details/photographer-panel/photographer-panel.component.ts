@@ -9,7 +9,7 @@ import { TaskDetailsService } from '../../services/task-details.service';
   styleUrls: ['./photographer-panel.component.css']
 })
 export class PhotographerPanelComponent implements OnInit {
-  arr = []
+  arr: [] = []
   changeText: boolean;
   constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public socketService: SocketService) {
     this.changeText = false;
@@ -22,22 +22,13 @@ export class PhotographerPanelComponent implements OnInit {
   }
 
   // ! Controller
-  // postPhotographerPackage(val) {
-  //   this.taskDetailsService.tour3DPackage.push(this.taskDetailsService.tour3DPackage.length)
-
-  // }
-
-  handleFileInput(files: FileList) {
-    let fileToUpload = files.item(0);
-    if (fileToUpload) {
-      // let fileToUpload = files.item(0);
-      // const formData: FormData = new FormData();
-      // formData.append('file', file);
-      // formData.append('unzip', 'false');
+  boxModel(packageID) {
+    let data
+    return data = {
+      title: '',
+      image_link: '',
+      id: packageID
     }
-
-    // this.postPhotographerPackage(fileToUpload)
-    // console.log('done Uploaded');
   }
   updatePackageTitle(title) {
     // this.postPhotographerPackage(title)
@@ -58,8 +49,9 @@ export class PhotographerPanelComponent implements OnInit {
       PostID: this.taskDetailsService.propID
     };
     this.taskDetailsService.postPhotographerBoxRow(data).subscribe(res => {
-      this.taskDetailsService?.tour3DPackage.push(res.data)
       console.log(res);
+      this.taskDetailsService.tour3DPackage.push(this.boxModel(res.id))
+      console.log(this.taskDetailsService?.tour3DPackage);
     });
   }
   deletePhotographerPackage(boxRowID) {

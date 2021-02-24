@@ -12,7 +12,7 @@ export class TaskDetailsService {
   propStaticData;
   assignedUsers;
   propID;
-  tour3DPackage = [];
+  tour3DPackage: any = [];
   comments
   // send old data to the backEnd
   old_status;

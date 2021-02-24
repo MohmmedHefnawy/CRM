@@ -62,8 +62,8 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
 
   getPhotographersPackagesByPropID(propID) {
     this.taskDetails.getPhotographerImageURL(propID).subscribe((res: any) => {
-      console.log(res);
-      this.taskDetails.tour3DPackage = res.data
+      res.data ? this.taskDetails.tour3DPackage = res.data : false
+      console.log(this.taskDetails.tour3DPackage);
     }, err => { this.taskDetails.tour3DPackage = [] })
   }
   ngOnDestroy(): void {
