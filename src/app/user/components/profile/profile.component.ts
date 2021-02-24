@@ -69,11 +69,13 @@ export class ProfileComponent implements OnInit {
         this.navigator.title = 'Profile'
         localStorage.removeItem("teamUser");
         this.getPropsByStatus(status)
+        setTimeout(() => { console.log(this.authService.user)},100)
         break;
       // team user
       default:
         this.userProfile = false
         this.teamService.oneUser = JSON.parse(localStorage.getItem("teamUser"))
+        console.log(this.teamService.oneUser)
         this.navigator.title = `${this.teamService.oneUser?.name} Profile`
         this.navigator.routers = ['/user/profile/user', '/user/profile/user/pending', '/user/profile/user/inProgress', '/user/profile/user/expired', '/user/profile/user/publish']
         // this.getAllProps('en', 1, 25, '', this.teamService.oneUser?.id)
@@ -88,7 +90,6 @@ export class ProfileComponent implements OnInit {
   // [?] start Task
   startTask(e, propID) {
     let userRoleID = this.authService.user.data.role_id
-    console.log(userRoleID);
     e.stopPropagation();
     userRoleID == 1 ? this.assignTask(propID) : this.changeTaskStatus(propID)
   }
@@ -142,6 +143,7 @@ export class ProfileComponent implements OnInit {
     this.userTaskService.getUserTask(lang, page, num, status, userID).subscribe((res: any) => {
       this.userTaskService.userTasks = res.data
       this.userTaskService.pagination = res.pages
+      console.log(this.userTaskService.userTasks)
     })
   }
   getPropById(ID) {
@@ -178,12 +180,13 @@ export class ProfileComponent implements OnInit {
       status_id: 2
     }
     this.assignUserService.propChangeStatus(data).subscribe(res=>{
-
+      console.log(res)
     },err=>{}, ()=>{
         for (let singleProp of this.userTaskService.userTasks) {
           if (singleProp.id == propID) {
             singleProp.tasks_status = '2'
             this.authService.user.data.inProgress++
+            console.log(singleProp)
           }
         }
     })

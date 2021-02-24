@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { TaskRoutingModule } from './task-routing.module';
 import { TaskComponent } from './task.component';
 import { SideContentComponent } from './side-content/side-content.component';
@@ -21,6 +20,7 @@ import { SharedModule } from '../shared/shared.module';
 
 
 
+
 @NgModule({
   declarations: [ TaskComponent, SideContentComponent, TaskDetailsComponent, DashBoardComponent, PhotographerPanelComponent, DesignersPanelComponent, ContentPanelComponent, ActivitiesComponent, TeamStatusComponent, DetailsComponent, AmenitiesComponent, MediaComponent, DescriptionComponent, LocationComponent],
   exports: [SideContentComponent, TaskDetailsComponent, TaskComponent],
@@ -29,7 +29,7 @@ import { SharedModule } from '../shared/shared.module';
     TaskRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class TaskModule { }

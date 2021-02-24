@@ -198,41 +198,44 @@
                             <i class="OM-img-Locationgold sM0-icon-d sM0-bg-imgs-center"></i>
                             <p class="sM0-main-cr d-inline-block mb-0 ml-2 text-center sM0-fs-16" [textContent]='task.city'></p>
                         </div>
-                        <!-- Cards Buttons -->
-                        <div class='pb-3 d-flex'>
-                            <!-- assigned dubiAdmin -->
-                            <button *ngIf='task?.tasks?.DA' (click)='openPopUp($event, task, 2)'
-                                class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40 sM0-circle-border sM0-supp-1-bg mr-2">
-                                <i class="iM0-icon-dubiAdmin-white sM0-icon-d sM0-bg-imgs-center"></i>
-                            </button>
-                            <!-- assigned Photographer -->
-                            <button *ngIf='task?.tasks?.PH' (click)='openPopUp($event, task , 4)'
-                                class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-supp-1-bg mr-2">
-                                <i class="iM0-icon-camera-white  sM0-icon-d sM0-bg-imgs-center"></i>
-                            </button>
-                            <!-- assigned Designer -->
-                            <button *ngIf='task?.tasks?.GD' (click)='openPopUp($event, task , 5)'
-                                class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-supp-1-bg mr-2">
-                                <i class="iM0-icon-designers-white  sM0-icon-d sM0-bg-imgs-center"></i>
-                            </button>
-                            <!-- assigned Content Creator -->
-                            <button *ngIf='task?.tasks?.CM' (click)='openPopUp($event, task, 6)'
-                                class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-supp-1-bg mr-2">
-                                <i class="iM0-icon-contentManger-white  sM0-icon-d sM0-bg-imgs-center"></i>
-                            </button>
-                            <!-- assign user small button -->
-                            <ng-container *ngIf='!(task?.tasks?.CM != 0 && task?.tasks?.GD != 0 && task?.tasks?.PH != 0 && task?.tasks?.DA != 0)'>
-                                <button *ngIf='task?.tasks_status == "2" && task?.tasks?.CM || task?.tasks?.GD || task?.tasks?.PH || task?.tasks?.DA' (click)='openPopUp($event, task, 2)'
-                                    class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-bg-opacity-green-25 mr-2">
-                                    <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center"></i>
+                        <!-- Cards Buttons (userProfile) -->
+                        <div *ngIf='userProfile' class='pb-3 d-flex'>
+                            <!-- if user is project manager (PM) -->
+                            <section class='d-flex' *ngIf='authService.user?.data?.role_id == 1'>
+                                <!-- assigned dubiAdmin -->
+                                <button *ngIf='task?.tasks?.DA' (click)='openPopUp($event, task, 2)'
+                                    class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40 sM0-circle-border sM0-supp-1-bg mr-2">
+                                    <i class="iM0-icon-dubiAdmin-white sM0-icon-d sM0-bg-imgs-center"></i>
                                 </button>
-                            </ng-container>
-                            <!-- assign user Larg button (inProgress = 2) -->
-                            <button  *ngIf='task?.tasks_status == "2" && task?.tasks?.CM == 0 && task?.tasks?.GD == 0 && task?.tasks?.PH == 0 && task?.tasks?.DA == 0' (click)='openPopUp($event, task, 2);'
-                                class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
-                                <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center mr-3"></i>
-                                <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Assign User</p>
-                            </button>
+                                <!-- assigned Photographer -->
+                                <button *ngIf='task?.tasks?.PH' (click)='openPopUp($event, task , 4)'
+                                    class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-supp-1-bg mr-2">
+                                    <i class="iM0-icon-camera-white  sM0-icon-d sM0-bg-imgs-center"></i>
+                                </button>
+                                <!-- assigned Designer -->
+                                <button *ngIf='task?.tasks?.GD' (click)='openPopUp($event, task , 5)'
+                                    class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-supp-1-bg mr-2">
+                                    <i class="iM0-icon-designers-white  sM0-icon-d sM0-bg-imgs-center"></i>
+                                </button>
+                                <!-- assigned Content Creator -->
+                                <button *ngIf='task?.tasks?.CM' (click)='openPopUp($event, task, 6)'
+                                    class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-supp-1-bg mr-2">
+                                    <i class="iM0-icon-contentManger-white  sM0-icon-d sM0-bg-imgs-center"></i>
+                                </button>
+                                <!-- assign user small button -->
+                                <ng-container *ngIf='!(task?.tasks?.CM != 0 && task?.tasks?.GD != 0 && task?.tasks?.PH != 0 && task?.tasks?.DA != 0)'>
+                                    <button *ngIf='task?.tasks_status == "2" && task?.tasks?.CM || task?.tasks?.GD || task?.tasks?.PH || task?.tasks?.DA' (click)='openPopUp($event, task, 2)'
+                                        class="btn d-flex justify-content-center align-items-center p-0 sM0-inp-hw-40  sM0-circle-border sM0-bg-opacity-green-25 mr-2">
+                                        <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center"></i>
+                                    </button>
+                                </ng-container>
+                                <!-- assign user Larg button (inProgress = 2) -->
+                                <button  *ngIf='task?.tasks_status == "2" && task?.tasks?.CM == 0 && task?.tasks?.GD == 0 && task?.tasks?.PH == 0 && task?.tasks?.DA == 0' (click)='openPopUp($event, task, 2);'
+                                    class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25 px-3 py-2">
+                                    <i class="OM-img-Plus sM0-icon-d sM0-bg-imgs-center mr-3"></i>
+                                    <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Assign User</p>
+                                </button>
+                            </section>
                             <!-- start button (pinding = 1) -->
                             <ng-container *ngIf='task?.tasks_status == "1"'>
                                 <button (click)='startTask($event, task?.id)'
@@ -246,11 +249,38 @@
                                     <i class="OM-img-wrong sM0-icon-d sM0-bg-imgs-center"></i>
                                 </button>
                             </ng-container>
+                            <button *ngIf='authService.user?.data?.role_id != 1 && task?.tasks_status == "2"'
+                                class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-gray-90 px-3 py-2">
+                                <i class="OM-img-alarm sM0-icon-d py-3 sM0-bg-imgs-center d-inline-block mr-3"></i>
+                                <p class="m-0 pt-1 sM0-text-0-cr sM0-fs-b-16 sM0-font-clock">0 0 : 0 1</p>
+                            </button>
                             <!-- complete button (complete = 4) -->
                             <button *ngIf='task?.tasks_status == "4"'
                                 class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-green-25~ px-3 py-2">
                                 <i class="OM-img-right sM0-icon-d sM0-bg-imgs-center mr-3"></i>
                                 <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Completed</p>
+                            </button>
+                        </div>
+                        <!-- cards Button (!userProfile) -->
+                        <div *ngIf='!userProfile' class='pb-3 d-flex'>
+                            <ng-container *ngIf='task?.tasks_status == "1"'>
+                                <!-- pinding -->
+                                <button (click)='startTask($event, task?.id)'
+                                    class="btn sM0-btn-w-100 d-flex justify-content-center align-items-center sM0-t-l-radius sM0-bg-opacity-gold-25 pl-2 py-2">
+                                    <i class="OM-icon-timergold sM0-icon-d sM0-bg-imgs-center mr-2"></i>
+                                    <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Pending</p>
+                                </button>
+                                <!-- alert -->
+                                <button
+                                    class="btn sM0-btn-w-65 d-flex justify-content-center align-items-center sM0-r-b-radius sM0-bg-opacity-gold-25 ml-2 pr-4 py-2">
+                                    <i class="OM-icon-exclamationgold sM0-icon-d sM0-bg-imgs-center"></i>
+                                </button>
+                            </ng-container>
+                            <!-- in progress -->
+                            <button *ngIf='task?.tasks_status == "2"'
+                                class="btn sM0-btn-w-160 d-flex justify-content-center align-items-center sM0-f-radius sM0-bg-opacity-gray-90 px-3 py-2">
+                                <i class="OM-img-alarm sM0-icon-d py-3 sM0-bg-imgs-center d-inline-block mr-3"></i>
+                                <p class="m-0 pt-1 sM0-text-0-cr sM0-fs-b-16 sM0-font-clock">0 0 : 0 1</p>
                             </button>
                         </div>
                     </div>
@@ -263,12 +293,6 @@
                             Live Now
                         </div>
                     </div>
-                    <!-- inner ICONS -->
-                    <!-- <div class="w-75 d-flex justify-content-end pt-3">
-                        <i class="OM-img-list sM0-icon-e sM0-bg-imgs-center d-inline-block "></i>
-                        <i class="OM-img-attachment sM0-icon-e sM0-bg-imgs-center d-inline-block ml-2"></i>
-                        <i class="OM-img-comment sM0-icon-e sM0-bg-imgs-center d-inline-block ml-2"></i>
-                    </div> -->
                 </div>
             </div>
         </ng-container>

@@ -6,7 +6,8 @@
             <!-- Title -->
             <p class="sM0-text-0-cr mb-5 d-flex align-items-center sM0-fs-b-16">
                 <i class="OM-img-propertystatus sM0-icon-d sM0-bg-imgs-center mr-2"></i>
-                Property Status</p>
+                Property Status
+            </p>
             <!-- Progress bar 1 -->
             <div class="progress mx-auto" data-value='70'>
                 <span class="progress-left">
@@ -15,8 +16,7 @@
                 <span class="progress-right">
                     <span class="progress-bar border-primary~ OM-border-Progress"></span>
                 </span>
-                <div
-                    class="sM0-bg-opacity-gold-25 progress-value w-100 h-100 mb-0 rounded-circle d-flex justify-content-center">
+                <div class="sM0-bg-opacity-gold-25 progress-value w-100 h-100 mb-0 rounded-circle d-flex justify-content-center">
                     <div class="h5 d-flex sM0-text-0-cr justify-content-center align-items-center sM0-fs-b-16">70%</div>
                 </div>
             </div>
@@ -38,8 +38,9 @@
         <!-- First Div -->
         <div class='sM0-bg-opacity-supp-1-5 sM0-text-0-cr w-100 h-100 sM0-f-radius p-4'>
             <!-- Title -->
-            <p class="sM0-text-0-cr mb-5 d-flex align-items-center sM0-fs-b-16"><i
-                    class="OM-img-rightwhite sM0-icon-d sM0-bg-imgs-center mr-2"></i>Completed</p>
+            <p class="sM0-text-0-cr mb-5 d-flex align-items-center sM0-fs-b-16">
+                <i class="OM-img-rightwhite sM0-icon-d sM0-bg-imgs-center mr-2"></i> Completed
+            </p>
             <!-- Roles -->
             <div class="sM0-supp-0-bg sM0-f-radius d-flex align-items-center mb-4 sM0-bg-opacity-green-5">
                 <!-- account manager icon -->
@@ -48,8 +49,9 @@
                 </div>
                 <div class="pl-2">
                     <p class="mb-0 sM0-fs-mid-b-12">User Name</p>
-                    <p class="sM0-main-cr sM0-fs-10 mb-0 d-flex pl-1"><i
-                            class="OM-img-design sM0-icon-e sM0-bg-imgs-center mr-1"></i>Designer</p>
+                    <p class="sM0-main-cr sM0-fs-10 mb-0 d-flex pl-1">
+                        <i class="OM-img-design sM0-icon-e sM0-bg-imgs-center mr-1"></i> Designer
+                    </p>
                 </div>
             </div>
             <!-- Secound Div -->
@@ -60,20 +62,21 @@
                 </div>
                 <div class="pl-2">
                     <p class="mb-0 sM0-fs-mid-b-12">User Name</p>
-                    <p class="sM0-main-cr sM0-fs-10 mb-0 d-flex pl-2"><i
-                            class="OM-img-moderat sM0-icon-e sM0-bg-imgs-center mr-1"></i>C. Moderator</p>
+                    <p class="sM0-main-cr sM0-fs-10 mb-0 d-flex pl-2">
+                        <i class="OM-img-moderat sM0-icon-e sM0-bg-imgs-center mr-1"></i> C. Moderator
+                    </p>
                 </div>
             </div>
         </div>
-    
     </div>
     <!-- Members Card -->
     <div class='M0-mini-card pr-4 mb-4'>
         <div class='sM0-bg-opacity-supp-1-5 sM0-text-0-cr w-100 h-100 sM0-f-radius p-4 h-100'>
             <!-- Title -->
             <div>
-                <p class="sM0-text-0-cr sM0-fs-b-16 mb-5 d-flex align-items-center"><i
-                        class="OM-img-user sM0-icon-d sM0-bg-imgs-center mr-2"></i>Member</p>
+                <p class="sM0-text-0-cr sM0-fs-b-16 mb-5 d-flex align-items-center">
+                    <i class="OM-img-user sM0-icon-d sM0-bg-imgs-center mr-2"></i> Member
+                </p>
             </div>
             <!-- TODO make it Scroller div -->
             <!-- Roles -->
@@ -123,26 +126,59 @@
         <div class="w-100 py-4 pr-4 d-flex flex-column">
             <p class="sM0-text-0-cr pl-4 pb-4 m-0 sM0-fs-b-16 d-flex align-items-center"><i
                     class="OM-img-usertagcomment sM0-icon-d sM0-bg-imgs-center mr-2 sM0-text-0-cr"></i>Comments :</p>
-            <input type="text" placeholder="Write a Comment..." class="sM0-fs-mid-b-12 sM0-f-radius p-4 sM0-supp-1-bg sM0-text-0-cr">
+            <input type="text" #commentInput placeholder="Write a Comment..." class="sM0-fs-mid-b-12 sM0-f-radius p-4 sM0-supp-1-bg sM0-text-0-cr" (change)="getCommentValue(commentInput.value)">
         </div>
     </div>
     <!-- Comment -->
-    <div class="mb-4 w-100 pr-4">
-        <div class='d-flex px-4'>
+    <div class="mb-4 w-100 pr-4" *ngFor="let comment of taskDetailsService?.comments" >
+        <div class='d-flex px-4' >
             <!-- User Comment Tag -->
-            <div class="M0-comment-tag sM0-t-l-radius d-flex align-items-center sM0-bg-opacity-white-5">
-                <i class="OM-img-profile sM0-img-c sM0-circle-border sM0-bg-imgs-center"></i>
+            <div class="sM0-click M0-comment-tag sM0-t-l-radius d-flex align-items-center sM0-bg-opacity-white-5" (click)='goToUserProfile(comment.users_id)' >
+                <!-- <i class="OM-img-profile~ sM0-img-c sM0-circle-border sM0-bg-imgs-center"  >{{comments.image}}</i> -->
+                <i [ngStyle]="comment?.image != '' ? {'background-image' : 'url('+imageBaseURL+ comment?.image +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}"
+                class="OM-img-profile d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center">
+                </i>
                 <div class="d-flex flex-column ml-2">
-                    <p class="mb-0 sM0-fs-mid-b-12 sM0-text-0-cr">User Name</p>
+                    <p class="mb-0 sM0-fs-mid-b-12 sM0-text-0-cr" >{{comment.name}}</p>
                     <p class="sM0-main-cr sM0-fs-10 mb-0 d-flex ml-1"><i
-                            class="OM-img-design sM0-icon-e sM0-bg-imgs-center mr-1"></i>Designer</p>
+                            class="OM-img-design sM0-icon-e sM0-bg-imgs-center mr-1"></i>{{comment.code}}</p>
                 </div>
             </div>
-            <div class="sM0-supp-1-bg sM0-r-b-radius w-100 d-flex align-items-center px-4">
+            <div class="sM0-supp-1-bg sM0-r-b-radius w-100 d-flex align-items-center px-4 d-flex justify-content-between align-items-center">
                 <p class="mb-0 sM0-text-0-cr sM0-fs-12 py-4">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-    
+                   {{comment.comment}}
                 </p>
+                <!-- Dots Button Menu Control -->
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="" class="mat-icon material-icons sM0-text-0-cr d-flex justify-content-center align-items-center">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+            </div>
+            <!-- Main Menu Controller -->
+            <mat-menu class="sM0-smoke-bg d-flex justify-content-center align-items-center" #menu="matMenu">
+                <!-- Edit Icon And Button -->
+                <button mat-menu-item>
+                  <mat-icon class="OM-img-edit sM0-icon-d sM0-bg-imgs-center mr-2"></mat-icon>
+                  <span class="sM0-text-0-cr sM0-fs-16">Edit</span>
+                </button>
+                <!-- Trach Icon And Button -->
+                <button mat-menu-item (click)="deleteComments(comment)" >
+                  <mat-icon class="OM-icon-trash sM0-click sM0-icon-d sM0-bg-imgs-center mr-2 "></mat-icon>
+                  <span class="sM0-text-0-cr sM0-fs-16">Delete</span>
+                </button>
+            </mat-menu>
+            <div class='sM0-main-cr'>
+                <pagination-controls
+                previousLabel="Prev" 
+                nextLabel="Next" 
+                responsive="true"
+                maxSize="5"
+                autoHide="true"
+                screenReaderPaginationLabel="Pagination"
+                screenReaderPageLabel="page"
+                screenReaderCurrentLabel="You're on page"
+                (pageChange)="handlePageChange($event)"
+                >
+                </pagination-controls>
             </div>
         </div>
     </div>

@@ -20,24 +20,25 @@ export class DesignersPanelComponent implements OnInit {
     this.socketON('Uploaded')
     this.socketON('Error_Uploaded')
   }
-
+  // Change input Value
   changeValue(val) {
     console.log(val.Package3DPhoto);
     this.inpUploadDesigner = val.Package3DPhoto
   }
+  // Handing Upload File
   handleFileInput(files: FileList) {
     let fileToUpload = files.item(0);
     if (fileToUpload) {
       this.uploadFileToActivity(fileToUpload)
     }
   }
-
+  // Post Upload File To Server
   uploadFileToActivity(uploadedFIle) {
     this.taskDetailsService.postFileUpload(uploadedFIle).subscribe(res => {
       console.log(res);
-
     });
   }
+  // Listner To Data From Server
   socketON(listner) {
     this.socketService.socketON(listner).subscribe(res => {
       this.changeValue(res)

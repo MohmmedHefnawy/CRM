@@ -14,10 +14,13 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NotificationComponent } from './components/notification/notification.component';
+import { MatMenuModule} from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [NavigationsComponent, ModalComponent, TeamModalComponent, NotificationComponent],
-  exports: [NavigationsComponent, MatProgressBarModule, ModalComponent, NgxPaginationModule, TeamModalComponent, NotificationComponent],
+  exports: [NavigationsComponent, MatProgressBarModule, ModalComponent, NgxPaginationModule, TeamModalComponent, NotificationComponent, MatIconModule, MatButtonModule, MatMenuModule],
   imports: [
     CommonModule,
     SharedRoutingModule,
@@ -25,7 +28,10 @@ import { NotificationComponent } from './components/notification/notification.co
     Ng2SearchPipeModule,
     FormsModule,
     NgbModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
     // { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },
