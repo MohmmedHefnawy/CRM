@@ -86,6 +86,8 @@ export class PhotographerPanelComponent implements OnInit {
   socketON(listner) {
     let package3dObj;
     this.socketService.socketON(listner).subscribe((res: any) => {
+      console.log(res);
+
       package3dObj = res.object
       for (let package3d of this.taskDetailsService.tour3DPackage) {
         package3d.id == package3dObj.id ? package3d.image_link = package3dObj.image_link : false
