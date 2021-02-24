@@ -54,9 +54,14 @@ export class PhotographerPanelComponent implements OnInit {
       console.log(this.taskDetailsService?.tour3DPackage);
     });
   }
-  deletePhotographerPackage(boxRowID) {
+  deletePhotographerPackage(boxRowID, index) {
     this.taskDetailsService.deletePhotographerPackage(boxRowID).subscribe(res => {
       console.log(res);
+    }, err => {
+      console.log(err);
+    }, () => {
+      this.taskDetailsService.tour3DPackage.splice(index, 1)
+
     })
   }
   updatePhotographerPackage(boxRowID, title: any = false, file: any = false) {
@@ -79,9 +84,13 @@ export class PhotographerPanelComponent implements OnInit {
   // ! Socket Handler
 
   socketON(listner) {
-    this.socketService.socketON(listner).subscribe(res => {
-      console.log(`Receiver From PhotoGraphers Component : ...... ${res}`, JSON.stringify(res));
-    }, err => { }, () => { })
+    let package3dObj;
+    this.socketService.socketON(listner).subscribe((res: any) => {
+      package3dObj = res.object
+      for (let package3d of this.taskDetailsService.tour3DPackage) {
+        package3d.id == package3dObj.id ? package3d.image_link = package3dObj.image_link : false
+      }
+    })
   }
 
-}
+} 
