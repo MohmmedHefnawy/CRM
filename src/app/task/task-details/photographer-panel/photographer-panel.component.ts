@@ -64,9 +64,10 @@ export class PhotographerPanelComponent implements OnInit {
 
     })
   }
-  updatePhotographerPackage(boxRowID, title: any = false, file: any = false) {
-    console.log(boxRowID)
+  updatePhotographerPackage(boxRowID, title: any = false, file: any = false, currentStatus: any = false) {
     let data: any = {};
+    // console.log(currentStatus);
+
     if (file) {
       let filePackage = file.item(0);
       const formData: FormData = new FormData();
@@ -74,11 +75,18 @@ export class PhotographerPanelComponent implements OnInit {
       console.log(formData)
       // formData.append('unzip', 'false');
       data = formData
+    } else if (currentStatus == 0 || currentStatus == 1) {
+      currentStatus == 1 ? data.current_status = '0' : data.current_status = '1'
     } else if (title || title != '') {
       data.title = title
     }
-    this.taskDetailsService.updatePhotographerPackage(boxRowID, data).subscribe(res => {
-      console.log(res);
+    this.taskDetailsService.updatePhotographerPackage(boxRowID, data).subscribe((res: any) => {
+      let updatedPackage = res.data
+      for (let package3D of this.taskDetailsService.tour3DPackage) {
+        package3D.id == updatedPackage.id ? package3D.current_status = updatedPackage.current_status : false
+      }
+      console.log(updatedPackage);
+
     })
   }
   // ! Socket Handler
