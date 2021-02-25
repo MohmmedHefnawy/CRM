@@ -9,7 +9,7 @@ import { UserTaskService } from '../../services/user-task.service';
 import { UsersMapService } from 'src/app/shared/services/users-map.service';
 import { TeamsService } from 'src/app/user/services/teams.service';
 import { SocketService } from 'src/app/shared/socket/socket.service';
-
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 
 @Component({
@@ -22,9 +22,8 @@ export class DashBoardComponent implements OnInit {
   navigator
   imageBaseURL = environment.imageBaseurl
   prop
-
   constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public navService: NavigatorServicesService,  public userTaskService: UserTaskService,
-    public usersMapService: UsersMapService, public teamService: TeamsService, private router: Router,public socketService: SocketService) { }
+    public usersMapService: UsersMapService, public teamService: TeamsService, private router: Router,public socketService: SocketService, private authService : AuthService) { }
 
   ngOnInit(): void {
     this.taskDetailsService.propID = this.Activerouter.snapshot.params['id']
@@ -52,7 +51,6 @@ export class DashBoardComponent implements OnInit {
     this.socketON('Error_Uploaded')
     this.getAllComment(this.taskDetailsService.propID)
   }
-
   // [#] Controls
   openModal(){
     this.prop = {
@@ -82,6 +80,7 @@ export class DashBoardComponent implements OnInit {
   // Go To User Profile
   goToUserProfile(userId) {
     let userID = { user_id: userId }
+    console.log(userID);
     this.teamService.getUserByID(userID).subscribe((res: any) => {
       this.teamService.oneUser = res.data
       localStorage.setItem("teamUser", JSON.stringify(this.teamService.oneUser))
@@ -91,22 +90,19 @@ export class DashBoardComponent implements OnInit {
       this.router.navigate(['/user/profile/user'])
     })
   }
-  // Get Comment Value From Input
-  // getCommentValue(val){
-  //   console.log(val);
-  //   let data = {
-  //     comment : val,
-  //     post_id : this.taskDetailsService.propID
-  //   } 
-  //   this.postCommentToServer(data)
-  //   console.log(data);
-  // }
   // Get All Comment PostID & Count & Page_Num
   getAllComment(ID){
     this.taskDetailsService.getAllComment(ID).subscribe((res:any)=>{
       this.taskDetailsService.comments = res.data
       console.log(this.taskDetailsService.comments);
     }, err=>{this.taskDetailsService.comments = []})
+  }
+  // Get Users Auth ID
+  getUsersAuthId(){
+    this.authService.getUser().subscribe((res:any)=>{
+      this.authService.users = res.data
+      console.log(this.authService.users);
+    })
   }
   // Post Comment To Server
   postComment(commentInputValue){
@@ -116,6 +112,9 @@ export class DashBoardComponent implements OnInit {
         } 
     this.taskDetailsService.postComment(data).subscribe((res)=>{
       console.log(res);
+    }, err =>{},()=>{
+      // ! Need Best Code
+      this.getAllComment(data.post_id)
     })
   }
   // Delete Comments By PostID
@@ -132,5 +131,4 @@ export class DashBoardComponent implements OnInit {
     }, () => {
     })
   }
-
 }

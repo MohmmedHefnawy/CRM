@@ -11,6 +11,7 @@ export class AuthService {
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
   // this current user
   user;
+  users
   _url = environment.apiBaseUrl;
   // _url = "http://jsonplaceholder.typicode.com/todos/1";
   constructor(private http: HttpClient, private router: Router) { }

@@ -96,18 +96,18 @@
                 <div *ngFor="let user of taskDetailsService?.assignedUsers" (click)='goToUserProfile(user.users_id)' class="sM0-click sM0-supp-0-bg sM0-f-radius d-flex align-items-center mb-4" >
                     <!-- account manager icon -->
                     <div class="">
-                        <i [ngStyle]="{'background-image' : 'url('+ imageBaseURL + user.image +')'}" class="d-block sM0-img-c sM0-circle-border sM0-bg-imgs-center"></i>
+                        <i [ngStyle]="{'background-image' : 'url('+ imageBaseURL + user.image +')'}" class="d-block sM0-icon-a~ sM0-img-c sM0-circle-border sM0-bg-imgs-center"></i>
                     </div>
                     <!-- User Name With Icons -->
                     <div class="pl-2">
                         <p class="mb-0 sM0-fs-mid-b-12">{{user.name |  slice:0:10}}...</p>
-                        <p class="sM0-fs-10 m-0 sM0-main-cr d-flex align-items-center ">
+                        <p class="sM0-fs-10 m-0 sM0-text-0-cr d-flex align-items-center ">
                             <i
-                            [class.iM0-icon-dubiAdmin-gold]="user?.role_id == 2"
-                            [class.iM0-icon-accountManger-gold]="user?.role_id == 3"
-                            [class.iM0-icon-camera-gold]="user?.role_id == 4"
-                            [class.iM0-icon-designers-gold]="user?.role_id == 5"
-                            [class.iM0-icon-contentManger-gold]="user?.role_id == 6"
+                            [class.iM0-icon-dubiAdmin-white]="user?.role_id == 2"
+                            [class.iM0-icon-accountManger-white]="user?.role_id == 3"
+                            [class.iM0-icon-camera-white]="user?.role_id == 4"
+                            [class.iM0-icon-designers-white]="user?.role_id == 5"
+                            [class.iM0-icon-contentManger-white]="user?.role_id == 6"
                             class="sM0-icon-e sM0-bg-imgs-center mb-1 mr-1"></i>
                             {{user.role_name}}
                         </p>
@@ -126,14 +126,14 @@
         <div class="w-100 py-4 pr-4 d-flex flex-column">
             <p class="sM0-text-0-cr pl-4 pb-4 m-0 sM0-fs-b-16 d-flex align-items-center"><i
                     class="OM-img-usertagcomment sM0-icon-d sM0-bg-imgs-center mr-2 sM0-text-0-cr"></i>Comments :</p>
-            <input type="text" #commentInput placeholder="Write a Comment..." class="sM0-fs-mid-b-12 sM0-f-radius p-4 sM0-supp-1-bg sM0-text-0-cr" (change)="postComment(commentInput.value)">
+            <input type="text" #commentInput placeholder="Write a Comment..."  class="sM0-fs-mid-b-12 sM0-f-radius p-4 sM0-supp-1-bg sM0-text-0-cr" (keyup.enter)="postComment(commentInput.value)">
         </div>
     </div>
     <!-- Comment -->
     <div class="mb-4 w-100 pr-4" *ngFor="let comment of taskDetailsService?.comments" >
         <div class='d-flex px-4' >
             <!-- User Comment Tag -->
-            <div class="sM0-click M0-comment-tag sM0-t-l-radius d-flex align-items-center sM0-bg-opacity-white-5" (click)='goToUserProfile(comment.users_id)' >
+            <div class="sM0-click M0-comment-tag sM0-t-l-radius d-flex align-items-center sM0-bg-opacity-white-5" (click)='goToUserProfile(comment.user_id)' >
                 <!-- <i class="OM-img-profile~ sM0-img-c sM0-circle-border sM0-bg-imgs-center"  >{{comments.image}}</i> -->
                 <i [ngStyle]="comment?.image != '' ? {'background-image' : 'url('+imageBaseURL+ comment?.image +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}"
                 class="OM-img-profile d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center">
@@ -141,15 +141,15 @@
                 <div class="d-flex flex-column ml-2">
                     <p class="mb-0 sM0-fs-mid-b-12 sM0-text-0-cr" >{{comment.name}}</p>
                     <p class="sM0-main-cr sM0-fs-10 mb-0 d-flex ml-1"><i
-                            class="OM-img-design sM0-icon-e sM0-bg-imgs-center mr-1"></i>{{comment.code}}</p>
+                            class="OM-img-design sM0-icon-e sM0-bg-imgs-center mr-1"></i>{{comment.role_name}}</p>
                 </div>
             </div>
-            <div class="sM0-supp-1-bg sM0-r-b-radius w-100 d-flex align-items-center px-4 d-flex justify-content-between align-items-center">
+            <div  class="sM0-supp-1-bg sM0-r-b-radius w-100 d-flex align-items-center px-4 d-flex justify-content-between align-items-center">
                 <p class="mb-0 sM0-text-0-cr sM0-fs-12 py-4">
                    {{comment.comment}}
                 </p>
                 <!-- Dots Button Menu Control -->
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="" class="mat-icon material-icons sM0-text-0-cr d-flex justify-content-center align-items-center">
+                <button  mat-icon-button [matMenuTriggerFor]="menu" aria-label="" class="mat-icon material-icons sM0-text-0-cr d-flex justify-content-center align-items-center">
                     <mat-icon>more_vert</mat-icon>
                 </button>
             </div>
@@ -182,4 +182,5 @@
             </div>
         </div>
     </div>
+    <!-- <button class="btn btn-danger" (click)="getUsersAuthId()" >Get Users</button> -->
 </div>
