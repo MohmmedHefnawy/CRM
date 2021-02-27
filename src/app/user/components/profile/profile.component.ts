@@ -52,6 +52,10 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
+    setTimeout(()=>{
+      console.log(this.authService.user);
+      
+    },1000)
   }
   // [#] Controller
   checkUser(route, status) {

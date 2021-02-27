@@ -8,7 +8,7 @@
             <div class='d-flex flex-md-row flex-column sM0-supp-0-bg sM0-f-radius mb-4 mr-4 align-items-center w-100'>
                 <!-- Profile Image -->
                 <div [ngStyle]="userProfile ? authService.user?.data?.image ? {'background-image' : 'url('+ imageBaseURL + authService.user?.data?.image +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'} : teamService.oneUser?.image ? {'background-image' : 'url('+ imageBaseURL + teamService.oneUser?.image +')'} :  {'background-image' : 'url(/assets/Icons/new-user.svg)'} "
-                 class="M0-card OM-img-profile~ d-flex justify-content-center align-items-end pb-4 sM0-bg-imgs-center sM0-f-radius  mt-md-0 mt-sm-4 mt-0">
+                 class="M0-card d-flex justify-content-center align-items-end pb-4 sM0-bg-imgs-center sM0-f-radius  mt-md-0 mt-sm-4 mt-0">
                     <!-- upload image -->
                     <label *ngIf='userProfile' class='m-0' for="image">
                         <i class="OM-img-upload-image sM0-bg-opacity-supp-1-5  sM0-f-radius px-5 py-4 sM0-icon-c sM0-bg-imgs-center d-inline-block sM0-click"></i>
@@ -42,7 +42,17 @@
                         </div>
                     </div>
                     <!-- user Roul -->
-                    <p class="sM0-text-0-cr sM0-fs-16 ml-md-4 text-md-left text-center mt-2" [textContent]='userProfile ? authService.user?.data.role_name : teamService.oneUser?.role_name'></p>
+                    <p class="sM0-text-0-cr sM0-fs-16 ml-md-4 text-md-left text-center mt-2 d-flex">
+                        <i 
+                        [class.iM0-icon-projectManager-white]=" userProfile? authService.user?.data.role_id == 1 : teamService.oneUser?.role_id  == 1 "
+                        [class.iM0-icon-dubiAdmin-white]=" userProfile? authService.user?.data.role_id == 2  : teamService.oneUser?.role_id  == 2 "
+                        [class.iM0-icon-accountManger-white]=" userProfile? authService.user?.data.role_id == 3 : teamService.oneUser?.role_id  == 3 "
+                        [class.iM0-icon-camera-white]=" userProfile? authService.user?.data.role_id == 4 : teamService.oneUser?.role_id  == 4 "
+                        [class.iM0-icon-designers-white]=" userProfile? authService.user?.data.role_id == 5  : teamService.oneUser?.role_id  == 5 "
+                        [class.iM0-icon-contentManger-white]=" userProfile? authService.user?.data.role_id == 6  : teamService.oneUser?.role_id  == 6 "
+                        class="sM0-icon-d sM0-bg-imgs-center mb-1 mr-1"></i>
+                        {{userProfile ? authService.user?.data.role_name : teamService.oneUser?.role_name}}
+                    </p>
                     <!-- user location -->
                     <div class="d-flex ml-md-4 mt-3 justify-content-center align-items-center">
                         <i class="OM-img-location sM0-icon-c sM0-bg-imgs-center mr-2"></i>
