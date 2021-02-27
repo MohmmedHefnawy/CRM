@@ -2,6 +2,7 @@ import { SocketService } from 'src/app/shared/socket/socket.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TaskDetailsService } from '../../services/task-details.service';
+import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-photographer-panel',
@@ -27,20 +28,9 @@ export class PhotographerPanelComponent implements OnInit {
     return data = {
       title: '',
       image_link: '',
+      current_status: 0,
       id: packageID
     }
-  }
-  updatePackageTitle(title) {
-    // this.postPhotographerPackage(title)
-    // if (file != '') {
-    //   const formData: FormData = new FormData();
-    //   formData.append('file', file);
-    // formData.append('PostID', this.taskDetailsService.propID);
-    // formData.append('unzip', 'true');
-    //   data.title = title
-    //   data.file = formData
-    // }
-    // data.title = title
   }
   // ! API POST & Patch
 
@@ -48,11 +38,43 @@ export class PhotographerPanelComponent implements OnInit {
     let data: any = {
       PostID: this.taskDetailsService.propID
     };
+    let response
     this.taskDetailsService.postPhotographerBoxRow(data).subscribe(res => {
-      console.log(res);
-      this.taskDetailsService.tour3DPackage.push(this.boxModel(res.id))
-      console.log(this.taskDetailsService?.tour3DPackage);
+      response = res
+    }, err => { }, () => {
+      this.taskDetailsService.tour3DPackage.push(this.boxModel(response.id))
+      console.log(this.taskDetailsService.tour3DPackage)
     });
+  }
+  updatePhStatus(boxRowID, currentStatus) {
+    let data: any = {};
+    let updatedPackage;
+    currentStatus == '1' ? data.current_status = '0' : data.current_status = '1'
+    this.taskDetailsService.updatePhotographerPackage(boxRowID, data).subscribe((res: any) => {
+      updatedPackage = res.data
+    }, err => { }, () => {
+      for (let package3D of this.taskDetailsService.tour3DPackage) {
+        package3D.id == updatedPackage.id ? package3D.current_status = updatedPackage.current_status : false
+      }
+    })
+  }
+  updatePhTitle(boxRowID, title) {
+    let data: any = {};
+    data.title = title
+    this.taskDetailsService.updatePhotographerPackage(boxRowID, data).subscribe((res: any) => {
+      console.log(res.data);
+    })
+  }
+  updatePhImges(boxRowID, file) {
+    let data: any = {};
+    let filePackage = file.item(0);
+    const formData: FormData = new FormData();
+    formData.append('file', filePackage);
+    // formData.append('unzip', 'false');
+    data = formData
+    this.taskDetailsService.updatePhotographerPackage(boxRowID, data).subscribe((res: any) => {
+      console.log(res.data);
+    })
   }
   deletePhotographerPackage(boxRowID, index) {
     this.taskDetailsService.deletePhotographerPackage(boxRowID).subscribe(res => {
@@ -64,31 +86,7 @@ export class PhotographerPanelComponent implements OnInit {
 
     })
   }
-  updatePhotographerPackage(boxRowID, title: any = false, file: any = false, currentStatus: any = false) {
-    let data: any = {};
-    // console.log(currentStatus);
 
-    if (file) {
-      let filePackage = file.item(0);
-      const formData: FormData = new FormData();
-      formData.append('file', filePackage);
-      console.log(formData)
-      // formData.append('unzip', 'false');
-      data = formData
-    } else if (currentStatus == 0 || currentStatus == 1) {
-      currentStatus == 1 ? data.current_status = '0' : data.current_status = '1'
-    } else if (title || title != '') {
-      data.title = title
-    }
-    this.taskDetailsService.updatePhotographerPackage(boxRowID, data).subscribe((res: any) => {
-      let updatedPackage = res.data
-      for (let package3D of this.taskDetailsService.tour3DPackage) {
-        package3D.id == updatedPackage.id ? package3D.current_status = updatedPackage.current_status : false
-      }
-      console.log(updatedPackage);
-
-    })
-  }
   // ! Socket Handler
 
   socketON(listner) {

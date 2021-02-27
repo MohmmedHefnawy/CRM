@@ -2,7 +2,8 @@
 <div class="row justify-content-center overflow-auto h-100~">
     <div class="w-100">
         <!-- ? Holder Image -->
-        <div class="sM0-bg-opacity-supp-1-5~ bg-dark sM0-inp-description-holder-a w-100 sM0-t-r-radius"></div>
+        <div class="sM0-bg-opacity-supp-1-5~ bg-dark
+         sM0-inp-description-holder-a w-100 sM0-t-r-radius"></div>
         <!-- ? Holder Designer Row -->
         <div #taskRow *ngFor='let awsPhoto of taskDetailsService.tour3DPackage; index as i'
             (mouseover)="deleteBttn['data-view'] = true" (mouseout)="deleteBttn['data-view'] =false"
@@ -76,21 +77,21 @@
         <!-- ? Title -->
         <p class="sM0-text-0-cr">Footage Link : </p>
         <!-- ? Holder Download Row -->
-        <div class="d-flex w-100 px-4 align-items-center">
+        <div class="d-flex w-100 px-4 align-items-center" *ngFor='let awsPhotoLink of taskDetailsService.tour3DPackage'>
             <!-- ? Image URL Input -->
             <div class="w-100 d-flex sM0-supp-1-bg p-4 sM0-t-l-radius">
-                <p class="mb-0 sM0-text-0-cr">Propert Image Name</p>
+                <p class="mb-0 sM0-text-0-cr">{{awsPhotoLink?.title}}</p>
             </div>
             <!-- Button Upload -->
             <div class="d-flex justify-content-end ml-4~">
                 <button type="submit" class="sM0-r-b-radius w-100 sM0-supp-1-bg sM0-border-none p-4 mr-4">
-                    <label [for]="awsPhoto?.id"
+                    <label [for]="awsPhotoLink?.id"
                         class=" d-flex justify-content-center align-items-center mb-0 sM0-click w-100 h-100">
                         <p class="mb-0 sM0-green-cr sM0-fs-b-12 d-flex"><i class="iM0-icon-download-green sM0-icon-d mr-2"></i>
                             Download</p>
                     </label>
-                    <input #uploadFile type="file" class="d-none form-group" id="{{awsPhoto?.id}}"
-                        (change)='updatePhotographerPackage(awsPhoto?.id, false, $event.target.files, false)'>
+                    <input #uploadFile type="file" class="d-none form-group" id="{{awsPhotoLink?.id}}"
+                        (change)='updatePhotographerPackage(awsPhotoLink?.id, false, $event.target.files, false)'>
                 </button>
             </div>
             <i class="OM-img-profile sM0-img-d p-4 sM0-circle-border sM0-bg-imgs-center"></i>
