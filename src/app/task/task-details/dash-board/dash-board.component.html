@@ -103,6 +103,7 @@
                         <p class="mb-0 sM0-fs-mid-b-12">{{user.name |  slice:0:10}}...</p>
                         <p class="sM0-fs-10 m-0 sM0-text-0-cr d-flex align-items-center ">
                             <i
+                            [class.iM0-icon-projectManager-white]="user?.role_id == 1"
                             [class.iM0-icon-dubiAdmin-white]="user?.role_id == 2"
                             [class.iM0-icon-accountManger-white]="user?.role_id == 3"
                             [class.iM0-icon-camera-white]="user?.role_id == 4"
@@ -139,8 +140,14 @@
                 </i>
                 <div class="d-flex flex-column ml-2">
                     <p class="mb-0 sM0-fs-mid-b-12 sM0-text-0-cr" >{{comment.name}}</p>
-                    <p class="sM0-main-cr sM0-fs-10 mb-0 d-flex ml-1"><i
-                            class="OM-img-design sM0-icon-e sM0-bg-imgs-center mr-1"></i>{{comment.role_name}}</p>
+                    <p class="sM0-main-cr sM0-fs-10 mb-0 d-flex ml-1"> <i
+                        [class.iM0-icon-projectManager-white]="user?.role_name == 'Project Manager' "
+                        [class.iM0-icon-dubiAdmin-white]="user?.role_name == false "
+                        [class.iM0-icon-accountManger-white]="user?.role_name == false "
+                        [class.iM0-icon-camera-white]="user?.role_name == false "
+                        [class.iM0-icon-designers-white]="user?.role_name == false "
+                        [class.iM0-icon-contentManger-white]="user?.role_name == false "
+                        class="sM0-icon-e sM0-bg-imgs-center mb-1 mr-1"></i>{{comment.role_name}}</p>
                 </div>
             </div>
             <!-- List Of Comments Body -->
