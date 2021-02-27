@@ -16,13 +16,21 @@
                     </div>
                 </div>
                 <!-- Username Header -->
-                <p class=" sM0-text-0-cr sM0-opacity-50 mb-2 sM0-fs-b-16">{{theUser?.name}}</p>
+                <p class=" sM0-text-0-cr  mb-2 sM0-fs-b-16">{{theUser?.name | titlecase}}</p>
                 <!-- Job Title -->
-                <p class=" sM0-text-0-cr sM0-opacity-50 mb-2 sM0-fs-16">{{theUser?.role_name}}</p>
+                <p class=" sM0-main-cr mb-2 sM0-fs-16 d-flex justify-content-center align-items-center">
+                    <i      [class.iM0-icon-projectManager-white]="theUser?.role_id == 1"
+                            [class.iM0-icon-dubiAdmin-gold]="theUser?.role_id == 2"
+                            [class.iM0-icon-accountManger-gold]="theUser?.role_id == 3"
+                            [class.iM0-icon-camera-gold]="theUser?.role_id == 4"
+                            [class.iM0-icon-designers-gold]="theUser?.role_id == 5"
+                            [class.iM0-icon-contentManger-gold]="theUser?.role_id == 6"
+                            class="sM0-icon-d sM0-bg-imgs-center mb-1 mr-1"></i>
+                            {{theUser?.role_name}}</p>
                 <!-- Location -->
                 <div class="d-flex justify-content-center align-items-center">
                     <i class="OM-img-Locationgold sM0-icon-d sM0-bg-imgs-center"></i>
-                    <p class="sM0-main-cr d-inline-block mb-0 ml-2 sM0-fs-16 text-center">{{theUser?.address}}</p>
+                    <p class="sM0-main-cr d-inline-block mb-0 ml-2 sM0-fs-16 text-center">{{theUser?.address | titlecase }}</p>
                 </div>
                 <!-- Inprogress Task -->
                 <button *ngIf='theUser?.prop_count == "0"'  (click)="openPopUpTeam($event, theUser, 'assign')"
