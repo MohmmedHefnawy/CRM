@@ -43,7 +43,8 @@ export class AuthService {
   }
   deleteToken() {
     localStorage.removeItem('token');
-    this.router.navigateByUrl('login');
+    // this.router.navigateByUrl('login');
+    window.location.href = '/login';
   }
 
   getUserPayload() {

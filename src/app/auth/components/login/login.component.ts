@@ -49,12 +49,11 @@ export class LoginComponent implements OnInit {
       this.authService.setToken(res.data.token);
       this.authService.setUserID(res.data.id)
       this.authService.isAdmin = true
-      this.router.navigateByUrl('/user');
       this.onSocket()
     },
       err => {
         console.log(err)
-      })
+      }, () => { window.location.href = '/user/profile';})
   }
   // [#] login with user id at Socket
   onSocket() {

@@ -11,15 +11,15 @@
             </div>
         </div> 
         <!-- task row -->
-        <div #taskRow *ngFor='let awsPhoto of taskDetailsService.tour3DPackage; index as i' (mouseover)="deleteBttn[data-view] = true" (mouseout)="deleteBttn[data-view] =false"
+        <div #taskRow *ngFor='let awsPhoto of taskDetailsService.tour3DPackage; index as i' (mouseover)="deleteBttn['data-view'] = true" (mouseout)="deleteBttn['data-view'] =false"
          class="M0-micro-card d-flex sM0-bg-opacity-supp-1-5 sM0-f-radius w-100 p-4 mb-4 position-relative">
             <!-- HTTP Input -->
             <div class="w-100 px-4 d-flex flex-column justify-content-center">
                 <!-- Delete button -->
-                <div #deleteBttn [data-view]='false' class='d-flex'>
+                <div #deleteBttn [attr.data-view]='false' class='d-flex'>
                     <i
                         (click)='deletePhotographerPackage(awsPhoto?.id,i)'
-                     [class.d-block]="deleteBttn[data-view]" [class.d-none]="!deleteBttn[data-view]" class=" position-absolute OM-icon-Holder-Delete OM-img-deletered d-block~ sM0-click  sM0-icon-b"></i>
+                     [class.d-block]="deleteBttn['data-view']" [class.d-none]="!deleteBttn['data-view']" class=" position-absolute OM-icon-Holder-Delete OM-img-deletered d-block~ sM0-click  sM0-icon-b"></i>
                 </div>
                 <div class="d-flex w-100 mb-2">
                     <!-- ? Title Input -->

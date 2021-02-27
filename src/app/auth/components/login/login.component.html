@@ -1,31 +1,33 @@
 <div id='loginContainer' class='container d-flex flex-column justify-content-xl-center'>
-    <!-- head -->
-    <div class='row my-4 M0-main-co'>
-        <div class='col text-center'>
-            <p class='h1 sM0-text-0-cr '>Login</p>
+    <ng-container *ngIf='!authService.isAdmin'>
+        <!-- head -->
+        <div class='row my-4 M0-main-co'>
+            <div class='col text-center'>
+                <p class='h1 sM0-text-0-cr '>Login</p>
+            </div>
         </div>
-    </div>
-    <!-- form -->
-    <div class='row'>
-        <div class='col d-flex justify-content-center'>
-            <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)" class='w-50'>
-                <div class="form-group">
-                    <div class='col p-0'>
-                        <i class='M0-user-icon sM0-icon-d sM0-opacity-50 sM0-bg-imgs-center p-4 position-absolute sM0-bg-opacity-white-5 sM0-l-r-radius'></i>
-                        <input ngModel required #userName="ngModel" type="text" class="M0-main-co form-control M0-dark-bg border-0 sM0-supp-1-bg sM0-text-0-cr  py-4 M0-input sM0-f-radius" id="userName" name='username' aria-describedby="User Name" placeholder="User Name...">
+        <!-- form -->
+        <div class='row'>
+            <div class='col d-flex justify-content-center'>
+                <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)" class='w-50'>
+                    <div class="form-group">
+                        <div class='col p-0'>
+                            <i class='M0-user-icon sM0-icon-d sM0-opacity-50 sM0-bg-imgs-center p-4 position-absolute sM0-bg-opacity-white-5 sM0-l-r-radius'></i>
+                            <input ngModel required #userName="ngModel" type="text" class="M0-main-co form-control M0-dark-bg border-0 sM0-supp-1-bg sM0-text-0-cr  py-4 M0-input sM0-f-radius" id="userName" name='username' aria-describedby="User Name" placeholder="User Name...">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class='col p-0'>
-                        <i class='M0-password-icon sM0-icon-d sM0-opacity-50 sM0-bg-imgs-center p-4 position-absolute sM0-bg-opacity-white-5 sM0-l-r-radius'></i>
-                        <input ngModel required #password="ngModel" type="password" class="M0-main-co form-control M0-dark-bg border-0 sM0-supp-1-bg sM0-text-0-cr  py-4 M0-input sM0-f-radius" id="password" name='password'
-                            aria-describedby="Password" placeholder="Password...">
+                    <div class="form-group">
+                        <div class='col p-0'>
+                            <i class='M0-password-icon sM0-icon-d sM0-opacity-50 sM0-bg-imgs-center p-4 position-absolute sM0-bg-opacity-white-5 sM0-l-r-radius'></i>
+                            <input ngModel required #password="ngModel" type="password" class="M0-main-co form-control M0-dark-bg border-0 sM0-supp-1-bg sM0-text-0-cr  py-4 M0-input sM0-f-radius" id="password" name='password'
+                                aria-describedby="Password" placeholder="Password...">
+                        </div>
                     </div>
-                </div>
-                <div class='col p-0 mt-4 d-flex justify-content-end'>
-                    <input [disabled]='signInForm.invalid' [class.sM0-notActive]='signInForm.invalid'   id='submitLogin' type="submit" value="Login" class="sM0-main-bg w-50 M0-input sM0-text-0-cr p-3 sM0-f-radius">
-                </div>
-            </form>
+                    <div class='col p-0 mt-4 d-flex justify-content-end'>
+                        <input [disabled]='signInForm.invalid' [class.sM0-notActive]='signInForm.invalid'   id='submitLogin' type="submit" value="Login" class="sM0-main-bg w-50 M0-input sM0-text-0-cr p-3 sM0-f-radius">
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+    </ng-container>
 </div>

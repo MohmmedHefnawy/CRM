@@ -23,6 +23,12 @@
 .OM-img-call {
   background-image: url("/assets/Icons/Call.svg");
 }
+.OM-img-rightwhite {
+  background-image: url("/assets/Icons/rightwhite.svg");
+}
+.OM-img-upload {
+  background-image: url("/assets/Icons/Upload.svg");
+}
 .OM-scroller {
   overflow-y: auto !important;
 }
