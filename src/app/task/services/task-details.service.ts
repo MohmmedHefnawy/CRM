@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class TaskDetailsService {
   _url = environment.apiBaseUrl;
-  _urlUploadFile = environment.runTimeServer
+  _URLRunTime = environment.runTimeServer
   taskDetails;
   propStaticData;
   assignedUsers;
@@ -37,11 +37,11 @@ export class TaskDetailsService {
   }
   // Get Photographer Image URL
   getPhotographerImageURL(propID) {
-    return this.http.get(`${this._urlUploadFile}AWSPhoto/${propID}/100/0`)
+    return this.http.get(`${this._URLRunTime}AWSPhoto/${propID}/100/0`)
   }
   // Get Comment 
   getAllComment(ID) {
-    return this.http.get(`${this._urlUploadFile}List/Comment/Post/${ID}/100/0`)
+    return this.http.get(`${this._URLRunTime}List/Comment/Post/${ID}/100/0`)
   }
   // ! Method POST
   // ? Post Description Form
@@ -50,22 +50,25 @@ export class TaskDetailsService {
   }
 
   postPhotographerBoxRow(porpID): Observable<any> {
-    return this.http.post(`${this._urlUploadFile}Upload/AWSUnzip`, porpID)
+    return this.http.post(`${this._URLRunTime}Upload/AWSUnzip`, porpID)
   }
   deletePhotographerPackage(boxRowID) {
-    return this.http.delete(`${this._urlUploadFile}Delete/AWSPhoto/${boxRowID}`)
+    return this.http.delete(`${this._URLRunTime}Delete/AWSPhoto/${boxRowID}`)
   }
   updatePhotographerPackage(boxRowID, data) {
-    return this.http.patch(`${this._urlUploadFile}Update/AWSPhoto/${boxRowID}`, data)
+    return this.http.patch(`${this._URLRunTime}Update/AWSPhoto/${boxRowID}`, data)
   }
-
   // ? Post Comment To Server
   postComment(data): Observable<any> {
-    return this.http.post(`${this._urlUploadFile}Create/Comment`, data)
+    return this.http.post(`${this._URLRunTime}Create/Comment`, data)
   }
-
-  deleteComments(commentID) {
-    return this.http.delete(`${this._urlUploadFile}Delete/Post/${commentID}`)
+  // ? Delete Comment From Server
+  deleteComments(commentID) : Observable<any> {
+    return this.http.delete(`${this._URLRunTime}Delete/Post/${commentID}`)
+  }
+  // Update Comment
+  updateComment(commentID, data): Observable<any>{
+    return this.http.patch(`${this._URLRunTime}Update/Comment/${commentID}`, data)
   }
 
 }

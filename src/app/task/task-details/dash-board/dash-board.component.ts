@@ -22,6 +22,7 @@ export class DashBoardComponent implements OnInit {
   navigator
   imageBaseURL = environment.imageBaseurl
   prop
+  name = ""
   constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public navService: NavigatorServicesService,  public userTaskService: UserTaskService,
     public usersMapService: UsersMapService, public teamService: TeamsService, private router: Router,public socketService: SocketService, private authService : AuthService) { }
 
@@ -70,6 +71,10 @@ export class DashBoardComponent implements OnInit {
     }
     this.navService.navigators = this.navigator;
   }
+  // Clear Comment Input Field
+  emptyInp(inp){
+    $(`#${inp}`).val("")
+  }
   // [#] HTTP REQs
   getUsersToAssign(propID) {
     this.taskDetailsService.getTaskAssignUser(propID).subscribe((res: any) => {
@@ -91,10 +96,11 @@ export class DashBoardComponent implements OnInit {
     })
   }
   // Get All Comment PostID & Count & Page_Num
-  getAllComment(ID){
-    this.taskDetailsService.getAllComment(ID).subscribe((res:any)=>{
+  getAllComment(propID){
+    this.taskDetailsService.getAllComment(propID).subscribe((res:any)=>{
       this.taskDetailsService.comments = res.data
       console.log(this.taskDetailsService.comments);
+      
     }, err=>{this.taskDetailsService.comments = []})
   }
   // Get Users Auth ID
@@ -105,7 +111,7 @@ export class DashBoardComponent implements OnInit {
     })
   }
   // Post Comment To Server
-  postComment(commentInputValue){
+  postComment(commentInputValue, commentInp){
     let data = {
           comment : commentInputValue,
           post_id : this.taskDetailsService.propID
@@ -114,14 +120,32 @@ export class DashBoardComponent implements OnInit {
       console.log(res);
     }, err =>{},()=>{
       // ! Need Best Code
-      this.getAllComment(data.post_id)
+      this.getAllComment(this.taskDetailsService.propID)
+      this.emptyInp(commentInp)
     })
   }
   // Delete Comments By PostID
   deleteComments(commentID){
     this.taskDetailsService.deleteComments(commentID).subscribe((res)=>{
       console.log(res);
+    }, err => {},()=>{
+      this.getAllComment(this.taskDetailsService.propID)
     })
+  }
+  // Update Comments
+  updateComment(commentID, commentInputValue){
+    let data = {
+      comment: commentInputValue,
+    }
+    this.taskDetailsService.updateComment(commentID, data).subscribe((res)=>{
+      console.log(res);
+      
+    })
+  }
+  // Edit Comment
+  editComment(commentID){
+    
+
   }
   // Listner To Data From Server
   socketON(listner) {

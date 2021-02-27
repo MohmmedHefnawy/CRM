@@ -111,12 +111,11 @@ export class ProfileComponent implements OnInit {
         break;
     }
   }
+  // Uploaded Img To Server
   uploadMyImage(evt: any) {
     const file = evt.target.files[0];
-
     if (file) {
       const reader = new FileReader();
-
       reader.onload = this.updateImage.bind(this);
       reader.readAsBinaryString(file);
     }
@@ -125,10 +124,10 @@ export class ProfileComponent implements OnInit {
     let imageObj = { image: 'data:image/png;base64,' + btoa(e.target.result) }
     this.profileService.postImage(imageObj).subscribe(res => {
       this.authService.user = res
-
     })
 
   }
+  // 
   handlePageChange(event) {
     $('.M0-content-holder').get(0).scrollTo({ top: 0, behavior: 'smooth' });
     this.getAllProps('en', event, 25, '', '')
@@ -139,6 +138,7 @@ export class ProfileComponent implements OnInit {
       this.authService.user = res
     })
   }
+  // Get All Properties 
   getAllProps(lang, page, num, status, userID) {
     this.userTaskService.getUserTask(lang, page, num, status, userID).subscribe((res: any) => {
       this.userTaskService.userTasks = res.data
@@ -146,6 +146,7 @@ export class ProfileComponent implements OnInit {
       console.log(this.userTaskService.userTasks)
     })
   }
+  // Get Properties By ID
   getPropById(ID) {
     this.taskDetails.getTaskById(ID).subscribe((res: any) => {
       this.taskDetails.taskDetails = res.data

@@ -50,6 +50,7 @@ export class TeamsComponent implements OnInit, OnDestroy {
     this.teamModalPopUp.openTeamPopup(action, theUser)
   }
   // [#] REQ
+  // Get Profile User
   goToUserProfile(iD) {
     let userID = { user_id: iD }
     this.teamService.getUserByID(userID).subscribe((res: any) => {
@@ -62,10 +63,10 @@ export class TeamsComponent implements OnInit, OnDestroy {
       this.router.navigate(['/user/profile/user'])
     })
   }
+  // Get All Task properties Which User Assign It
   getUserTaskByUserID(lang, page, num, status, userID) {
     this.userTaskService.getUserTask(lang, page, num, status, userID).subscribe((res: any) => {
       this.userTaskService.userTasks = res.data
-
     })
   }
   ngOnDestroy(): void {

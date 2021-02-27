@@ -136,6 +136,7 @@ export class TeamModalComponent implements OnInit {
     })
     this.isAssigned = true
   }
+  // Get Profile User By ID 
   goToUserProfile(iD) {
     let userID = { user_id: iD }
     this.teamService.getUserByID(userID).subscribe((res: any) => {
