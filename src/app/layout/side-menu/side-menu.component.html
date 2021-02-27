@@ -23,7 +23,16 @@
                     <!-- UserName -->
                     <div class="text-center">
                         <p routerLink="/user/profile" class="sM0-click sM0-main-cr sM0-fs-b-24 my-4">{{authService.user?.data.username}} </p>
-                        <p class="sM0-text-0-cr m-0 sM0-fs-16">{{authService.user?.data.role_name}} </p>
+                        <p class="sM0-text-0-cr m-0 sM0-fs-16 d-flex align-items-center justify-content-center">
+                            <i
+                            [class.iM0-icon-projectManager-white]="authService.user?.data?.role_id == 1"
+                            [class.iM0-icon-dubiAdmin-white]="authService.user?.data?.role_id == 2"
+                            [class.iM0-icon-accountManger-white]="authService.user?.data?.role_id == 3"
+                            [class.iM0-icon-camera-white]="authService.user?.data?.role_id == 4"
+                            [class.iM0-icon-designers-white]="authService.user?.data?.role_id == 5"
+                            [class.iM0-icon-contentManger-white]="authService.user?.data?.role_id == 6"
+                            class="sM0-icon-d sM0-bg-imgs-center mb-1 mr-1"></i>
+                            {{authService.user?.data.role_name}} </p>
                     </div>
                 </div>
                 <!-- navigations  -->
@@ -72,9 +81,22 @@
                         routerLink="/user/profile" class="sM0-click OM-img-profile1 sM0-bg-imgs-center sM0-img-c sM0-f-radius d-inline-block"></i>
                     </div>
                     <!-- invisible -->
-                    <div class="text-center invisible">
+                    <!-- <div class="text-center invisible">
                         <p class="sM0-main-cr h5">Name Surname </p>
                         <p class="sM0-text-0-cr m-0 h6">Project Manager </p>
+                    </div> -->
+                    <!-- Toggle Menu Icone -->
+                    <div class="text-center ">
+                        <p class="sM0-text-0-cr m-0 sM0-fs-16 d-flex align-items-center justify-content-center">
+                            <i
+                            [class.iM0-icon-projectManager-white]="authService.user?.data?.role_id == 1"
+                            [class.iM0-icon-dubiAdmin-white]="authService.user?.data?.role_id == 2"
+                            [class.iM0-icon-accountManger-white]="authService.user?.data?.role_id == 3"
+                            [class.iM0-icon-camera-white]="authService.user?.data?.role_id == 4"
+                            [class.iM0-icon-designers-white]="authService.user?.data?.role_id == 5"
+                            [class.iM0-icon-contentManger-white]="authService.user?.data?.role_id == 6"
+                            class="sM0-icon-d sM0-bg-imgs-center mb-1 mr-1"></i>
+                        </p>
                     </div>
                 </div>
                 <!-- navigations  -->

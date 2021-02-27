@@ -141,12 +141,12 @@
                 <div class="d-flex flex-column ml-2">
                     <p class="mb-0 sM0-fs-mid-b-12 sM0-text-0-cr" >{{comment.name}}</p>
                     <p class="sM0-main-cr sM0-fs-10 mb-0 d-flex ml-1"> <i
-                        [class.iM0-icon-projectManager-white]="user?.role_name == 'Project Manager' "
-                        [class.iM0-icon-dubiAdmin-white]="user?.role_name == false "
-                        [class.iM0-icon-accountManger-white]="user?.role_name == false "
-                        [class.iM0-icon-camera-white]="user?.role_name == false "
-                        [class.iM0-icon-designers-white]="user?.role_name == false "
-                        [class.iM0-icon-contentManger-white]="user?.role_name == false "
+                        [class.iM0-icon-projectManager-white]="comment?.role_name == 'Project Manager' "
+                        [class.iM0-icon-dubiAdmin-gold]="comment?.role_name == 'Dubai Admin' "
+                        [class.iM0-icon-accountManger-gold]="comment?.role_name == 'Account Manager' "
+                        [class.iM0-icon-camera-gold]="comment?.role_name == 'PhotoGrapher' "
+                        [class.iM0-icon-designers-gold]="comment?.role_name == 'Graphic Designer' "
+                        [class.iM0-icon-contentManger-gold]="comment?.role_name == 'Content Moderator' "
                         class="sM0-icon-e sM0-bg-imgs-center mb-1 mr-1"></i>{{comment.role_name}}</p>
                 </div>
             </div>
