@@ -130,13 +130,12 @@
         </div>
     </div>
     <!-- Comment -->
-    <div class="mb-4 w-100 pr-4" *ngFor="let comment of taskDetailsService?.comments" >
+    <div class="mb-4 w-100 pr-4" *ngFor="let comment of taskDetailsService?.comments let i = index" >
         <div class='d-flex px-4' >
             <!-- User Comment Tag -->
             <div class="sM0-click M0-comment-tag sM0-t-l-radius d-flex align-items-center sM0-bg-opacity-white-5" (click)='goToUserProfile(comment.user_id)' >
-                <!-- <i class="OM-img-profile~ sM0-img-c sM0-circle-border sM0-bg-imgs-center"  >{{comments.image}}</i> -->
                 <i [ngStyle]="comment?.image != '' ? {'background-image' : 'url('+imageBaseURL+ comment?.image +')'} : {'background-image' : 'url(/assets/Icons/new-user.svg)'}"
-                class="OM-img-profile d-block sM0-img-e sM0-circle-border sM0-bg-imgs-center">
+                class="OM-img-profile d-block sM0-img-c sM0-circle-border sM0-bg-imgs-center">
                 </i>
                 <div class="d-flex flex-column ml-2">
                     <p class="mb-0 sM0-fs-mid-b-12 sM0-text-0-cr" >{{comment.name}}</p>
@@ -144,11 +143,20 @@
                             class="OM-img-design sM0-icon-e sM0-bg-imgs-center mr-1"></i>{{comment.role_name}}</p>
                 </div>
             </div>
-            <div  class="sM0-supp-1-bg sM0-r-b-radius w-100 d-flex align-items-center px-4 d-flex justify-content-between align-items-center">
-                <p  class="mb-0 sM0-text-0-cr sM0-fs-12 py-4">
+            <!-- List Of Comments Body -->
+            <div #commentTextHolder [attr.data-comment]='false' class="sM0-supp-1-bg sM0-r-b-radius w-100 d-flex align-items-center px-4 d-flex justify-content-between align-items-center">
+                <!-- Main Comment Input -->
+                <p
+                [class.d-block]='!commentTextHolder["data-comment"]' [class.d-none]='commentTextHolder["data-comment"]'
+                  class="mb-0 sM0-text-0-cr sM0-fs-12 py-4">
                    {{comment.comment}}
                 </p>
-                <input  type="text" #updateInput  [value]='comment.comment' (keyup.enter)="updateComment(comment.id, updateInput.value)" >
+                <!-- Edit Input Field  -->
+                <input [class.d-flex]='commentTextHolder["data-comment"]' [class.d-none]='!commentTextHolder["data-comment"]' [value]='comment.comment'  type="text" #updateInput
+                (blur)="commentTextHolder['data-comment'] = false "
+                (keydown.escape)="commentTextHolder['data-comment'] = false "
+                 (keyup.enter)="updateComment(comment.id, updateInput.value); commentTextHolder['data-comment'] = false "
+                 class="sM0-supp-1-bg sM0-r-b-radius w-100 py-4 justify-content-between align-items-center mb-0 sM0-text-0-cr sM0-fs-12" >
                 <!-- Dots Button Menu Control -->
                 <button *ngIf="authService?.user?.data?.id == comment?.user_id"  mat-icon-button [matMenuTriggerFor]="menu" aria-label="" class="mat-icon material-icons sM0-text-0-cr d-flex justify-content-center align-items-center">
                     <mat-icon>more_vert</mat-icon>
@@ -157,7 +165,7 @@
             <!-- Main Menu Controller -->
             <mat-menu class="sM0-smoke-bg d-flex justify-content-center align-items-center" #menu="matMenu">
                 <!-- Edit Icon And Button -->
-                <button mat-menu-item (click)="editComment(comment.id)" >
+                <button mat-menu-item (click)="commentTextHolder['data-comment'] = true; focusInp(updateInput) " >
                   <mat-icon class="OM-img-edit sM0-icon-d sM0-bg-imgs-center mr-2"></mat-icon>
                   <span class="sM0-text-0-cr sM0-fs-16">Edit</span>
                 </button>
@@ -167,21 +175,22 @@
                   <span class="sM0-text-0-cr sM0-fs-16">Delete</span>
                 </button>
             </mat-menu>
-            <div class='sM0-main-cr'>
-                <pagination-controls
-                previousLabel="Prev" 
-                nextLabel="Next" 
-                responsive="true"
-                maxSize="5"
-                autoHide="true"
-                screenReaderPaginationLabel="Pagination"
-                screenReaderPageLabel="page"
-                screenReaderCurrentLabel="You're on page"
-                (pageChange)="handlePageChange($event)"
-                >
-                </pagination-controls>
-            </div>
+  
         </div>
     </div>
+    <!-- <div class='sM0-main-cr'>
+        <pagination-controls
+        previousLabel="Prev" 
+        nextLabel="Next" 
+        responsive="true"
+        maxSize="5"
+        autoHide="true"
+        screenReaderPaginationLabel="Pagination"
+        screenReaderPageLabel="page"
+        screenReaderCurrentLabel="You're on page"
+        (pageChange)="handlePageChange($event)"
+        >
+        </pagination-controls>
+    </div> -->
     <!-- <button class="btn btn-danger" (click)="getUsersAuthId()" >Get Users</button> -->
 </div>

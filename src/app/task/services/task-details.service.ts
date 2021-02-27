@@ -14,6 +14,7 @@ export class TaskDetailsService {
   propID;
   tour3DPackage: any = [];
   comments: any = []
+  pagination
   // send old data to the backEnd
   old_status;
   old_category;
@@ -40,15 +41,14 @@ export class TaskDetailsService {
     return this.http.get(`${this._URLRunTime}AWSPhoto/${propID}/100/0`)
   }
   // Get Comment 
-  getAllComment(ID) {
-    return this.http.get(`${this._URLRunTime}List/Comment/Post/${ID}/100/0`)
+  getAllComment(ID, items, pages) {
+    return this.http.get(`${this._URLRunTime}List/Comment/Post/${ID}/${items}/${pages}`)
   }
   // ! Method POST
   // ? Post Description Form
   postPropertyData(data) {
     return this.http.post(`${this._url}properties`, data)
   }
-
   postPhotographerBoxRow(porpID): Observable<any> {
     return this.http.post(`${this._URLRunTime}Upload/AWSUnzip`, porpID)
   }
@@ -66,7 +66,7 @@ export class TaskDetailsService {
   deleteComments(commentID) : Observable<any> {
     return this.http.delete(`${this._URLRunTime}Delete/Post/${commentID}`)
   }
-  // Update Comment
+  // ? Update Comment 
   updateComment(commentID, data): Observable<any>{
     return this.http.patch(`${this._URLRunTime}Update/Comment/${commentID}`, data)
   }

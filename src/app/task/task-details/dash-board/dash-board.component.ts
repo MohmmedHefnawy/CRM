@@ -22,7 +22,6 @@ export class DashBoardComponent implements OnInit {
   navigator
   imageBaseURL = environment.imageBaseurl
   prop
-  name = ""
   constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public navService: NavigatorServicesService,  public userTaskService: UserTaskService,
     public usersMapService: UsersMapService, public teamService: TeamsService, private router: Router,public socketService: SocketService, private authService : AuthService) { }
 
@@ -50,7 +49,7 @@ export class DashBoardComponent implements OnInit {
     this.getUsersToAssign(this.taskDetailsService.propID)
     this.socketON('Uploaded')
     this.socketON('Error_Uploaded')
-    this.getAllComment(this.taskDetailsService.propID)
+    this.getAllComment(this.taskDetailsService.propID, 100, 0)
   }
   // [#] Controls
   openModal(){
@@ -75,6 +74,17 @@ export class DashBoardComponent implements OnInit {
   emptyInp(inp){
     $(`#${inp}`).val("")
   }
+  // Focus Input
+  focusInp(inp){
+    console.log(inp);
+    
+    setTimeout(()=>{inp.focus()}, 1)
+    // commentTextHolder['data-comment'] = true;
+  }
+  handlePageChange(event) {
+    $('.M0-content-holder').get(0).scrollTo({ top: 0, behavior: 'smooth' });
+    this.getAllComment(this.taskDetailsService.propID, 5 , event)
+  }
   // [#] HTTP REQs
   getUsersToAssign(propID) {
     this.taskDetailsService.getTaskAssignUser(propID).subscribe((res: any) => {
@@ -91,16 +101,15 @@ export class DashBoardComponent implements OnInit {
       localStorage.setItem("teamUser", JSON.stringify(this.teamService.oneUser))
     }, err => {
     }, () => {
-      this.getUsersToAssign(userId)
+      // this.getUsersToAssign(userId)
       this.router.navigate(['/user/profile/user'])
     })
   }
   // Get All Comment PostID & Count & Page_Num
-  getAllComment(propID){
-    this.taskDetailsService.getAllComment(propID).subscribe((res:any)=>{
+  getAllComment(propID, items, pages){
+    this.taskDetailsService.getAllComment(propID, items, pages).subscribe((res:any)=>{
       this.taskDetailsService.comments = res.data
       console.log(this.taskDetailsService.comments);
-      
     }, err=>{this.taskDetailsService.comments = []})
   }
   // Get Users Auth ID
@@ -120,7 +129,7 @@ export class DashBoardComponent implements OnInit {
       console.log(res);
     }, err =>{},()=>{
       // ! Need Best Code
-      this.getAllComment(this.taskDetailsService.propID)
+      this.getAllComment(this.taskDetailsService.propID, 100, 0)
       this.emptyInp(commentInp)
     })
   }
@@ -129,7 +138,7 @@ export class DashBoardComponent implements OnInit {
     this.taskDetailsService.deleteComments(commentID).subscribe((res)=>{
       console.log(res);
     }, err => {},()=>{
-      this.getAllComment(this.taskDetailsService.propID)
+      this.getAllComment(this.taskDetailsService.propID, 100, 0)
     })
   }
   // Update Comments
@@ -141,11 +150,6 @@ export class DashBoardComponent implements OnInit {
       console.log(res);
       
     })
-  }
-  // Edit Comment
-  editComment(commentID){
-    
-
   }
   // Listner To Data From Server
   socketON(listner) {
