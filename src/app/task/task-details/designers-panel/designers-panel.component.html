@@ -1,68 +1,106 @@
-<!-- ! Start Description COmp -->
-<!-- ! End Description COmp -->
 <!-- ! Designer Panel Start -->
-<div class="row justify-content-center overflow-auto h-100">
-    <div class='w-100'>
-        <div class="M0-micro-card d-flex sM0-bg-opacity-supp-1-5 sM0-f-radius w-100 p-4 mb-4">
-            <!-- Holder Image Icon -->
-            <div class="sM0-img-aa OM-img-src sM0-bg-imgs-center bg-danger h-100 sM0-f-radius">
-            </div>
-            <!-- HTTP Input -->
+<div class="row justify-content-center overflow-auto h-100~">
+    <div class="w-100">
+        <!-- ? Holder Image -->
+        <div class="sM0-bg-opacity-supp-1-5~ bg-dark sM0-inp-description-holder-a w-100 sM0-t-r-radius"></div>
+        <!-- ? Holder Designer Row -->
+        <div #taskRow *ngFor='let awsPhoto of taskDetailsService.tour3DPackage; index as i'
+            (mouseover)="deleteBttn['data-view'] = true" (mouseout)="deleteBttn['data-view'] =false"
+            class="M0-micro-card d-flex sM0-bg-opacity-supp-1-5 sM0-b-l-radius w-100 p-4 mb-4 position-relative">
+        <!-- http Input -->
             <div class="w-100 px-4 d-flex flex-column justify-content-center">
-                <p class="sM0-text-0-cr sM0-fs-b-16">Property Image Name</p>
-                <div class="d-flex w-100">
-                    <div
-                        class='py-4 sM0-bg-opacity-green-5 sM0-t-l-radius sM0-inp-icon-holder-a d-flex justify-content-center align-items-center'>
-                        <i class="OM-img-link sM0-icon-d"></i>
-                    </div>
-                    <div class="w-100">
-                        <input type="text" placeholder="URL..."
-                            class="sM0-fs-mid-b-12 sM0-r-b-radius px-4 w-100 h-100 sM0-bg-opacity-green-25 sM0-text-0-cr">
+                <!-- Delete button -->
+                <div #deleteBttn [attr.data-view]='false' class='d-flex'>
+                    <i (click)='deletePhotographerPackage(awsPhoto?.id,i)' [class.d-block]="deleteBttn['data-view']"
+                        [class.d-none]="!deleteBttn['data-view']"
+                        class=" position-absolute OM-icon-Holder-Delete OM-img-deletered d-block~ sM0-click  sM0-icon-b"></i>
+                </div>
+                <div class="d-flex w-100 mb-2">
+                    <!-- ? Title Input -->
+                    <div class="w-100 mb-2">
+                        <input #imageINPTitle type="text" placeholder="Property Image Name" [value]='awsPhoto?.title'
+                            (blur)='updatePhotographerPackage(awsPhoto?.id, imageINPTitle.value, false, false)'
+                            class="sM0-text-0-cr sM0-bg-opacity-supp-1-5 sM0-fs-b-16 sM0-f-radius px-4">
                     </div>
                 </div>
-            </div>
-            <!-- Holder Icons -->
-            <div class="sM0-bg-opacity-green-25 h-100 sM0-f-radius d-flex flex-column justify-content-between">
-                <i class="OM-img-profile sM0-img-d p-4  sM0-circle-border sM0-bg-imgs-center"></i>
-                <i class="OM-img-profile sM0-img-d p-4  sM0-circle-border sM0-bg-imgs-center"></i>
-            </div>
-        </div>
-        <div *ngFor='let awsPhoto of taskDetailsService.tour3DPackage' class="M0-micro-card d-flex sM0-bg-opacity-supp-1-5 sM0-f-radius w-100 p-4 mb-4">
-            <!-- Holder Image Icon -->
-            <div class="sM0-img-aa OM-img-src sM0-bg-imgs-center bg-danger h-100 sM0-f-radius">
-            </div>
-            <!-- HTTP Input -->
-            
-            <div class="w-100 px-4 d-flex flex-column justify-content-center">
-                <p class="sM0-text-0-cr sM0-fs-b-16 mb-2">Property Image Name</p>
-                <!-- photographer Link -->
-                <!-- <div class="w-100"> -->
-                    <a [href]="awsPhoto.image_link" target='_blank' class='mb-3'>PhotoGrapher Package</a>
-                <!-- </div> -->
                 <div class="d-flex w-100">
-                    <div class='form-group mb-0 sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-a d-flex justify-content-center align-items-center px-4'>
-                            <i class="OM-img-link sM0-icon-d d-block"></i>
+                    <div
+                        class='px-4 sM0-supp-0-bg sM0-t-l-radius sM0-inp-icon-holder-a d-flex justify-content-center align-items-center'>
+                        <i class="OM-img-link sM0-icon-d"></i>
                     </div>
+                    <!-- ? Image URL Input -->
                     <div class="w-100 p-0">
-                        <input #inpUploadDesigner [value]='inpUploadDesigner' type="text" placeholder="URL..." (change)='changeValue(inpUploadDesigner?.value)' class="sM0-fs-mid-b-12  px-4 w-100 h-100 sM0-supp-1-bg sM0-text-0-cr" >
+                        <input #packageLinkINP type="text" placeholder="URL..." [value]='awsPhoto?.image_link'
+                            class="sM0-fs-mid-b-12  px-4 w-100 h-100 sM0-supp-1-bg sM0-text-0-cr" readonly>
                     </div>
-                    <!-- Button Save -->
-                    <div class="d-flex justify-content-end ml-4~">
+                    <!-- Button Upload -->
+                    <div *ngIf='!packageLinkINP.value' class="d-flex justify-content-end ml-4~">
                         <button type="submit" class="sM0-r-b-radius w-100 sM0-supp-1-bg sM0-border-none px-4">
-                            <label for="uploadFile" class=" d-flex justify-content-center mb-0 sM0-click">
-                            <p class="mb-0 sM0-text-0-cr sM0-fs-b-12 d-flex"><i class="OM-img-link sM0-icon-d mr-2"></i> Upload</p>
+                            <label [for]="awsPhoto?.id"
+                                class=" d-flex justify-content-center align-items-center mb-0 sM0-click w-100 h-100">
+                                <p class="mb-0 sM0-main-cr sM0-fs-b-12 d-flex"><i
+                                        class="iM0-icon-upload-gold sM0-icon-d mr-2"></i> Upload</p>
                             </label>
-                            <input type="file" class="d-none form-group" id="uploadFile" (change)='handleFileInput($event.target.files)'>
+                            <input #uploadFile type="file" class="d-none form-group" id="{{awsPhoto?.id}}"
+                                (change)='updatePhotographerPackage(awsPhoto?.id, false, $event.target.files, false)'>
+                        </button>
+                    </div>
+                    <div *ngIf='packageLinkINP.value' class="d-flex justify-content-end ml-4~">
+                        <button type="submit" class="sM0-r-b-radius w-100 sM0-supp-1-bg sM0-border-none px-4">
+                            <label [for]="awsPhoto?.id"
+                                class=" d-flex justify-content-center align-items-center mb-0 sM0-click w-100 h-100">
+                                <p class="mb-0 sM0-main-cr sM0-fs-b-12 d-flex"><i
+                                        class="iM0-icon-update-gold sM0-icon-d mr-2"></i> Update</p>
+                            </label>
+                            <input #uploadFile type="file" class="d-none form-group" id="{{awsPhoto?.id}}"
+                                (change)='updatePhotographerPackage(awsPhoto?.id, false, $event.target.files, false)'>
                         </button>
                     </div>
                 </div>
             </div>
             <!-- Holder Icons -->
-            <div class="sM0-bg-opacity-gold-25 h-100 sM0-f-radius d-flex flex-column justify-content-between">
-                <i class="OM-img-profile sM0-img-d p-4  sM0-circle-border sM0-bg-imgs-center"></i>
-                <i class="OM-img-edit p-4 sM0-bg-opacity-gold-25 sM0-circle-border sM0-bg-imgs-center sM0-icon-d"></i>
+            <div *ngIf="awsPhoto?.current_status == 0 ? 'sM0-bg-opacity-gold-25' : 'sM0-bg-opacity-gold-25' "
+                (click)='updatePhotographerPackage(awsPhoto?.id, false, false, awsPhoto?.current_status)'
+                [data-status]='awsPhoto?.current_status'>
+                <div class="h-100 sM0-f-radius d-flex flex-column justify-content-between">
+                    <i *ngIf="awsPhoto?.current_status == 0"
+                        class="OM-img-rightwhite p-4 sM0-bg-opacity-white-25 rounded-circle sM0-bg-imgs-center sM0-icon-d"></i>
+                    <i *ngIf="awsPhoto?.current_status == 1"
+                        class="OM-img-profile sM0-img-d p-4  sM0-circle-border sM0-bg-imgs-center"></i>
+                    <i *ngIf="awsPhoto?.current_status == 1"
+                        class="OM-img-edit p-4 sM0-bg-opacity-gold-25 sM0-circle-border sM0-bg-imgs-center sM0-icon-d"></i>
+                </div>
+
             </div>
         </div>
-    </div>
+        <!-- ? Title -->
+        <p class="sM0-text-0-cr">Footage Link : </p>
+        <!-- ? Holder Download Row -->
+        <div class="d-flex w-100 px-4 align-items-center">
+            <!-- ? Image URL Input -->
+            <div class="w-100 d-flex sM0-supp-1-bg p-4 sM0-t-l-radius">
+                <p class="mb-0 sM0-text-0-cr">Propert Image Name</p>
+            </div>
+            <!-- Button Upload -->
+            <div class="d-flex justify-content-end ml-4~">
+                <button type="submit" class="sM0-r-b-radius w-100 sM0-supp-1-bg sM0-border-none p-4 mr-4">
+                    <label [for]="awsPhoto?.id"
+                        class=" d-flex justify-content-center align-items-center mb-0 sM0-click w-100 h-100">
+                        <p class="mb-0 sM0-green-cr sM0-fs-b-12 d-flex"><i class="iM0-icon-download-green sM0-icon-d mr-2"></i>
+                            Download</p>
+                    </label>
+                    <input #uploadFile type="file" class="d-none form-group" id="{{awsPhoto?.id}}"
+                        (change)='updatePhotographerPackage(awsPhoto?.id, false, $event.target.files, false)'>
+                </button>
+            </div>
+            <i class="OM-img-profile sM0-img-d p-4 sM0-circle-border sM0-bg-imgs-center"></i>
+        </div>
+    </div>    
 </div>
-<!-- ! Designer Panel Start -->
+<!-- ! Designer Panel END -->
+
+
+
+
+
+
