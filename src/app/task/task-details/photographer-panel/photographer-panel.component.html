@@ -59,15 +59,16 @@
                 </div>
             </div>
             <!-- Holder Current_Status -->
-            <div 
-            [class.justify-content-start]='awsPhoto?.current_status == 0' 
+            <button
+            [class.justify-content-start]='awsPhoto?.current_status == 0'  
             [class.justify-content-between]='awsPhoto?.current_status == 1' 
-            [class.sM0-bg-opacity-green-25]='awsPhoto?.current_status == 1' class="h-100 sM0-f-radius d-flex flex-column" 
-            (click)='updatePhStatus(awsPhoto?.id, awsPhoto?.current_status)'>
+            [class.sM0-bg-opacity-green-25]='awsPhoto?.current_status == 1' class="h-100~ sM0-f-radius d-flex flex-column btn p-0"
+            [disabled]='packageLinkINP.value == ""' 
+            (click)='packageLinkINP.value != "" ?  updatePhStatus(awsPhoto?.id, awsPhoto?.current_status): false'>
                 <i *ngIf="awsPhoto?.current_status == 0" class="OM-img-rightwhite p-4 sM0-bg-opacity-white-25 rounded-circle sM0-bg-imgs-center sM0-icon-d"></i>
                 <i *ngIf="awsPhoto?.current_status == 1" class="OM-img-profile sM0-img-d p-4  sM0-circle-border sM0-bg-imgs-center"></i>
                 <i *ngIf="awsPhoto?.current_status == 1" class="OM-img-rightwhite p-4 sM0-bg-opacity-green-25 sM0-circle-border sM0-bg-imgs-center sM0-icon-d"></i>
-            </div>
+            </button>
         </div>
     
     </div>
