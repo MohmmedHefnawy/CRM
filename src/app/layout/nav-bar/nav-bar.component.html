@@ -13,7 +13,7 @@
         <button class="p-3 sM0-text-0-cr sM0-fs-12 sM0-border-none sM0-smoke-bg sM0-t-l-radius btn d-flex align-items-center justify-content-end p-0">
           <i class="d-inline-block sM0-icon-d OM-search-icon sM0-bg-imgs-center"></i>
         </button>
-        <input class="w-100 sM0-smoke-bg sM0-text-0-cr sM0-r-b-radius sM0-border-none pr-4" type="search" placeholder="Search...">
+        <input disabled class="w-100 sM0-smoke-bg sM0-text-0-cr sM0-r-b-radius sM0-border-none pr-4" type="search" placeholder="Search...">
       </div>
       <!-- mid screen search bar ( for tablets) -->
       <div class='d-sm-flex w-100 d-md-none d-none'>
@@ -31,7 +31,7 @@
       </div>
     </div>
     <!-- controllers -->
-    <div class="d-flex">
+    <div *ngIf='devMood' class="d-flex">
       <!-- larg screen controllers ( for PC and LapTops) -->
       <div class='d-xl-flex d-none'>
         <!-- teams Controllers -->
@@ -73,14 +73,14 @@
     </div>
     <!-- notifications -->
     <!-- larg screen notifi ( for pc, lap, tab) -->
-    <div class="d-sm-flex d-none">
+    <div *ngIf='devMood' class="d-sm-flex d-none">
       <button
         class="sM0-smoke-bg sM0-text-0-cr sM0-fs-15 sM0-smoke-bg sM0-f-radius btn sM0-btn-w-120 d-flex justify-content-center align-items-center ml-md-4 ml-2">
         <i class="d-inline-block sM0-icon-d OM-notifi-icon sM0-bg-imgs-center"></i>
       </button>
     </div>
     <!-- small screen notifi ( for Mobile) -->
-    <div class="d-flex d-sm-none">
+    <div *ngIf='devMood' class="d-flex d-sm-none">
       <button
         class="sM0-smoke-bg sM0-text-0-cr sM0-fs-15 sM0-smoke-bg sM0-f-radius btn d-flex justify-content-center align-items-centers p-3 ml-md-4 ml-2">
         <i class="d-inline-block sM0-icon-d OM-notifi-icon sM0-bg-imgs-center"></i>
