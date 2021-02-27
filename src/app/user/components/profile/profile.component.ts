@@ -181,7 +181,6 @@ export class ProfileComponent implements OnInit {
       status_id: 2
     }
     this.assignUserService.propChangeStatus(data).subscribe(res=>{
-      console.log(res)
     },err=>{}, ()=>{
         for (let singleProp of this.userTaskService.userTasks) {
           if (singleProp.id == propID) {

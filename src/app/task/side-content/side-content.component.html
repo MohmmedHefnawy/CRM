@@ -92,15 +92,17 @@
             </div> -->
         <!-- </div> -->
         <!-- Completed button -->
-        <ng-container *ngIf='authService?.user?.data'>
-            <button
+        <ng-container *ngIf='authService?.user?.data && taskDetailsService.taskDetails?.tasks_status'>
+            <button (click)='taskDetailsService.taskDetails?.tasks_status != 4 ? changeUserTaskStatus(taskDetailsService.propID, 4) : changeUserTaskStatus(taskDetailsService.propID, 2)'
             *ngIf='authService?.user?.data?.role_id != 1'
-                class="btn sM0-btn-w-160 d-flex mx-auto justify-content-center align-items-center sM0-f-radius sM0-smoke-bg px-3 py-2">
+                [class.sM0-bg-opacity-green-25]='taskDetailsService.taskDetails?.tasks_status == 4'
+                [class.sM0-smoke-bg]='taskDetailsService.taskDetails?.tasks_status != 4'
+                class="btn sM0-btn-w-160 d-flex mx-auto justify-content-center align-items-center sM0-f-radius  px-3 py-2">
                 <!-- sM0-bg-opacity-green-25 -->
-                <!-- <i class="iM0-icon-right-green sM0-icon-d sM0-bg-imgs-center mr-3"></i> -->
-                <!-- <p class="sM0-green-cr d-inline-block mb-0 sM0-fs-12">Complete</p> -->
-                <i class="OM-img-rightwhite sM0-icon-d sM0-bg-imgs-center mr-3"></i>
-                <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Complete</p>
+                <i *ngIf='taskDetailsService.taskDetails?.tasks_status == 4' class="iM0-icon-right-green sM0-icon-d sM0-bg-imgs-center mr-3"></i>
+                <p *ngIf='taskDetailsService.taskDetails?.tasks_status == 4' class="sM0-green-cr d-inline-block mb-0 sM0-fs-12">Complete</p>
+                <i *ngIf='taskDetailsService.taskDetails?.tasks_status != 4' class="OM-img-rightwhite sM0-icon-d sM0-bg-imgs-center mr-3"></i>
+                <p *ngIf='taskDetailsService.taskDetails?.tasks_status != 4' class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-12">Complete</p>
             </button>
             <button
                 disabled

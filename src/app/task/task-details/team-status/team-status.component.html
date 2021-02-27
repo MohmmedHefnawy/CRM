@@ -85,11 +85,18 @@
           <i class="OM-icon-exclamationgold sM0-icon-d sM0-bg-imgs-center"></i>
         </button>
       </ng-container>
-      <!--  -->
+      <!-- In-Progress status -->
       <ng-container *ngIf='assignUser?.current_status_id == "2"'>
         <button
           class="sM0-btn-w-160 sM0-text-0-cr sM0-fs-12 sM0-f-radius d-flex align-items-center justify-content-center btn sM0-supp-0-bg">
           <i class="sM0-icon-d OM-icon-inprogress sM0-bg-imgs-center mr-3"></i>In-Progress
+        </button>
+      </ng-container>
+      <!-- Completed Status -->
+      <ng-container *ngIf='assignUser?.current_status_id == "4"'>
+        <button
+          class="sM0-btn-w-160 sM0-green-cr sM0-bg-opacity-green-25 sM0-fs-12 sM0-f-radius d-flex align-items-center justify-content-center btn sM0-supp-0-bg">
+          <i class="sM0-icon-d iM0-icon-right-green sM0-bg-imgs-center mr-3"></i>Completed
         </button>
       </ng-container>
     </div>
