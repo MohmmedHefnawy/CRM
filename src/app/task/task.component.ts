@@ -25,6 +25,7 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
     this.navService.navigators = this.navigator;
     this.getPropById(this.taskDetails.propID)
     this.getPhotographersPackagesByPropID(this.taskDetails.propID)
+    this.getDesignerPackagesByPropID(this.taskDetails.propID)
   }
 
   getPropById(ID) {
@@ -63,8 +64,16 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
   getPhotographersPackagesByPropID(propID) {
     this.taskDetails.getPhotographerImageURL(propID).subscribe((res: any) => {
       res.data ? this.taskDetails.tour3DPackage = res.data : false
+      console.log(res)
       console.log(this.taskDetails.tour3DPackage);
     }, err => { this.taskDetails.tour3DPackage = [] })
+  }
+  getDesignerPackagesByPropID(propID) {
+    this.taskDetails.getDesignerImageURL(propID).subscribe((res: any) => {
+      this.taskDetails.designertour3DPackage = JSON.parse(res.virtual_link)
+      console.log(res)
+      console.log(this.taskDetails.designertour3DPackage);
+    }, err => { this.taskDetails.designertour3DPackage = [] })
   }
   ngOnDestroy(): void {
 

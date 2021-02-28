@@ -13,6 +13,7 @@ export class TaskDetailsService {
   assignedUsers;
   propID;
   tour3DPackage: any = [];
+  designertour3DPackage;
   comments: any = []
   pagination
   // send old data to the backEnd
@@ -40,6 +41,10 @@ export class TaskDetailsService {
   getPhotographerImageURL(propID) {
     return this.http.get(`${this._URLRunTime}AWSPhoto/${propID}/100/0`)
   }
+  // Get Designer Image URL
+  getDesignerImageURL(propID) {
+    return this.http.get(`${this._URLRunTime}AWSVR/${propID}`)
+  }
   // Get Comment 
   getAllComment(ID, items, pages) {
     return this.http.get(`${this._URLRunTime}List/Comment/Post/${ID}/${items}/${pages}`)
@@ -63,11 +68,11 @@ export class TaskDetailsService {
     return this.http.post(`${this._URLRunTime}Create/Comment`, data)
   }
   // ? Delete Comment From Server
-  deleteComments(commentID) : Observable<any> {
+  deleteComments(commentID): Observable<any> {
     return this.http.delete(`${this._URLRunTime}Delete/Post/${commentID}`)
   }
   // ? Update Comment 
-  updateComment(commentID, data): Observable<any>{
+  updateComment(commentID, data): Observable<any> {
     return this.http.patch(`${this._URLRunTime}Update/Comment/${commentID}`, data)
   }
 
