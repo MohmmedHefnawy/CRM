@@ -25,10 +25,11 @@
                         <!-- Group Icons -->
                         <div class="d-flex ml-auto justify-content-center  my-md-2 my-4">
                             <!-- Call Icon -->
-                            <a *ngIf='userProfile ? authService.user?.data.phone : teamService.oneUser.phone ' [href]='userProfile ? authService.user?.data.phone : teamService.oneUser.phone'>
-                                <i
-                                    class="OM-img-green-call sM0-bg-opacity-green-25 sM0-circle-border p-4 sM0-icon-c sM0-bg-imgs-center d-inline-block">
-                                </i>
+                            <a [class.d-inline-block]='userProfile ? authService.user?.data.phone : teamService.oneUser.phone' 
+                               [class.d-none]='userProfile ? !authService.user?.data.phone : !teamService.oneUser.phone' data-container="body" data-toggle="popover" data-placement="left"
+                               [attr.data-content]="userProfile ? authService.user?.data.phone : teamService.oneUser.phone"  >
+                               <i class="OM-img-green-call sM0-bg-opacity-green-25 sM0-circle-border p-4 sM0-icon-c sM0-bg-imgs-center d-inline-block">
+                               </i>
                             </a>
                             <!-- Twiiter Icon -->
                             <a *ngIf='userProfile ? authService.user?.data.tw : teamService.oneUser.tw' [href]='userProfile ? authService.user?.data.tw : teamService.oneUser.tw'>

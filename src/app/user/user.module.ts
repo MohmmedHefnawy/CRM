@@ -14,6 +14,7 @@ import { ChangePasswordComponent } from './components/settings/change-password/c
 import { ContactComponent } from './components/settings/contact/contact.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [TeamsComponent, ProfileComponent, UserComponent, NotificationsComponent, CreateAccountComponent, SettingsComponent, PersonalInfoComponent, ChangePasswordComponent, ContactComponent],
   exports: [UserRoutingModule],
@@ -22,7 +23,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     UserRoutingModule,
     FormsModule,
     SharedModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTooltipModule
   ]
 })
 export class UserModule { }
