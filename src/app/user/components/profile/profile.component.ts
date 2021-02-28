@@ -61,6 +61,15 @@ export class ProfileComponent implements OnInit {
     })
   }
   // [#] Controller
+  openPopover(e){
+    e.stopPropagation()
+    console.log("here");
+    
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+   
+    })
+  }
   checkUser(route, status) {
     !status ? status =  "" :false    
     console.log(status);
