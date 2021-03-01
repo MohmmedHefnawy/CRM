@@ -10,13 +10,23 @@ import { UserTaskService } from 'src/app/task/services/user-task.service'
 import { TaskDetailsService } from 'src/app/task/services/task-details.service'
 import { ModalComponent } from 'src/app/shared/components/popUps/task-modal/modal.component';
 import { AssignUserService } from 'src/app/shared/services/assign-user.service';
+import { trigger, state, style, animate, transition, keyframes } from "@angular/animations";
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  animations: [
+    // Each unique animation requires its own trigger. The first argument of the trigger function is the name
+    trigger("rotatedState", [
+      state("default", style({ transform: "rotate(0)" })),
+      state("rotated", style({ transform: "rotate(-100deg)" })),
+      transition("rotated <=> default", animate("200ms ease-out")),
+    ])
+  ]
 })
 export class ProfileComponent implements OnInit {
   @ViewChild(ModalComponent) popUp: ModalComponent
+ 
   imageBaseURL = environment.imageBaseurl
   // visited user
   visitedUserName = this.teamService.oneUser?.name ? this.teamService.oneUser?.name : '';
@@ -25,6 +35,8 @@ export class ProfileComponent implements OnInit {
   editMyInfo = false
   // image base64
   base64textString = [];
+  // Verbs Used To Active Animation On Profile Call Icon
+  state: string = "default";
   // Navigators
   navigator = {
     icon: "/assets/Icons/Profile.svg",
@@ -33,6 +45,8 @@ export class ProfileComponent implements OnInit {
     routers: ['/user/profile', '/user/me/profile/pending', '/user/me/profile/inProgress', '/user/me/profile/expired', '/user/me/profile/publish'],
     api: []
   }
+  isIndex:number = -1
+  // [#]  Life cycles
   constructor(
     public navService: NavigatorServicesService,
     public authService: AuthService,
@@ -49,7 +63,7 @@ export class ProfileComponent implements OnInit {
     let urlStatus = this.activeRouter.snapshot?.url[2]?.path
     this.checkUser(route, urlStatus)
   }
-
+// [#]  Life cycles
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
     setTimeout(()=>{
@@ -61,19 +75,19 @@ export class ProfileComponent implements OnInit {
     })
   }
   // [#] Controller
+  // Open popover With Click Call Icon At Cards
   openPopover(e){
     e.stopPropagation()
-    console.log("here");
-    
-    $(function () {
       $('[data-toggle="popover"]').popover()
-   
-    })
   }
+  // Rotate Call Icon At Profile 
+  rotate() {
+    this.state = this.state === "default" ? "rotated" : "default";
+  }
+  // Check Users Router
   checkUser(route, status) {
     !status ? status =  "" :false    
     console.log(status);
-    
     switch (route) {
       // current user
       case '/user/profile':
@@ -136,6 +150,7 @@ export class ProfileComponent implements OnInit {
       reader.readAsBinaryString(file);
     }
   }
+  // Update Img To Server
   updateImage(e) {
     let imageObj = { image: 'data:image/png;base64,' + btoa(e.target.result) }
     this.profileService.postImage(imageObj).subscribe(res => {
@@ -143,7 +158,7 @@ export class ProfileComponent implements OnInit {
     })
 
   }
-  // 
+  // Handle Pagination 
   handlePageChange(event) {
     $('.M0-content-holder').get(0).scrollTo({ top: 0, behavior: 'smooth' });
     this.getAllProps('en', event, 25, '', '')
