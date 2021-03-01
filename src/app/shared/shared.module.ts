@@ -14,7 +14,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NotificationComponent } from './components/notification/notification.component';
-import { MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -31,7 +31,9 @@ import { MatIconModule } from '@angular/material/icon';
     NgxPaginationModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+
+
   ],
   providers: [
     // { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },
