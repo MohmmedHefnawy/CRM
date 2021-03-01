@@ -30,13 +30,13 @@ export class TeamsComponent implements OnInit, OnDestroy {
     public teamService: TeamsService,
     private router: Router,
     public userTaskService: UserTaskService,
-    public assignUserService: AssignUserService
+    public assignUserService: AssignUserService,
   ) { }
-
   ngOnInit(): void {
     this.navService.navigators = this.navigator;
     this.matchedRoutes()
   }
+
   // fire if it thie component restarted to get the api caling index
   matchedRoutes() {
     for (let route of this.navService.navigators?.routers) {

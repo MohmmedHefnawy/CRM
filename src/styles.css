@@ -582,7 +582,6 @@ textarea {
   opacity: 1;
 }
 /*  Active Classes === END */
-
 html,
 body {
   height: 100%;
@@ -613,3 +612,26 @@ body {
   filter: brightness(1.2);
   transform: scale(0.98);
 }
+
+/* -------------------------------------------------------------------------- */
+/*                            Popover Style                            */
+.popover { 
+  background-color: rgba(92, 184, 92, 0.25) !important;
+}
+.popover-body { 
+  color: #5cbb5c !important;
+}
+.bs-popover-bottom > .arrow::after, .bs-popover-auto[x-placement^="bottom"] > .arrow::after{
+  border-bottom-color: rgba(92, 184, 92, 0.25) !important;
+}
+.bs-popover-left > .arrow::after, .bs-popover-auto[x-placement^="left"] > .arrow::after{
+  border-left-color: rgba(92, 184, 92, 0.25) !important;
+}
+.bs-popover-top > .arrow::after, .bs-popover-auto[x-placement^="top"] > .arrow::after{
+  border-top-color: rgba(92, 184, 92, 0.25) !important;
+}
+.bs-popover-right > .arrow::after, .bs-popover-auto[x-placement^="right"] > .arrow::after{
+  border-right-color: rgba(92, 184, 92, 0.25) !important;
+}
+/*                          End  Popover Style                            */
+/* -------------------------------------------------------------------------- */

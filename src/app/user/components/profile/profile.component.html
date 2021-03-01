@@ -25,10 +25,11 @@
                         <!-- Group Icons -->
                         <div class="d-flex ml-auto justify-content-center  my-md-2 my-4">
                             <!-- Call Icon -->
-                            <a *ngIf='userProfile ? authService.user?.data.phone : teamService.oneUser.phone ' [href]='userProfile ? authService.user?.data.phone : teamService.oneUser.phone'>
-                                <i
-                                    class="OM-img-green-call sM0-bg-opacity-green-25 sM0-circle-border p-4 sM0-icon-c sM0-bg-imgs-center d-inline-block">
-                                </i>
+                            <a [class.d-inline-block]='userProfile ? authService.user?.data.phone : teamService.oneUser.phone' 
+                               [class.d-none]='userProfile ? !authService.user?.data.phone : !teamService.oneUser.phone' data-container="body" data-toggle="popover" data-placement="left"
+                               [attr.data-content]="userProfile ? authService.user?.data.phone : teamService.oneUser.phone"  >
+                               <i class="OM-img-green-call sM0-bg-opacity-green-25 sM0-circle-border p-4 sM0-icon-c sM0-bg-imgs-center d-inline-block">
+                               </i>
                             </a>
                             <!-- Twiiter Icon -->
                             <a *ngIf='userProfile ? authService.user?.data.tw : teamService.oneUser.tw' [href]='userProfile ? authService.user?.data.tw : teamService.oneUser.tw'>
@@ -85,7 +86,7 @@
                 <div class="row m-sm-0 justify-content-center text-center w-100 h-100 mb-xl-4 mb-4">
                     <!-- In-Progress Section -->
                     <div routerLinkActive="sM0-active"
-                    [routerLink]='userProfile ? "/user/me/profile/inProgress": "/user/profile/user/inProgress"'
+                    [routerLink]='userProfile ? "/user/me/profile/inProgress" : "/user/profile/user/inProgress" '
                      class="sM0-click col p-0 mr-xl-0 mr-sm-4 mr-0 static-cards sM0-f-radius sM0-notActive">
                         <div class=" sM0-fs-mid-b-12 px-4 sM0-supp-1-bg sM0-t-r-radius h-50 d-flex justify-content-center align-items-center">
                             In-Progress</div>
@@ -163,7 +164,7 @@
                     <!-- Image Profile -->
                     <div 
                         [ngStyle]="{'background-image' : 'url('+ task?.images +')'}"
-                    class="OM-img-src sM0-bg-imgs-center sM0-img-a sM0-t-r-radius mb-4 d-flex justify-content-end w-100 position-relative">
+                        class="OM-img-src sM0-bg-imgs-center sM0-img-a sM0-t-r-radius mb-4 d-flex justify-content-end w-100 position-relative">
                         <!-- Over Layer -->
                         <div class="sM0-opacity-4 sM0-supp-0-bg h-100 w-100  position-absolute sM0-t-r-radius"></div>
                         <!-- acount manager icon -->
@@ -191,9 +192,10 @@
                             class="m-0 mt-3 ml-2 px-3 py-1 sM0-fs-10 sM0-text-0-cr sM0-f-radius ">{{task?.category}} <span class='sM0-supp-1-bg sM0-text-0-cr sM0-fs-10 sM0-f-radius px-2 ml-2 py-1'>{{task?.type}}</span></p>
                         </div>
                         <!-- call icon -->
-                        <div class=" align-self-end sM0-bg-opacity-green-90 sM0-f-radius OM-icon-call-holder position-relative d-flex justify-content-center align-items-center mr-3">
+                        <button  (click)="openPopover($event)" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="left" [attr.data-content]="task?.agent_phone"
+                            class=" align-self-end sM0-bg-opacity-green-90 sM0-f-radius OM-icon-call-holder position-relative d-flex justify-content-center align-items-center mr-3">
                             <i class="OM-img-call sM0-icon-d sM0-bg-imgs-center d-inline-block"></i>
-                        </div>
+                        </button>
                     </div>
                     <!-- property content -->
                     <div class='d-flex flex-column align-items-center px-4'>

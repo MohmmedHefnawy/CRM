@@ -109,6 +109,7 @@ export class DashBoardComponent implements OnInit {
   getAllComment(propID, items, pages){
     this.taskDetailsService.getAllComment(propID, items, pages).subscribe((res:any)=>{
       this.taskDetailsService.comments = res.data
+      console.log(res)
       console.log(this.taskDetailsService.comments);
     }, err=>{this.taskDetailsService.comments = []})
   }

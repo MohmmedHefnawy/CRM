@@ -54,10 +54,22 @@ export class ProfileComponent implements OnInit {
     this.navService.navigators = this.navigator;
     setTimeout(()=>{
       console.log(this.authService.user);
-      
     },1000)
+    // Function PopOver
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
   }
   // [#] Controller
+  openPopover(e){
+    e.stopPropagation()
+    console.log("here");
+    
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+   
+    })
+  }
   checkUser(route, status) {
     !status ? status =  "" :false    
     console.log(status);

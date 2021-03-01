@@ -14,14 +14,20 @@ export class SideContentComponent implements OnInit {
   propID;
   imageBaseURL = environment.imageBaseurl
   constructor(public taskDetailsService: TaskDetailsService,
-     public Activerouter: ActivatedRoute,
+      public Activerouter: ActivatedRoute,
       private location: Location,
       public authService: AuthService,
-    public assignUserService: AssignUserService
+      public assignUserService: AssignUserService
       ) { }
 
   ngOnInit(): void {
-    setTimeout(() => { console.log(this.authService.user);}, 1000)
+    setTimeout(() => { console.log(this.authService.user);
+      console.log(this.taskDetailsService.taskDetails);
+    }, 1000)
+    // Popover Function
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
   }
   changeUserTaskStatus(propID, taskStatus){
     let data = {
