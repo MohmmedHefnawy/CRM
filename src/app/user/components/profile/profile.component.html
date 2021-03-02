@@ -27,8 +27,8 @@
                             <!-- Call Icon -->
                             <a [class.d-inline-block]='userProfile ? authService.user?.data.phone : teamService.oneUser.phone' 
                                [class.d-none]='userProfile ? !authService.user?.data.phone : !teamService.oneUser.phone' data-container="body" data-toggle="popover" data-placement="left"
-                               [attr.data-content]="userProfile ? authService.user?.data.phone : teamService.oneUser.phone"  >
-                               <i class="OM-img-green-call sM0-bg-opacity-green-25 sM0-circle-border p-4 sM0-icon-c sM0-bg-imgs-center d-inline-block">
+                               [attr.data-content]="userProfile ? authService.user?.data.phone : teamService.oneUser.phone"  (click)="rotate()" >
+                               <i [@rotatedState]='state' class="OM-img-green-call sM0-bg-opacity-green-25 sM0-circle-border p-4 sM0-icon-c sM0-bg-imgs-center d-inline-block">
                                </i>
                             </a>
                             <!-- Twiiter Icon -->
@@ -192,8 +192,8 @@
                             class="m-0 mt-3 ml-2 px-3 py-1 sM0-fs-10 sM0-text-0-cr sM0-f-radius ">{{task?.category}} <span class='sM0-supp-1-bg sM0-text-0-cr sM0-fs-10 sM0-f-radius px-2 ml-2 py-1'>{{task?.type}}</span></p>
                         </div>
                         <!-- call icon -->
-                        <button  (click)="openPopover($event)" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="left" [attr.data-content]="task?.agent_phone"
-                            class=" align-self-end sM0-bg-opacity-green-90 sM0-f-radius OM-icon-call-holder position-relative d-flex justify-content-center align-items-center mr-3">
+                        <button  (click)="openPopover($event)" data-container="body" data-toggle="popover" data-placement="left" [attr.data-content]="task?.agent_phone"
+                                  class=" btn align-self-end sM0-bg-opacity-green-90 sM0-f-radius OM-icon-call-holder position-relative d-flex justify-content-center align-items-center mr-3">
                             <i class="OM-img-call sM0-icon-d sM0-bg-imgs-center d-inline-block"></i>
                         </button>
                     </div>
