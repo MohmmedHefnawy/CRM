@@ -1,21 +1,21 @@
-<div class=" fixedWidth  h-100 d-flex align-items-center p-0">
-  <ul class="px-2 sM0-text-0-cr m-0 d-flex align-items-center w-100 justify-content-start~">
+<div class="w-100  h-100 d-flex align-items-center p-0 overflow-auto">
+  <ul class="px-2 sM0-text-0-cr m-0 d-flex align-items-center w-100 flex-nowrap overflow-auto">
     <!-- No Back -->
     <li *ngIf="!navService.navigators?.back" class="d-inline-block mr-4"><i class='sM0-icon-c d-block sM0-bg-imgs-center' [ngStyle]="{'background-image' : 'url('+ navService.navigators?.icon +')'}" ></i></li>
     <!-- Back -->
     <li [routerLink]="navService.navigators?.back?.route" *ngIf="navService.navigators?.back" class="d-inline-block mr-4"><i class='sM0-click sM0-icon-c d-block sM0-bg-imgs-center' [ngStyle]="{'background-image' : 'url('+ navService.navigators?.back?.icon +')'}" ></i></li>
     <!-- Title -->
-    <li class="d-inline-block text-uppercase sM0-fs-b-16 ">{{navService.navigators?.title}} <span class='mx-4 sM0-fs-b-16'>|</span></li>
+    <li class="d-inline-block text-uppercase sM0-fs-b-16 text-nowrap ">{{navService.navigators?.title}} <span class='mx-4 sM0-fs-b-16'>|</span></li>
     
     <!-- if there is routers -->
     <ng-container *ngIf='!navService.navigators?.api[0]'>
-      <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive sM0-click" routerLinkActive="sM0-active"
+      <li class="d-inline-block mr-4 text-nowrap sM0-fs-mid-b-12 sM0-notActive sM0-click " routerLinkActive="sM0-active"
         [routerLink]="navService.navigators?.routers[i]" *ngFor='let nav of navService.navigators?.navigators ; index as i;'>
         {{nav}}</li>
     </ng-container>
     <!-- if there is APIs -->
     <ng-container *ngIf='navService.navigators?.api[0]'>
-      <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive sM0-click" 
+      <li class="d-inline-block mr-4 sM0-fs-mid-b-12 sM0-notActive sM0-click text-nowrap" 
         routerLinkActive="sM0-active"
         (click)='teamsService.getTeam(navService.navigators?.api[i])'
         [routerLink]='navService.navigators?.routers[i]'
