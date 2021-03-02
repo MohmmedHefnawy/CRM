@@ -77,8 +77,8 @@ export class ProfileComponent implements OnInit {
   // [#] Controller
   // Open popover With Click Call Icon At Cards
   openPopover(e){
+    $('[data-toggle="popover"]').popover()
     e.stopPropagation()
-      $('[data-toggle="popover"]').popover()
   }
   // Rotate Call Icon At Profile 
   rotate() {

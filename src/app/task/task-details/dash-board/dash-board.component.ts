@@ -139,6 +139,7 @@ export class DashBoardComponent implements OnInit {
     this.taskDetailsService.deleteComments(commentID).subscribe((res)=>{
       console.log(res);
     }, err => {},()=>{
+      // ! Need Best Code
       this.getAllComment(this.taskDetailsService.propID, 100, 0)
     })
   }
@@ -149,7 +150,9 @@ export class DashBoardComponent implements OnInit {
     }
     this.taskDetailsService.updateComment(commentID, data).subscribe((res)=>{
       console.log(res);
-      
+    }, err => {},()=>{
+      // ! Need Best Code
+      this.getAllComment(this.taskDetailsService.propID, 100, 0)
     })
   }
   // Listner To Data From Server

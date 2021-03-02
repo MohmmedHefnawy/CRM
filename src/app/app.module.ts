@@ -34,7 +34,7 @@ import { SafePipeModule } from 'safe-pipe';
     NgbModule,
     BrowserAnimationsModule,
     LoadingBarHttpClientModule,
-    SafePipeModule,
+    SafePipeModule
   ],
   providers: [
     // { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },

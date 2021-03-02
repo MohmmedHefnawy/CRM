@@ -3,3 +3,9 @@
 .OM-scroller {
   overflow-y: scroll !important;
 }
+
+@media (max-width: 576px) {
+  .M0-Hide-bg-sm {
+    background: none !important;
+  }
+}
