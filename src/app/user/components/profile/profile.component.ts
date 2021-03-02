@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit {
     public assignUserService: AssignUserService
   ) {
     let route = this.router.url
-    // statuss
+    // status
     let urlStatus = this.activeRouter.snapshot?.url[2]?.path
     this.checkUser(route, urlStatus)
   }
@@ -71,9 +71,7 @@ export class ProfileComponent implements OnInit {
     })
   }
   checkUser(route, status) {
-    !status ? status =  "" :false    
-    console.log(status);
-    
+    !status ? status =  "" :false        
     switch (route) {
       // current user
       case '/user/profile':
@@ -85,13 +83,11 @@ export class ProfileComponent implements OnInit {
         this.navigator.title = 'Profile'
         localStorage.removeItem("teamUser");
         this.getPropsByStatus(status)
-        setTimeout(() => { console.log(this.authService.user)},100)
         break;
       // team user
       default:
         this.userProfile = false
         this.teamService.oneUser = JSON.parse(localStorage.getItem("teamUser"))
-        console.log(this.teamService.oneUser)
         this.navigator.title = `${this.teamService.oneUser?.name} Profile`
         this.navigator.routers = ['/user/profile/user', '/user/profile/user/pending', '/user/profile/user/inProgress', '/user/profile/user/expired', '/user/profile/user/publish']
         // this.getAllProps('en', 1, 25, '', this.teamService.oneUser?.id)

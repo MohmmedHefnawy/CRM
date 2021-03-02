@@ -39,15 +39,14 @@ export class LoginComponent implements OnInit {
       resizeContentHolder(holder);
     }
     holderWindowSize('#loginContainer')
-    console.log("here");
     
   }
   onSubmit(form: NgForm) {
-
     this.authService.login(form.value).subscribe((res: any) => {
       this.authService.user = res;
       this.authService.setToken(res.data.token);
       this.authService.setUserID(res.data.id)
+      this.authService.setUserRoleID(res.data.role_id)
       this.authService.isAdmin = true
       this.onSocket()
     },

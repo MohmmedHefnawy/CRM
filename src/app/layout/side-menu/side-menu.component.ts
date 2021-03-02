@@ -64,6 +64,7 @@ export class SideMenuComponent implements OnInit {
   logOut() {
     this.authService.deleteToken();
     this.authService.deleteUserID();
+    this.authService.deleteUserRoleID();
     this.socketService.socketDisconnect();
   }
 }

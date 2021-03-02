@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
-import { User } from '../Model/user.model';
+import { UsersRoles } from '../Model/user.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,14 +11,16 @@ export class AuthService {
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
   // this current user
   user;
-  users
+  users;
+  // user ROle ID
+  // whoIAm;
   _url = environment.apiBaseUrl;
   // _url = "http://jsonplaceholder.typicode.com/todos/1";
   constructor(private http: HttpClient, private router: Router) { }
   //HttpMethods
-  postUser(user: User) {
-    // return this.http.post(this._url + '/register', user, this.noAuthHeader);
-  }
+  // postUser(user: UsersRoles) {
+  //   return this.http.post(this._url + '/register', user, this.noAuthHeader);
+  // }
 
   login(authCredentials) {
     return this.http.post(`${this._url}login`, authCredentials, this.noAuthHeader);
@@ -35,8 +37,14 @@ export class AuthService {
   setUserID(userID) {
     localStorage.setItem('userID', userID);
   }
+  setUserRoleID(userROLE){
+    localStorage.setItem('whoAmI', userROLE);
+  }
   getToken() {
     return localStorage.getItem('token');
+  }
+  whoAmI() {
+    return localStorage.getItem('whoAmI');
   }
   deleteUserID() {
     localStorage.removeItem('userID');
@@ -46,7 +54,9 @@ export class AuthService {
     // this.router.navigateByUrl('login');
     window.location.href = '/login';
   }
-
+  deleteUserRoleID(){
+    localStorage.removeItem('whoAmI');
+  }
   getUserPayload() {
     var token = this.getToken();
     if (token) {
