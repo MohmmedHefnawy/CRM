@@ -20,6 +20,7 @@ export class AuthGuard implements CanActivate {
       this.router.navigateByUrl('login');
       this.userService.deleteUserID();
       this.userService.deleteToken();
+      this.userService.deleteUserRoleID();
       this.socketService.socketDisconnect()
       return false;
     }

@@ -15,7 +15,6 @@ import { DashComponent } from './dash/dash.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
-import { SafePipeModule } from 'safe-pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ import { SafePipeModule } from 'safe-pipe';
     NgbModule,
     BrowserAnimationsModule,
     LoadingBarHttpClientModule,
-    SafePipeModule,
   ],
   providers: [
     // { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },

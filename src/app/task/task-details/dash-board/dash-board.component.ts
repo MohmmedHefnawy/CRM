@@ -64,11 +64,36 @@ export class DashBoardComponent implements OnInit {
     this.navigator = {
       icon: "/assets/Icons/Teamwork.svg",
       title: 'Prop Details',
-      navigators: ['DashBoard', 'Team Status', 'Photographers', 'Designers', 'Property Details', 'Activities'],
-      routers: [`/task/details/dashBoard/${this.taskDetailsService.propID}`, `/task/details/teamstatus/${this.taskDetailsService.propID}`, `/task/details/photographer/${this.taskDetailsService.propID}`, `/task/details/designer/${this.taskDetailsService.propID}`, `/task/details/content/description/${this.taskDetailsService.propID}`, `/task/details/activities/${this.taskDetailsService.propID}`],
+      navigators: [],
+      routers: [],
       api: []
     }
     this.navService.navigators = this.navigator;
+    this.whoAmI(this.authService.whoAmI()) // who am I by role id
+  }
+  // [#] Controllers
+  // finde who is the user to Route :)
+  whoAmI(userROLE) {
+    switch (userROLE) {
+      case '1': // PM (Project Manager)
+      case '2': // DA (Dubai Admin)
+      case '3': // AM (Account Manager)
+        this.navigator.navigators = ['DashBoard', 'Team Status', 'Photographers', 'Designers', 'Property Details', 'Activities']
+        this.navigator.routers = [`/task/details/dashBoard/${this.taskDetailsService.propID}`, `/task/details/teamstatus/${this.taskDetailsService.propID}`, `/task/details/photographer/${this.taskDetailsService.propID}`, `/task/details/designer/${this.taskDetailsService.propID}`, `/task/details/content/description/${this.taskDetailsService.propID}`, `/task/details/activities/${this.taskDetailsService.propID}`]
+        break;
+      case '4': // PH (PhotoGrapher)
+        this.navigator.navigators = ['DashBoard', 'Photographers', 'Activities']
+        this.navigator.routers = [`/task/details/dashBoard/${this.taskDetailsService.propID}`, `/task/details/photographer/${this.taskDetailsService.propID}`, `/task/details/activities/${this.taskDetailsService.propID}`]
+        break;
+      case '5': // GD (Graphic Designer)
+        this.navigator.navigators = ['DashBoard', 'Designers', 'Activities']
+        this.navigator.routers = [`/task/details/dashBoard/${this.taskDetailsService.propID}`, `/task/details/designer/${this.taskDetailsService.propID}`, `/task/details/activities/${this.taskDetailsService.propID}`]
+        break;
+      case '6': // CM (Content Moderator)
+        this.navigator.navigators = ['DashBoard', 'Property Details', 'Activities']
+        this.navigator.routers = [`/task/details/dashBoard/${this.taskDetailsService.propID}`, `/task/details/content/description/${this.taskDetailsService.propID}`, `/task/details/activities/${this.taskDetailsService.propID}`]
+        break;
+    }
   }
   // Clear Comment Input Field
   emptyInp(inp){
@@ -139,6 +164,7 @@ export class DashBoardComponent implements OnInit {
     this.taskDetailsService.deleteComments(commentID).subscribe((res)=>{
       console.log(res);
     }, err => {},()=>{
+      // ! Need Best Code
       this.getAllComment(this.taskDetailsService.propID, 100, 0)
     })
   }
@@ -149,7 +175,9 @@ export class DashBoardComponent implements OnInit {
     }
     this.taskDetailsService.updateComment(commentID, data).subscribe((res)=>{
       console.log(res);
-      
+    }, err => {},()=>{
+      // ! Need Best Code
+      this.getAllComment(this.taskDetailsService.propID, 100, 0)
     })
   }
   // Listner To Data From Server

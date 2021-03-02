@@ -12,6 +12,7 @@ import { TeamStatusComponent } from './task-details/team-status/team-status.comp
 import { TaskComponent } from './task.component';
 import { AuthGuard } from '../auth/components/auth/auth.guard';
 import { DescriptionComponent } from './task-details/content-panel/description/description.component';
+import { MasterRoleGuard } from '../auth/components/auth/masterRole.guard';
 
 import { LocationComponent } from './task-details/content-panel/location/location.component';
 import { ActivitiesComponent } from './task-details/activities/activities.component';
@@ -20,25 +21,24 @@ const routes: Routes = [
   {
     path: 'details', component: TaskComponent,
     children: [
-      { path: 'dashBoard/:id', component: DashBoardComponent },
-      { path: 'teamstatus/:id', component: TeamStatusComponent },
-      { path: 'photographer/:id', component: PhotographerPanelComponent },
-      { path: 'designer/:id', component: DesignersPanelComponent },
+      { path: 'dashBoard/:id', component: DashBoardComponent},
+      { path: 'teamstatus/:id', component: TeamStatusComponent, canActivate: [MasterRoleGuard], data: { syncGuards: 'pm&da&am' } },
+      { path: 'photographer/:id', component: PhotographerPanelComponent, canActivate: [MasterRoleGuard], data: { syncGuards: 'pm&da&am&ph' } },
+      { path: 'designer/:id', component: DesignersPanelComponent, canActivate: [MasterRoleGuard], data: { syncGuards: 'pm&da&am&ds' } },
       { path: 'activities/:id', component: ActivitiesComponent },
       {
         path: 'content', component: ContentPanelComponent,
         children: [
-          { path: 'description/:id', component: DescriptionComponent },
+          { path: 'description/:id', component: DescriptionComponent},
           { path: 'location/:id', component: LocationComponent },
           { path: 'media/:id', component: MediaComponent },
           { path: 'details/:id', component: DetailsComponent },
           { path: 'amenities/:id', component: AmenitiesComponent }
-        ]
+        ], canActivate: [MasterRoleGuard], data: { syncGuards: 'pm&da&am&cm' }
       }
     ], canActivate: [AuthGuard]
   },
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
