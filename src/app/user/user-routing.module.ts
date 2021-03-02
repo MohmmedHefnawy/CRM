@@ -10,10 +10,17 @@ import { PersonalInfoComponent } from './components/settings/personal-info/perso
 import { ChangePasswordComponent } from './components/settings/change-password/change-password.component';
 import { ContactComponent } from './components/settings/contact/contact.component';
 import { AuthGuard } from '../auth/components/auth/auth.guard';
+import { MasterRoleGuard } from '../auth/components/auth/masterRole.guard';
+function whoAmI() {
+  return localStorage.getItem('whoAmI');
+}
 const routes: Routes = [
   { path: 'user', redirectTo: 'user/profile', pathMatch: 'full' }, // redirect to `profile`
   { path: 'user/settings', redirectTo: 'user/settings/personal-info', pathMatch: 'full' }, // redirect to `profile`
-  { path: 'user/teams', redirectTo: 'user/teams/dubai-admins', pathMatch: 'full' }, // redirect to `profile`
+  { path: 'user/teams', redirectTo: 
+  whoAmI() == "1" ? 'user/teams/dubai-admins' :
+  whoAmI() == "2" ? 'user/teams/photographers' : 
+  'user/profile' , pathMatch: 'full' }, // redirect to `profile`
   { path: '', redirectTo: 'user/profile', pathMatch: 'full' },
   {
     path: 'user', component: UserComponent,
@@ -21,12 +28,13 @@ const routes: Routes = [
       { path: 'teams', component: TeamsComponent,
         children:[
           // {path : 'project-managers', component: TeamsComponent},
-          {path : 'dubai-admins', component: TeamsComponent},
-          {path : 'account-managers', component: TeamsComponent},
-          {path : 'photographers', component: TeamsComponent},
-          {path : 'designers', component: TeamsComponent},
-          {path : 'content-creators', component: TeamsComponent}
-        ]
+          { path: 'dubai-admins', component: TeamsComponent, canActivate: [MasterRoleGuard], data: { syncGuards: 'pm'} },
+          { path: 'account-managers', component: TeamsComponent, canActivate: [MasterRoleGuard], data: { syncGuards: 'pm' } },
+          { path: 'photographers', component: TeamsComponent, canActivate: [MasterRoleGuard], data: { syncGuards: 'pm&da' } },
+          {
+            path: 'designers', component: TeamsComponent, canActivate: [MasterRoleGuard], data: { syncGuards: 'pm&da' } },
+          { path: 'content-creators', component: TeamsComponent, canActivate: [MasterRoleGuard], data: { syncGuards: 'pm'}}
+        ], canActivate: [MasterRoleGuard], data: { syncGuards: 'pm&da' }
       },
       { path: 'profile', component: ProfileComponent},
       { path: 'me/profile/pending'  ,component: ProfileComponent},
@@ -40,13 +48,13 @@ const routes: Routes = [
       { path: 'profile/user/expired', component: ProfileComponent },
       { path: 'profile/user/publish', component: ProfileComponent },
       { path: 'notifi', component: NotificationsComponent },
-      { path: 'create-account', component: CreateAccountComponent },
+      { path: 'create-account', component: CreateAccountComponent, canActivate: [MasterRoleGuard], data: { syncGuards: 'pm'} },
       {
         path: 'settings', component: SettingsComponent,
         children: [
           { path: 'personal-info', component: PersonalInfoComponent },
           { path: 'change-password', component: ChangePasswordComponent },
-          { path: 'contact', component: ContactComponent }
+          { path: 'contact', component: ContactComponent,  }
         ]
       },
     ], canActivate: [AuthGuard]
@@ -57,4 +65,6 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UserRoutingModule { }
+export class UserRoutingModule { 
+  
+}

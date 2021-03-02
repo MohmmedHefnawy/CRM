@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     }
   }
   getUser() {
-    this.authService.getUser().subscribe(res => {
+    this.authService.getUser().subscribe((res:any) => {
       this.authService.user = res;
     })
 

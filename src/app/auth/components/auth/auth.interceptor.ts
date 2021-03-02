@@ -9,7 +9,7 @@ import { AuthService } from "../../services/auth.service";
 export class AuthInterceptor implements HttpInterceptor {
 
     constructor(private userService: AuthService, private router: Router) { }
-
+    
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         if (req.headers.get('noauth')) {
             return next.handle(req.clone());

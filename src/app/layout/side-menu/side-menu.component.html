@@ -58,7 +58,7 @@
                         <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-16">Settings</p>
                     </button>
                     <!-- Add User Line -->
-                    <button *ngIf='authService.user?.data?.role_id == 1 ||  authService.user?.data?.role_id == 2' routerLinkActive="sM0-active" routerLink="/user/create-account" class="sM0-notActive btn py-0 mb-5 d-flex justify-content-center">
+                    <button *ngIf='authService.user?.data?.role_id == 1' routerLinkActive="sM0-active" routerLink="/user/create-account" class="sM0-notActive btn py-0 mb-5 d-flex justify-content-center">
                         <i class="OM-img-Plus sM0-icon-c sM0-bg-imgs-center mr-3"></i>
                         <p class="sM0-text-0-cr d-inline-block mb-0 sM0-fs-16">Add User</p>
                     </button>
@@ -110,7 +110,7 @@
                     <!-- Settings Line -->
                     <i routerLinkActive="sM0-active" routerLink="/user/settings/personal-info" class="sM0-notActive sM0-click OM-img-setting sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                     <!-- Add User Line -->
-                    <i *ngIf='authService.user?.data?.role_id == 1 ||  authService.user?.data?.role_id == 2' routerLinkActive="sM0-active" routerLink="/user/create-account" class="sM0-notActive sM0-click OM-img-Plus sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
+                    <i *ngIf='authService.user?.data?.role_id == 1' routerLinkActive="sM0-active" routerLink="/user/create-account" class="sM0-notActive sM0-click OM-img-Plus sM0-icon-c mb-5 mx-auto sM0-bg-imgs-center d-block"></i>
                 </div>
                 <!-- logout button -->
                 <div routerLink='/login' (click)='logOut()' class="h-25 mb-5 d-flex align-items-end">
