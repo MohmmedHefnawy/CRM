@@ -1,24 +1,22 @@
-import { Subscription } from 'rxjs';
+import { of, Subscription } from 'rxjs';
 import { SocketService } from 'src/app/shared/socket/socket.service';
-import { error } from '@angular/compiler/src/util';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TaskDetailsService } from '../../services/task-details.service';
 import { environment } from '../../../../environments/environment';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-designers-panel',
   templateUrl: './designers-panel.component.html',
   styleUrls: ['./designers-panel.component.css']
 })
-export class DesignersPanelComponent implements OnInit {
+export class DesignersPanelComponent implements OnInit, OnDestroy {
   // url: SafeResourceUrl;
   // unSubscribe: Subscription
   imageBaseURL = environment.imageBaseurl
   inpUploadDesigner;
-  constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public socketService: SocketService, private sanitizer: DomSanitizer) {
-    this.transform();
+  // packageSafeURL: SafeResourceUrl
+  constructor(public taskDetailsService: TaskDetailsService, private Activerouter: ActivatedRoute, public socketService: SocketService) {
   }
 
 
@@ -29,9 +27,7 @@ export class DesignersPanelComponent implements OnInit {
   }
 
   // ! Controller
-  transform() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.taskDetailsService.designertour3DPackage?.Package3D);
-  }
+
   // ! API POST And PATCH
   updateDesignerImges(file) {
     let data: any = {};
@@ -62,23 +58,23 @@ export class DesignersPanelComponent implements OnInit {
 
   updateDesignerStatus(boxRowID, currentStatus) {
     let data: any = {};
-    let updatedPackage;
     currentStatus == '1' ? data.current_status = '0' : data.current_status = '1'
     this.taskDetailsService.updatePhotographerPackage(boxRowID, data).subscribe((res: any) => {
-      updatedPackage = res.data
-    }, err => { }, () => {
-      for (let package3D of this.taskDetailsService.tour3DPackage) {
-        package3D.id == updatedPackage.id ? package3D.current_status = updatedPackage.current_status : false
-      }
-    })
+
+    }, err => { }, () => { })
   }
 
   // ! Socket Handler
   socketON(listner) {
-    this.socketService.socketON(listner).subscribe(res => {
-      console.log(`Receiver From Designer Component : ...... ${res}`);
-    }, err => {
-    }, () => {
+    let package3d
+    this.socketService.socketON(listner).subscribe((res: any) => {
+      console.log(res.Package3D);
+      package3d = res.Package3D
+      this.taskDetailsService.designertour3DPackage.Package3D = package3d
     })
   }
+  ngOnDestroy(): void {
+    console.log('Designer Comp Is Destroyed');
+  }
+
 }

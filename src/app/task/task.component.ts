@@ -1,6 +1,7 @@
 import { TaskDetailsService } from 'src/app/task/services/task-details.service';
 import { AfterViewChecked, AfterViewInit, Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { NavigatorServicesService } from '../shared/services/navigator-services.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-task',
@@ -9,9 +10,10 @@ import { NavigatorServicesService } from '../shared/services/navigator-services.
 })
 export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
 
+
   // Navigators
   navigator
-  constructor(public navService: NavigatorServicesService, public taskDetails: TaskDetailsService) { }
+  constructor(public navService: NavigatorServicesService, public taskDetails: TaskDetailsService, private sanitizer: DomSanitizer) { }
   ngOnInit() {
   }
   ngAfterViewInit() {
@@ -70,10 +72,13 @@ export class TaskComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   getDesignerPackagesByPropID(propID) {
     this.taskDetails.getDesignerImageURL(propID).subscribe((res: any) => {
+      this.taskDetails.designertour3DPackageID = res.id
       this.taskDetails.designertour3DPackage = JSON.parse(res.virtual_link)
       console.log(res)
-      console.log(this.taskDetails.designertour3DPackage);
-    }, err => { this.taskDetails.designertour3DPackage = [] })
+      // console.log(this.taskDetails.designertour3DPackage);
+    }, err => { this.taskDetails.designertour3DPackage = [] }, () => {
+      this.taskDetails.packageSafeURL = this.sanitizer.bypassSecurityTrustResourceUrl(this.taskDetails.designertour3DPackage.Package3D)
+    })
   }
   ngOnDestroy(): void {
 

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SafeResourceUrl } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 @Injectable({
@@ -14,8 +15,11 @@ export class TaskDetailsService {
   propID;
   tour3DPackage: any = [];
   designertour3DPackage;
+  designertour3DPackageID;
   comments: any = [];
   pagination;
+  packageSafeURL: SafeResourceUrl
+
   // send old data to the backEnd
   old_status;
   old_category;
