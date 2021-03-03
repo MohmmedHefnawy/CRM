@@ -8,6 +8,7 @@ import { SocketService } from 'src/app/shared/socket/socket.service';
   styleUrls: ['./side-menu.component.css']
 })
 export class SideMenuComponent implements OnInit {
+  devMood = false // var for Development Mood ! prduction 
   @Output() toggelSideMenu = new EventEmitter();
   @Output() openSideMenu = new EventEmitter();
   // vars
@@ -28,7 +29,7 @@ export class SideMenuComponent implements OnInit {
         if (innerWidth < 992) {
           $(elem).css("height", innerHeightWithoutNav);
         } else {
-          if (innerHeightWithoutNav > 700) {
+          if (innerHeightWithoutNav < 1200) {
             $(elem).css("height", innerHeightWithoutNav);
           } else {
             $(elem).css("height", 900);

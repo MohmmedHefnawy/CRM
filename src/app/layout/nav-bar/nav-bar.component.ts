@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class NavBarComponent implements OnInit {
   @Output() openSideMenu = new EventEmitter();
   constructor() { }
-  devMood = false
+  devMood = false // var for Development Mood ! prduction 
   ngOnInit(): void {
   }
 
